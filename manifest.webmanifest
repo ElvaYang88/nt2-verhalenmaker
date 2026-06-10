@@ -1,0 +1,26 @@
+{
+  "name": "NT2 Groningen Verhalenmaker",
+  "short_name": "NT2 Groningen",
+  "description": "Mobiele NT2 storybook app voor B1/B2 woordenschat in Groningen.",
+  "lang": "nl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffafd",
+  "theme_color": "#7d3c98",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
