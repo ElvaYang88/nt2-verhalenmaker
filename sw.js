@@ -1,4 +1,4 @@
-const CACHE_NAME = "nt2-groningen-v5";
+const CACHE_NAME = "nt2-groningen-v6-quizfix";
 
 const CORE_ASSETS = [
   "./",

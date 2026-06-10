@@ -1387,6 +1387,33 @@
       return (match ? match[0] : String(text || "")).trim();
     }
 
+    function shuffleArray(items) {
+      const arr = [...items];
+      for (let i = arr.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function prepareQuizForSession(quiz) {
+      return (Array.isArray(quiz) ? quiz : []).map((q) => {
+        const seen = new Set();
+        const options = [];
+        const addOption = (option) => {
+          const clean = String(option || "").trim();
+          const key = normalize(clean);
+          if (clean && !seen.has(key)) {
+            seen.add(key);
+            options.push(clean);
+          }
+        };
+        (Array.isArray(q.options) ? q.options : []).forEach(addOption);
+        addOption(q.answer);
+        return { ...q, options: shuffleArray(options) };
+      });
+    }
+
     function completeStoryQuiz(storyKey, story) {
       if (!story || !Array.isArray(story.pages)) return;
       if (!Array.isArray(story.quiz)) story.quiz = [];
@@ -1865,7 +1892,7 @@
       state.pages = story.pages;
       state.glossary = story.glossary;
       state.vocab = story.vocab;
-      state.quiz = story.quiz;
+      state.quiz = prepareQuizForSession(story.quiz);
       state.answers = {};
       state.score = 0;
       state.pageIndex = 0;
