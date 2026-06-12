@@ -1,1016 +1,3 @@
-<!doctype html>
-<html lang="nl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#7d3c98" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-title" content="NT2 Groningen" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
-  <title>De finale Verhalenmaker</title>
-  <style>
-    :root {
-      --bg: #fffafd;
-      --panel: #ffffff;
-      --ink: #182032;
-      --muted: #64748b;
-      --line: #e5e7eb;
-      --purple: #7d3c98;
-      --purple-2: #6c3483;
-      --purple-soft: #f4ecf7;
-      --pink: #e83e8c;
-      --pink-soft: #fff1f8;
-      --green: #16a34a;
-      --red: #dc2626;
-      --amber: #d97706;
-      --shadow: 0 24px 54px rgba(15, 23, 42, 0.12);
-      --radius: 28px;
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--ink);
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 249, 253, 0.98) 42%, rgba(253, 240, 250, 0.98) 100%),
-        repeating-radial-gradient(circle at 86% 10%, rgba(232, 62, 140, 0.08) 0 1px, transparent 2px 86px),
-        repeating-radial-gradient(circle at 8% 96%, rgba(125, 60, 152, 0.07) 0 1px, transparent 2px 104px),
-        var(--bg);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    button, input, textarea, select { font: inherit; }
-    button { cursor: pointer; }
-    button:disabled { cursor: not-allowed; opacity: 0.45; }
-
-    .app-header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 22px;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border: 0;
-      background: transparent;
-      color: inherit;
-      padding: 0;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: var(--purple);
-      color: #fff;
-      font-weight: 900;
-      box-shadow: 0 8px 20px rgba(125, 60, 152, 0.25);
-    }
-
-    .brand-title { font-weight: 900; font-size: 20px; letter-spacing: 0; }
-    .brand-title span { color: #94a3b8; font-weight: 400; }
-
-    .header-actions { display: flex; align-items: center; gap: 10px; }
-    .xp-box {
-      min-width: 134px;
-      padding: 8px 12px;
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-    }
-    .xp-row { display: flex; justify-content: space-between; font-size: 12px; font-weight: 900; }
-    .xp-row span:last-child { color: #94a3b8; }
-    .xp-track { margin-top: 6px; height: 7px; overflow: hidden; background: #e2e8f0; border-radius: 99px; }
-    .xp-fill { height: 100%; background: linear-gradient(90deg, #facc15, #f59e0b); width: 0%; transition: width 0.3s ease; }
-
-    .icon-btn, .plain-btn {
-      border: 1px solid var(--line);
-      background: #f8fafc;
-      border-radius: 14px;
-      min-width: 42px;
-      height: 42px;
-      padding: 0 12px;
-      color: #475569;
-      font-weight: 900;
-    }
-
-    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 64px; }
-    .error {
-      width: min(820px, 100%);
-      margin: 0 auto 22px;
-      display: none;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #b91c1c;
-      font-weight: 800;
-      border-radius: 16px;
-    }
-    .error.show { display: flex; }
-
-    .hero {
-      min-height: calc(100vh - 92px);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      text-align: center;
-      gap: 54px;
-      padding: clamp(48px, 8vh, 92px) 0 54px;
-    }
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(48px, 8vw, 88px);
-      line-height: 1.02;
-      letter-spacing: 0;
-    }
-    .hero h1 span {
-      color: transparent;
-      background: linear-gradient(90deg, var(--purple), var(--pink));
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-    .hero p {
-      margin: 16px auto 0;
-      max-width: 700px;
-      color: var(--muted);
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .home-actions {
-      width: min(720px, 100%);
-      margin: 24px auto 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .quick-card {
-      border: 1px solid rgba(226, 232, 240, 0.95);
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.84);
-      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.08);
-      padding: 18px;
-      text-align: left;
-    }
-    .quick-card strong {
-      display: block;
-      color: var(--ink);
-      font-size: 17px;
-      font-weight: 950;
-      margin-bottom: 4px;
-    }
-    .quick-card span {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.4;
-      font-weight: 750;
-      margin-bottom: 12px;
-    }
-    .quick-card .primary, .quick-card .secondary {
-      width: 100%;
-      min-height: 46px;
-    }
-    .quick-card.empty {
-      opacity: 0.78;
-    }
-
-    .theme-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-      text-align: left;
-    }
-    .theme-card {
-      background: var(--panel);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      border-radius: var(--radius);
-      padding: 30px;
-      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.09);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    }
-    .theme-card:hover { transform: translateY(-3px); box-shadow: 0 28px 54px rgba(15, 23, 42, 0.13); border-color: rgba(216, 180, 254, 0.95); }
-    .theme-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 18px; }
-    .chapter {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 10px;
-      background: var(--purple-soft);
-      color: var(--purple);
-      font-size: 10px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .status {
-      margin-top: 7px;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 5px 8px;
-      border-radius: 8px;
-      font-size: 10px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-    .status.offline { color: #15803d; background: #ecfdf5; border: 1px solid #bbf7d0; }
-    .status.key { color: #b45309; background: #fffbeb; border: 1px solid #fde68a; }
-    .theme-icon {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      border-radius: 18px;
-      background: var(--pink-soft);
-      color: var(--purple);
-      border: 1px solid rgba(232, 62, 140, 0.08);
-    }
-    .theme-icon svg { width: 28px; height: 28px; stroke: currentColor; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-    .theme-card:nth-child(2n) .theme-icon { background: #ecfdf5; color: #059669; }
-    .theme-card:nth-child(3n) .theme-icon { background: #fff7ed; color: #d97706; }
-    .theme-card:nth-child(4n) .theme-icon { background: #eef2ff; color: #4f46e5; }
-    .theme-card h3 { margin: 0 0 22px; font-size: 23px; letter-spacing: 0; }
-    .theme-entry { cursor: pointer; position: relative; overflow: hidden; }
-    .theme-entry::after {
-      content: "Open thema →";
-      display: inline-flex;
-      margin-top: 18px;
-      color: var(--purple);
-      font-size: 13px;
-      font-weight: 950;
-    }
-    .theme-subtitle {
-      margin: -13px 0 10px;
-      color: #9d4edd;
-      font-weight: 850;
-      font-style: italic;
-      line-height: 1.35;
-    }
-    .theme-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin: 10px 0 2px;
-    }
-    .topic-chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 28px;
-      padding: 5px 8px;
-      border-radius: 999px;
-      background: #faf5ff;
-      color: #6b21a8;
-      border: 1px solid #ead7f1;
-      font-size: 11px;
-      font-weight: 850;
-      line-height: 1.2;
-    }
-    .theme-directory {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: clamp(30px, 6vw, 62px) 0 52px;
-      display: grid;
-      gap: 22px;
-    }
-    .directory-head {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: clamp(24px, 5vw, 40px);
-    }
-    .directory-kicker {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 14px;
-    }
-    .directory-head h1 {
-      margin: 0;
-      font-size: clamp(36px, 7vw, 62px);
-      line-height: 1.05;
-      letter-spacing: -0.035em;
-    }
-    .directory-head p {
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 17px;
-      font-weight: 750;
-      line-height: 1.6;
-      margin: 14px 0 0;
-    }
-    .directory-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-    .book-topic-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-    .story-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .story-card {
-      text-align: left;
-      border: 1px solid rgba(226, 232, 240, 0.95);
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
-      border-radius: 24px;
-      padding: 18px;
-      min-height: 96px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-      color: var(--ink);
-      font-weight: 950;
-      transition: 0.18s ease;
-    }
-    .story-card:not(:disabled):hover { transform: translateY(-2px); border-color: rgba(125,60,152,0.35); box-shadow: 0 20px 40px rgba(15,23,42,0.12); }
-    .story-card small { display: block; color: var(--muted); font-size: 12px; font-weight: 800; margin-top: 4px; line-height: 1.35; }
-    .story-card span:last-child { color: var(--purple); font-size: 22px; }
-    .coming-card {
-      border: 1px dashed #d8b4fe;
-      background: #faf5ff;
-      border-radius: 24px;
-      padding: 22px;
-      color: #6b21a8;
-      font-weight: 850;
-      line-height: 1.6;
-    }
-    .sub-list { display: grid; gap: 9px; }
-    .sub-btn {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      text-align: left;
-      border: 1px solid #eef2f7;
-      background: #f8fafc;
-      color: #334155;
-      padding: 13px 14px;
-      border-radius: 14px;
-      font-size: 13px;
-      font-weight: 850;
-      transition: 0.18s ease;
-    }
-    .sub-btn:not(:disabled):hover { background: var(--purple); color: #fff; border-color: var(--purple); }
-
-    .toolbar, .reader-card, .quiz-card, .result-card, .custom-grid > section, .flash-wrap {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .reader { max-width: 880px; margin: 0 auto; display: grid; gap: 18px; }
-    .toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
-    }
-    .toolbar-title {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 13px;
-      background: var(--purple-soft);
-      color: var(--purple);
-      border: 1px solid #ead7f1;
-      border-radius: 13px;
-      font-size: 13px;
-      font-weight: 900;
-    }
-    .toolbar-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
-
-    .reader-card { padding: clamp(22px, 5vw, 42px); }
-    .targets {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 13px;
-      margin-bottom: 20px;
-      background: var(--purple-soft);
-      color: var(--purple);
-      border: 1px solid #ead7f1;
-      border-radius: 15px;
-      font-size: 13px;
-      font-weight: 900;
-    }
-    .story-text {
-      max-height: 430px;
-      overflow: auto;
-      padding-right: 8px;
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 2.05;
-      text-align: justify;
-      color: #1f2937;
-    }
-    .story-text.size-lg { font-size: 19px; }
-    .story-text.size-xl { font-size: 22px; }
-    .story-text.size-2xl { font-size: 26px; }
-    .word {
-      border: 0;
-      border-bottom: 2px dotted #a855f7;
-      background: #f3e8ff;
-      color: #6b21a8;
-      padding: 2px 5px;
-      margin: 0 1px;
-      border-radius: 7px;
-      font-weight: 900;
-      font-family: inherit;
-    }
-    .word:hover { background: var(--purple); color: #fff; }
-
-    .audio-box {
-      max-width: 430px;
-      margin: 28px auto;
-      padding: 8px;
-      background: #f5edfa;
-      border: 1px solid #ead7f1;
-      border-radius: 999px;
-    }
-    .primary-pill {
-      width: 100%;
-      min-height: 48px;
-      border: 0;
-      border-radius: 999px;
-      background: var(--purple);
-      color: #fff;
-      font-weight: 950;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .primary-pill:hover, .primary:hover { background: var(--purple-2); }
-    .audio-actions {
-      max-width: 620px;
-      margin: 28px auto;
-    }
-    .audio-player {
-      display: grid;
-      gap: 10px;
-      padding: 14px 16px;
-      border: 1px solid #e9d5ff;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #fff, #faf5ff);
-      box-shadow: 0 10px 24px rgba(125, 60, 152, 0.08);
-    }
-    .audio-player audio {
-      width: 100%;
-      display: block;
-      accent-color: var(--purple);
-    }
-    .audio-caption {
-      color: #64748b;
-      font-size: 12px;
-      font-weight: 850;
-      text-align: center;
-    }
-    .audio-fallback {
-      width: 100%;
-      min-height: 50px;
-      border: 0;
-      border-radius: 999px;
-      background: var(--purple);
-      color: #fff;
-      font-weight: 950;
-    }
-
-    .image-panel {
-      aspect-ratio: 16 / 9;
-      min-height: 330px;
-      margin: 0 0 22px;
-      border-radius: 26px;
-      background: #0f172a;
-      overflow: hidden;
-      border: 1px solid rgba(226, 232, 240, 0.95);
-      position: relative;
-      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.14);
-    }
-    .image-panel img { width: 100%; height: 100%; min-height: 330px; display: block; object-fit: cover; }
-    .storybook-empty {
-      min-height: 330px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 28px;
-      background:
-        linear-gradient(135deg, rgba(125,60,152,0.08), rgba(14,165,233,0.08)),
-        #f8fafc;
-      color: #1e293b;
-    }
-    .shot-copy {
-      width: min(680px, 100%);
-      padding: 28px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 16px 38px rgba(15,23,42,0.08);
-    }
-    .shot-copy h3 {
-      margin: 0 0 10px;
-      font-size: clamp(24px, 4vw, 38px);
-      line-height: 1.08;
-    }
-    .shot-copy p { margin: 0 0 14px; color: #64748b; font-weight: 750; line-height: 1.55; }
-    .shot-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .shot-tags span {
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      color: var(--purple);
-      font-size: 12px;
-      font-weight: 950;
-    }
-    .image-badge {
-      position: absolute;
-      left: 16px;
-      bottom: 16px;
-      max-width: calc(100% - 32px);
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.72);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 850;
-      backdrop-filter: blur(12px);
-    }
-    .prompt-note {
-      margin-top: -14px;
-      margin-bottom: 22px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: #f8fafc;
-      color: #64748b;
-      border: 1px solid var(--line);
-      font-size: 12px;
-      line-height: 1.5;
-      display: none;
-    }
-    .prompt-note.show { display: block; }
-    .image-fallback {
-      min-height: 330px;
-      display: grid;
-      place-items: center;
-      color: #cbd5e1;
-      text-align: center;
-      padding: 24px;
-    }
-
-    .nav-row {
-      border-top: 1px solid var(--line);
-      padding-top: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-    .secondary, .primary, .success {
-      min-height: 46px;
-      border-radius: 14px;
-      padding: 0 20px;
-      font-weight: 950;
-      border: 1px solid var(--line);
-    }
-    .secondary { background: #fff; color: #475569; }
-    .primary { border-color: var(--purple); background: var(--purple); color: #fff; }
-    .success { border-color: var(--green); background: var(--green); color: #fff; }
-    .page-pill { padding: 10px 15px; background: #f1f5f9; border-radius: 99px; color: #64748b; font-weight: 900; font-size: 13px; }
-
-    .flash-wrap { max-width: 680px; margin: 0 auto; padding: 28px; }
-    .center { text-align: center; }
-    .flash-card {
-      min-height: 310px;
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: #fff;
-      box-shadow: var(--shadow);
-      padding: 30px;
-      text-align: center;
-      display: grid;
-      place-items: center;
-    }
-    .flash-word { font-size: clamp(42px, 9vw, 72px); color: var(--purple); font-weight: 950; margin: 12px 0; }
-    .flash-def { font-size: clamp(24px, 4vw, 38px); font-weight: 950; color: #1e293b; line-height: 1.35; }
-    .context { margin-top: 18px; padding: 14px; background: #faf5ff; border-radius: 16px; color: #64748b; font-family: Georgia, "Times New Roman", serif; }
-
-    .custom-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 22px; max-width: 1050px; margin: 0 auto; }
-    .custom-grid > section { padding: 26px; }
-    .avatar-box {
-      height: 120px;
-      border: 2px dashed #cbd5e1;
-      border-radius: 16px;
-      background: #f8fafc;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      color: #64748b;
-      font-weight: 800;
-      font-size: 13px;
-      background-size: cover;
-      background-position: center;
-      cursor: pointer;
-    }
-    .field, textarea {
-      width: 100%;
-      border: 1px solid var(--line);
-      background: #f8fafc;
-      border-radius: 14px;
-      padding: 13px 14px;
-      outline: none;
-      font-weight: 700;
-    }
-    textarea { min-height: 160px; resize: vertical; line-height: 1.5; }
-    .form-gap { display: grid; gap: 12px; }
-    .row { display: flex; gap: 10px; flex-wrap: wrap; }
-    .row > * { flex: 1; }
-
-    .quiz-card { max-width: 880px; margin: 0 auto; padding: clamp(22px, 4vw, 38px); }
-    .quiz-head { display: flex; align-items: center; gap: 14px; padding-bottom: 22px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
-    .quiz-icon { width: 58px; height: 58px; display: grid; place-items: center; border-radius: 18px; background: var(--purple-soft); color: var(--purple); font-weight: 950; }
-    .question {
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: #f8fafc;
-      margin-bottom: 18px;
-    }
-    .question.correct { background: #f0fdf4; border-color: #bbf7d0; }
-    .question.wrong { background: #fef2f2; border-color: #fecaca; }
-    .question h3 { margin: 0 0 16px; font-size: 20px; }
-    .options { display: grid; gap: 10px; }
-    .option {
-      width: 100%;
-      text-align: left;
-      min-height: 52px;
-      border: 2px solid var(--line);
-      background: #fff;
-      border-radius: 15px;
-      padding: 13px 15px;
-      color: #334155;
-      font-weight: 800;
-    }
-    .option.correct { border-color: var(--green); color: #14532d; background: #f0fdf4; }
-    .option.wrong { border-color: var(--red); color: #7f1d1d; background: #fef2f2; }
-    .feedback { display: none; margin-top: 14px; padding: 14px; border-radius: 15px; background: rgba(255, 255, 255, 0.72); color: #334155; font-weight: 700; line-height: 1.5; }
-    .feedback.show { display: block; }
-
-    .result-card { max-width: 760px; margin: 0 auto; padding: 44px 26px; text-align: center; }
-    .result-card h2 { margin: 10px 0; font-size: clamp(38px, 7vw, 58px); }
-    .review-box {
-      margin: 28px auto;
-      text-align: left;
-      padding: 20px;
-      border-radius: 22px;
-      border: 1px solid #ead7f1;
-      background: #faf5ff;
-    }
-    .review-item { padding: 14px; border-radius: 16px; background: rgba(255, 255, 255, 0.72); margin-top: 10px; }
-    .review-word { border: 0; background: transparent; color: var(--purple); font-weight: 950; padding: 0; }
-
-    .drawer {
-      position: fixed;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      z-index: 60;
-      width: min(340px, 92vw);
-      transform: translateX(100%);
-      transition: transform 0.25s ease;
-      background: rgba(15, 23, 42, 0.96);
-      color: #fff;
-      padding: 24px;
-      box-shadow: -20px 0 60px rgba(15, 23, 42, 0.25);
-    }
-    .drawer.show { transform: translateX(0); }
-    .drawer input { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
-
-    .word-drawer {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 70;
-      transform: translateY(100%);
-      transition: transform 0.24s ease;
-      background: rgba(15, 23, 42, 0.96);
-      color: #fff;
-      border-radius: 26px 26px 0 0;
-      padding: 22px;
-      box-shadow: 0 -18px 50px rgba(15, 23, 42, 0.25);
-    }
-    .word-drawer.show { transform: translateY(0); }
-    .word-drawer-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 14px; margin-bottom: 14px; }
-
-    .toast-stack { position: fixed; top: 82px; right: 18px; z-index: 80; display: grid; gap: 8px; pointer-events: none; }
-    .toast { padding: 10px 13px; border-radius: 14px; background: #facc15; color: #1e293b; font-weight: 950; box-shadow: 0 10px 30px rgba(15,23,42,0.16); }
-
-    .hidden { display: none !important; }
-
-
-
-    /* Mobile app polish: makes the web app feel more like a real phone app. */
-    html { -webkit-text-size-adjust: 100%; }
-    body { overflow-x: hidden; }
-    .reader-hint {
-      margin: -8px 0 18px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      color: #64748b;
-      font-size: 13px;
-      font-weight: 850;
-      line-height: 1.45;
-    }
-    .primary, .secondary, .success, .plain-btn, .icon-btn, .sub-btn, .option, .audio-fallback, .primary-pill {
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .word {
-      min-height: 32px;
-      display: inline-flex;
-      align-items: center;
-      vertical-align: baseline;
-      touch-action: manipulation;
-    }
-    @supports (padding: max(0px)) {
-      .app-header { padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right)); }
-      .word-drawer { padding-bottom: max(22px, calc(18px + env(safe-area-inset-bottom))); }
-    }
-
-
-    .practice-complete {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: clamp(26px, 5vw, 44px);
-      text-align: center;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .practice-complete .done-icon {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 18px;
-      display: grid;
-      place-items: center;
-      border-radius: 26px;
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      color: #fff;
-      font-size: 34px;
-      font-weight: 950;
-      box-shadow: 0 18px 34px rgba(125, 60, 152, 0.25);
-    }
-
-    @media (max-width: 920px) {
-      .theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .custom-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      :root { --radius: 24px; }
-      body {
-        background: linear-gradient(180deg, #fffafd 0%, #fdf2f8 48%, #f8fafc 100%);
-      }
-      .app-header {
-        align-items: center;
-        padding: 10px 12px;
-        min-height: 64px;
-        border-radius: 0 0 22px 22px;
-        background: rgba(255, 255, 255, 0.94);
-        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-      }
-      .brand { min-width: 0; gap: 9px; }
-      .brand-title {
-        font-size: 15px;
-        line-height: 1.05;
-        max-width: 185px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .brand-title span { display: none; }
-      .brand-mark { width: 38px; height: 38px; border-radius: 14px; font-size: 13px; }
-      .header-actions { gap: 6px; }
-      .icon-btn, .plain-btn { min-width: 42px; min-height: 42px; height: auto; padding: 0 11px; border-radius: 15px; }
-      .xp-box { display: none; }
-      .container { width: min(100% - 18px, 1180px); padding: 18px 0 max(42px, env(safe-area-inset-bottom)); }
-      .error { border-radius: 18px; font-size: 13px; align-items: flex-start; }
-      .hero { min-height: auto; padding: 28px 0 36px; gap: 26px; }
-      .hero h1 { font-size: clamp(34px, 13vw, 52px); line-height: 1.04; }
-      .hero p { font-size: 15.5px; line-height: 1.55; padding: 0 4px; }
-      .home-actions { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
-      .quick-card { padding: 15px; border-radius: 21px; }
-      .quick-card strong { font-size: 16px; }
-      .quick-card span { font-size: 12.5px; }
-      .theme-grid { grid-template-columns: 1fr; gap: 14px; }
-      .theme-card { padding: 19px; border-radius: 24px; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08); }
-      .theme-card h3 { font-size: 21px; margin-bottom: 16px; }
-      .theme-subtitle { margin-top: -8px; font-size: 14px; }
-      .theme-entry::after { margin-top: 14px; font-size: 13px; }
-      .topic-chip { font-size: 10.5px; min-height: 26px; }
-      .theme-directory { padding: 22px 0 36px; gap: 14px; }
-      .directory-head { padding: 20px; border-radius: 25px; }
-      .directory-head h1 { font-size: clamp(30px, 10vw, 42px); }
-      .directory-head p { font-size: 14.5px; line-height: 1.55; }
-      .directory-actions { display: grid; grid-template-columns: 1fr; gap: 9px; }
-      .story-grid { grid-template-columns: 1fr; gap: 10px; }
-      .story-card { min-height: 78px; border-radius: 20px; padding: 15px; }
-      .coming-card { border-radius: 20px; padding: 18px; font-size: 14px; }
-      .theme-icon { width: 48px; height: 48px; border-radius: 16px; }
-      .sub-list { gap: 10px; }
-      .sub-btn { min-height: 52px; padding: 14px 15px; border-radius: 16px; font-size: 14px; }
-      .toolbar { flex-direction: column; align-items: stretch; padding: 10px; border-radius: 21px; }
-      .toolbar-title { width: 100%; justify-content: center; text-align: center; line-height: 1.35; }
-      .toolbar-actions { justify-content: stretch; gap: 9px; }
-      .toolbar-actions > button { flex: 1; min-height: 44px; }
-      .reader { gap: 12px; }
-      .reader-card { padding: 17px; border-radius: 25px; box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10); }
-      .targets { width: 100%; justify-content: center; text-align: center; flex-wrap: wrap; line-height: 1.45; margin-bottom: 14px; }
-      .reader-hint { margin: 0 0 15px; font-size: 12.5px; text-align: center; }
-      .story-text {
-        max-height: none;
-        line-height: 1.78;
-        text-align: left;
-        padding-right: 0;
-        overflow: visible;
-        word-break: normal;
-        hyphens: auto;
-      }
-      .story-text.size-lg { font-size: 17px; }
-      .story-text.size-xl { font-size: 18.5px; }
-      .story-text.size-2xl { font-size: 20px; }
-      .word { padding: 1px 6px; border-radius: 8px; }
-      .audio-actions { margin: 18px auto; }
-      .audio-player { padding: 12px; border-radius: 18px; }
-      .audio-caption { font-size: 11.5px; }
-      .audio-fallback { min-height: 50px; }
-      .image-panel {
-        aspect-ratio: 4 / 3;
-        min-height: auto;
-        border-radius: 24px;
-        margin: 0 0 14px;
-        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
-      }
-      .image-panel img, .image-fallback, .storybook-empty { min-height: auto; height: 100%; }
-      .storybook-empty { padding: 16px; }
-      .shot-copy { padding: 18px; border-radius: 20px; }
-      .image-badge { left: 12px; bottom: 12px; font-size: 11px; border-radius: 12px; }
-      .nav-row {
-        position: sticky;
-        bottom: max(8px, env(safe-area-inset-bottom));
-        z-index: 20;
-        margin: 18px -6px -6px;
-        padding: 10px;
-        border: 1px solid rgba(226,232,240,0.95);
-        border-radius: 22px;
-        background: rgba(255,255,255,0.94);
-        backdrop-filter: blur(14px);
-        box-shadow: 0 -10px 28px rgba(15,23,42,0.09);
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        gap: 8px;
-      }
-      .secondary, .primary, .success { min-height: 48px; border-radius: 16px; padding: 0 13px; }
-      .page-pill { font-size: 11.5px; padding: 9px 10px; white-space: nowrap; }
-      .flash-wrap { padding: 18px; border-radius: 24px; }
-      .flash-card { min-height: 250px; padding: 22px; border-radius: 24px; }
-      .flash-word { font-size: clamp(36px, 13vw, 54px); }
-      .flash-def { font-size: clamp(21px, 7vw, 30px); }
-      .quiz-card { padding: 16px; border-radius: 25px; box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10); }
-      .quiz-head { align-items: flex-start; gap: 11px; padding-bottom: 16px; margin-bottom: 18px; }
-      .quiz-icon { width: 46px; height: 46px; border-radius: 16px; flex: 0 0 auto; }
-      .question { padding: 16px; border-radius: 19px; margin-bottom: 14px; }
-      .question h3 { font-size: 17px; line-height: 1.35; }
-      .option { min-height: 50px; padding: 12px 13px; border-radius: 15px; font-size: 14px; line-height: 1.35; }
-      .result-card { padding: 30px 18px; border-radius: 25px; }
-      .review-box { padding: 14px; border-radius: 20px; }
-      .word-drawer {
-        max-height: 78vh;
-        overflow: auto;
-        border-radius: 28px 28px 0 0;
-        padding: 20px 18px max(20px, calc(18px + env(safe-area-inset-bottom)));
-      }
-      .toast-stack { top: 72px; left: 12px; right: 12px; }
-      .toast { text-align: center; }
-    }
-  </style>
-</head>
-<body>
-  <header class="app-header">
-    <button class="brand" id="homeBtn" type="button">
-      <span class="brand-mark">NT2</span>
-      <span class="brand-title">De finale <span>Verhalenmaker</span></span>
-    </button>
-    <div class="header-actions">
-      <div class="xp-box">
-        <div class="xp-row"><span id="levelText">Lvl 1</span><span id="xpText">0 XP</span></div>
-        <div class="xp-track"><div class="xp-fill" id="xpFill"></div></div>
-      </div>
-      <button class="icon-btn hidden" id="keyBtn" type="button" title="API instellingen">Key</button>
-      <button class="icon-btn hidden" id="topHomeBtn" type="button" title="Home">Home</button>
-    </div>
-  </header>
-
-  <div class="toast-stack" id="toastStack"></div>
-
-  <aside class="drawer" id="keyDrawer" aria-hidden="true">
-    <div class="row" style="align-items:center; justify-content:space-between;">
-      <h2 style="margin:0;font-size:20px;">API Instellingen</h2>
-      <button class="icon-btn" id="closeKeyBtn" type="button">X</button>
-    </div>
-    <p style="color:#cbd5e1;line-height:1.6;font-size:13px;">
-      Offline verhalen werken direct. Een Gemini API key kan natuurlijke TTS en AI-beelden activeren, maar storybook-beelden via Imagen vereisen meestal een betaald/geschikt API-project met voldoende quota.
-    </p>
-    <input id="apiKeyInput" class="field" type="password" placeholder="AIzaSy..." />
-    <button class="primary" id="saveKeyBtn" type="button" style="width:100%;margin-top:14px;">Opslaan</button>
-  </aside>
-
-  <div class="word-drawer" id="wordDrawer">
-    <div class="word-drawer-top">
-      <div>
-        <div style="font-size:12px;color:#cbd5e1;font-weight:900;text-transform:uppercase;">Doelwoord</div>
-        <h2 id="drawerWord" style="margin:4px 0 0;font-size:26px;"></h2>
-      </div>
-      <div class="row" style="flex:0 0 auto;">
-        <button class="primary" id="drawerSpeakBtn" type="button">Uitspraak</button>
-        <button class="secondary" id="drawerCloseBtn" type="button">Sluit</button>
-      </div>
-    </div>
-    <p id="drawerDef" style="margin:0;color:#e2e8f0;font-size:18px;line-height:1.55;"></p>
-  </div>
-
-  <main class="container">
-    <div class="error" id="errorBox"><span>!</span><span id="errorText"></span></div>
-    <section id="view">
-      <section class="hero">
-        <div>
-          <h1>Leer woorden uit<br><span>De finale.</span></h1>
-          <p>Kies een thema uit het boek. Daarna kun je binnen het thema een verhaal openen.</p>
-        </div>
-        <div class="theme-grid">
-          <article class="theme-card">
-            <div class="theme-top">
-              <div>
-                <span class="chapter">Thema 1</span>
-                <div><span class="status offline">Offline beschikbaar</span></div>
-              </div>
-              <div class="theme-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-            </div>
-            <h3>De maatschappij</h3>
-            <p style="color:#64748b;font-weight:700;line-height:1.5;">Gelukkig zijn, een streetarts en woordenschat rond sociale integratie.</p>
-          </article>
-          <article class="theme-card">
-            <div class="theme-top">
-              <div>
-                <span class="chapter">Thema 2</span>
-                <div><span class="status offline">Offline beschikbaar</span></div>
-              </div>
-              <div class="theme-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 12-9h4v4c0 8-4 12-9 12Z"/><path d="M12 18c0-4 2-7 6-9"/></svg>
-              </div>
-            </div>
-            <h3>Natuur en klimaat</h3>
-            <p style="color:#64748b;font-weight:700;line-height:1.5;">Druk in de natuur met doelwoorden en quiz.</p>
-          </article>
-        </div>
-      </section>
-    </section>
-  </main>
-
-  <script>
     window.addEventListener("error", (event) => {
       const box = document.getElementById("errorBox");
       const text = document.getElementById("errorText");
@@ -1097,8 +84,8 @@
         subtitle: "Geen zorgen voor morgen",
         page: 10,
         icon: "M",
-        bookTopics: ["gelukkig zijn", "een straatarts", "het UWV", "buurtbewoners"],
-        subsections: ["Gelukkig zijn", "Een streetarts", "Het UWV", "Buurtbewoners"],
+        bookTopics: ["Gelukkig zijn", "Een straatarts", "Het UWV", "Buurtbewoners"],
+        subsections: ["Gelukkig zijn", "Een straatarts", "Het UWV", "Buurtbewoners"],
         vocab: ["blijken","aarzelen","uitgebreid","aanvragen","uitkering","stimuleren","arbeidsmarkt","bevorderen","cultuurverschil","toepassen"]
       },
       {
@@ -1108,8 +95,8 @@
         subtitle: "Water naar zee dragen",
         page: 42,
         icon: "N",
-        bookTopics: ["druk in de natuur", "nationale parken", "drinkwatertekort", "een ecoduct", "de Keukenhof"],
-        subsections: ["Druk in de natuur", "Nationale parken", "Drinkwatertekort", "Een ecoduct"],
+        bookTopics: ["Druk in de natuur", "Nationale parken", "Drinkwatertekort", "Een ecoduct", "De Keukenhof"],
+        subsections: ["Druk in de natuur", "Nationale parken", "Drinkwatertekort", "Een ecoduct", "De Keukenhof"],
         vocab: ["aanleggen","aanpassing","aantrekkelijk","afvalstof","afvoeren","beheerder","benadrukken","beschermen","besparen","duurzaam"]
       },
       {
@@ -1119,8 +106,8 @@
         subtitle: "’s Lands wijs, ’s lands eer",
         page: 76,
         icon: "C",
-        bookTopics: ["UNESCO werelderfgoed", "Gerrit Rietveld", "eetgewoontes", "cultuurverschillen"],
-        subsections: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen", "Amir in een oude stad", "Amir aan de gracht", "Amir helpt bij erfgoed", "Amir tekent zijn buurt", "Amir in het atelier"],
+        bookTopics: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen"],
+        subsections: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen"],
         vocab: ["behouden","beschermen","bevorderen","bewaren","eigentijds","evalueren","gebouw","aanpassing","aanraden","afhangen van"]
       },
       {
@@ -1130,8 +117,8 @@
         subtitle: "Leef je om te werken of werk je om te leven?",
         page: 106,
         icon: "W",
-        bookTopics: ["stage lopen", "een eigen bedrijf starten", "werk vinden", "import en export", "de wereldeconomie"],
-        subsections: ["Stage lopen", "Een eigen bedrijf starten", "Werk vinden", "Import en export"],
+        bookTopics: ["Stage lopen", "Een eigen bedrijf starten", "Werk vinden", "Import en export", "De wereldeconomie"],
+        subsections: ["Stage lopen", "Een eigen bedrijf starten", "Werk vinden", "Import en export", "De wereldeconomie"],
         vocab: ["aanpak","aansluiten op","aantrekken","netwerk","nijpend","argument","omzetten","onderbouwen","beperken","bedrijfstak"]
       },
       {
@@ -1141,7 +128,7 @@
         subtitle: "Alle wegen leiden naar Rome",
         page: 136,
         icon: "I",
-        bookTopics: ["maatschappelijke ondersteuning", "Is Nederland vol?", "auto en openbaar vervoer", "bereikbaarheid"],
+        bookTopics: ["Maatschappelijke ondersteuning", "Is Nederland vol?", "Auto en openbaar vervoer", "Bereikbaarheid"],
         subsections: ["Maatschappelijke ondersteuning", "Is Nederland vol?", "Auto en openbaar vervoer", "Bereikbaarheid"],
         vocab: []
       },
@@ -1152,7 +139,7 @@
         subtitle: "Groene vingers hebben",
         page: 170,
         icon: "D",
-        bookTopics: ["duurzaamheid in Nederland", "repareren of nieuw?", "vliegen", "voedselverspilling", "fossiele brandstoffen"],
+        bookTopics: ["Duurzaamheid in Nederland", "Repareren of nieuw?", "Vliegen", "Voedselverspilling", "Fossiele brandstoffen"],
         subsections: ["Duurzaamheid in Nederland", "Repareren of nieuw?", "Vliegen", "Voedselverspilling", "Fossiele brandstoffen"],
         vocab: []
       },
@@ -1163,7 +150,7 @@
         subtitle: "De wijde wereld intrekken",
         page: 206,
         icon: "G",
-        bookTopics: ["in het buitenland studeren", "digital nomads", "zaken doen met andere landen", "taaltransfer", "internationale wetenschap"],
+        bookTopics: ["In het buitenland studeren", "Digital nomads", "Zaken doen met andere landen", "Taaltransfer", "Internationale wetenschap"],
         subsections: ["In het buitenland studeren", "Digital nomads", "Zaken doen met andere landen", "Taaltransfer", "Internationale wetenschap"],
         vocab: []
       },
@@ -1174,11 +161,22 @@
         subtitle: "Kennis is macht",
         page: 236,
         icon: "S",
-        bookTopics: ["een winterdepressie", "uitvindingen", "medische onderzoeken", "robots"],
+        bookTopics: ["Een winterdepressie", "Uitvindingen", "Medische onderzoeken", "Robots"],
         subsections: ["Een winterdepressie", "Uitvindingen", "Medische onderzoeken", "Robots"],
         vocab: []
       }
     ];
+
+    // Book-topic hierarchy: the start page follows the Onderwerpen page from De finale.
+    // A book topic can contain one or more story modules. This keeps the home page tidy,
+    // and makes it easy to add extra stories later under the same topic.
+    const topicStoryGroups = {
+      "1-gelukkig zijn": ["1-Gelukkig zijn"],
+      "1-een straatarts": ["1-Een streetarts"],
+      "2-druk in de natuur": ["2-Druk in de natuur"],
+      "3-unesco werelderfgoed": ["3-UNESCO werelderfgoed", "3-Amir in een oude stad", "3-Amir aan de gracht", "3-Amir helpt bij erfgoed", "3-Amir tekent zijn buurt", "3-Amir in het atelier"],
+      "4-stage lopen": ["4-Stage lopen"]
+    };
 
     const images = {
       study: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1400&q=85",
@@ -2286,56 +1284,76 @@
       });
     }
 
-    function getStoryNamesForTheme(theme) {
-      const prefix = `${theme.id}-`;
-      const names = Object.keys(stories)
-        .filter((key) => key.startsWith(prefix))
-        .map((key) => key.slice(prefix.length));
-      const preferred = theme.subsections || [];
-      return [
-        ...preferred.filter((name) => names.includes(name)),
-        ...names.filter((name) => !preferred.includes(name))
-      ];
+    function normalizeTopicKey(value) {
+      return normalize(value).replace(/\s+/g, " ");
     }
 
-    function renderThemeDirectory(theme) {
+    function getStoryTitleFromKey(key) {
+      if (!key) return "";
+      const dash = String(key).indexOf("-");
+      return dash === -1 ? String(key) : String(key).slice(dash + 1);
+    }
+
+    function getTopicKey(theme, topic) {
+      return `${theme.id}-${normalizeTopicKey(topic)}`;
+    }
+
+    function getStoryKeysForTopic(theme, topic) {
+      const topicKey = getTopicKey(theme, topic);
+      const configured = topicStoryGroups[topicKey] || [];
+      const candidates = [
+        ...configured,
+        `${theme.id}-${topic}`,
+        `${theme.id}-${String(topic).charAt(0).toUpperCase()}${String(topic).slice(1)}`
+      ];
+      const seen = new Set();
+      return candidates.filter((key) => {
+        if (!stories[key] || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
+    function countStoriesForTheme(theme) {
+      return (theme.bookTopics || []).reduce((total, topic) => total + getStoryKeysForTopic(theme, topic).length, 0);
+    }
+
+    function renderTopicDirectory(theme, topic) {
       showError("");
       stopSpeaking();
-      state.appState = "themeDirectory";
+      state.appState = "topicDirectory";
       state.selectedTheme = theme;
+      state.selectedTopic = topic;
       updateHeader();
-      const storyNames = getStoryNamesForTheme(theme);
-      const hasStories = storyNames.length > 0;
+      const storyKeys = getStoryKeysForTopic(theme, topic);
+      const hasStories = storyKeys.length > 0;
       view.innerHTML = `
         <section class="theme-directory">
           <div class="directory-head">
             <div class="directory-kicker">
               <span class="chapter">${escapeHtml(theme.chapter)}</span>
-              <span class="status ${hasStories ? "offline" : "key"}">${hasStories ? `${storyNames.length} verhaal${storyNames.length === 1 ? "" : "len"}` : "Later"}</span>
-              ${theme.page ? `<span class="topic-chip">p. ${theme.page}</span>` : ""}
+              <span class="topic-chip">${escapeHtml(theme.title)}</span>
+              <span class="status ${hasStories ? "offline" : "key"}">${hasStories ? `${storyKeys.length} verhaal${storyKeys.length === 1 ? "" : "len"}` : "Later"}</span>
             </div>
-            <h1>${escapeHtml(theme.title)}</h1>
+            <h1>${escapeHtml(topic)}</h1>
             <div class="theme-subtitle" style="margin:10px 0 0;font-size:20px;">${escapeHtml(theme.subtitle || "")}</div>
-            <p>Hier staan de verhalen bij dit thema. Zo blijft de startpagina rustig, en kun je binnen elk thema zelf een verhaal kiezen.</p>
-            <div class="book-topic-strip" aria-label="Onderwerpen uit De finale">
-              ${(theme.bookTopics || []).map((topic) => `<span class="topic-chip">${escapeHtml(topic)}</span>`).join("")}
-            </div>
+            <p>Dit is een submap binnen ${escapeHtml(theme.chapter)}. Hier komen alle korte verhalen die bij dit onderwerp horen. Zo blijft de startpagina rustig en overzichtelijk.</p>
             <div class="directory-actions">
-              <button class="secondary" type="button" id="backToThemesBtn">← Terug naar thema’s</button>
+              <button class="secondary" type="button" id="backToThemesBtn">← Terug naar startpagina</button>
               ${hasStories ? `<button class="primary" type="button" id="startFirstStoryBtn">Start eerste verhaal</button>` : ""}
             </div>
           </div>
           ${hasStories ? `
             <div class="story-grid">
-              ${storyNames.map((name, index) => {
-                const key = `${theme.id}-${name}`;
+              ${storyKeys.map((key, index) => {
                 const story = stories[key];
                 const wordCount = story?.vocab?.length || story?.glossary?.length || 0;
+                const name = storyKeys.length === 1 ? topic : getStoryTitleFromKey(key);
                 return `
-                  <button class="story-card" type="button" data-start="${escapeHtml(key)}">
+                  <button class="story-card" type="button" data-storykey="${escapeHtml(key)}">
                     <span>
-                      ${escapeHtml(name)}
-                      <small>Verhaal ${index + 1} · ${wordCount || ""} doelwoorden</small>
+                      Verhaal ${index + 1}: ${escapeHtml(name)}
+                      <small>${wordCount || ""} doelwoorden · lezen, audio, flashcards en quiz</small>
                     </span>
                     <span aria-hidden="true">→</span>
                   </button>
@@ -2344,20 +1362,16 @@
             </div>
           ` : `
             <div class="coming-card">
-              Dit thema staat al klaar in de structuur, maar de verhalen zijn nog niet ingevuld. Voor deze MVP kun je nu Thema 1 t/m 4 gebruiken.
+              Dit onderwerp staat al in de structuur van het boek, maar de verhalen zijn nog niet ingevuld. Je kunt deze map later vullen met extra verhalen en woorden.
             </div>
           `}
         </section>
       `;
 
       document.getElementById("backToThemesBtn")?.addEventListener("click", renderLanding);
-      document.getElementById("startFirstStoryBtn")?.addEventListener("click", () => startStory(theme, storyNames[0]));
-      view.querySelectorAll("[data-start]").forEach((button) => {
-        button.addEventListener("click", () => {
-          const key = button.dataset.start;
-          const sub = key.slice(key.indexOf("-") + 1);
-          startStory(theme, sub);
-        });
+      document.getElementById("startFirstStoryBtn")?.addEventListener("click", () => startStoryByKey(storyKeys[0]));
+      view.querySelectorAll("[data-storykey]").forEach((button) => {
+        button.addEventListener("click", () => startStoryByKey(button.dataset.storykey));
       });
     }
 
@@ -2370,8 +1384,8 @@
       view.innerHTML = `
         <section class="hero">
           <div>
-            <h1>Leer woorden uit<br><span>De finale.</span></h1>
-            <p>Kies eerst een thema uit het boek. Binnen elk thema vind je de verhalen, woorden, flashcards en quiz.</p>
+            <h1>Dompel jezelf onder in<br><span>Groningen.</span></h1>
+            <p>Kies een onderwerp uit <em>De finale</em>. Daarna zie je de korte verhalen die bij dat onderwerp horen.</p>
             <div class="home-actions">
               <div class="quick-card">
                 <strong>Dagelijkse oefening · 5 minuten</strong>
@@ -2387,23 +1401,23 @@
           </div>
           <div class="theme-grid">
             ${themes.map((theme) => {
-              const storyNames = getStoryNamesForTheme(theme);
-              const hasOffline = storyNames.length > 0;
+              const readyCount = countStoriesForTheme(theme);
               return `
-                <article class="theme-card theme-entry" data-theme="${theme.id}" role="button" tabindex="0" aria-label="Open ${escapeHtml(theme.chapter)} ${escapeHtml(theme.title)}">
+                <article class="theme-card">
                   <div class="theme-top">
                     <div>
-                      <span class="chapter">${theme.chapter}</span>
-                      <div><span class="status ${hasOffline ? "offline" : "key"}">${hasOffline ? `${storyNames.length} verhalen` : "Later"}</span></div>
+                      <span class="chapter">${escapeHtml(theme.chapter)}</span>
+                      <div><span class="status ${readyCount ? "offline" : "key"}">${readyCount ? `${readyCount} verhaal${readyCount === 1 ? "" : "len"}` : "Later"}</span></div>
                     </div>
                     <div class="theme-icon" aria-hidden="true">${themeIconSvg(theme.id)}</div>
                   </div>
                   <h3>${escapeHtml(theme.title)}</h3>
                   <div class="theme-subtitle">${escapeHtml(theme.subtitle || "")}</div>
-                  <div class="theme-meta">
-                    ${theme.page ? `<span class="topic-chip">p. ${theme.page}</span>` : ""}
-                    ${(theme.bookTopics || []).slice(0, 3).map((topic) => `<span class="topic-chip">${escapeHtml(topic)}</span>`).join("")}
-                    ${(theme.bookTopics || []).length > 3 ? `<span class="topic-chip">+${theme.bookTopics.length - 3}</span>` : ""}
+                  <div class="sub-list">
+                    ${(theme.bookTopics || []).map((topic) => {
+                      const storyCount = getStoryKeysForTopic(theme, topic).length;
+                      return `<button class="sub-btn" type="button" data-topic-theme="${theme.id}" data-topic="${escapeHtml(topic)}">${escapeHtml(topic)}${storyCount > 1 ? `<small>${storyCount} verhalen</small>` : ""}<span>→</span></button>`;
+                    }).join("")}
                   </div>
                 </article>
               `;
@@ -2417,34 +1431,28 @@
       const difficultBtn = document.getElementById("difficultPracticeBtn");
       if (difficultBtn) difficultBtn.addEventListener("click", startDifficultPractice);
 
-      view.querySelectorAll("[data-theme]").forEach((card) => {
-        const openTheme = () => {
-          const theme = themes.find((item) => String(item.id) === String(card.dataset.theme));
-          if (theme) renderThemeDirectory(theme);
-        };
-        card.addEventListener("click", openTheme);
-        card.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openTheme();
-          }
+      view.querySelectorAll("[data-topic]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const theme = themes.find((item) => String(item.id) === String(button.dataset.topicTheme));
+          if (theme) renderTopicDirectory(theme, button.dataset.topic);
         });
       });
     }
 
-
-    function startStory(theme, subsection) {
-      const key = `${theme.id}-${subsection}`;
+    function startStoryByKey(key) {
       const story = stories[key];
+      const themeId = Number(String(key).split("-")[0]);
+      const subsection = getStoryTitleFromKey(key);
+      const theme = themes.find((item) => item.id === themeId);
       showError("");
       stopSpeaking();
-      if (!story) {
-        showError("Dit onderdeel is nog niet gevuld in deze MVP. Kies een verhaal uit Thema 1 t/m 4.");
+      if (!theme || !story) {
+        showError("Dit verhaal is nog niet gevuld in deze MVP. Kies een verhaal dat al beschikbaar is.");
         return;
       }
       state.appState = "reading";
       state.selectedTheme = theme;
-      state.selectedSubsection = subsection;
+      state.selectedSubsection = state.selectedTopic || subsection;
       state.pages = story.pages;
       state.glossary = story.glossary;
       state.vocab = story.vocab;
@@ -2457,6 +1465,10 @@
       state.practiceTitle = "";
       awardXP(5, "Verhaal gestart");
       renderReading();
+    }
+
+    function startStory(theme, subsection) {
+      startStoryByKey(`${theme.id}-${subsection}`);
     }
 
     function renderReading() {
@@ -2854,6 +1866,3 @@
 
     updateHeader();
     renderLanding();
-  </script>
-</body>
-</html>

@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
-  <title>De finale Verhalenmaker - Optimized</title>
+  <title>De finale Verhalenmaker</title>
   <style>
     :root {
       --bg: #fffafd;
@@ -156,6 +156,44 @@
       line-height: 1.5;
     }
 
+    .home-actions {
+      width: min(720px, 100%);
+      margin: 24px auto 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .quick-card {
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.84);
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.08);
+      padding: 18px;
+      text-align: left;
+    }
+    .quick-card strong {
+      display: block;
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 950;
+      margin-bottom: 4px;
+    }
+    .quick-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+      font-weight: 750;
+      margin-bottom: 12px;
+    }
+    .quick-card .primary, .quick-card .secondary {
+      width: 100%;
+      min-height: 46px;
+    }
+    .quick-card.empty {
+      opacity: 0.78;
+    }
+
     .theme-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -211,6 +249,116 @@
     .theme-card:nth-child(3n) .theme-icon { background: #fff7ed; color: #d97706; }
     .theme-card:nth-child(4n) .theme-icon { background: #eef2ff; color: #4f46e5; }
     .theme-card h3 { margin: 0 0 22px; font-size: 23px; letter-spacing: 0; }
+    .theme-entry { cursor: pointer; position: relative; overflow: hidden; }
+    .theme-entry::after {
+      content: "Open thema →";
+      display: inline-flex;
+      margin-top: 18px;
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 950;
+    }
+    .theme-subtitle {
+      margin: -13px 0 10px;
+      color: #9d4edd;
+      font-weight: 850;
+      font-style: italic;
+      line-height: 1.35;
+    }
+    .theme-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 10px 0 2px;
+    }
+    .topic-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #faf5ff;
+      color: #6b21a8;
+      border: 1px solid #ead7f1;
+      font-size: 11px;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+    .theme-directory {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: clamp(30px, 6vw, 62px) 0 52px;
+      display: grid;
+      gap: 22px;
+    }
+    .directory-head {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 5vw, 40px);
+    }
+    .directory-kicker {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+    .directory-head h1 {
+      margin: 0;
+      font-size: clamp(36px, 7vw, 62px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+    .directory-head p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 17px;
+      font-weight: 750;
+      line-height: 1.6;
+      margin: 14px 0 0;
+    }
+    .directory-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .book-topic-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .story-card {
+      text-align: left;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+      border-radius: 24px;
+      padding: 18px;
+      min-height: 96px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      color: var(--ink);
+      font-weight: 950;
+      transition: 0.18s ease;
+    }
+    .story-card:not(:disabled):hover { transform: translateY(-2px); border-color: rgba(125,60,152,0.35); box-shadow: 0 20px 40px rgba(15,23,42,0.12); }
+    .story-card small { display: block; color: var(--muted); font-size: 12px; font-weight: 800; margin-top: 4px; line-height: 1.35; }
+    .story-card span:last-child { color: var(--purple); font-size: 22px; }
+    .coming-card {
+      border: 1px dashed #d8b4fe;
+      background: #faf5ff;
+      border-radius: 24px;
+      padding: 22px;
+      color: #6b21a8;
+      font-weight: 850;
+      line-height: 1.6;
+    }
     .sub-list { display: grid; gap: 9px; }
     .sub-btn {
       width: 100%;
@@ -229,6 +377,15 @@
       transition: 0.18s ease;
     }
     .sub-btn:not(:disabled):hover { background: var(--purple); color: #fff; border-color: var(--purple); }
+    .sub-btn small {
+      margin-left: auto;
+      margin-right: 4px;
+      color: #8b5cf6;
+      font-size: 10px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .sub-btn:hover small { color: #fff; opacity: 0.9; }
 
     .toolbar, .reader-card, .quiz-card, .result-card, .custom-grid > section, .flash-wrap {
       background: var(--panel);
@@ -357,12 +514,13 @@
     .image-panel {
       aspect-ratio: 16 / 9;
       min-height: 330px;
-      margin: 26px 0;
-      border-radius: 22px;
+      margin: 0 0 22px;
+      border-radius: 26px;
       background: #0f172a;
       overflow: hidden;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(226, 232, 240, 0.95);
       position: relative;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.14);
     }
     .image-panel img { width: 100%; height: 100%; min-height: 330px; display: block; object-fit: cover; }
     .storybook-empty {
@@ -586,41 +744,194 @@
 
     .hidden { display: none !important; }
 
+
+
+    /* Mobile app polish: makes the web app feel more like a real phone app. */
+    html { -webkit-text-size-adjust: 100%; }
+    body { overflow-x: hidden; }
+    .reader-hint {
+      margin: -8px 0 18px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.45;
+    }
+    .primary, .secondary, .success, .plain-btn, .icon-btn, .sub-btn, .option, .audio-fallback, .primary-pill {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .word {
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      vertical-align: baseline;
+      touch-action: manipulation;
+    }
+    @supports (padding: max(0px)) {
+      .app-header { padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right)); }
+      .word-drawer { padding-bottom: max(22px, calc(18px + env(safe-area-inset-bottom))); }
+    }
+
+
+    .practice-complete {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: clamp(26px, 5vw, 44px);
+      text-align: center;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .practice-complete .done-icon {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 26px;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      font-size: 34px;
+      font-weight: 950;
+      box-shadow: 0 18px 34px rgba(125, 60, 152, 0.25);
+    }
+
     @media (max-width: 920px) {
       .theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .custom-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
-      .app-header { align-items: flex-start; padding: 12px 14px; }
-      .brand-title { font-size: 17px; }
-      .brand-mark { width: 38px; height: 38px; border-radius: 13px; }
+      :root { --radius: 24px; }
+      body {
+        background: linear-gradient(180deg, #fffafd 0%, #fdf2f8 48%, #f8fafc 100%);
+      }
+      .app-header {
+        align-items: center;
+        padding: 10px 12px;
+        min-height: 64px;
+        border-radius: 0 0 22px 22px;
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .brand { min-width: 0; gap: 9px; }
+      .brand-title {
+        font-size: 15px;
+        line-height: 1.05;
+        max-width: 185px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .brand-title span { display: none; }
+      .brand-mark { width: 38px; height: 38px; border-radius: 14px; font-size: 13px; }
       .header-actions { gap: 6px; }
-      .icon-btn, .plain-btn { min-width: 40px; min-height: 40px; height: auto; padding: 0 10px; }
+      .icon-btn, .plain-btn { min-width: 42px; min-height: 42px; height: auto; padding: 0 11px; border-radius: 15px; }
       .xp-box { display: none; }
-      .container { width: min(100% - 20px, 1180px); padding: 18px 0 44px; }
-      .hero { min-height: auto; padding: 32px 0 44px; gap: 32px; }
-      .hero h1 { font-size: clamp(38px, 13vw, 58px); line-height: 1.04; }
-      .hero p { font-size: 16px; }
-      .theme-grid { grid-template-columns: 1fr; }
-      .theme-card { padding: 22px; border-radius: 24px; }
-      .theme-card h3 { font-size: 22px; }
-      .toolbar, .nav-row { flex-direction: column; align-items: stretch; }
-      .toolbar-actions { justify-content: stretch; }
-      .toolbar-actions > button { flex: 1; }
+      .container { width: min(100% - 18px, 1180px); padding: 18px 0 max(42px, env(safe-area-inset-bottom)); }
+      .error { border-radius: 18px; font-size: 13px; align-items: flex-start; }
+      .hero { min-height: auto; padding: 28px 0 36px; gap: 26px; }
+      .hero h1 { font-size: clamp(34px, 13vw, 52px); line-height: 1.04; }
+      .hero p { font-size: 15.5px; line-height: 1.55; padding: 0 4px; }
+      .home-actions { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
+      .quick-card { padding: 15px; border-radius: 21px; }
+      .quick-card strong { font-size: 16px; }
+      .quick-card span { font-size: 12.5px; }
+      .theme-grid { grid-template-columns: 1fr; gap: 14px; }
+      .theme-card { padding: 19px; border-radius: 24px; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08); }
+      .theme-card h3 { font-size: 21px; margin-bottom: 16px; }
+      .theme-subtitle { margin-top: -8px; font-size: 14px; }
+      .theme-entry::after { margin-top: 14px; font-size: 13px; }
+      .topic-chip { font-size: 10.5px; min-height: 26px; }
+      .theme-directory { padding: 22px 0 36px; gap: 14px; }
+      .directory-head { padding: 20px; border-radius: 25px; }
+      .directory-head h1 { font-size: clamp(30px, 10vw, 42px); }
+      .directory-head p { font-size: 14.5px; line-height: 1.55; }
+      .directory-actions { display: grid; grid-template-columns: 1fr; gap: 9px; }
+      .story-grid { grid-template-columns: 1fr; gap: 10px; }
+      .story-card { min-height: 78px; border-radius: 20px; padding: 15px; }
+      .coming-card { border-radius: 20px; padding: 18px; font-size: 14px; }
+      .theme-icon { width: 48px; height: 48px; border-radius: 16px; }
+      .sub-list { gap: 10px; }
+      .sub-btn { min-height: 52px; padding: 14px 15px; border-radius: 16px; font-size: 14px; }
+      .toolbar { flex-direction: column; align-items: stretch; padding: 10px; border-radius: 21px; }
+      .toolbar-title { width: 100%; justify-content: center; text-align: center; line-height: 1.35; }
+      .toolbar-actions { justify-content: stretch; gap: 9px; }
+      .toolbar-actions > button { flex: 1; min-height: 44px; }
       .reader { gap: 12px; }
-      .reader-card { padding: 18px; border-radius: 24px; }
-      .targets { width: 100%; justify-content: center; text-align: center; }
-      .story-text { max-height: none; line-height: 1.85; text-align: left; padding-right: 0; }
-      .story-text.size-lg { font-size: 19px; }
-      .story-text.size-xl { font-size: 21px; }
-      .story-text.size-2xl { font-size: 23px; }
-      .audio-actions { margin: 22px auto; }
+      .reader-card { padding: 17px; border-radius: 25px; box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10); }
+      .targets { width: 100%; justify-content: center; text-align: center; flex-wrap: wrap; line-height: 1.45; margin-bottom: 14px; }
+      .reader-hint { margin: 0 0 15px; font-size: 12.5px; text-align: center; }
+      .story-text {
+        max-height: none;
+        line-height: 1.78;
+        text-align: left;
+        padding-right: 0;
+        overflow: visible;
+        word-break: normal;
+        hyphens: auto;
+      }
+      .story-text.size-lg { font-size: 17px; }
+      .story-text.size-xl { font-size: 18.5px; }
+      .story-text.size-2xl { font-size: 20px; }
+      .word { padding: 1px 6px; border-radius: 8px; }
+      .audio-actions { margin: 18px auto; }
       .audio-player { padding: 12px; border-radius: 18px; }
-      .image-panel, .image-panel img, .image-fallback { min-height: 250px; }
-      .image-panel { border-radius: 20px; margin: 20px 0; }
-      .storybook-empty { padding: 18px; }
+      .audio-caption { font-size: 11.5px; }
+      .audio-fallback { min-height: 50px; }
+      .image-panel {
+        aspect-ratio: 4 / 3;
+        min-height: auto;
+        border-radius: 24px;
+        margin: 0 0 14px;
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+      }
+      .image-panel img, .image-fallback, .storybook-empty { min-height: auto; height: 100%; }
+      .storybook-empty { padding: 16px; }
+      .shot-copy { padding: 18px; border-radius: 20px; }
+      .image-badge { left: 12px; bottom: 12px; font-size: 11px; border-radius: 12px; }
+      .nav-row {
+        position: sticky;
+        bottom: max(8px, env(safe-area-inset-bottom));
+        z-index: 20;
+        margin: 18px -6px -6px;
+        padding: 10px;
+        border: 1px solid rgba(226,232,240,0.95);
+        border-radius: 22px;
+        background: rgba(255,255,255,0.94);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 -10px 28px rgba(15,23,42,0.09);
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 8px;
+      }
+      .secondary, .primary, .success { min-height: 48px; border-radius: 16px; padding: 0 13px; }
+      .page-pill { font-size: 11.5px; padding: 9px 10px; white-space: nowrap; }
       .flash-wrap { padding: 18px; border-radius: 24px; }
-      .flash-card { min-height: 260px; padding: 22px; }
+      .flash-card { min-height: 250px; padding: 22px; border-radius: 24px; }
+      .flash-word { font-size: clamp(36px, 13vw, 54px); }
+      .flash-def { font-size: clamp(21px, 7vw, 30px); }
+      .quiz-card { padding: 16px; border-radius: 25px; box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10); }
+      .quiz-head { align-items: flex-start; gap: 11px; padding-bottom: 16px; margin-bottom: 18px; }
+      .quiz-icon { width: 46px; height: 46px; border-radius: 16px; flex: 0 0 auto; }
+      .question { padding: 16px; border-radius: 19px; margin-bottom: 14px; }
+      .question h3 { font-size: 17px; line-height: 1.35; }
+      .option { min-height: 50px; padding: 12px 13px; border-radius: 15px; font-size: 14px; line-height: 1.35; }
+      .result-card { padding: 30px 18px; border-radius: 25px; }
+      .review-box { padding: 14px; border-radius: 20px; }
+      .word-drawer {
+        max-height: 78vh;
+        overflow: auto;
+        border-radius: 28px 28px 0 0;
+        padding: 20px 18px max(20px, calc(18px + env(safe-area-inset-bottom)));
+      }
+      .toast-stack { top: 72px; left: 12px; right: 12px; }
+      .toast { text-align: center; }
     }
   </style>
 </head>
@@ -673,8 +984,8 @@
     <section id="view">
       <section class="hero">
         <div>
-          <h1>Dompel jezelf onder in<br><span>Groningen.</span></h1>
-          <p>Als je dit ziet, is de basispagina geladen. Herlaad de pagina om de interactieve leerkaarten te activeren.</p>
+          <h1>Leer woorden uit<br><span>De finale.</span></h1>
+          <p>Kies een thema uit het boek. Daarna kun je binnen het thema een verhaal openen.</p>
         </div>
         <div class="theme-grid">
           <article class="theme-card">
@@ -775,7 +1086,10 @@
       stats: safeJson(safeGet("nt2_stats", '{"xp":0,"level":1}'), { xp: 0, level: 1 }),
       discoveredWords: new Set(safeJson(safeGet("nt2_discovered", "[]"), [])),
       reviewPool: safeJson(safeGet("nt2_review", "[]"), []),
+      difficultWords: safeJson(safeGet("nt2_difficult_words", "[]"), []),
       reviewMode: false,
+      practiceMode: "",
+      practiceTitle: "",
       cardIndex: 0,
       cardFlipped: false,
       customPrompt: "",
@@ -789,67 +1103,102 @@
         id: 1,
         chapter: "Thema 1",
         title: "De maatschappij",
+        subtitle: "Geen zorgen voor morgen",
+        page: 10,
         icon: "M",
-        subsections: ["Gelukkig zijn", "Een streetarts", "Het UWV", "Buurtbewoners"],
+        bookTopics: ["Gelukkig zijn", "Een straatarts", "Het UWV", "Buurtbewoners"],
+        subsections: ["Gelukkig zijn", "Een straatarts", "Het UWV", "Buurtbewoners"],
         vocab: ["blijken","aarzelen","uitgebreid","aanvragen","uitkering","stimuleren","arbeidsmarkt","bevorderen","cultuurverschil","toepassen"]
       },
       {
         id: 2,
         chapter: "Thema 2",
         title: "Natuur en klimaat",
+        subtitle: "Water naar zee dragen",
+        page: 42,
         icon: "N",
-        subsections: ["Druk in de natuur", "Nationale parken", "Drinkwatertekort", "Een ecoduct"],
+        bookTopics: ["Druk in de natuur", "Nationale parken", "Drinkwatertekort", "Een ecoduct", "De Keukenhof"],
+        subsections: ["Druk in de natuur", "Nationale parken", "Drinkwatertekort", "Een ecoduct", "De Keukenhof"],
         vocab: ["aanleggen","aanpassing","aantrekkelijk","afvalstof","afvoeren","beheerder","benadrukken","beschermen","besparen","duurzaam"]
       },
       {
         id: 3,
         chapter: "Thema 3",
         title: "Cultuur",
+        subtitle: "’s Lands wijs, ’s lands eer",
+        page: 76,
         icon: "C",
-        subsections: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen", "Amir in een oude stad", "Amir aan de gracht", "Amir helpt bij erfgoed", "Amir tekent zijn buurt", "Amir in het atelier"],
+        bookTopics: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen"],
+        subsections: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen"],
         vocab: ["behouden","beschermen","bevorderen","bewaren","eigentijds","evalueren","gebouw","aanpassing","aanraden","afhangen van"]
       },
       {
         id: 4,
         chapter: "Thema 4",
         title: "Economie en werk",
+        subtitle: "Leef je om te werken of werk je om te leven?",
+        page: 106,
         icon: "W",
-        subsections: ["Stage lopen", "Een eigen bedrijf starten", "Werk vinden", "Import en export"],
+        bookTopics: ["Stage lopen", "Een eigen bedrijf starten", "Werk vinden", "Import en export", "De wereldeconomie"],
+        subsections: ["Stage lopen", "Een eigen bedrijf starten", "Werk vinden", "Import en export", "De wereldeconomie"],
         vocab: ["aanpak","aansluiten op","aantrekken","netwerk","nijpend","argument","omzetten","onderbouwen","beperken","bedrijfstak"]
       },
       {
         id: 5,
         chapter: "Thema 5",
-        title: "Infrastructuur",
+        title: "Infrastructuur en planologie",
+        subtitle: "Alle wegen leiden naar Rome",
+        page: 136,
         icon: "I",
-        subsections: ["Maatschappelijke ondersteuning", "Is Nederland vol?", "Auto en openbaar vervoer"],
+        bookTopics: ["Maatschappelijke ondersteuning", "Is Nederland vol?", "Auto en openbaar vervoer", "Bereikbaarheid"],
+        subsections: ["Maatschappelijke ondersteuning", "Is Nederland vol?", "Auto en openbaar vervoer", "Bereikbaarheid"],
         vocab: []
       },
       {
         id: 6,
         chapter: "Thema 6",
         title: "Duurzaamheid",
+        subtitle: "Groene vingers hebben",
+        page: 170,
         icon: "D",
-        subsections: ["Duurzaamheid in Nederland", "Repareren of nieuw?", "Voedselverspilling"],
+        bookTopics: ["Duurzaamheid in Nederland", "Repareren of nieuw?", "Vliegen", "Voedselverspilling", "Fossiele brandstoffen"],
+        subsections: ["Duurzaamheid in Nederland", "Repareren of nieuw?", "Vliegen", "Voedselverspilling", "Fossiele brandstoffen"],
         vocab: []
       },
       {
         id: 7,
         chapter: "Thema 7",
         title: "Internationale contacten",
+        subtitle: "De wijde wereld intrekken",
+        page: 206,
         icon: "G",
-        subsections: ["In het buitenland studeren", "Digital nomads", "Zaken doen met andere landen"],
+        bookTopics: ["In het buitenland studeren", "Digital nomads", "Zaken doen met andere landen", "Taaltransfer", "Internationale wetenschap"],
+        subsections: ["In het buitenland studeren", "Digital nomads", "Zaken doen met andere landen", "Taaltransfer", "Internationale wetenschap"],
         vocab: []
       },
       {
         id: 8,
         chapter: "Thema 8",
         title: "Wetenschap",
+        subtitle: "Kennis is macht",
+        page: 236,
         icon: "S",
-        subsections: ["Een winterdepressie", "Uitvindingen", "Robots in de zorg"],
+        bookTopics: ["Een winterdepressie", "Uitvindingen", "Medische onderzoeken", "Robots"],
+        subsections: ["Een winterdepressie", "Uitvindingen", "Medische onderzoeken", "Robots"],
         vocab: []
       }
     ];
+
+    // Book-topic hierarchy: the start page follows the Onderwerpen page from De finale.
+    // A book topic can contain one or more story modules. This keeps the home page tidy,
+    // and makes it easy to add extra stories later under the same topic.
+    const topicStoryGroups = {
+      "1-gelukkig zijn": ["1-Gelukkig zijn"],
+      "1-een straatarts": ["1-Een streetarts"],
+      "2-druk in de natuur": ["2-Druk in de natuur"],
+      "3-unesco werelderfgoed": ["3-UNESCO werelderfgoed", "3-Amir in een oude stad", "3-Amir aan de gracht", "3-Amir helpt bij erfgoed", "3-Amir tekent zijn buurt", "3-Amir in het atelier"],
+      "4-stage lopen": ["4-Stage lopen"]
+    };
 
     const images = {
       study: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1400&q=85",
@@ -872,11 +1221,11 @@
       "1-Gelukkig zijn": {
         vocab: themes[0].vocab,
         pages: [
-          { text: "Mila is nieuw in Groningen, terwijl zij de buurt leert kennen. Uit gesprekken met buren kan blijken dat veel nieuwkomers zich alleen voelen, terwijl Mila goed luistert. Sommige mensen aarzelen om aan te bellen. Een buurvrouw nodigt haar uit voor koffie.", imageUrl: images.study, targets: ["blijken","aarzelen"] },
-          { text: "Het wijkcentrum heeft een uitgebreid programma, terwijl Mila rustig meedoet. Mila wil hulp aanvragen voor een kleine moestuin, terwijl zij de regels leert kennen. Ze vult samen met een buurman een formulier in. Daarna plant de groep groente in bakken.", imageUrl: images.garden, targets: ["uitgebreid","aanvragen"] },
-          { text: "Mila krijgt tijdelijk een uitkering, terwijl zij de regels leert kennen. De gemeente wil haar stimuleren om vrijwillig werk te doen, terwijl Mila goed luistert. Ze helpt op woensdag in het buurthuis. Zo leert ze meer mensen kennen.", imageUrl: images.team, targets: ["uitkering","stimuleren"] },
-          { text: "Vrijwillig werk helpt Mila op de arbeidsmarkt, terwijl zij rustig meedoet. Een taalcoach wil haar Nederlands bevorderen. Ze oefenen woorden voor werk en gesprekken. Mila durft daarna meer te zeggen, zodat zij meer begrijpt.", imageUrl: images.work, targets: ["arbeidsmarkt","bevorderen"] },
-          { text: "In de straat merkt Mila een cultuurverschil, terwijl zij de buurt leert kennen. Buren groeten elkaar soms op een andere manier. Mila leert de nieuwe gewoonte toepassen, terwijl zij rustig meedoet. Ze voelt zich stap voor stap thuis.", imageUrl: images.friends, targets: ["cultuurverschil","toepassen"] }
+          { text: "Mila is nieuw in Groningen, omdat zij de buurt wil leren kennen. Uit gesprekken met buren kan blijken dat veel nieuwkomers zich alleen voelen. Mila luistert daarom goed. Sommige mensen aarzelen om aan te bellen. Een buurvrouw nodigt haar uit voor koffie.", imageUrl: images.study, targets: ["blijken","aarzelen"] },
+          { text: "Het wijkcentrum heeft een uitgebreid programma. Ondertussen doet Mila rustig mee. Mila wil hulp aanvragen voor een kleine moestuin, omdat zij de regels wil leren kennen. Ze vult samen met een buurman een formulier in. Daarna plant de groep groente in bakken.", imageUrl: images.garden, targets: ["uitgebreid","aanvragen"] },
+          { text: "Mila krijgt tijdelijk een uitkering. Eerst leert zij de regels kennen. De gemeente wil haar stimuleren om vrijwillig werk te doen. Daarna luistert Mila nog even. Ze helpt op woensdag in het buurthuis. Zo leert ze meer mensen kennen.", imageUrl: images.team, targets: ["uitkering","stimuleren"] },
+          { text: "Vrijwillig werk helpt Mila op de arbeidsmarkt. Ondertussen doet zij rustig mee. Een taalcoach wil haar Nederlands bevorderen. Ze oefenen woorden voor werk en gesprekken. Mila durft daarna meer te zeggen. Daardoor begrijpt zij meer.", imageUrl: images.work, targets: ["arbeidsmarkt","bevorderen"] },
+          { text: "In de straat merkt Mila een cultuurverschil. Intussen leert zij de buurt kennen. Buren groeten elkaar soms op een andere manier. Mila leert de nieuwe gewoonte toepassen. Daarna doet zij rustig mee. Ze voelt zich stap voor stap thuis.", imageUrl: images.friends, targets: ["cultuurverschil","toepassen"] }
         ],
         glossary: [
           ["blijken","duidelijk worden"],["aarzelen","twijfelen of wachten omdat je niet durft"],["uitgebreid","groot en met veel details"],["aanvragen","officieel vragen om iets te krijgen"],["uitkering","geld dat iemand tijdelijk van de overheid krijgt"],["stimuleren","aanmoedigen"],["arbeidsmarkt","alle banen en mensen die werk zoeken"],["bevorderen","helpen om iets beter te maken"],["cultuurverschil","verschil in gewoontes tussen groepen"],["toepassen","in de praktijk gebruiken"]
@@ -891,11 +1240,11 @@
       "1-Een streetarts": {
         vocab: ["blijken","aarzelen","uitgebreid","aanvragen","uitkering","stimuleren","arbeidsmarkt","bevorderen","signaleren","toepassen"],
         pages: [
-          { text: "In Groningen helpt een straatdokter mensen buiten, terwijl Mila goed kijkt. Uit zijn werk kan blijken dat sommige mensen geen zorg vragen. Ze aarzelen om naar een ziekenhuis te gaan. Mila ziet hoe rustig de arts praat, terwijl zij goed luistert.", imageUrl: images.team, targets: ["blijken","aarzelen"] },
-          { text: "De arts heeft een uitgebreid spreekuur in een bus, terwijl Mila goed luistert. Mensen kunnen daar hulp aanvragen. Mila geeft thee aan wachtende mensen, zodat zij meer begrijpt. De arts luistert naar elke klacht.", imageUrl: images.work, targets: ["uitgebreid","aanvragen"] },
-          { text: "Sommige mensen hebben geen adres en geen uitkering, terwijl Mila rustig meedoet. De straatdokter wil hen stimuleren om hulp te zoeken. Mila loopt mee naar iemand van de hulp, terwijl zij de buurt leert kennen. Zo komt er een eerste stap.", imageUrl: images.friends, targets: ["uitkering","stimuleren"] },
-          { text: "Gezond zijn helpt later op de arbeidsmarkt, terwijl Mila rustig meedoet. Een opvangplek kan herstel bevorderen. Mila ziet dat rust en eten belangrijk zijn, zodat zij meer begrijpt. Daarna kan iemand weer plannen maken.", imageUrl: images.study, targets: ["arbeidsmarkt","bevorderen"] },
-          { text: "De arts kan pijn en koorts snel signaleren, terwijl Mila goed luistert. Hij weet welke hulp hij moet toepassen. Mila leert dat snelle zorg veel helpt, terwijl zij rustig meedoet. Iedereen verdient een veilige plek.", imageUrl: images.team, targets: ["signaleren","toepassen"] }
+          { text: "In Groningen helpt een straatdokter mensen buiten. Mila kijkt goed rond. Uit zijn werk kan blijken dat sommige mensen geen zorg vragen. Ze aarzelen om naar een ziekenhuis te gaan. Mila ziet hoe rustig de arts praat. Zij luistert daarom goed.", imageUrl: images.team, targets: ["blijken","aarzelen"] },
+          { text: "De arts heeft een uitgebreid spreekuur in een bus. Ook luistert Mila aandachtig. Mensen kunnen daar hulp aanvragen. Mila geeft thee aan wachtende mensen. Zo begrijpt zij de situatie beter. De arts luistert naar elke klacht.", imageUrl: images.work, targets: ["uitgebreid","aanvragen"] },
+          { text: "Sommige mensen hebben geen adres en geen uitkering. Daarna doet Mila rustig mee. De straatdokter wil hen stimuleren om hulp te zoeken. Mila loopt mee naar iemand van de hulp. Ze leert de buurt stap voor stap kennen. Zo komt er een eerste stap.", imageUrl: images.friends, targets: ["uitkering","stimuleren"] },
+          { text: "Gezond zijn helpt later op de arbeidsmarkt. Mila doet ook rustig mee. Een opvangplek kan herstel bevorderen. Mila ziet dat rust en eten belangrijk zijn. Daarom onthoudt zij meer. Daarna kan iemand weer plannen maken.", imageUrl: images.study, targets: ["arbeidsmarkt","bevorderen"] },
+          { text: "De arts kan pijn en koorts snel signaleren. Daardoor begrijpt Mila de uitleg beter. Hij weet welke hulp hij moet toepassen. Mila leert dat snelle zorg veel helpt. Zij doet ook rustig mee. Iedereen verdient een veilige plek.", imageUrl: images.team, targets: ["signaleren","toepassen"] }
         ],
         glossary: [
           ["blijken","duidelijk worden"],["aarzelen","twijfelen"],["uitgebreid","groot en compleet"],["aanvragen","officieel vragen"],["uitkering","geldelijke steun"],["stimuleren","aanmoedigen"],["arbeidsmarkt","banen en werkzoekenden"],["bevorderen","vooruithelpen"],["signaleren","opmerken en melden"],["toepassen","gebruiken in de praktijk"]
@@ -908,11 +1257,11 @@
       "2-Druk in de natuur": {
         vocab: themes[1].vocab,
         pages: [
-          { text: "Groningen wil meer groene paden aanleggen, terwijl Mila rustig meedoet. Drukte vraagt om een kleine aanpassing. Mila blijft op het pad, zodat zij meer begrijpt. Zo krijgen dieren meer rust.", imageUrl: images.nature, targets: ["aanleggen","aanpassing"] },
-          { text: "Een schoon park is aantrekkelijk voor gezinnen, terwijl Mila goed kijkt. Een afvalstof hoort niet in het gras. Mila raapt een blikje op, terwijl zij rustig meedoet. Daarna gooit ze het in de bak.", imageUrl: images.clean, targets: ["aantrekkelijk","afvalstof"] },
-          { text: "Na regen moeten we water afvoeren, terwijl Mila goed kijkt. De beheerder kijkt naar de natte paden. Mila ziet plassen bij de brug, zodat zij meer begrijpt. Samen zetten ze een lint neer.", imageUrl: images.garden, targets: ["afvoeren","beheerder"] },
-          { text: "Mensen van het park benadrukken dat natuur hulp nodig heeft, terwijl Mila goed kijkt. Bezoekers moeten jonge planten beschermen. Mila blijft op afstand, zodat zij meer begrijpt. Zo blijven de planten heel.", imageUrl: images.nature, targets: ["benadrukken","beschermen"] },
-          { text: "Mila wil thuis water besparen, zodat zij meer begrijpt. Een duurzaam leven begint klein, terwijl Mila rustig meedoet. Ze doet de kraan sneller dicht. Ook neemt ze vaker de fiets.", imageUrl: images.clean, targets: ["besparen","duurzaam"] }
+          { text: "Groningen wil meer groene paden aanleggen. Toch blijft Mila rustig meedoen. Drukte vraagt om een kleine aanpassing. Mila blijft op het pad. Op die manier begrijpt zij meer. Zo krijgen dieren meer rust.", imageUrl: images.nature, targets: ["aanleggen","aanpassing"] },
+          { text: "Een schoon park is aantrekkelijk voor gezinnen. Daarna kijkt Mila nog eens goed. Een afvalstof hoort niet in het gras. Mila raapt een blikje op. Toch blijft zij rustig meedoen. Daarna gooit ze het in de bak.", imageUrl: images.clean, targets: ["aantrekkelijk","afvalstof"] },
+          { text: "Na regen moeten we water afvoeren. Daardoor ziet Mila meer details. De beheerder kijkt naar de natte paden. Mila ziet plassen bij de brug, waardoor zij meer begrijpt. Samen zetten ze een lint neer.", imageUrl: images.garden, targets: ["afvoeren","beheerder"] },
+          { text: "Mensen van het park benadrukken dat natuur hulp nodig heeft. Ook kijkt Mila aandachtig. Bezoekers moeten jonge planten beschermen. Mila blijft op afstand, zodat zij de situatie beter begrijpt. Zo blijven de planten heel.", imageUrl: images.nature, targets: ["benadrukken","beschermen"] },
+          { text: "Mila wil thuis water besparen. Daarna maakt zij een korte notitie. Een duurzaam leven begint klein. Bovendien leert Mila op haar eigen tempo. Ze doet de kraan sneller dicht. Ook neemt ze vaker de fiets.", imageUrl: images.clean, targets: ["besparen","duurzaam"] }
         ],
         glossary: [
           ["aanleggen","maken of bouwen"],["aanpassing","verandering om iets beter te maken"],["aantrekkelijk","mooi of prettig"],["afvalstof","schadelijk restmateriaal"],["afvoeren","weg laten lopen of wegbrengen"],["beheerder","persoon die voor een plek zorgt"],["benadrukken","extra duidelijk zeggen"],["beschermen","veilig houden"],["besparen","minder gebruiken"],["duurzaam","goed voor de toekomst"]
@@ -926,11 +1275,11 @@
       "3-UNESCO werelderfgoed": {
         vocab: themes[2].vocab,
         pages: [
-          { text: "Groningen heeft oude monumenten, terwijl Mila goed kijkt. We willen ze behouden. We moeten muren en daken beschermen tegen schade. Mila kijkt naar een oud gebouw, zodat zij meer begrijpt.", imageUrl: images.archive, targets: ["behouden","beschermen"] },
-          { text: "Jongeren leren over de stad, terwijl Mila rustig meedoet. Dat kan kennis bevorderen. Oude documenten bewaren we in het Groninger Archief. Mila kijkt naar foto's van vroeger, zodat zij meer begrijpt.", imageUrl: images.study, targets: ["bevorderen","bewaren"] },
-          { text: "Mila maakt een eigentijds filmpje over een oud huis, terwijl zij rustig meedoet. Een expert wil de staat van het gebouw evalueren, terwijl Mila goed kijkt. Hij kijkt naar de stenen. Daarna praten ze over herstel.", imageUrl: images.team, targets: ["eigentijds","evalueren"] },
-          { text: "Elk oud gebouw heeft een verhaal, terwijl Mila goed kijkt. Soms is een aanpassing nodig bij de ingang. Dan kan een rolstoel naar binnen. Mila ziet een nieuwe helling, zodat zij meer begrijpt.", imageUrl: images.archive, targets: ["gebouw","aanpassing"] },
-          { text: "Een gids wil een wandeling door de stad aanraden, terwijl Mila goed luistert. Het succes kan afhangen van onze zorg voor de stad. Mila loopt mee langs de gracht, terwijl zij de buurt leert kennen. Ze maakt foto's van oude huizen.", imageUrl: images.friends, targets: ["aanraden","afhangen van"] }
+          { text: "Groningen heeft oude monumenten. Intussen kijkt Mila om zich heen. We willen ze behouden. We moeten muren en daken beschermen tegen schade. Mila kijkt naar een oud gebouw. Bovendien begrijpt zij de situatie beter.", imageUrl: images.archive, targets: ["behouden","beschermen"] },
+          { text: "Jongeren leren over de stad. Zo doet Mila stap voor stap mee. Dat kan kennis bevorderen. Oude documenten bewaren we in het Groninger Archief. Mila kijkt naar foto's van vroeger. Daardoor begrijpt zij meer.", imageUrl: images.study, targets: ["bevorderen","bewaren"] },
+          { text: "Mila maakt een eigentijds filmpje over een oud huis. Bovendien leert zij op haar eigen tempo. Een expert wil de staat van het gebouw evalueren. Mila kijkt goed rond. Hij kijkt naar de stenen. Daarna praten ze over herstel.", imageUrl: images.team, targets: ["eigentijds","evalueren"] },
+          { text: "Elk oud gebouw heeft een verhaal. Daarna kijkt Mila nog eens goed. Soms is een aanpassing nodig bij de ingang. Dan kan een rolstoel naar binnen. Mila ziet een nieuwe helling. Zo begrijpt zij de situatie beter.", imageUrl: images.archive, targets: ["gebouw","aanpassing"] },
+          { text: "Een gids wil een wandeling door de stad aanraden. Intussen stelt Mila een korte vraag. Het succes kan afhangen van onze zorg voor de stad. Mila loopt mee langs de gracht. Wanneer zij rondloopt, leert zij de buurt beter kennen. Ze maakt foto's van oude huizen.", imageUrl: images.friends, targets: ["aanraden","afhangen van"] }
         ],
         glossary: [
           ["behouden","in stand houden"],["beschermen","veilig houden tegen schade"],["bevorderen","vooruithelpen"],["bewaren","veilig opslaan"],["eigentijds","modern"],["evalueren","beoordelen"],["gebouw","huis, kerk of ander bouwwerk"],["aanpassing","kleine verandering"],["aanraden","adviseren"],["afhangen van","bepaald worden door"]
@@ -944,11 +1293,11 @@
       "4-Stage lopen": {
         vocab: themes[3].vocab,
         pages: [
-          { text: "Stage lopen vraagt een actieve aanpak, terwijl Mila goed luistert. De plek moet aansluiten op de opleiding. Mila maakt een lijst, terwijl zij rustig meedoet. Daarna belt ze een bedrijf.", imageUrl: images.team, targets: ["aanpak","aansluiten op"] },
-          { text: "Bedrijven willen jong talent aantrekken, terwijl Mila rustig meedoet. Tijdens stage bouwt Mila een netwerk op, zodat zij meer begrijpt. Ze praat met collega's. Ze bewaart hun namen.", imageUrl: images.work, targets: ["aantrekken","netwerk"] },
-          { text: "In sommige sectoren is hulp nijpend, terwijl Mila rustig meedoet. Dat is een goed argument voor stage. Mila ziet dat haar hulp nodig is, zodat zij meer begrijpt. Ze doet kleine taken.", imageUrl: images.study, targets: ["nijpend","argument"] },
-          { text: "Mila leert theorie omzetten in werk, terwijl zij rustig meedoet. Ze moet keuzes onderbouwen. Haar mentor stelt vragen. Mila legt rustig uit, zodat zij meer begrijpt.", imageUrl: images.work, targets: ["omzetten","onderbouwen"] },
-          { text: "Stage helpt fouten beperken, terwijl Mila rustig meedoet. Mila leert welke bedrijfstak bij haar past, terwijl zij rustig meedoet. Ze kijkt naar zorg en techniek. Haar toekomst wordt duidelijker.", imageUrl: images.team, targets: ["beperken","bedrijfstak"] }
+          { text: "Stage lopen vraagt een actieve aanpak. Mila luistert daarom goed. De plek moet aansluiten op de opleiding. Mila maakt een lijst. Zo doet zij stap voor stap mee. Daarna belt ze een bedrijf.", imageUrl: images.team, targets: ["aanpak","aansluiten op"] },
+          { text: "Bedrijven willen jong talent aantrekken. Ondertussen doet Mila rustig mee. Tijdens stage bouwt Mila een netwerk op. Daarom onthoudt zij meer. Ze praat met collega's. Ze bewaart hun namen.", imageUrl: images.work, targets: ["aantrekken","netwerk"] },
+          { text: "In sommige sectoren is hulp nijpend. Daarna doet Mila rustig mee. Dat is een goed argument voor stage. Mila ziet dat haar hulp nodig is. Op die manier begrijpt zij meer. Ze doet kleine taken.", imageUrl: images.study, targets: ["nijpend","argument"] },
+          { text: "Mila leert theorie omzetten in werk. Ondertussen doet zij rustig mee. Ze moet keuzes onderbouwen. Haar mentor stelt vragen. Mila legt rustig uit, waardoor zij meer begrijpt.", imageUrl: images.work, targets: ["omzetten","onderbouwen"] },
+          { text: "Stage helpt fouten beperken. Mila doet ook rustig mee. Mila leert welke bedrijfstak bij haar past. Daarna doet zij rustig mee. Ze kijkt naar zorg en techniek. Haar toekomst wordt duidelijker.", imageUrl: images.team, targets: ["beperken","bedrijfstak"] }
         ],
         glossary: [
           ["aanpak","manier van werken"],["aansluiten op","goed passen bij"],["aantrekken","interesseren of binnenhalen"],["netwerk","groep contacten"],["nijpend","dringend of ernstig"],["argument","reden"],["omzetten","veranderen in iets praktisch"],["onderbouwen","met feiten uitleggen"],["beperken","kleiner maken"],["bedrijfstak","sector"]
@@ -1067,11 +1416,11 @@
       "Het UWV",
       ["blijken","aarzelen","aanvragen","uitgebreid","stimuleren","aanzienlijk","arbeidsmarkt","bevorderen","toepassen","uitkering"],
       [
-        { scene: "Afspraak bij het UWV", targets: ["blijken","aarzelen"], text: "Mila verliest haar baan in Groningen, zodat zij meer begrijpt. Uit haar gesprek kan blijken dat ze snel hulp nodig heeft, terwijl Mila goed luistert. Toch aarzelen veel mensen bij het UWV. De medewerker legt alles rustig uit." },
-        { scene: "Online documenten uploaden", targets: ["aanvragen","uitgebreid"], text: "Mila kan online een uitkering aanvragen, terwijl zij de regels leert kennen. Het UWV heeft een uitgebreid formulier, terwijl Mila rustig meedoet. Ze verzamelt oude papieren van werk en haar paspoort. Daarna verstuurt ze de aanvraag." },
-        { scene: "Cursus en begeleiding", targets: ["stimuleren","aanzienlijk"], text: "De adviseur wil Mila stimuleren om een cursus te volgen, zodat zij meer begrijpt. Kennis van de computer helpt aanzienlijk bij werk zoeken. Mila oefent elke dinsdag, terwijl zij rustig meedoet. Ze krijgt weer vertrouwen." },
-        { scene: "Vacatures zoeken", targets: ["arbeidsmarkt","bevorderen"], text: "Samen bekijken ze de arbeidsmarkt in Groningen, terwijl Mila rustig meedoet. De adviseur wil haar kans op werk bevorderen. Mila schrijft een korte brief, terwijl zij rustig meedoet. Daarna oefent ze een gesprek." },
-        { scene: "Nieuwe start", targets: ["toepassen","uitkering"], text: "Mila leert tips toepassen tijdens het zoeken, terwijl zij rustig meedoet. Als zij werk vindt, stopt haar uitkering, terwijl Mila rustig meedoet. Ze maakt een lijst met bedrijven. Elke dag stuurt ze één bericht." }
+        { scene: "Afspraak bij het UWV", targets: ["blijken","aarzelen"], text: "Mila verliest haar baan in Groningen, zodat zij de situatie beter begrijpt. Uit haar gesprek kan blijken dat ze snel hulp nodig heeft. Daarna luistert Mila nog even. Toch aarzelen veel mensen bij het UWV. De medewerker legt alles rustig uit." },
+        { scene: "Online documenten uploaden", targets: ["aanvragen","uitgebreid"], text: "Mila kan online een uitkering aanvragen. Zij leert de regels stap voor stap kennen. Het UWV heeft een uitgebreid formulier. Toch blijft Mila rustig meedoen. Ze verzamelt oude papieren van werk en haar paspoort. Daarna verstuurt ze de aanvraag." },
+        { scene: "Cursus en begeleiding", targets: ["stimuleren","aanzienlijk"], text: "De adviseur wil Mila stimuleren om een cursus te volgen. Daarna maakt zij een korte notitie. Kennis van de computer helpt aanzienlijk bij werk zoeken. Mila oefent elke dinsdag. Zij doet ook rustig mee. Ze krijgt weer vertrouwen." },
+        { scene: "Vacatures zoeken", targets: ["arbeidsmarkt","bevorderen"], text: "Samen bekijken ze de arbeidsmarkt in Groningen. Bovendien leert Mila op haar eigen tempo. De adviseur wil haar kans op werk bevorderen. Mila schrijft een korte brief. Toch blijft zij rustig meedoen. Daarna oefent ze een gesprek." },
+        { scene: "Nieuwe start", targets: ["toepassen","uitkering"], text: "Mila leert tips toepassen tijdens het zoeken. Bovendien leert zij op haar eigen tempo. Als zij werk vindt, stopt haar uitkering. Zo doet Mila stap voor stap mee. Ze maakt een lijst met bedrijven. Elke dag stuurt ze één bericht." }
       ],
       [["blijken","duidelijk worden"],["aarzelen","twijfelen"],["aanvragen","officieel vragen"],["uitgebreid","groot en compleet"],["stimuleren","aanmoedigen"],["aanzienlijk","heel veel"],["arbeidsmarkt","banen en werkzoekenden"],["bevorderen","vooruithelpen"],["toepassen","in praktijk gebruiken"],["uitkering","tijdelijke geldelijke steun"]],
       [
@@ -1087,11 +1436,11 @@
       "Buurtbewoners",
       ["blijken","aarzelen","uitgebreid","aanvragen","cultuurverschil","toepassen","bevorderen","stimuleren","signaleren","arbeidsmarkt"],
       [
-        { scene: "Eerste buurtbijeenkomst", targets: ["blijken","aarzelen"], text: "In Mila's straat wonen veel soorten mensen, terwijl zij de buurt leert kennen. Tijdens een buurtavond kan blijken dat veel buren contact willen. Sommige bewoners aarzelen nog. Mila begint met een korte groet, zodat zij meer begrijpt." },
-        { scene: "Buurtfeest plannen", targets: ["uitgebreid","aanvragen"], text: "De buurt maakt een uitgebreid plan voor een feest, terwijl Mila rustig meedoet. Mila wil tafels aanvragen bij de wijk, terwijl zij de regels leert kennen. Ze vraagt ook wie eten kan maken. Daarna hangt ze kaartjes op." },
-        { scene: "Samen koken", targets: ["cultuurverschil","toepassen"], text: "Bij het eten merkt Mila een cultuurverschil, zodat zij meer begrijpt. Sommige buren eten anders of later, terwijl Mila rustig meedoet. Ze leert rustig vragen stellen en luisteren. Zo kan zij nieuwe gewoontes toepassen." },
-        { scene: "Buren helpen elkaar", targets: ["bevorderen","stimuleren"], text: "Actieve buren willen contact bevorderen, terwijl Mila rustig meedoet. Ze stimuleren mensen om elkaar te helpen. Mila brengt soep naar een zieke buur, zodat zij meer begrijpt. Daarna praten ze vaker." },
-        { scene: "Veilige straat", targets: ["signaleren","arbeidsmarkt"], text: "Buren kunnen problemen snel signaleren, terwijl Mila rustig meedoet. Ze kennen ook mensen op de arbeidsmarkt. Mila helpt een jongere met een contact, terwijl zij rustig meedoet. De straat voelt veiliger." }
+        { scene: "Eerste buurtbijeenkomst", targets: ["blijken","aarzelen"], text: "In Mila's straat wonen veel soorten mensen, omdat zij de buurt wil leren kennen. Tijdens een buurtavond kan blijken dat veel buren contact willen. Sommige bewoners aarzelen nog. Mila begint met een korte groet. Bovendien begrijpt zij de situatie beter." },
+        { scene: "Buurtfeest plannen", targets: ["uitgebreid","aanvragen"], text: "De buurt maakt een uitgebreid plan voor een feest. Ondertussen doet Mila rustig mee. Mila wil tafels aanvragen bij de wijk. Voordat zij verdergaat, leest zij de regels. Ze vraagt ook wie eten kan maken. Daarna hangt ze kaartjes op." },
+        { scene: "Samen koken", targets: ["cultuurverschil","toepassen"], text: "Bij het eten merkt Mila een cultuurverschil. Daardoor begrijpt zij meer. Sommige buren eten anders of later. Daarna doet Mila rustig mee. Ze leert rustig vragen stellen en luisteren. Zo kan zij nieuwe gewoontes toepassen." },
+        { scene: "Buren helpen elkaar", targets: ["bevorderen","stimuleren"], text: "Actieve buren willen contact bevorderen. Mila doet ook rustig mee. Ze stimuleren mensen om elkaar te helpen. Mila brengt soep naar een zieke buur. Zo begrijpt zij de situatie beter. Daarna praten ze vaker." },
+        { scene: "Veilige straat", targets: ["signaleren","arbeidsmarkt"], text: "Buren kunnen problemen snel signaleren. Toch blijft Mila rustig meedoen. Ze kennen ook mensen op de arbeidsmarkt. Mila helpt een jongere met een contact. Zo doet zij stap voor stap mee. De straat voelt veiliger." }
       ],
       [["blijken","duidelijk worden"],["aarzelen","twijfelen"],["uitgebreid","met veel onderdelen"],["aanvragen","officieel vragen"],["cultuurverschil","verschil in gewoontes"],["toepassen","praktisch gebruiken"],["bevorderen","vooruithelpen"],["stimuleren","aanmoedigen"],["signaleren","opmerken"],["arbeidsmarkt","banen en werkzoekenden"]],
       [
@@ -1107,11 +1456,11 @@
       "Nationale parken",
       ["beheerder","benadrukken","beschermen","besparen","duurzaam","klimaatverandering","kwetsbaar","aanleggen","aanpassing","aantrekkelijk"],
       [
-        { scene: "Met de parkbeheerder", targets: ["beheerder","benadrukken"], text: "Mila bezoekt een stuk natuur buiten Groningen, terwijl zij de buurt leert kennen. De beheerder loopt met haar over het pad, terwijl Mila rustig meedoet. Hij wil benadrukken dat stilte belangrijk is. Vogels krijgen zo meer rust." },
-        { scene: "Dieren beschermen", targets: ["beschermen","besparen"], text: "Wandelaars blijven op de route om dieren te beschermen, terwijl Mila goed kijkt. Mila leert ook water besparen, terwijl zij rustig meedoet. Ze neemt een kleine fles mee. Ze vult die thuis opnieuw." },
-        { scene: "Duurzame keuzes", targets: ["duurzaam","klimaatverandering"], text: "Een duurzaam plan helpt het park, terwijl Mila goed kijkt. Door klimaatverandering zijn zomers droger. Mila ziet geel gras langs het pad, zodat zij meer begrijpt. De gids wijst naar jonge bomen." },
-        { scene: "Kwetsbare heide", targets: ["kwetsbaar","aanleggen"], text: "Jonge heide is kwetsbaar, terwijl Mila rustig meedoet. Vrijwilligers willen duidelijke paden aanleggen. Mila helpt houten paaltjes dragen, terwijl zij rustig meedoet. Niemand loopt meer door de planten." },
-        { scene: "Nieuwe route", targets: ["aanpassing","aantrekkelijk"], text: "Een aanpassing van de route helpt vogels, terwijl Mila rustig meedoet. Het park blijft aantrekkelijk voor bezoekers. Mila loopt een klein stukje om, terwijl zij de buurt leert kennen. Ze begrijpt de regel." }
+        { scene: "Met de parkbeheerder", targets: ["beheerder","benadrukken"], text: "Mila bezoekt een stuk natuur buiten Groningen. Intussen leert zij de buurt kennen. De beheerder loopt met haar over het pad. Bovendien leert Mila op haar eigen tempo. Hij wil benadrukken dat stilte belangrijk is. Vogels krijgen zo meer rust." },
+        { scene: "Dieren beschermen", targets: ["beschermen","besparen"], text: "Wandelaars blijven op de route om dieren te beschermen. Daardoor ziet Mila meer details. Mila leert ook water besparen. Ondertussen doet zij rustig mee. Ze neemt een kleine fles mee. Ze vult die thuis opnieuw." },
+        { scene: "Duurzame keuzes", targets: ["duurzaam","klimaatverandering"], text: "Een duurzaam plan helpt het park. Ook kijkt Mila aandachtig. Door klimaatverandering zijn zomers droger. Mila ziet geel gras langs het pad. Daarom onthoudt zij meer. De gids wijst naar jonge bomen." },
+        { scene: "Kwetsbare heide", targets: ["kwetsbaar","aanleggen"], text: "Jonge heide is kwetsbaar. Zo doet Mila stap voor stap mee. Vrijwilligers willen duidelijke paden aanleggen. Mila helpt houten paaltjes dragen. Daarna doet zij rustig mee. Niemand loopt meer door de planten." },
+        { scene: "Nieuwe route", targets: ["aanpassing","aantrekkelijk"], text: "Een aanpassing van de route helpt vogels. Ondertussen doet Mila rustig mee. Het park blijft aantrekkelijk voor bezoekers. Mila loopt een klein stukje om. Ze leert de buurt stap voor stap kennen. Ze begrijpt de regel." }
       ],
       [["beheerder","persoon die voor een gebied zorgt"],["benadrukken","extra duidelijk zeggen"],["beschermen","veilig houden"],["besparen","minder gebruiken"],["duurzaam","goed voor de toekomst"],["klimaatverandering","verandering van het klimaat"],["kwetsbaar","gevoelig voor schade"],["aanleggen","maken of bouwen"],["aanpassing","verandering"],["aantrekkelijk","mooi of uitnodigend"]],
       [
@@ -1127,11 +1476,11 @@
       "Drinkwatertekort",
       ["afvalstof","afvoeren","beheerder","benadrukken","beschermen","besparen","duurzaam","klimaatverandering","kwetsbaar","aanpassing"],
       [
-        { scene: "Waterles in Groningen", targets: ["afvalstof","afvoeren"], text: "Mila volgt een les over drinkwater, zodat zij meer begrijpt. Een afvalstof mag niet in de rivier komen, terwijl Mila rustig meedoet. Vuil water moeten we veilig afvoeren. De docent laat twee flessen zien." },
-        { scene: "Waterbedrijf bezoeken", targets: ["beheerder","benadrukken"], text: "De beheerder van het bedrijf voor water geeft uitleg, terwijl Mila goed kijkt. Hij wil benadrukken dat schoon water kostbaar is. Mila kijkt naar de filters, zodat zij meer begrijpt. Ze stelt een korte vraag." },
-        { scene: "Bronnen beschermen", targets: ["beschermen","besparen"], text: "We moeten bronnen beschermen tegen vuil, terwijl Mila rustig meedoet. Thuis kan Mila water besparen, zodat zij meer begrijpt. Ze doucht korter. Ze draait de kraan dicht." },
-        { scene: "Duurzaam huishouden", targets: ["duurzaam","klimaatverandering"], text: "Een duurzaam huis gebruikt water bewust, terwijl Mila goed kijkt. Door klimaatverandering zijn droge weken vaker normaal. Mila zet een bak onder de regenpijp, zodat zij meer begrijpt. Ze gebruikt dat water voor planten." },
-        { scene: "Gedrag aanpassen", targets: ["kwetsbaar","aanpassing"], text: "Het water in de stad is kwetsbaar bij lange droogte, terwijl Mila goed kijkt. Daarom is een aanpassing van gedrag nodig. Mila deelt tips met buren, zodat zij meer begrijpt. Iedereen kan minder water gebruiken." }
+        { scene: "Waterles in Groningen", targets: ["afvalstof","afvoeren"], text: "Mila volgt een les over drinkwater. Op die manier begrijpt zij meer. Een afvalstof mag niet in de rivier komen. Daarna doet Mila rustig mee. Vuil water moeten we veilig afvoeren. De docent laat twee flessen zien." },
+        { scene: "Waterbedrijf bezoeken", targets: ["beheerder","benadrukken"], text: "De beheerder van het bedrijf voor water geeft uitleg. Intussen kijkt Mila om zich heen. Hij wil benadrukken dat schoon water kostbaar is. Mila kijkt naar de filters, waardoor zij meer begrijpt. Ze stelt een korte vraag." },
+        { scene: "Bronnen beschermen", targets: ["beschermen","besparen"], text: "We moeten bronnen beschermen tegen vuil. Mila doet ook rustig mee. Thuis kan Mila water besparen, zodat zij de situatie beter begrijpt. Ze doucht korter. Ze draait de kraan dicht." },
+        { scene: "Duurzaam huishouden", targets: ["duurzaam","klimaatverandering"], text: "Een duurzaam huis gebruikt water bewust. Mila kijkt goed rond. Door klimaatverandering zijn droge weken vaker normaal. Mila zet een bak onder de regenpijp. Daarna maakt zij een korte notitie. Ze gebruikt dat water voor planten." },
+        { scene: "Gedrag aanpassen", targets: ["kwetsbaar","aanpassing"], text: "Het water in de stad is kwetsbaar bij lange droogte. Daarna kijkt Mila nog eens goed. Daarom is een aanpassing van gedrag nodig. Mila deelt tips met buren. Bovendien begrijpt zij de situatie beter. Iedereen kan minder water gebruiken." }
       ],
       [["afvalstof","schadelijk restmateriaal"],["afvoeren","veilig wegbrengen"],["beheerder","verantwoordelijke persoon"],["benadrukken","extra duidelijk zeggen"],["beschermen","veilig houden"],["besparen","minder gebruiken"],["duurzaam","goed voor de toekomst"],["klimaatverandering","verandering van het klimaat"],["kwetsbaar","gevoelig voor schade"],["aanpassing","verandering in gedrag of situatie"]],
       [
@@ -1147,11 +1496,11 @@
       "Een ecoduct",
       ["aanleggen","aanpassing","aantrekkelijk","afvalstof","afvoeren","beheerder","benadrukken","beschermen","kwetsbaar","duurzaam"],
       [
-        { scene: "Natuurbrug ontwerpen", targets: ["aanleggen","aanpassing"], text: "Mila bekijkt een plan voor een ecoduct, zodat zij meer begrijpt. De provincie wil de brug aanleggen, terwijl Mila goed kijkt. De weg vraagt om een aanpassing. Zo steken dieren veilig over." },
-        { scene: "Groene oversteek", targets: ["aantrekkelijk","afvalstof"], text: "Een groene brug is aantrekkelijk voor kleine dieren, terwijl Mila goed kijkt. Minder auto's geven minder afvalstof in het gebied. Mila ziet struiken en gras, zodat zij meer begrijpt. De route lijkt op natuur." },
-        { scene: "Water op de helling", targets: ["afvoeren","beheerder"], text: "We moeten regenwater goed afvoeren, terwijl Mila goed kijkt. De beheerder kijkt naar de helling. Mila kijkt naar een kleine camera, zodat zij meer begrijpt. Zo weten ze of dieren komen." },
-        { scene: "Biologen leggen uit", targets: ["benadrukken","beschermen"], text: "Biologen benadrukken dat gebieden verbonden moeten zijn, terwijl Mila rustig meedoet. Ecoducten helpen dieren beschermen. Mila ziet sporen in zand, zodat zij meer begrijpt. Ze maakt een foto." },
-        { scene: "Veilig netwerk", targets: ["kwetsbaar","duurzaam"], text: "Kleine dieren zijn kwetsbaar bij drukke wegen, terwijl Mila goed kijkt. Een duurzaam netwerk van bruggen helpt. Mila kijkt naar de weg onder de brug, zodat zij meer begrijpt. Ze vindt het plan slim." }
+        { scene: "Natuurbrug ontwerpen", targets: ["aanleggen","aanpassing"], text: "Mila bekijkt een plan voor een ecoduct. Daardoor begrijpt zij meer. De provincie wil de brug aanleggen. Daardoor ziet Mila meer details. De weg vraagt om een aanpassing. Zo steken dieren veilig over." },
+        { scene: "Groene oversteek", targets: ["aantrekkelijk","afvalstof"], text: "Een groene brug is aantrekkelijk voor kleine dieren. Ook kijkt Mila aandachtig. Minder auto's geven minder afvalstof in het gebied. Mila ziet struiken en gras. Zo begrijpt zij de situatie beter. De route lijkt op natuur." },
+        { scene: "Water op de helling", targets: ["afvoeren","beheerder"], text: "We moeten regenwater goed afvoeren. Intussen kijkt Mila om zich heen. De beheerder kijkt naar de helling. Mila kijkt naar een kleine camera. Daarom onthoudt zij meer. Zo weten ze of dieren komen." },
+        { scene: "Biologen leggen uit", targets: ["benadrukken","beschermen"], text: "Biologen benadrukken dat gebieden verbonden moeten zijn. Toch blijft Mila rustig meedoen. Ecoducten helpen dieren beschermen. Mila ziet sporen in zand. Op die manier begrijpt zij meer. Ze maakt een foto." },
+        { scene: "Veilig netwerk", targets: ["kwetsbaar","duurzaam"], text: "Kleine dieren zijn kwetsbaar bij drukke wegen. Mila kijkt goed rond. Een duurzaam netwerk van bruggen helpt. Mila kijkt naar de weg onder de brug, waardoor zij meer begrijpt. Ze vindt het plan slim." }
       ],
       [["aanleggen","bouwen of maken"],["aanpassing","verandering"],["aantrekkelijk","uitnodigend"],["afvalstof","schadelijke stof"],["afvoeren","weg laten lopen"],["beheerder","persoon die toezicht houdt"],["benadrukken","extra duidelijk zeggen"],["beschermen","veilig houden"],["kwetsbaar","gevoelig voor gevaar"],["duurzaam","goed voor de lange termijn"]],
       [
@@ -1167,11 +1516,11 @@
       "Gerrit Rietveld",
       ["behouden","bewaren","eigentijds","evalueren","gebouw","aanraden","afhangen van","bereiken","beschaving","beschermen"],
       [
-        { scene: "Mila bezoekt een designles", targets: ["behouden","bewaren"], text: "Mila volgt een les over Gerrit Rietveld, zodat zij meer begrijpt. Musea willen zijn stoelen behouden, terwijl Mila rustig meedoet. Ze willen tekeningen veilig bewaren. Studenten kunnen ze zo bekijken." },
-        { scene: "Moderne vormen begrijpen", targets: ["eigentijds","evalueren"], text: "Rietvelds stijl was toen heel eigentijds, terwijl Mila rustig meedoet. Mila leert kleuren en vormen evalueren, terwijl zij rustig meedoet. Ze kijkt naar rood, blauw en geel. De simpele stoel valt op." },
-        { scene: "Architectuur bekijken", targets: ["gebouw","aanraden"], text: "De docent toont een beroemd gebouw, terwijl Mila goed luistert. Hij wil een bezoek aanraden. Mila kijkt naar de open kamers, zodat zij meer begrijpt. Ze stelt een vraag over wonen." },
-        { scene: "Design voor iedereen", targets: ["afhangen van","bereiken"], text: "Of kunst je raakt, kan afhangen van je ervaring, terwijl Mila rustig meedoet. Rietveld wilde veel mensen bereiken. Mila vergelijkt zijn stoel met moderne meubels, zodat zij meer begrijpt. Ze ziet dat simpel mooi kan zijn." },
-        { scene: "Cultureel erfgoed delen", targets: ["beschaving","beschermen"], text: "Rietveld hoort bij de Nederlandse beschaving, terwijl Mila goed luistert. We moeten zijn werk beschermen. Mila maakt een korte presentatie, terwijl zij rustig meedoet. De klas luistert rustig." }
+        { scene: "Mila bezoekt een designles", targets: ["behouden","bewaren"], text: "Mila volgt een les over Gerrit Rietveld, zodat zij de situatie beter begrijpt. Musea willen zijn stoelen behouden. Bovendien leert Mila op haar eigen tempo. Ze willen tekeningen veilig bewaren. Studenten kunnen ze zo bekijken." },
+        { scene: "Moderne vormen begrijpen", targets: ["eigentijds","evalueren"], text: "Rietvelds stijl was toen heel eigentijds. Zo doet Mila stap voor stap mee. Mila leert kleuren en vormen evalueren. Zij doet ook rustig mee. Ze kijkt naar rood, blauw en geel. De simpele stoel valt op." },
+        { scene: "Architectuur bekijken", targets: ["gebouw","aanraden"], text: "De docent toont een beroemd gebouw. Ook luistert Mila aandachtig. Hij wil een bezoek aanraden. Mila kijkt naar de open kamers. Daarna maakt zij een korte notitie. Ze stelt een vraag over wonen." },
+        { scene: "Design voor iedereen", targets: ["afhangen van","bereiken"], text: "Of kunst je raakt, kan afhangen van je ervaring. Ondertussen doet Mila rustig mee. Rietveld wilde veel mensen bereiken. Mila vergelijkt zijn stoel met moderne meubels. Bovendien begrijpt zij de situatie beter. Ze ziet dat simpel mooi kan zijn." },
+        { scene: "Cultureel erfgoed delen", targets: ["beschaving","beschermen"], text: "Rietveld hoort bij de Nederlandse beschaving. Daardoor begrijpt Mila de uitleg beter. We moeten zijn werk beschermen. Mila maakt een korte presentatie. Toch blijft zij rustig meedoen. De klas luistert rustig." }
       ],
       [["behouden","in stand houden"],["bewaren","veilig opslaan"],["eigentijds","modern"],["evalueren","beoordelen"],["gebouw","bouwwerk"],["aanraden","adviseren"],["afhangen van","bepaald worden door"],["bereiken","contact maken met"],["beschaving","cultuur en ontwikkeling"],["beschermen","veilig houden"]],
       [
@@ -1187,11 +1536,11 @@
       "Eetgewoontes",
       ["behouden","eigentijds","gebouw","aanraden","afhangen van","bereiken","cultuurverschil","toepassen","bewaren","evalueren"],
       [
-        { scene: "Avondeten om zes uur", targets: ["behouden","eigentijds"], text: "Mila ziet dat veel Nederlanders vroeg eten, zodat zij meer begrijpt. Sommige gezinnen willen die gewoonte behouden, terwijl Mila rustig meedoet. Ook een menu kan eigentijds zijn. Ze ziet oude en nieuwe smaken." },
-        { scene: "Wijkrestaurant in Groningen", targets: ["gebouw","aanraden"], text: "Mila bezoekt een restaurant in een oud gebouw, terwijl zij de buurt leert kennen. Een buurvrouw wil mosterdsoep aanraden. Mila bestelt een kleine kom, terwijl zij goed luistert. De soep ruikt warm." },
-        { scene: "Lokale ingrediënten", targets: ["afhangen van","bereiken"], text: "De smaak kan afhangen van verse groente, terwijl Mila rustig meedoet. Door samen te koken kun je mensen bereiken. Mila snijdt prei met buren, zodat zij meer begrijpt. Ze praten over eten." },
-        { scene: "Samen koken", targets: ["cultuurverschil","toepassen"], text: "Bij kruiden ontstaat een cultuurverschil, terwijl Mila rustig meedoet. Mila leert woorden voor smaak toepassen, terwijl zij rustig meedoet. Ze vraagt wat pittig betekent. Iedereen proeft en lacht." },
-        { scene: "Recepten delen", targets: ["bewaren","evalueren"], text: "Na het eten wil Mila het recept bewaren, zodat zij meer begrijpt. Ze wil ook de nieuwe woorden evalueren, terwijl Mila rustig meedoet. Ze schrijft drie woorden op. Eten helpt haar met taal." }
+        { scene: "Avondeten om zes uur", targets: ["behouden","eigentijds"], text: "Mila ziet dat veel Nederlanders vroeg eten. Daardoor begrijpt zij meer. Sommige gezinnen willen die gewoonte behouden. Daarna doet Mila rustig mee. Ook een menu kan eigentijds zijn. Ze ziet oude en nieuwe smaken." },
+        { scene: "Wijkrestaurant in Groningen", targets: ["gebouw","aanraden"], text: "Mila bezoekt een restaurant in een oud gebouw. Wanneer zij rondloopt, leert zij de buurt beter kennen. Een buurvrouw wil mosterdsoep aanraden. Mila bestelt een kleine kom. Daarna luistert zij nog even. De soep ruikt warm." },
+        { scene: "Lokale ingrediënten", targets: ["afhangen van","bereiken"], text: "De smaak kan afhangen van verse groente. Mila doet ook rustig mee. Door samen te koken kun je mensen bereiken. Mila snijdt prei met buren. Zo begrijpt zij de situatie beter. Ze praten over eten." },
+        { scene: "Samen koken", targets: ["cultuurverschil","toepassen"], text: "Bij kruiden ontstaat een cultuurverschil. Toch blijft Mila rustig meedoen. Mila leert woorden voor smaak toepassen. Bovendien leert zij op haar eigen tempo. Ze vraagt wat pittig betekent. Iedereen proeft en lacht." },
+        { scene: "Recepten delen", targets: ["bewaren","evalueren"], text: "Na het eten wil Mila het recept bewaren. Daarom onthoudt zij meer. Ze wil ook de nieuwe woorden evalueren. Bovendien leert Mila op haar eigen tempo. Ze schrijft drie woorden op. Eten helpt haar met taal." }
       ],
       [["behouden","in stand houden"],["eigentijds","modern"],["gebouw","pand"],["aanraden","adviseren"],["afhangen van","bepaald worden door"],["bereiken","contact maken met"],["cultuurverschil","verschil in gewoontes"],["toepassen","praktisch gebruiken"],["bewaren","opslaan"],["evalueren","beoordelen"]],
       [
@@ -1207,11 +1556,11 @@
       "Cultuurverschillen",
       ["behouden","eigentijds","aanraden","afhangen van","bereiken","cultuurverschil","toepassen","bewaren","evalueren","beschaving"],
       [
-        { scene: "Nieuwe gewoontes leren", targets: ["behouden","eigentijds"], text: "Mila wil haar eigen tradities behouden, zodat zij meer begrijpt. Ze leert ook eigentijds praten in Nederland, terwijl Mila rustig meedoet. Soms zegt ze direct wat ze bedoelt. Soms luistert ze eerst." },
-        { scene: "Advies van de docent", targets: ["aanraden","afhangen van"], text: "De docent wil vragen stellen aanraden, terwijl Mila goed luistert. Goed contact kan afhangen van openheid. Mila oefent korte zinnen, terwijl zij rustig meedoet. Ze durft vaker iets te vragen." },
-        { scene: "Taal als brug", targets: ["bereiken","cultuurverschil"], text: "Met eenvoudige taal kan Mila meer mensen bereiken, zodat zij meer begrijpt. Een cultuurverschil voelt dan minder groot, terwijl Mila rustig meedoet. Ze praat met een buurman over afspraken. Ze vragen rustig door." },
-        { scene: "Communicatietips oefenen", targets: ["toepassen","bewaren"], text: "Mila leert tips toepassen in gesprekken, terwijl zij goed luistert. Ze wil nieuwe zinnen bewaren, terwijl Mila rustig meedoet. Ze schrijft ze in haar boekje. Daarna oefent ze met een buurvrouw." },
-        { scene: "Samen leven", targets: ["evalueren","beschaving"], text: "Aan het einde van de week wil Mila haar leerpunten evalueren, zodat zij meer begrijpt. Ze ziet cultuur als deel van beschaving, terwijl Mila goed kijkt. Groningen voelt meer als thuis. Ze groet haar buren op straat." }
+        { scene: "Nieuwe gewoontes leren", targets: ["behouden","eigentijds"], text: "Mila wil haar eigen tradities behouden. Op die manier begrijpt zij meer. Ze leert ook eigentijds praten in Nederland. Zo doet Mila stap voor stap mee. Soms zegt ze direct wat ze bedoelt. Soms luistert ze eerst." },
+        { scene: "Advies van de docent", targets: ["aanraden","afhangen van"], text: "De docent raadt aan om vragen te stellen. Intussen stelt Mila een korte vraag. Goed contact kan afhangen van openheid. Mila oefent korte zinnen. Zo doet zij stap voor stap mee. Ze durft vaker iets te vragen." },
+        { scene: "Taal als brug", targets: ["bereiken","cultuurverschil"], text: "Met eenvoudige taal kan Mila meer mensen bereiken, waardoor zij meer begrijpt. Een cultuurverschil voelt dan minder groot. Ondertussen doet Mila rustig mee. Ze praat met een buurman over afspraken. Ze vragen rustig door." },
+        { scene: "Communicatietips oefenen", targets: ["toepassen","bewaren"], text: "Mila leert tips toepassen in gesprekken. Ook luistert zij aandachtig. Ze wil nieuwe zinnen bewaren. Daarna doet Mila rustig mee. Ze schrijft ze in haar boekje. Daarna oefent ze met een buurvrouw." },
+        { scene: "Samen leven", targets: ["evalueren","beschaving"], text: "Aan het einde van de week wil Mila haar leerpunten evalueren, zodat zij de situatie beter begrijpt. Ze ziet cultuur als deel van beschaving. Daarna kijkt Mila nog eens goed. Groningen voelt meer als thuis. Ze groet haar buren op straat." }
       ],
       [["behouden","in stand houden"],["eigentijds","modern"],["aanraden","adviseren"],["afhangen van","bepaald worden door"],["bereiken","contact maken"],["cultuurverschil","verschil in gewoontes"],["toepassen","gebruiken"],["bewaren","opslaan"],["evalueren","beoordelen"],["beschaving","cultuur en samenleving"]],
       [
@@ -1227,11 +1576,11 @@
       "Amir in een oude stad",
       ["aarde","adviseren over","afstemmen op","afwijzing","beton","breed","eis","futuristisch","gedetailleerd","gevel"],
       [
-        { scene: "Eerste wandeling", targets: ["aarde","adviseren over"], text: "Amir loopt door Groningen, terwijl hij de buurt leert kennen. Hij ziet kleur in de aarde bij een bouwplek. Een gids wil hem adviseren over oude huizen. Amir stelt rustige vragen, terwijl hij goed luistert." },
-        { scene: "Plan voor de wijk", targets: ["afstemmen op","afwijzing"], text: "De gemeente wil een plan afstemmen op de buurt, terwijl Amir goed luistert. Sommige bewoners zijn bang voor afwijzing. Amir luistert naar beide kanten, terwijl hij goed luistert. Hij schrijft eenvoudige punten op." },
-        { scene: "Oud en nieuw materiaal", targets: ["beton","breed"], text: "Bij een nieuw plein ligt veel beton, terwijl Amir rustig meedoet. De stoep is breed genoeg voor fietsen en mensen. Amir ziet dat oud en nieuw samen kunnen, zodat hij meer begrijpt. Hij maakt een foto." },
-        { scene: "Nieuw museumidee", targets: ["eis","futuristisch"], text: "Een museum heeft een duidelijke eis voor de ingang, terwijl Amir goed kijkt. Het nieuwe deel ziet er futuristisch uit. Amir vraagt waarom dat nodig is, terwijl hij goed luistert. De gids legt het rustig uit." },
-        { scene: "Muur bekijken", targets: ["gedetailleerd","gevel"], text: "Amir bekijkt een gedetailleerd patroon, zodat hij meer begrijpt. Het zit hoog op de gevel, terwijl Amir goed kijkt. Hij ziet bloemen in steen. Zo leert hij beter kijken." }
+        { scene: "Eerste wandeling", targets: ["aarde","adviseren over"], text: "Amir loopt door Groningen, omdat hij de buurt wil leren kennen. Hij ziet kleur in de aarde bij een bouwplek. Een gids wil hem adviseren over oude huizen. Amir stelt rustige vragen. Hij luistert daarom goed." },
+        { scene: "Plan voor de wijk", targets: ["afstemmen op","afwijzing"], text: "De gemeente wil een plan afstemmen op de buurt. Amir luistert daarom goed. Sommige bewoners zijn bang voor afwijzing. Amir luistert naar beide kanten. Daarna luistert hij nog even. Hij schrijft eenvoudige punten op." },
+        { scene: "Oud en nieuw materiaal", targets: ["beton","breed"], text: "Bij een nieuw plein ligt veel beton. Ondertussen doet Amir rustig mee. De stoep is breed genoeg voor fietsen en mensen. Amir ziet dat oud en nieuw samen kunnen. Daardoor begrijpt hij meer. Hij maakt een foto." },
+        { scene: "Nieuw museumidee", targets: ["eis","futuristisch"], text: "Een museum heeft een duidelijke eis voor de ingang. Amir kijkt goed rond. Het nieuwe deel ziet er futuristisch uit. Amir vraagt waarom dat nodig is. Ook luistert hij aandachtig. De gids legt het rustig uit." },
+        { scene: "Muur bekijken", targets: ["gedetailleerd","gevel"], text: "Amir bekijkt een gedetailleerd patroon. Zo begrijpt hij de situatie beter. Het zit hoog op de gevel. Daarna kijkt Amir nog eens goed. Hij ziet bloemen in steen. Zo leert hij beter kijken." }
       ],
       [["aarde","grond"],["adviseren over","raad geven over"],["afstemmen op","passend maken bij"],["afwijzing","nee als antwoord"],["beton","hard bouwmateriaal"],["breed","niet smal"],["eis","wat moet"],["futuristisch","heel modern"],["gedetailleerd","met veel kleine delen"],["gevel","voorkant van een gebouw"]],
       [
@@ -1247,11 +1596,11 @@
       "Amir aan de gracht",
       ["gracht","hout","imposant","ingericht","karakteristiek","koepel","langwerpig","lidstaat","monumentaal","nastreven"],
       [
-        { scene: "Langs het water", targets: ["gracht","hout"], text: "Amir loopt langs de gracht, terwijl hij de buurt leert kennen. Een oude brug is gemaakt van hout, terwijl Amir goed kijkt. Hij hoort fietsen achter zich. Het water maakt de straat rustig." },
-        { scene: "Grote kerk", targets: ["imposant","ingericht"], text: "Amir bezoekt een imposant gebouw, terwijl hij de buurt leert kennen. Binnen is alles rustig ingericht, terwijl Amir rustig meedoet. Er staan stoelen in rijen. Hij blijft even stil staan." },
-        { scene: "Herkenbare straat", targets: ["karakteristiek","koepel"], text: "De straat heeft een karakteristiek gezicht, terwijl Amir goed kijkt. In de verte ziet Amir een koepel, zodat hij meer begrijpt. Hij herkent de plek later op foto's. Dat maakt hem blij." },
-        { scene: "Smalle zaal", targets: ["langwerpig","lidstaat"], text: "In het museum is een langwerpig lokaal, terwijl Amir goed kijkt. De gids vertelt over elke lidstaat van Europa. Amir kijkt naar kleine vlaggen, zodat hij meer begrijpt. Hij hoort nieuwe woorden." },
-        { scene: "Zorg voor oude plekken", targets: ["monumentaal","nastreven"], text: "Een monumentaal pand vraagt zorg, terwijl Amir goed luistert. De stad wil goed onderhoud nastreven. Amir helpt een groep, terwijl hij rustig meedoet. Zo leert hij de buurt kennen." }
+        { scene: "Langs het water", targets: ["gracht","hout"], text: "Amir loopt langs de gracht. Intussen leert hij de buurt kennen. Een oude brug is gemaakt van hout. Daardoor ziet Amir meer details. Hij hoort fietsen achter zich. Het water maakt de straat rustig." },
+        { scene: "Grote kerk", targets: ["imposant","ingericht"], text: "Amir bezoekt een imposant gebouw. Hij leert de buurt stap voor stap kennen. Binnen is alles rustig ingericht. Daarna doet Amir rustig mee. Er staan stoelen in rijen. Hij blijft even stil staan." },
+        { scene: "Herkenbare straat", targets: ["karakteristiek","koepel"], text: "De straat heeft een karakteristiek gezicht. Ook kijkt Amir aandachtig. In de verte ziet Amir een koepel. Daarom onthoudt hij meer. Hij herkent de plek later op foto's. Dat maakt hem blij." },
+        { scene: "Smalle zaal", targets: ["langwerpig","lidstaat"], text: "In het museum is een langwerpig lokaal. Intussen kijkt Amir om zich heen. De gids vertelt over elke lidstaat van Europa. Amir kijkt naar kleine vlaggen. Op die manier begrijpt hij meer. Hij hoort nieuwe woorden." },
+        { scene: "Zorg voor oude plekken", targets: ["monumentaal","nastreven"], text: "Een monumentaal pand vraagt zorg. Daarna luistert Amir nog even. De stad wil goed onderhoud nastreven. Amir helpt een groep. Ondertussen doet hij rustig mee. Zo leert hij de buurt kennen." }
       ],
       [["gracht","water in de stad"],["hout","materiaal van bomen"],["imposant","groot en sterk om te zien"],["ingericht","klaargemaakt van binnen"],["karakteristiek","typisch en herkenbaar"],["koepel","rond dak"],["langwerpig","lang en smal"],["lidstaat","land dat bij een groep hoort"],["monumentaal","belangrijk en oud"],["nastreven","proberen te bereiken"]],
       [
@@ -1267,11 +1616,11 @@
       "Amir helpt bij erfgoed",
       ["nederzetting","nomineren","ongeëvenaard","onvervangbaar","opstellen","opvallend","ornament","pand","per se","plafond"],
       [
-        { scene: "Verhaal van een plek", targets: ["nederzetting","nomineren"], text: "Amir hoort over een oude nederzetting, terwijl hij goed luistert. De stad wil de plek nomineren voor extra zorg, terwijl Amir rustig meedoet. Hij leest een kort bord. Daarna kijkt hij naar de kaart." },
-        { scene: "Unieke waarde", targets: ["ongeëvenaard","onvervangbaar"], text: "De gids noemt het uitzicht ongeëvenaard, terwijl Amir goed luistert. Sommige oude delen zijn onvervangbaar. Amir begrijpt dat je ze niet kunt terugkopen, zodat hij meer begrijpt. Hij maakt geen lawaai." },
-        { scene: "Informatie klaarzetten", targets: ["opstellen","opvallend"], text: "Amir helpt tafels opstellen voor bezoekers, terwijl hij rustig meedoet. Een rood bord is opvallend. Mensen vinden de ingang snel. Amir wijst rustig de weg, zodat hij meer begrijpt." },
-        { scene: "Details in het pand", targets: ["ornament","pand"], text: "In het pand ziet Amir een klein ornament, zodat hij meer begrijpt. Het zit boven een deur, terwijl Amir rustig meedoet. Hij vraagt hoe oud het is. De gids glimlacht." },
-        { scene: "Niet altijd nodig", targets: ["per se","plafond"], text: "Je hoeft niet per se alles te begrijpen, terwijl Amir rustig meedoet. Amir kijkt rustig naar het plafond, zodat hij meer begrijpt. Hij ziet vormen en kleuren. Later zoekt hij woorden op." }
+        { scene: "Verhaal van een plek", targets: ["nederzetting","nomineren"], text: "Amir hoort over een oude nederzetting. Daardoor begrijpt hij de uitleg beter. De stad wil de plek nomineren voor extra zorg. Amir doet ook rustig mee. Hij leest een kort bord. Daarna kijkt hij naar de kaart." },
+        { scene: "Unieke waarde", targets: ["ongeëvenaard","onvervangbaar"], text: "De gids noemt het uitzicht ongeëvenaard. Ook luistert Amir aandachtig. Sommige oude delen zijn onvervangbaar. Amir begrijpt dat je ze niet kunt terugkopen, waardoor hij meer begrijpt. Hij maakt geen lawaai." },
+        { scene: "Informatie klaarzetten", targets: ["opstellen","opvallend"], text: "Amir helpt tafels opstellen voor bezoekers. Daarna doet hij rustig mee. Een rood bord is opvallend. Mensen vinden de ingang snel. Amir wijst rustig de weg, zodat hij de situatie beter begrijpt." },
+        { scene: "Details in het pand", targets: ["ornament","pand"], text: "In het pand ziet Amir een klein ornament. Daarna maakt hij een korte notitie. Het zit boven een deur. Toch blijft Amir rustig meedoen. Hij vraagt hoe oud het is. De gids glimlacht." },
+        { scene: "Niet altijd nodig", targets: ["per se","plafond"], text: "Je hoeft niet per se alles te begrijpen. Bovendien leert Amir op zijn eigen tempo. Amir kijkt rustig naar het plafond. Bovendien begrijpt hij de situatie beter. Hij ziet vormen en kleuren. Later zoekt hij woorden op." }
       ],
       [["nederzetting","oude woonplek"],["nomineren","voordragen"],["ongeëvenaard","zonder gelijke"],["onvervangbaar","niet te vervangen"],["opstellen","klaarzetten"],["opvallend","valt snel op"],["ornament","versiering"],["pand","gebouw"],["per se","absoluut"],["plafond","bovenkant van een kamer"]],
       [
@@ -1287,11 +1636,11 @@
       "Amir tekent zijn buurt",
       ["puntdak","rechthoekig","schildering","sfeervol","smal","speels","statig","steen","strak","suggestie"],
       [
-        { scene: "Dakvormen zoeken", targets: ["puntdak","rechthoekig"], text: "Amir tekent een huis met een puntdak, zodat hij meer begrijpt. Het raam is rechthoekig, terwijl Amir rustig meedoet. Zijn docent kijkt mee. Samen tellen ze de vormen." },
-        { scene: "Kunst aan de muur", targets: ["schildering","sfeervol"], text: "In een cafe ziet Amir een schildering, zodat hij meer begrijpt. De kamer is sfeervol door warm licht, terwijl Amir rustig meedoet. Hij voelt zich rustig. Hij tekent een klein deel na." },
-        { scene: "Straat met kleine huizen", targets: ["smal","speels"], text: "Een smal huis staat naast een winkel, terwijl Amir goed kijkt. De kleuren zijn speels. Amir merkt dat huizen niet gelijk zijn, zodat hij meer begrijpt. Dat maakt de straat levend." },
-        { scene: "Oud gebouw", targets: ["statig","steen"], text: "Voor een statig gebouw blijft Amir staan, zodat hij meer begrijpt. De muur is van donkere steen, terwijl Amir rustig meedoet. Hij raakt de muur niet aan. Hij kijkt alleen goed." },
-        { scene: "Rustige vorm", targets: ["strak","suggestie"], text: "Zijn docent geeft een suggestie, terwijl Amir goed luistert. Amir maakt de lijnen strakker, terwijl hij rustig meedoet. De tekening wordt rustig. Hij is trots op zijn werk." }
+        { scene: "Dakvormen zoeken", targets: ["puntdak","rechthoekig"], text: "Amir tekent een huis met een puntdak. Daardoor begrijpt hij meer. Het raam is rechthoekig. Zo doet Amir stap voor stap mee. Zijn docent kijkt mee. Samen tellen ze de vormen." },
+        { scene: "Kunst aan de muur", targets: ["schildering","sfeervol"], text: "In een cafe ziet Amir een schildering. Zo begrijpt hij de situatie beter. De kamer is sfeervol door warm licht. Ondertussen doet Amir rustig mee. Hij voelt zich rustig. Hij tekent een klein deel na." },
+        { scene: "Straat met kleine huizen", targets: ["smal","speels"], text: "Een smal huis staat naast een winkel. Amir kijkt goed rond. De kleuren zijn speels. Amir merkt dat huizen niet gelijk zijn. Daarom onthoudt hij meer. Dat maakt de straat levend." },
+        { scene: "Oud gebouw", targets: ["statig","steen"], text: "Voor een statig gebouw blijft Amir staan. Op die manier begrijpt hij meer. De muur is van donkere steen. Daarna doet Amir rustig mee. Hij raakt de muur niet aan. Hij kijkt alleen goed." },
+        { scene: "Rustige vorm", targets: ["strak","suggestie"], text: "Zijn docent geeft een suggestie. Daardoor begrijpt Amir de uitleg beter. Amir maakt de lijnen strakker. Hij doet ook rustig mee. De tekening wordt rustig. Hij is trots op zijn werk." }
       ],
       [["puntdak","dak met een punt"],["rechthoekig","met rechte hoeken"],["schildering","kunst met verf"],["sfeervol","met fijne sfeer"],["smal","niet breed"],["speels","vrolijk en vrij"],["statig","deftig en groot"],["steen","hard bouwmateriaal"],["strak","net en recht"],["suggestie","idee of tip"]],
       [
@@ -1307,11 +1656,11 @@
       "Amir in het atelier",
       ["tekening","verdwenen","versierd","vierkant","voldoen aan","voorlopig","waarde","waarderen","wederzijds","werelderfgoed","zich inzetten voor"],
       [
-        { scene: "Oude tekening", targets: ["tekening","verdwenen"], text: "Amir ziet een oude tekening, zodat hij meer begrijpt. Het huis op papier is verdwenen, terwijl Amir goed kijkt. Hij zoekt de plek buiten. Alleen de straatnaam is gelijk." },
-        { scene: "Versierde deur", targets: ["versierd","vierkant"], text: "Een deur is versierd met kleine blokken, terwijl Amir rustig meedoet. Elk blok is vierkant. Amir telt er tien, zodat hij meer begrijpt. Hij leert het woord snel." },
-        { scene: "Regels volgen", targets: ["voldoen aan","voorlopig"], text: "Een gebouw moet voldoen aan regels, terwijl Amir goed kijkt. Voorlopig blijft de deur dicht. Amir leest het briefje, zodat hij meer begrijpt. Hij komt later terug." },
-        { scene: "Waarde zien", targets: ["waarde","waarderen"], text: "De docent vraagt naar de waarde van erfgoed, terwijl Amir goed luistert. Amir leert oude dingen waarderen, terwijl hij rustig meedoet. Hij denkt aan zijn eigen stad. Veel beelden van vroeger lijken op elkaar." },
-        { scene: "Samen respect tonen", targets: ["wederzijds","werelderfgoed","zich inzetten voor"], text: "In de groep groeit wederzijds respect, terwijl Amir rustig meedoet. Ze praten over werelderfgoed. Amir wil zich inzetten voor de buurt, terwijl hij de buurt leert kennen. De anderen luisteren goed." }
+        { scene: "Oude tekening", targets: ["tekening","verdwenen"], text: "Amir ziet een oude tekening, waardoor hij meer begrijpt. Het huis op papier is verdwenen. Daarna kijkt Amir nog eens goed. Hij zoekt de plek buiten. Alleen de straatnaam is gelijk." },
+        { scene: "Versierde deur", targets: ["versierd","vierkant"], text: "Een deur is versierd met kleine blokken. Amir doet ook rustig mee. Elk blok is vierkant. Amir telt er tien, zodat hij de situatie beter begrijpt. Hij leert het woord snel." },
+        { scene: "Regels volgen", targets: ["voldoen aan","voorlopig"], text: "Een gebouw moet voldoen aan regels. Daardoor ziet Amir meer details. Voorlopig blijft de deur dicht. Amir leest het briefje. Daarna maakt hij een korte notitie. Hij komt later terug." },
+        { scene: "Waarde zien", targets: ["waarde","waarderen"], text: "De docent vraagt naar de waarde van erfgoed. Intussen stelt Amir een korte vraag. Amir leert oude dingen waarderen. Toch blijft hij rustig meedoen. Hij denkt aan zijn eigen stad. Veel beelden van vroeger lijken op elkaar." },
+        { scene: "Samen respect tonen", targets: ["wederzijds","werelderfgoed","zich inzetten voor"], text: "In de groep groeit wederzijds respect. Toch blijft Amir rustig meedoen. Ze praten over werelderfgoed. Amir wil zich inzetten voor de buurt. Wanneer hij rondloopt, leert hij de buurt beter kennen. De anderen luisteren goed." }
       ],
       [["tekening","afbeelding met lijnen"],["verdwenen","weg"],["versierd","mooi gemaakt"],["vierkant","met vier gelijke kanten"],["voldoen aan","passen bij regels"],["voorlopig","voor nu"],["waarde","belang"],["waarderen","goed vinden en respecteren"],["wederzijds","van twee kanten"],["werelderfgoed","erfgoed dat voor de wereld belangrijk is"],["zich inzetten voor","actief helpen met"]],
       [
@@ -1327,11 +1676,11 @@
       "Een eigen bedrijf starten",
       ["aanpak","aantrekken","netwerk","nijpend","argument","omzetten","onderbouwen","beperken","neiging","bedrijfstak"],
       [
-        { scene: "Ondernemersidee in Groningen", targets: ["aanpak","aantrekken"], text: "Mila wil een klein bedrijf met eten beginnen, zodat zij meer begrijpt. Ze kiest een duidelijke aanpak, terwijl Mila rustig meedoet. Daarmee wil ze klanten aantrekken. Ze start met drie gerechten." },
-        { scene: "Netwerk opbouwen", targets: ["netwerk","nijpend"], text: "In het buurthuis bouwt Mila een netwerk op, terwijl zij de buurt leert kennen. Geld voor de start is nijpend. Andere mensen met een bedrijf geven tips. Mila schrijft ze op, terwijl zij rustig meedoet." },
-        { scene: "Crowdfunding bespreken", targets: ["argument","omzetten"], text: "Een goed argument voor geld vragen aan de buurt is steun uit de buurt, terwijl Mila rustig meedoet. Mila wil haar idee omzetten in een dienst, zodat zij meer begrijpt. Ze laat buren proeven. Daarna vraagt ze om advies." },
-        { scene: "Plan onderbouwen", targets: ["onderbouwen","beperken"], text: "Mila wil haar prijzen onderbouwen met cijfers, zodat zij meer begrijpt. Zo kan ze risico's beperken. Een vrijwilliger helpt met een tabel. Mila rekent rustig mee, zodat zij meer begrijpt." },
-        { scene: "Professioneel groeien", targets: ["neiging","bedrijfstak"], text: "Mila heeft de neiging om te snel te groeien, zodat zij meer begrijpt. In deze bedrijfstak is rustig starten beter, terwijl Mila rustig meedoet. Ze neemt eerst kleine opdrachten. Daarna kijkt ze verder." }
+        { scene: "Ondernemersidee in Groningen", targets: ["aanpak","aantrekken"], text: "Mila wil een klein bedrijf met eten beginnen. Daarna maakt zij een korte notitie. Ze kiest een duidelijke aanpak. Mila doet ook rustig mee. Daarmee wil ze klanten aantrekken. Ze start met drie gerechten." },
+        { scene: "Netwerk opbouwen", targets: ["netwerk","nijpend"], text: "In het buurthuis bouwt Mila een netwerk op, omdat zij de buurt wil leren kennen. Geld voor de start is nijpend. Andere mensen met een bedrijf geven tips. Mila schrijft ze op. Ondertussen doet zij rustig mee." },
+        { scene: "Crowdfunding bespreken", targets: ["argument","omzetten"], text: "Een goed argument voor geld vragen is steun uit de buurt. Toch blijft Mila rustig meedoen. Mila wil haar idee omzetten in een dienst. Bovendien begrijpt zij de situatie beter. Ze laat buren proeven. Daarna vraagt ze om advies." },
+        { scene: "Plan onderbouwen", targets: ["onderbouwen","beperken"], text: "Mila wil haar prijzen onderbouwen met cijfers. Daardoor begrijpt zij meer. Zo kan ze risico's beperken. Een vrijwilliger helpt met een tabel. Mila rekent rustig mee. Zo begrijpt zij de situatie beter." },
+        { scene: "Professioneel groeien", targets: ["neiging","bedrijfstak"], text: "Mila heeft de neiging om te snel te groeien. Daarom onthoudt zij meer. In deze bedrijfstak is rustig starten beter. Bovendien leert Mila op haar eigen tempo. Ze neemt eerst kleine opdrachten. Daarna kijkt ze verder." }
       ],
       [["aanpak","manier van werken"],["aantrekken","interesseren"],["netwerk","contacten"],["nijpend","dringend tekort"],["argument","reden"],["omzetten","veranderen in iets praktisch"],["onderbouwen","met feiten uitleggen"],["beperken","kleiner maken"],["neiging","drang"],["bedrijfstak","sector"]],
       [
@@ -1347,11 +1696,11 @@
       "Werk vinden",
       ["aanpak","netwerk","nijpend","argument","onderbouwen","beperken","neiging","bedrijfstak","aansluiten op","aantrekken"],
       [
-        { scene: "Sollicitatie voorbereiden", targets: ["aanpak","netwerk"], text: "Mila zoekt werk met een duidelijke aanpak, zodat zij meer begrijpt. Ze gebruikt haar netwerk, terwijl Mila rustig meedoet. Een taalcoach kijkt naar haar cv. Daarna zoekt ze vacatures." },
-        { scene: "Passende vaardigheden", targets: ["aansluiten op","aantrekken"], text: "Wat Mila kan, moet aansluiten op de baan, terwijl zij de regels leert kennen. Een korte brief kan aandacht aantrekken. Mila schrijft rustige zinnen, terwijl zij rustig meedoet. Ze kijkt haar tekst na." },
-        { scene: "Kansrijke sector", targets: ["nijpend","bedrijfstak"], text: "In de zorg is hulp nijpend, terwijl Mila rustig meedoet. Deze bedrijfstak heeft nieuwe mensen nodig. Mila bekijkt een korte opleiding, zodat zij meer begrijpt. Ze vraagt naar de lessen." },
-        { scene: "Omscholing uitleggen", targets: ["argument","onderbouwen"], text: "Een goed argument voor omscholing is meer kans op werk, terwijl Mila rustig meedoet. Mila leert haar keuze onderbouwen, terwijl zij rustig meedoet. Ze noemt dingen uit haar leven. Dat helpt in gesprekken." },
-        { scene: "Zenuwen verminderen", targets: ["beperken","neiging"], text: "Mila wil haar zenuwen beperken, zodat zij meer begrijpt. Ze heeft de neiging om snel te praten, terwijl Mila rustig meedoet. Daarom oefent ze met de taalcoach. In het gesprek blijft ze rustiger." }
+        { scene: "Sollicitatie voorbereiden", targets: ["aanpak","netwerk"], text: "Mila zoekt werk met een duidelijke aanpak. Op die manier begrijpt zij meer. Ze gebruikt haar netwerk. Zo doet Mila stap voor stap mee. Een taalcoach kijkt naar haar cv. Daarna zoekt ze vacatures." },
+        { scene: "Passende vaardigheden", targets: ["aansluiten op","aantrekken"], text: "Wat Mila kan, moet aansluiten op de baan, omdat zij de regels wil leren kennen. Een korte brief kan aandacht aantrekken. Mila schrijft rustige zinnen. Daarna doet zij rustig mee. Ze kijkt haar tekst na." },
+        { scene: "Kansrijke sector", targets: ["nijpend","bedrijfstak"], text: "In de zorg is hulp nijpend. Ondertussen doet Mila rustig mee. Deze bedrijfstak heeft nieuwe mensen nodig. Mila bekijkt een korte opleiding, waardoor zij meer begrijpt. Ze vraagt naar de lessen." },
+        { scene: "Omscholing uitleggen", targets: ["argument","onderbouwen"], text: "Een goed argument voor omscholing is meer kans op werk. Daarna doet Mila rustig mee. Mila leert haar keuze onderbouwen. Zij doet ook rustig mee. Ze noemt dingen uit haar leven. Dat helpt in gesprekken." },
+        { scene: "Zenuwen verminderen", targets: ["beperken","neiging"], text: "Mila wil haar zenuwen beperken, zodat zij de situatie beter begrijpt. Ze heeft de neiging om snel te praten. Mila doet ook rustig mee. Daarom oefent ze met de taalcoach. In het gesprek blijft ze rustiger." }
       ],
       [["aanpak","manier van werken"],["netwerk","contacten"],["nijpend","dringend tekort"],["argument","reden"],["onderbouwen","uitleggen met bewijs"],["beperken","minder maken"],["neiging","drang"],["bedrijfstak","sector"],["aansluiten op","passen bij"],["aantrekken","interesse wekken"]],
       [
@@ -1367,11 +1716,11 @@
       "Import en export",
       ["aanpak","aantrekken","netwerk","argument","omzetten","onderbouwen","beperken","neiging","bedrijfstak","nijpend"],
       [
-        { scene: "Handel in de regio", targets: ["aanpak","aantrekken"], text: "Mila bezoekt een bedrijf in Groningen, terwijl zij de buurt leert kennen. De handel vraagt een goede aanpak. Het bedrijf wil nieuwe klanten aantrekken. Mila kijkt rond in het magazijn, zodat zij meer begrijpt." },
-        { scene: "Internationaal netwerk", targets: ["netwerk","argument"], text: "Voor import en export is een netwerk belangrijk, terwijl Mila rustig meedoet. Een argument voor export is een grotere markt. Mila luistert naar de manager, terwijl zij goed luistert. Hij laat een kaart zien." },
-        { scene: "Lokale producten verkopen", targets: ["omzetten","onderbouwen"], text: "Het bedrijf wil lokale producten omzetten in winst, terwijl Mila rustig meedoet. Het moet keuzes onderbouwen met cijfers. Mila kijkt naar een simpele grafiek, zodat zij meer begrijpt. Ze ziet waar producten heen gaan." },
-        { scene: "Risico's plannen", targets: ["beperken","neiging"], text: "Bedrijven hebben soms de neiging om snel te groeien, terwijl Mila rustig meedoet. Goede planning kan te laat komen beperken. Mila bekijkt routes op een kaart, zodat zij meer begrijpt. Ze vraagt naar de planning." },
-        { scene: "Transportcapaciteit", targets: ["bedrijfstak","nijpend"], text: "In deze bedrijfstak is transport soms nijpend, terwijl Mila rustig meedoet. Daarom werken bedrijven samen. Mila ziet dozen klaarstaan, zodat zij meer begrijpt. Ze begrijpt dat handel veel planning vraagt." }
+        { scene: "Handel in de regio", targets: ["aanpak","aantrekken"], text: "Mila bezoekt een bedrijf in Groningen. Intussen leert zij de buurt kennen. De handel vraagt een goede aanpak. Het bedrijf wil nieuwe klanten aantrekken. Mila kijkt rond in het magazijn. Daarna maakt zij een korte notitie." },
+        { scene: "Internationaal netwerk", targets: ["netwerk","argument"], text: "Voor import en export is een netwerk belangrijk. Toch blijft Mila rustig meedoen. Een argument voor export is een grotere markt. Mila luistert naar de manager. Daardoor begrijpt zij de uitleg beter. Hij laat een kaart zien." },
+        { scene: "Lokale producten verkopen", targets: ["omzetten","onderbouwen"], text: "Het bedrijf wil lokale producten omzetten in winst. Bovendien leert Mila op haar eigen tempo. Het moet keuzes onderbouwen met cijfers. Mila kijkt naar een simpele grafiek. Bovendien begrijpt zij de situatie beter. Ze ziet waar producten heen gaan." },
+        { scene: "Risico's plannen", targets: ["beperken","neiging"], text: "Bedrijven hebben soms de neiging om snel te groeien. Zo doet Mila stap voor stap mee. Goede planning kan te laat komen beperken. Mila bekijkt routes op een kaart. Daardoor begrijpt zij meer. Ze vraagt naar de planning." },
+        { scene: "Transportcapaciteit", targets: ["bedrijfstak","nijpend"], text: "In deze bedrijfstak is transport soms nijpend. Ondertussen doet Mila rustig mee. Daarom werken bedrijven samen. Mila ziet dozen klaarstaan. Zo begrijpt zij de situatie beter. Ze begrijpt dat handel veel planning vraagt." }
       ],
       [["aanpak","manier van werken"],["aantrekken","interesseren"],["netwerk","contacten"],["argument","reden"],["omzetten","veranderen in winst"],["onderbouwen","uitleggen met gegevens"],["beperken","minder maken"],["neiging","drang"],["bedrijfstak","sector"],["nijpend","dringend tekort"]],
       [
@@ -1516,6 +1865,7 @@
     function saveProgress() {
       safeSet("nt2_stats", JSON.stringify(state.stats));
       safeSet("nt2_review", JSON.stringify(state.reviewPool));
+      safeSet("nt2_difficult_words", JSON.stringify(state.difficultWords));
       safeSet("nt2_discovered", JSON.stringify([...state.discoveredWords]));
     }
 
@@ -1749,7 +2099,7 @@
         const payload = {
           contents: [{
             parts: [{
-              text: `Lees deze Nederlandse NT2 B2-tekst natuurlijk en rustig voor, alsof een vriendelijke taalcoach in Groningen het verhaal vertelt. Spreek duidelijk, warm en niet mechanisch.\n\n${page.text}`
+              text: `Lees deze Nederlandse NT2 B1-tekst natuurlijk en rustig voor, alsof een vriendelijke taalcoach in Groningen het verhaal vertelt. Spreek duidelijk, warm en niet mechanisch.\n\n${page.text}`
             }]
           }],
           generationConfig: {
@@ -1828,35 +2178,267 @@
       }).join("");
     }
 
+    function findWordContext(word) {
+      const target = normalize(word);
+      const text = state.pages.map((page) => page.text).join(" ");
+      return text.split(/[.!?]/).find((part) => normalize(part).includes(target))?.trim() || "";
+    }
+
+    function getDefinitionForWord(word) {
+      const item = state.glossary.find((entry) => normalize(entry.word) === normalize(word));
+      if (item?.definition) return item.definition;
+      for (const story of Object.values(stories)) {
+        const found = story.glossary?.find((entry) => normalize(entry.word) === normalize(word));
+        if (found?.definition) return found.definition;
+      }
+      return "Doelwoord";
+    }
+
+    function getAllPracticeWords() {
+      const seen = new Set();
+      const items = [];
+      Object.entries(stories).forEach(([key, story]) => {
+        (story.glossary || []).forEach((entry) => {
+          const id = normalize(entry.word);
+          if (!id || seen.has(id)) return;
+          seen.add(id);
+          const sentence = (story.pages || [])
+            .map((page) => page.text)
+            .join(" ")
+            .split(/[.!?]/)
+            .find((part) => normalize(part).includes(id))?.trim() || "";
+          items.push({ word: entry.word, definition: entry.definition || "Doelwoord", sentence, source: key });
+        });
+      });
+      return items;
+    }
+
+    function addDifficultWords(words) {
+      const now = new Date().toISOString();
+      const byWord = new Map(state.difficultWords.map((item) => [normalize(item.word), item]));
+      words.forEach((word) => {
+        const key = normalize(word);
+        if (!key) return;
+        const existing = byWord.get(key);
+        if (existing) {
+          existing.count = (existing.count || 1) + 1;
+          existing.lastSeen = now;
+          return;
+        }
+        const item = {
+          word,
+          definition: getDefinitionForWord(word),
+          sentence: findWordContext(word),
+          source: state.selectedSubsection || "Quiz",
+          count: 1,
+          lastSeen: now
+        };
+        state.difficultWords.unshift(item);
+        byWord.set(key, item);
+      });
+      state.difficultWords = state.difficultWords.slice(0, 40);
+      saveProgress();
+    }
+
+    function pickPracticeItems(sourceItems, count) {
+      const seen = new Set();
+      const clean = (sourceItems || []).filter((item) => {
+        const key = normalize(item.word);
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+      return shuffleArray(clean).slice(0, count);
+    }
+
+    function startPractice(items, title, mode) {
+      const selected = pickPracticeItems(items, 8);
+      if (!selected.length) {
+        showError("Er zijn nog geen woorden om te oefenen. Open eerst een verhaal of maak een quiz.");
+        return;
+      }
+      state.reviewPool = selected;
+      state.reviewMode = true;
+      state.practiceMode = mode || "practice";
+      state.practiceTitle = title || "Korte oefening";
+      state.cardIndex = 0;
+      state.cardFlipped = false;
+      awardXP(3, "Oefening gestart");
+      renderFlashcards();
+    }
+
+    function startDailyPractice() {
+      const difficult = state.difficultWords || [];
+      const discovered = getAllPracticeWords().filter((item) => state.discoveredWords.has(item.word));
+      const all = getAllPracticeWords();
+      const base = difficult.length ? [...difficult, ...all] : discovered.length ? [...discovered, ...all] : all;
+      startPractice(base, "Dagelijkse oefening · 5 minuten", "daily");
+    }
+
+    function startDifficultPractice() {
+      if (!state.difficultWords.length) {
+        showError("Je hebt nog geen moeilijke woorden. Maak eerst een quiz; foute woorden komen hier automatisch.");
+        return;
+      }
+      startPractice(state.difficultWords, "Mijn moeilijke woorden", "difficult");
+    }
+
+    function renderPracticeComplete() {
+      state.appState = "practiceComplete";
+      updateHeader();
+      const title = state.practiceTitle || "Oefening klaar";
+      const count = state.reviewPool.length;
+      view.innerHTML = `
+        <section class="practice-complete">
+          <div class="done-icon">✓</div>
+          <h1>${escapeHtml(title)}</h1>
+          <p style="color:#64748b;font-weight:850;line-height:1.6;">Goed gedaan. Je hebt ${count} woorden geoefend. Herhaal moeilijke woorden later nog een keer.</p>
+          <div class="row" style="justify-content:center;margin-top:20px;">
+            <button class="secondary" id="practiceHomeBtn" type="button">Home</button>
+            <button class="primary" id="practiceAgainBtn" type="button">Nog een keer</button>
+          </div>
+        </section>
+      `;
+      document.getElementById("practiceHomeBtn").addEventListener("click", resetApp);
+      document.getElementById("practiceAgainBtn").addEventListener("click", () => {
+        const source = state.practiceMode === "difficult" ? state.difficultWords : [...state.difficultWords, ...getAllPracticeWords()];
+        startPractice(source, title, state.practiceMode || "practice");
+      });
+    }
+
+    function normalizeTopicKey(value) {
+      return normalize(value).replace(/\s+/g, " ");
+    }
+
+    function getStoryTitleFromKey(key) {
+      if (!key) return "";
+      const dash = String(key).indexOf("-");
+      return dash === -1 ? String(key) : String(key).slice(dash + 1);
+    }
+
+    function getTopicKey(theme, topic) {
+      return `${theme.id}-${normalizeTopicKey(topic)}`;
+    }
+
+    function getStoryKeysForTopic(theme, topic) {
+      const topicKey = getTopicKey(theme, topic);
+      const configured = topicStoryGroups[topicKey] || [];
+      const candidates = [
+        ...configured,
+        `${theme.id}-${topic}`,
+        `${theme.id}-${String(topic).charAt(0).toUpperCase()}${String(topic).slice(1)}`
+      ];
+      const seen = new Set();
+      return candidates.filter((key) => {
+        if (!stories[key] || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
+    function countStoriesForTheme(theme) {
+      return (theme.bookTopics || []).reduce((total, topic) => total + getStoryKeysForTopic(theme, topic).length, 0);
+    }
+
+    function renderTopicDirectory(theme, topic) {
+      showError("");
+      stopSpeaking();
+      state.appState = "topicDirectory";
+      state.selectedTheme = theme;
+      state.selectedTopic = topic;
+      updateHeader();
+      const storyKeys = getStoryKeysForTopic(theme, topic);
+      const hasStories = storyKeys.length > 0;
+      view.innerHTML = `
+        <section class="theme-directory">
+          <div class="directory-head">
+            <div class="directory-kicker">
+              <span class="chapter">${escapeHtml(theme.chapter)}</span>
+              <span class="topic-chip">${escapeHtml(theme.title)}</span>
+              <span class="status ${hasStories ? "offline" : "key"}">${hasStories ? `${storyKeys.length} verhaal${storyKeys.length === 1 ? "" : "len"}` : "Later"}</span>
+            </div>
+            <h1>${escapeHtml(topic)}</h1>
+            <div class="theme-subtitle" style="margin:10px 0 0;font-size:20px;">${escapeHtml(theme.subtitle || "")}</div>
+            <p>Dit is een submap binnen ${escapeHtml(theme.chapter)}. Hier komen alle korte verhalen die bij dit onderwerp horen. Zo blijft de startpagina rustig en overzichtelijk.</p>
+            <div class="directory-actions">
+              <button class="secondary" type="button" id="backToThemesBtn">← Terug naar startpagina</button>
+              ${hasStories ? `<button class="primary" type="button" id="startFirstStoryBtn">Start eerste verhaal</button>` : ""}
+            </div>
+          </div>
+          ${hasStories ? `
+            <div class="story-grid">
+              ${storyKeys.map((key, index) => {
+                const story = stories[key];
+                const wordCount = story?.vocab?.length || story?.glossary?.length || 0;
+                const name = storyKeys.length === 1 ? topic : getStoryTitleFromKey(key);
+                return `
+                  <button class="story-card" type="button" data-storykey="${escapeHtml(key)}">
+                    <span>
+                      Verhaal ${index + 1}: ${escapeHtml(name)}
+                      <small>${wordCount || ""} doelwoorden · lezen, audio, flashcards en quiz</small>
+                    </span>
+                    <span aria-hidden="true">→</span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          ` : `
+            <div class="coming-card">
+              Dit onderwerp staat al in de structuur van het boek, maar de verhalen zijn nog niet ingevuld. Je kunt deze map later vullen met extra verhalen en woorden.
+            </div>
+          `}
+        </section>
+      `;
+
+      document.getElementById("backToThemesBtn")?.addEventListener("click", renderLanding);
+      document.getElementById("startFirstStoryBtn")?.addEventListener("click", () => startStoryByKey(storyKeys[0]));
+      view.querySelectorAll("[data-storykey]").forEach((button) => {
+        button.addEventListener("click", () => startStoryByKey(button.dataset.storykey));
+      });
+    }
+
     function renderLanding() {
       showError("");
       state.appState = "landing";
       updateHeader();
+      const difficultCount = state.difficultWords.length;
+      const allCount = getAllPracticeWords().length;
       view.innerHTML = `
         <section class="hero">
           <div>
             <h1>Dompel jezelf onder in<br><span>Groningen.</span></h1>
-            <p>Kies een thema om vandaag aan te werken. Leer doelwoorden via verhaal, beeld, stem, flashcards en quiz.</p>
+            <p>Kies een onderwerp uit <em>De finale</em>. Daarna zie je de korte verhalen die bij dat onderwerp horen.</p>
+            <div class="home-actions">
+              <div class="quick-card">
+                <strong>Dagelijkse oefening · 5 minuten</strong>
+                <span>Oefen snel een paar woorden. Ideaal op je telefoon.</span>
+                <button class="primary" type="button" id="dailyPracticeBtn" ${allCount ? "" : "disabled"}>Start korte oefening</button>
+              </div>
+              <div class="quick-card ${difficultCount ? "" : "empty"}">
+                <strong>Mijn moeilijke woorden</strong>
+                <span>${difficultCount ? `${difficultCount} woord${difficultCount === 1 ? "" : "en"} uit foute quizvragen.` : "Foute quizwoorden komen hier automatisch."}</span>
+                <button class="secondary" type="button" id="difficultPracticeBtn" ${difficultCount ? "" : "disabled"}>Oefen moeilijke woorden</button>
+              </div>
+            </div>
           </div>
           <div class="theme-grid">
             ${themes.map((theme) => {
-              const hasOffline = theme.subsections.some((sub) => stories[`${theme.id}-${sub}`]);
+              const readyCount = countStoriesForTheme(theme);
               return `
                 <article class="theme-card">
                   <div class="theme-top">
                     <div>
-                      <span class="chapter">${theme.chapter}</span>
-                      <div><span class="status ${hasOffline ? "offline" : "key"}">${hasOffline ? "Offline beschikbaar" : "Later"}</span></div>
+                      <span class="chapter">${escapeHtml(theme.chapter)}</span>
+                      <div><span class="status ${readyCount ? "offline" : "key"}">${readyCount ? `${readyCount} verhaal${readyCount === 1 ? "" : "len"}` : "Later"}</span></div>
                     </div>
                     <div class="theme-icon" aria-hidden="true">${themeIconSvg(theme.id)}</div>
                   </div>
                   <h3>${escapeHtml(theme.title)}</h3>
+                  <div class="theme-subtitle">${escapeHtml(theme.subtitle || "")}</div>
                   <div class="sub-list">
-                    ${theme.subsections.map((sub) => {
-                      const key = `${theme.id}-${sub}`;
-                      const offline = Boolean(stories[key]);
-                      const disabled = !offline;
-                      return `<button class="sub-btn" type="button" data-start="${escapeHtml(key)}" ${disabled ? "disabled" : ""}>${escapeHtml(sub)}<span>→</span></button>`;
+                    ${(theme.bookTopics || []).map((topic) => {
+                      const storyCount = getStoryKeysForTopic(theme, topic).length;
+                      return `<button class="sub-btn" type="button" data-topic-theme="${theme.id}" data-topic="${escapeHtml(topic)}">${escapeHtml(topic)}${storyCount > 1 ? `<small>${storyCount} verhalen</small>` : ""}<span>→</span></button>`;
                     }).join("")}
                   </div>
                 </article>
@@ -1866,29 +2448,33 @@
         </section>
       `;
 
-      view.querySelectorAll("[data-start]").forEach((button) => {
+      const dailyBtn = document.getElementById("dailyPracticeBtn");
+      if (dailyBtn) dailyBtn.addEventListener("click", startDailyPractice);
+      const difficultBtn = document.getElementById("difficultPracticeBtn");
+      if (difficultBtn) difficultBtn.addEventListener("click", startDifficultPractice);
+
+      view.querySelectorAll("[data-topic]").forEach((button) => {
         button.addEventListener("click", () => {
-          const key = button.dataset.start;
-          const themeId = Number(key.split("-")[0]);
-          const sub = key.slice(key.indexOf("-") + 1);
-          const theme = themes.find((item) => item.id === themeId);
-          startStory(theme, sub);
+          const theme = themes.find((item) => String(item.id) === String(button.dataset.topicTheme));
+          if (theme) renderTopicDirectory(theme, button.dataset.topic);
         });
       });
     }
 
-    function startStory(theme, subsection) {
-      const key = `${theme.id}-${subsection}`;
+    function startStoryByKey(key) {
       const story = stories[key];
+      const themeId = Number(String(key).split("-")[0]);
+      const subsection = getStoryTitleFromKey(key);
+      const theme = themes.find((item) => item.id === themeId);
       showError("");
       stopSpeaking();
-      if (!story) {
-        showError("Dit onderdeel is nog niet gevuld in deze MVP. Kies een verhaal uit Thema 1 t/m 4.");
+      if (!theme || !story) {
+        showError("Dit verhaal is nog niet gevuld in deze MVP. Kies een verhaal dat al beschikbaar is.");
         return;
       }
       state.appState = "reading";
       state.selectedTheme = theme;
-      state.selectedSubsection = subsection;
+      state.selectedSubsection = state.selectedTopic || subsection;
       state.pages = story.pages;
       state.glossary = story.glossary;
       state.vocab = story.vocab;
@@ -1897,8 +2483,14 @@
       state.score = 0;
       state.pageIndex = 0;
       state.reviewMode = false;
+      state.practiceMode = "";
+      state.practiceTitle = "";
       awardXP(5, "Verhaal gestart");
       renderReading();
+    }
+
+    function startStory(theme, subsection) {
+      startStoryByKey(`${theme.id}-${subsection}`);
     }
 
     function renderReading() {
@@ -1915,17 +2507,18 @@
             </div>
           </div>
           <article class="reader-card">
-            <div class="targets"><span>Doelwoorden</span> ${page.targets.map(escapeHtml).join(", ")}</div>
-            <div class="story-text ${state.fontSize}">${highlightText(page.text)}</div>
+            ${renderImagePanel(page)}
             <div class="audio-actions">
               <div class="audio-player">
                 ${page.audioUrl
                   ? `<audio id="pageAudio" controls preload="metadata" src="${escapeHtml(page.audioUrl)}"></audio>`
                   : `<button class="audio-fallback" type="button" id="browserAudioBtn">Lees deze pagina voor</button>`}
-                <div class="audio-caption">${page.audioUrl ? "Klik op play om de pagina te beluisteren." : "Geen lokale audio gevonden; browserstem wordt gebruikt."}</div>
+                <div class="audio-caption">${page.audioUrl ? "Luister eerst en lees daarna de tekst." : "Geen lokale audio gevonden; browserstem wordt gebruikt."}</div>
               </div>
             </div>
-            ${renderImagePanel(page)}
+            <div class="targets"><span>Doelwoorden</span> ${page.targets.map(escapeHtml).join(", ")}</div>
+            <div class="reader-hint">Tip: tik of klik op een paars trefwoord voor betekenis en uitspraak.</div>
+            <div class="story-text ${state.fontSize}">${highlightText(page.text)}</div>
             <div class="prompt-note ${state.showPrompt ? "show" : ""}">${escapeHtml(page.imagePrompt || "")}</div>
             <div class="nav-row">
               <button class="secondary" type="button" id="prevBtn" ${state.pageIndex === 0 ? "disabled" : ""}>Vorige</button>
@@ -2003,9 +2596,11 @@
       playWordAudio(word);
     }
 
-    function startFlashcards(onlyReview) {
+    function startFlashcards(onlyReview, title, mode) {
       state.appState = "flashcards";
       state.reviewMode = onlyReview;
+      state.practiceTitle = title || (onlyReview ? "Fouten herhalen" : "Woordentrainer");
+      state.practiceMode = mode || "";
       state.cardIndex = 0;
       state.cardFlipped = false;
       renderFlashcards();
@@ -2022,7 +2617,7 @@
       view.innerHTML = `
         <section class="flash-wrap">
           <div class="center">
-            <h1>${state.reviewMode ? "Fouten Herhalen" : "Woordentrainer"}</h1>
+            <h1>${escapeHtml(state.practiceTitle || (state.reviewMode ? "Fouten herhalen" : "Woordentrainer"))}</h1>
             <p style="color:#64748b;font-weight:900;">Kaart ${state.cardIndex + 1} / ${items.length}</p>
           </div>
           <div class="flash-card" id="flipBtn" role="button" tabindex="0">
@@ -2031,7 +2626,7 @@
               : `<div><button class="icon-btn" type="button" id="speakCardBtn">Audio</button><div class="flash-word">${escapeHtml(card.word || "")}</div><p style="color:#64748b;font-weight:800;">Klik om om te draaien</p></div>`}
           </div>
           <button class="primary" type="button" id="nextCardBtn" style="width:100%;margin-top:18px;height:54px;">
-            ${state.cardIndex < items.length - 1 ? "Volgende" : state.reviewMode ? "Terug naar resultaten" : "Naar Quiz"}
+            ${state.cardIndex < items.length - 1 ? "Volgende" : state.practiceMode ? "Klaar" : state.reviewMode ? "Terug naar resultaten" : "Naar Quiz"}
           </button>
         </section>
       `;
@@ -2059,8 +2654,9 @@
           state.cardFlipped = false;
           renderFlashcards();
         } else {
-          awardXP(state.reviewMode ? 15 : 30, state.reviewMode ? "Fouten herhaald" : "Woordentrainer");
-          if (state.reviewMode) renderResults();
+          awardXP(state.reviewMode ? 15 : 30, state.practiceMode ? "Korte oefening" : state.reviewMode ? "Fouten herhaald" : "Woordentrainer");
+          if (state.practiceMode) renderPracticeComplete();
+          else if (state.reviewMode) renderResults();
           else renderQuiz();
         }
       });
@@ -2188,17 +2784,18 @@
         awardXP(10, "Correct antwoord");
       } else {
         addReviewWords(q.relatedWords || []);
+        addDifficultWords(q.relatedWords || []);
       }
       renderQuiz();
     }
 
     function addReviewWords(words) {
-      const existing = new Set(state.reviewPool.map((item) => item.word));
+      const existing = new Set(state.reviewPool.map((item) => normalize(item.word)));
       words.forEach((word) => {
-        if (existing.has(word)) return;
-        const glossary = state.glossary.find((item) => normalize(item.word) === normalize(word));
-        const sentence = state.pages.map((page) => page.text).join(" ").split(/[.!?]/).find((part) => normalize(part).includes(normalize(word)))?.trim() || "";
-        state.reviewPool.push({ word, definition: glossary?.definition || "Doelwoord", sentence });
+        const key = normalize(word);
+        if (!key || existing.has(key)) return;
+        state.reviewPool.push({ word, definition: getDefinitionForWord(word), sentence: findWordContext(word) });
+        existing.add(key);
       });
       saveProgress();
     }
@@ -2267,6 +2864,8 @@
       state.score = 0;
       state.pageIndex = 0;
       state.reviewMode = false;
+      state.practiceMode = "";
+      state.practiceTitle = "";
       showError("");
       renderLanding();
     }
