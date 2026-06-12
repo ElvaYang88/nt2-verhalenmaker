@@ -1,4 +1,4 @@
-const CACHE_NAME = "nt2-groningen-v11-consolidated-topic-directory";
+const CACHE_NAME = "nt2-groningen-v12-topic-submaps-v2";
 
 const CORE_ASSETS = [
   "./",

@@ -1030,8 +1030,11 @@
     });
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      window.addEventListener("load", async () => {
+        try {
+          const reg = await navigator.serviceWorker.register("./sw.js?v=topic-submaps-v2");
+          reg.update && reg.update();
+        } catch {}
       });
     }
 
@@ -2429,7 +2432,7 @@
                   <div class="theme-top">
                     <div>
                       <span class="chapter">${escapeHtml(theme.chapter)}</span>
-                      <div><span class="status ${readyCount ? "offline" : "key"}">${readyCount ? `${readyCount} verhaal${readyCount === 1 ? "" : "len"}` : "Later"}</span></div>
+                      <div><span class="status ${readyCount ? "offline" : "key"}">${(theme.bookTopics || []).length} onderwerpen</span></div>
                     </div>
                     <div class="theme-icon" aria-hidden="true">${themeIconSvg(theme.id)}</div>
                   </div>
