@@ -156,6 +156,8 @@
       line-height: 1.5;
     }
 
+
+    .home-actions.one-action { grid-template-columns: minmax(260px, 520px); justify-content: center; }
     .home-actions {
       width: min(720px, 100%);
       margin: 24px auto 0;
@@ -837,7 +839,9 @@
       .hero { min-height: auto; padding: 28px 0 36px; gap: 26px; }
       .hero h1 { font-size: clamp(34px, 13vw, 52px); line-height: 1.04; }
       .hero p { font-size: 15.5px; line-height: 1.55; padding: 0 4px; }
-      .home-actions { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
+  
+    .home-actions.one-action { grid-template-columns: minmax(260px, 520px); justify-content: center; }
+    .home-actions { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
       .quick-card { padding: 15px; border-radius: 21px; }
       .quick-card strong { font-size: 16px; }
       .quick-card span { font-size: 12.5px; }
@@ -1032,7 +1036,7 @@
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", async () => {
         try {
-          const reg = await navigator.serviceWorker.register("./sw.js?v=b1-variatie-v1");
+          const reg = await navigator.serviceWorker.register("./sw.js?v=free-neural-audio-v1");
           reg.update && reg.update();
         } catch {}
       });
@@ -2270,14 +2274,6 @@
       renderFlashcards();
     }
 
-    function startDailyPractice() {
-      const difficult = state.difficultWords || [];
-      const discovered = getAllPracticeWords().filter((item) => state.discoveredWords.has(item.word));
-      const all = getAllPracticeWords();
-      const base = difficult.length ? [...difficult, ...all] : discovered.length ? [...discovered, ...all] : all;
-      startPractice(base, "Dagelijkse oefening · 5 minuten", "daily");
-    }
-
     function startDifficultPractice() {
       if (!state.difficultWords.length) {
         showError("Je hebt nog geen moeilijke woorden. Maak eerst een quiz; foute woorden komen hier automatisch.");
@@ -2405,18 +2401,12 @@
       state.appState = "landing";
       updateHeader();
       const difficultCount = state.difficultWords.length;
-      const allCount = getAllPracticeWords().length;
       view.innerHTML = `
         <section class="hero">
           <div>
             <h1>Dompel jezelf onder in<br><span>Groningen.</span></h1>
             <p>Kies een onderwerp uit <em>De finale</em>. Daarna zie je de korte verhalen die bij dat onderwerp horen.</p>
-            <div class="home-actions">
-              <div class="quick-card">
-                <strong>Dagelijkse oefening · 5 minuten</strong>
-                <span>Oefen snel een paar woorden. Ideaal op je telefoon.</span>
-                <button class="primary" type="button" id="dailyPracticeBtn" ${allCount ? "" : "disabled"}>Start korte oefening</button>
-              </div>
+            <div class="home-actions one-action">
               <div class="quick-card ${difficultCount ? "" : "empty"}">
                 <strong>Mijn moeilijke woorden</strong>
                 <span>${difficultCount ? `${difficultCount} woord${difficultCount === 1 ? "" : "en"} uit foute quizvragen.` : "Foute quizwoorden komen hier automatisch."}</span>
@@ -2451,8 +2441,6 @@
         </section>
       `;
 
-      const dailyBtn = document.getElementById("dailyPracticeBtn");
-      if (dailyBtn) dailyBtn.addEventListener("click", startDailyPractice);
       const difficultBtn = document.getElementById("difficultPracticeBtn");
       if (difficultBtn) difficultBtn.addEventListener("click", startDifficultPractice);
 

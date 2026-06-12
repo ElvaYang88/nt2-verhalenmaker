@@ -1,0 +1,5 @@
+Generated with edge-tts
+Voice: nl-NL-ColetteNeural
+Rate: -4%
+Pitch: +0Hz
+Story pages: 105

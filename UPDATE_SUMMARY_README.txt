@@ -1,12 +1,8 @@
-NT2 update: B1 tekstvariatie v1
+NT2 update: audio sync + no daily practice
 
-Deze versie corrigeert de verhaalteksten zodat ze niet alleen uit losse eenvoudige zinnen bestaan.
+This update does three things:
+1. Replaces all story page audio files with newly generated Dutch narration based on the current B1 story texts.
+2. Removes the homepage feature "Dagelijkse oefening · 5 minuten".
+3. Keeps "Mijn moeilijke woorden" and the topic/subtopic directory structure.
 
-Belangrijkste wijzigingen:
-- Alle 25 bestaande verhaalpagina’s zijn herschreven in natuurlijker B1-Nederlands.
-- Zinnen hebben nu meer variatie: korte zinnen en langere zinnen worden afgewisseld.
-- Er zijn meer verbindingswoorden gebruikt, zoals omdat, maar, terwijl, zodat, daarom, daardoor, voordat, wanneer, hoewel, als, na afloop en toch.
-- Alle doelwoorden blijven in de verhalen aanwezig.
-- De bestaande homepage-structuur met thema’s en subonderwerpen blijft behouden.
-- Mijn moeilijke woorden en Dagelijkse oefening blijven behouden.
-- Cache/service worker is bijgewerkt zodat de nieuwe versie sneller zichtbaar wordt.
+Version marker: audio-sync-no-daily-v1
