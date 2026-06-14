@@ -1035,7 +1035,7 @@
     
         if ("serviceWorker" in navigator && location.protocol !== "file:") {
           window.addEventListener("load", () => {
-            navigator.serviceWorker.register("./sw.js?v=theme3-full-vocab-v3").catch(() => {});
+            navigator.serviceWorker.register("./sw.js?v=theme3-4-complete-v4").catch(() => {});
           });
         }
     
@@ -1202,9 +1202,13 @@
           "2-druk in de natuur": ["2-Druk in de natuur"],
           "3-unesco werelderfgoed": ["3-UNESCO werelderfgoed", "3-Amir in een oude stad", "3-Amir aan de gracht", "3-Amir helpt bij erfgoed", "3-Amir in het atelier"],
           "3-gerrit rietveld": ["3-Gerrit Rietveld", "3-Amir tekent zijn buurt", "3-Amir ziet oude daken"],
-          "3-eetgewoontes": ["3-Eetgewoontes"],
+          "3-eetgewoontes": ["3-Eetgewoontes", "3-Mila eet bij buren"],
           "3-cultuurverschillen": ["3-Cultuurverschillen", "3-Mila leert uitdrukkingen"],
-          "4-stage lopen": ["4-Stage lopen"]
+          "4-stage lopen": ["4-Stage lopen"],
+          "4-een eigen bedrijf starten": ["4-Een eigen bedrijf starten"],
+          "4-werk vinden": ["4-Werk vinden"],
+          "4-import en export": ["4-Import en export"],
+          "4-de wereldeconomie": ["4-De wereldeconomie"]
         };
     
         const images = {
@@ -1300,11 +1304,11 @@
           "4-Stage lopen": {
             vocab: themes[3].vocab,
             pages: [
-              { text: "Stage lopen vraagt een actieve aanpak. Mila luistert daarom goed. De plek moet aansluiten op de opleiding. Mila maakt een lijst. Zo doet zij stap voor stap mee. Daarna belt ze een bedrijf.", imageUrl: images.team, targets: ["aanpak","aansluiten op"] },
-              { text: "Bedrijven willen jong talent aantrekken. Ondertussen doet Mila rustig mee. Tijdens stage bouwt Mila een netwerk op. Daarom onthoudt zij meer. Ze praat met collega's. Ze bewaart hun namen.", imageUrl: images.work, targets: ["aantrekken","netwerk"] },
-              { text: "In sommige sectoren is hulp nijpend. Daarna doet Mila rustig mee. Dat is een goed argument voor stage. Mila ziet dat haar hulp nodig is. Op die manier begrijpt zij meer. Ze doet kleine taken.", imageUrl: images.study, targets: ["nijpend","argument"] },
-              { text: "Mila leert theorie omzetten in werk. Ondertussen doet zij rustig mee. Ze moet keuzes onderbouwen. Haar mentor stelt vragen. Mila legt rustig uit, waardoor zij meer begrijpt.", imageUrl: images.work, targets: ["omzetten","onderbouwen"] },
-              { text: "Stage helpt fouten beperken. Mila doet ook rustig mee. Mila leert welke bedrijfstak bij haar past. Daarna doet zij rustig mee. Ze kijkt naar zorg en techniek. Haar toekomst wordt duidelijker.", imageUrl: images.team, targets: ["beperken","bedrijfstak"] }
+              { text: "Mila zoekt een stage en kiest eerst een rustige aanpak, omdat ze niet zomaar overal wil solliciteren. De plek moet aansluiten op haar opleiding en op haar taalniveau, anders leert ze te weinig of wordt het juist te zwaar. Samen met haar docent maakt ze een lijst van bedrijven waar ze echt iets kan oefenen.", imageUrl: images.team, targets: ["aanpak","aansluiten op"] },
+              { text: "Tijdens een informatiemiddag merkt Mila dat bedrijven jong talent willen aantrekken, maar ook graag zien dat stagiairs nieuwsgierig zijn. Ze praat met twee medewerkers en bouwt voorzichtig een netwerk op. Na afloop bewaart ze hun namen, zodat ze later een nette mail kan sturen.", imageUrl: images.work, targets: ["aantrekken","netwerk"] },
+              { text: "In de zorg is extra hulp soms nijpend, vooral op drukke momenten in de ochtend. Dat is voor Mila een goed argument om juist daar stage te lopen, ook al vindt ze het spannend. Ze begint met kleine taken en ziet al snel dat haar aanwezigheid echt verschil kan maken.", imageUrl: images.study, targets: ["nijpend","argument"] },
+              { text: "Op haar stage leert Mila theorie omzetten in praktisch werk. Wanneer haar mentor vraagt waarom ze een bepaalde keuze maakt, moet ze haar antwoord rustig onderbouwen met voorbeelden uit de les. Dat kost tijd, maar daardoor begrijpt ze beter wat professioneel werken betekent.", imageUrl: images.work, targets: ["omzetten","onderbouwen"] },
+              { text: "Na een paar weken weet Mila beter hoe ze fouten kan beperken zonder bang te worden voor elke nieuwe taak. Ze ontdekt ook welke bedrijfstak bij haar past: de zorg spreekt haar aan, maar techniek vindt ze verrassend interessant. Daarom besluit ze beide richtingen verder te onderzoeken.", imageUrl: images.team, targets: ["beperken","bedrijfstak"] }
             ],
             glossary: [
               ["aanpak","manier van werken"],["aansluiten op","goed passen bij"],["aantrekken","interesseren of binnenhalen"],["netwerk","groep contacten"],["nijpend","dringend of ernstig"],["argument","reden"],["omzetten","veranderen in iets praktisch"],["onderbouwen","met feiten uitleggen"],["beperken","kleiner maken"],["bedrijfstak","sector"]
@@ -1558,6 +1562,28 @@
           "#d97706"
         );
     
+        stories["3-Mila eet bij buren"] = makeStory(
+          "Thema 3 - Cultuur",
+          "Mila eet bij buren",
+          ["behouden","eigentijds","aanraden","afhangen van","cultuurverschil","toepassen","bewaren","evalueren","waarde","wederzijds"],
+          [
+            { scene: "Uitnodiging voor het eten", targets: ["behouden","eigentijds"], text: "Mila wordt door haar buren uitgenodigd om te komen eten, en ze merkt meteen dat sommige gewoontes blijven terugkomen. De familie wil oude recepten behouden, maar zet er ook een eigentijds gerecht naast met groente uit de buurt. Mila vindt die combinatie prettig, omdat traditie en vernieuwing zo gewoon samen op tafel staan." },
+            { scene: "Soep proeven", targets: ["aanraden","afhangen van"], text: "De buurvrouw wil haar mosterdsoep aanraden, maar zegt er eerlijk bij dat de smaak kan afhangen van de soort mosterd en de tijd die de soep krijgt. Mila proeft eerst voorzichtig en neemt daarna nog een lepel. Terwijl ze vraagt naar het recept, hoort ze hoe eten vaak verbonden is met familieverhalen." },
+            { scene: "Verschillende smaken", targets: ["cultuurverschil","toepassen"], text: "Bij het hoofdgerecht ontstaat een klein cultuurverschil, omdat Mila gewend is om meer kruiden te gebruiken dan haar buren. In plaats van daar moeilijk over te doen, laat de buurman haar nieuwe woorden toepassen: mild, pittig, zout en romig. Daardoor wordt het gesprek niet ongemakkelijk, maar juist leerzaam." },
+            { scene: "Recept in het schrift", targets: ["bewaren","evalueren"], text: "Na het eten wil Mila het recept bewaren in haar taalschrift, zodat ze het later zelf kan proberen. Ze schrijft niet alleen de ingredienten op, maar ook zinnen die handig waren tijdens het gesprek. De volgende les wil ze evalueren welke woorden ze echt heeft gebruikt en welke nog oefening vragen." },
+            { scene: "Respect aan tafel", targets: ["waarde","wederzijds"], text: "Aan tafel ontdekt Mila de waarde van rustig vragen stellen, vooral wanneer mensen andere gewoontes hebben. Er ontstaat wederzijds respect, omdat iedereen iets vertelt over eten thuis, feestdagen en familie. Als Mila naar huis gaat, heeft ze niet alleen nieuwe woorden geleerd, maar ook een nieuwe manier om contact te maken." }
+          ],
+          [["behouden","in stand houden"],["eigentijds","modern"],["aanraden","adviseren"],["afhangen van","bepaald worden door"],["cultuurverschil","verschil in gewoontes"],["toepassen","gebruiken in de praktijk"],["bewaren","opslaan"],["evalueren","beoordelen"],["waarde","belang"],["wederzijds","van twee kanten"]],
+          [
+            { question: "Wat combineren de buren op tafel?", options: ["Traditie en vernieuwing.","Alleen fastfood.","Alleen brood.","Geen eten."], answer: "Traditie en vernieuwing.", explanation: "Ze behouden oude recepten en maken ook iets eigentijds.", relatedWords: ["behouden","eigentijds"] },
+            { question: "Waarvan kan de smaak afhangen?", options: ["Van de mosterd en de kooktijd.","Van de trein.","Van de winkelstraat.","Van het weer alleen."], answer: "Van de mosterd en de kooktijd.", explanation: "De buurvrouw zegt dat de soort mosterd en tijd belangrijk zijn.", relatedWords: ["afhangen van"] },
+            { question: "Wat doet Mila met nieuwe woorden?", options: ["Ze past ze toe tijdens het eten.","Ze vergeet ze meteen.","Ze schrijft ze op de muur.","Ze gebruikt ze niet."], answer: "Ze past ze toe tijdens het eten.", explanation: "Ze oefent woorden voor smaak.", relatedWords: ["toepassen","cultuurverschil"] },
+            { question: "Waar bewaart Mila het recept?", options: ["In haar taalschrift.","In een museum.","Op een dak.","In een bus."], answer: "In haar taalschrift.", explanation: "Ze schrijft het recept en zinnen op.", relatedWords: ["bewaren"] },
+            { question: "Wat ontstaat er aan tafel?", options: ["Wederzijds respect.","Een ruzie.","Stilte.","Een toets."], answer: "Wederzijds respect.", explanation: "Iedereen vertelt iets en luistert naar elkaar.", relatedWords: ["wederzijds","waarde"] }
+          ],
+          "#d97706"
+        );
+    
         stories["3-Cultuurverschillen"] = makeStory(
           "Thema 3 - Cultuur",
           "Cultuurverschillen",
@@ -1727,11 +1753,11 @@
           "Een eigen bedrijf starten",
           ["aanpak","aantrekken","netwerk","nijpend","argument","omzetten","onderbouwen","beperken","neiging","bedrijfstak"],
           [
-            { scene: "Ondernemersidee in Groningen", targets: ["aanpak","aantrekken"], text: "Mila wil een klein bedrijf met eten beginnen. Daarna maakt zij een korte notitie. Ze kiest een duidelijke aanpak. Mila doet ook rustig mee. Daarmee wil ze klanten aantrekken. Ze start met drie gerechten." },
-            { scene: "Netwerk opbouwen", targets: ["netwerk","nijpend"], text: "In het buurthuis bouwt Mila een netwerk op, omdat zij de buurt wil leren kennen. Geld voor de start is nijpend. Andere mensen met een bedrijf geven tips. Mila schrijft ze op. Ondertussen doet zij rustig mee." },
-            { scene: "Crowdfunding bespreken", targets: ["argument","omzetten"], text: "Een goed argument voor geld vragen is steun uit de buurt. Toch blijft Mila rustig meedoen. Mila wil haar idee omzetten in een dienst. Bovendien begrijpt zij de situatie beter. Ze laat buren proeven. Daarna vraagt ze om advies." },
-            { scene: "Plan onderbouwen", targets: ["onderbouwen","beperken"], text: "Mila wil haar prijzen onderbouwen met cijfers. Daardoor begrijpt zij meer. Zo kan ze risico's beperken. Een vrijwilliger helpt met een tabel. Mila rekent rustig mee. Zo begrijpt zij de situatie beter." },
-            { scene: "Professioneel groeien", targets: ["neiging","bedrijfstak"], text: "Mila heeft de neiging om te snel te groeien. Daarom onthoudt zij meer. In deze bedrijfstak is rustig starten beter. Bovendien leert Mila op haar eigen tempo. Ze neemt eerst kleine opdrachten. Daarna kijkt ze verder." }
+            { scene: "Ondernemersidee in Groningen", targets: ["aanpak","aantrekken"], text: "Mila wil een klein bedrijf beginnen met soepen en broodjes uit verschillende culturen. Ze kiest een duidelijke aanpak: eerst koken voor buurtbijeenkomsten, daarna pas voor grotere groepen. Met foto's, proefhapjes en korte verhalen over de gerechten wil ze klanten aantrekken zonder meteen veel geld uit te geven." },
+            { scene: "Netwerk opbouwen", targets: ["netwerk","nijpend"], text: "In het buurthuis bouwt Mila langzaam een netwerk op van buren, vrijwilligers en mensen met een eigen bedrijf. Startgeld is nog nijpend, dus ze vraagt vooral om advies en gebruikt spullen die ze al heeft. Een oudere ondernemer vertelt haar dat vertrouwen soms belangrijker is dan een dure website." },
+            { scene: "Crowdfunding bespreken", targets: ["argument","omzetten"], text: "Tijdens een gesprek over crowdfunding zoekt Mila naar een sterk argument: haar bedrijf kan mensen uit de buurt samenbrengen. Ze wil haar idee omzetten in een kleine dienst die betaalbaar blijft, maar wel professioneel voelt. Daarom laat ze buren proeven en vraagt ze eerlijk wat beter kan." },
+            { scene: "Plan onderbouwen", targets: ["onderbouwen","beperken"], text: "Met hulp van een vrijwilliger leert Mila haar prijzen onderbouwen met eenvoudige cijfers. Ze rekent uit wat ingredienten, tijd en vervoer kosten, zodat ze verlies kan beperken. Het is geen spannend werk, maar het geeft haar wel rust omdat ze nu ziet wat haalbaar is." },
+            { scene: "Professioneel groeien", targets: ["neiging","bedrijfstak"], text: "Mila heeft de neiging om te snel ja te zeggen tegen elke opdracht, vooral wanneer mensen enthousiast reageren. Toch leert ze dat deze bedrijfstak druk kan zijn en dat kwaliteit belangrijker is dan snelheid. Ze neemt daarom eerst kleine opdrachten aan en kijkt daarna pas verder." }
           ],
           [["aanpak","manier van werken"],["aantrekken","interesseren"],["netwerk","contacten"],["nijpend","dringend tekort"],["argument","reden"],["omzetten","veranderen in iets praktisch"],["onderbouwen","met feiten uitleggen"],["beperken","kleiner maken"],["neiging","drang"],["bedrijfstak","sector"]],
           [
@@ -1747,11 +1773,11 @@
           "Werk vinden",
           ["aanpak","netwerk","nijpend","argument","onderbouwen","beperken","neiging","bedrijfstak","aansluiten op","aantrekken"],
           [
-            { scene: "Sollicitatie voorbereiden", targets: ["aanpak","netwerk"], text: "Mila zoekt werk met een duidelijke aanpak. Op die manier begrijpt zij meer. Ze gebruikt haar netwerk. Zo doet Mila stap voor stap mee. Een taalcoach kijkt naar haar cv. Daarna zoekt ze vacatures." },
-            { scene: "Passende vaardigheden", targets: ["aansluiten op","aantrekken"], text: "Wat Mila kan, moet aansluiten op de baan, omdat zij de regels wil leren kennen. Een korte brief kan aandacht aantrekken. Mila schrijft rustige zinnen. Daarna doet zij rustig mee. Ze kijkt haar tekst na." },
-            { scene: "Kansrijke sector", targets: ["nijpend","bedrijfstak"], text: "In de zorg is hulp nijpend. Ondertussen doet Mila rustig mee. Deze bedrijfstak heeft nieuwe mensen nodig. Mila bekijkt een korte opleiding, waardoor zij meer begrijpt. Ze vraagt naar de lessen." },
-            { scene: "Omscholing uitleggen", targets: ["argument","onderbouwen"], text: "Een goed argument voor omscholing is meer kans op werk. Daarna doet Mila rustig mee. Mila leert haar keuze onderbouwen. Zij doet ook rustig mee. Ze noemt dingen uit haar leven. Dat helpt in gesprekken." },
-            { scene: "Zenuwen verminderen", targets: ["beperken","neiging"], text: "Mila wil haar zenuwen beperken, zodat zij de situatie beter begrijpt. Ze heeft de neiging om snel te praten. Mila doet ook rustig mee. Daarom oefent ze met de taalcoach. In het gesprek blijft ze rustiger." }
+            { scene: "Sollicitatie voorbereiden", targets: ["aanpak","netwerk"], text: "Mila zoekt werk met een duidelijke aanpak, want losse vacatures bekijken maakt haar onrustig. Ze begint bij haar netwerk en vraagt aan bekenden of zij bedrijven kennen waar Nederlands leren op de werkvloer mogelijk is. Een taalcoach kijkt mee naar haar cv en helpt haar kiezen welke ervaring ze bovenaan zet." },
+            { scene: "Passende vaardigheden", targets: ["aansluiten op","aantrekken"], text: "Bij elke vacature vraagt Mila zich af of haar vaardigheden aansluiten op wat de werkgever zoekt. Haar brief moet aandacht aantrekken, maar niet overdreven klinken. Daarom schrijft ze korte, persoonlijke zinnen waarin ze uitlegt wat ze kan en waarom ze juist bij dit bedrijf wil werken." },
+            { scene: "Kansrijke sector", targets: ["nijpend","bedrijfstak"], text: "Tijdens een informatieavond hoort Mila dat personeel in de zorg nog steeds nijpend is. Deze bedrijfstak heeft mensen nodig die betrouwbaar zijn en goed kunnen luisteren, ook als hun Nederlands nog groeit. Mila bekijkt een korte opleiding en vraagt welke taalvaardigheid ze nodig heeft om te starten." },
+            { scene: "Omscholing uitleggen", targets: ["argument","onderbouwen"], text: "Een sterk argument voor omscholing is dat Mila meer kans krijgt op werk dat bij haar past. In een gesprek leert ze haar keuze onderbouwen met voorbeelden uit haar leven: ze heeft voor familie gezorgd, kan goed plannen en blijft rustig bij drukte. Daardoor klinkt haar verhaal sterker." },
+            { scene: "Zenuwen verminderen", targets: ["beperken","neiging"], text: "Voor een sollicitatiegesprek wil Mila haar zenuwen beperken, omdat ze anders te snel gaat praten. Ze heeft de neiging om elk antwoord meteen perfect te willen maken, maar de taalcoach zegt dat rustig nadenken ook professioneel is. Na drie oefengesprekken voelt ze meer controle." }
           ],
           [["aanpak","manier van werken"],["netwerk","contacten"],["nijpend","dringend tekort"],["argument","reden"],["onderbouwen","uitleggen met bewijs"],["beperken","minder maken"],["neiging","drang"],["bedrijfstak","sector"],["aansluiten op","passen bij"],["aantrekken","interesse wekken"]],
           [
@@ -1767,17 +1793,39 @@
           "Import en export",
           ["aanpak","aantrekken","netwerk","argument","omzetten","onderbouwen","beperken","neiging","bedrijfstak","nijpend"],
           [
-            { scene: "Handel in de regio", targets: ["aanpak","aantrekken"], text: "Mila bezoekt een bedrijf in Groningen. Intussen leert zij de buurt kennen. De handel vraagt een goede aanpak. Het bedrijf wil nieuwe klanten aantrekken. Mila kijkt rond in het magazijn. Daarna maakt zij een korte notitie." },
-            { scene: "Internationaal netwerk", targets: ["netwerk","argument"], text: "Voor import en export is een netwerk belangrijk. Toch blijft Mila rustig meedoen. Een argument voor export is een grotere markt. Mila luistert naar de manager. Daardoor begrijpt zij de uitleg beter. Hij laat een kaart zien." },
-            { scene: "Lokale producten verkopen", targets: ["omzetten","onderbouwen"], text: "Het bedrijf wil lokale producten omzetten in winst. Bovendien leert Mila op haar eigen tempo. Het moet keuzes onderbouwen met cijfers. Mila kijkt naar een simpele grafiek. Bovendien begrijpt zij de situatie beter. Ze ziet waar producten heen gaan." },
-            { scene: "Risico's plannen", targets: ["beperken","neiging"], text: "Bedrijven hebben soms de neiging om snel te groeien. Zo doet Mila stap voor stap mee. Goede planning kan te laat komen beperken. Mila bekijkt routes op een kaart. Daardoor begrijpt zij meer. Ze vraagt naar de planning." },
-            { scene: "Transportcapaciteit", targets: ["bedrijfstak","nijpend"], text: "In deze bedrijfstak is transport soms nijpend. Ondertussen doet Mila rustig mee. Daarom werken bedrijven samen. Mila ziet dozen klaarstaan. Zo begrijpt zij de situatie beter. Ze begrijpt dat handel veel planning vraagt." }
+            { scene: "Handel in de regio", targets: ["aanpak","aantrekken"], text: "Mila bezoekt een Gronings bedrijf dat lokale producten naar Duitsland verkoopt. De manager legt uit dat internationale handel een goede aanpak vraagt, omdat klanten duidelijke afspraken en betrouwbare levering verwachten. Met kwaliteit, snelle reacties en eerlijke informatie wil het bedrijf nieuwe klanten aantrekken." },
+            { scene: "Internationaal netwerk", targets: ["netwerk","argument"], text: "Voor import en export is een netwerk van leveranciers, vervoerders en klanten belangrijk. Een sterk argument voor export is dat de markt groter wordt, maar de manager zegt ook dat contact onderhouden veel tijd kost. Mila kijkt naar een kaart en ziet hoe een klein product door meerdere landen kan reizen." },
+            { scene: "Lokale producten verkopen", targets: ["omzetten","onderbouwen"], text: "Het bedrijf wil lokale producten omzetten in winst zonder de band met de regio te verliezen. Elke keuze moet het team onderbouwen met cijfers, bijvoorbeeld over vervoer, voorraad en prijs. Mila vindt de grafiek eerst lastig, maar na de uitleg ziet ze waarom cijfers verhalen kunnen ondersteunen." },
+            { scene: "Risico's plannen", targets: ["beperken","neiging"], text: "Bedrijven hebben soms de neiging om te snel te groeien wanneer buitenlandse klanten interesse tonen. Goede planning helpt risico's beperken, vooral als transport duurder wordt of producten later aankomen. Mila leert dat nee zeggen soms verstandiger is dan een opdracht aannemen die je niet goed kunt uitvoeren." },
+            { scene: "Transportcapaciteit", targets: ["bedrijfstak","nijpend"], text: "In deze bedrijfstak kan transportcapaciteit nijpend zijn, vooral rond feestdagen of bij slecht weer. Daarom werken bedrijven samen en plannen ze routes ruim op tijd. Terwijl Mila dozen ziet klaarstaan, begrijpt ze dat handel niet alleen over verkopen gaat, maar ook over wachten, controleren en opnieuw afstemmen." }
           ],
           [["aanpak","manier van werken"],["aantrekken","interesseren"],["netwerk","contacten"],["argument","reden"],["omzetten","veranderen in winst"],["onderbouwen","uitleggen met gegevens"],["beperken","minder maken"],["neiging","drang"],["bedrijfstak","sector"],["nijpend","dringend tekort"]],
           [
             { question: "Wat vraagt internationale handel?", options: ["Een professionele aanpak.","Geen planning.","Minder contact.","Geen gegevens."], answer: "Een professionele aanpak.", explanation: "De eerste pagina noemt een professionele aanpak.", relatedWords: ["aanpak"] },
             { question: "Waarom is export aantrekkelijk?", options: ["De markt wordt groter.","Alle routes verdwijnen.","Er is geen netwerk nodig.","Producten blijven thuis."], answer: "De markt wordt groter.", explanation: "Een argument voor export is een grotere markt.", relatedWords: ["argument"] },
             { question: "Wat kan nijpend zijn?", options: ["Transportcapaciteit.","Een recept.","Een taalboek.","Een buurtfeest."], answer: "Transportcapaciteit.", explanation: "De laatste pagina noemt nijpende transportcapaciteit.", relatedWords: ["bedrijfstak","nijpend"] }
+          ],
+          "#4f46e5"
+        );
+    
+        stories["4-De wereldeconomie"] = makeStory(
+          "Thema 4 - Economie en werk",
+          "De wereldeconomie",
+          ["aanpak","aansluiten op","aantrekken","netwerk","nijpend","argument","omzetten","onderbouwen","beperken","bedrijfstak"],
+          [
+            { scene: "Prijs in de supermarkt", targets: ["aanpak","aansluiten op"], text: "Mila merkt in de supermarkt dat koffie en rijst duurder zijn geworden. In de les economie bespreekt de docent welke aanpak landen kiezen wanneer prijzen stijgen en lonen niet snel genoeg meegaan. De uitleg moet aansluiten op het dagelijks leven van de cursisten, anders blijven grote woorden zoals wereldeconomie te ver weg." },
+            { scene: "Wereldwijde contacten", targets: ["aantrekken","netwerk"], text: "Een bedrijf uit Groningen wil buitenlandse partners aantrekken, maar dat lukt alleen met een betrouwbaar netwerk. Mila ziet op een kaart dat leveranciers, havens en winkels met elkaar verbonden zijn. Als op een plek iets misgaat, kan een product aan de andere kant van de wereld later of duurder worden." },
+            { scene: "Tekorten begrijpen", targets: ["nijpend","argument"], text: "Tijdens de les gaat het over grondstoffen die soms nijpend worden, bijvoorbeeld door oorlog, droogte of hoge vraag. Een belangrijk argument voor samenwerking is dat landen elkaar nodig hebben om tekorten op te vangen. Mila begrijpt daardoor beter waarom nieuws uit een ander land ook invloed kan hebben op haar boodschappen." },
+            { scene: "Ideeen omzetten in beleid", targets: ["omzetten","onderbouwen"], text: "De docent vraagt de groep hoe je een goed idee kunt omzetten in beleid dat mensen echt helpt. Elk voorstel moeten ze onderbouwen met eenvoudige feiten, zoals prijzen, banen en vervoer. Mila kiest voor steun aan kleine bedrijven, omdat zij vaak snel merken wanneer de economie verandert." },
+            { scene: "Risico's voor bedrijven", targets: ["beperken","bedrijfstak"], text: "Aan het einde bespreekt de klas hoe bedrijven risico's kunnen beperken in een onrustige wereldmarkt. In elke bedrijfstak zijn de gevolgen anders: een bakker merkt vooral de prijs van energie, terwijl een transportbedrijf kijkt naar brandstof en routes. Mila ziet dat economie niet abstract is, maar dichtbij komt in gewone keuzes." }
+          ],
+          [["aanpak","manier van werken"],["aansluiten op","passen bij"],["aantrekken","interesseren of binnenhalen"],["netwerk","contacten"],["nijpend","dringend tekort"],["argument","reden"],["omzetten","veranderen in iets praktisch"],["onderbouwen","uitleggen met feiten"],["beperken","minder maken"],["bedrijfstak","sector"]],
+          [
+            { question: "Waarom moet de uitleg aansluiten op het dagelijks leven?", options: ["Dan begrijpt de groep economische woorden beter.","Dan worden producten gratis.","Dan hoeft niemand te leren.","Dan verdwijnen prijzen."], answer: "Dan begrijpt de groep economische woorden beter.", explanation: "De docent wil wereldeconomie dichtbij maken.", relatedWords: ["aansluiten op"] },
+            { question: "Wat heeft een bedrijf nodig voor buitenlandse partners?", options: ["Een betrouwbaar netwerk.","Alleen een fiets.","Een leeg magazijn.","Geen contact."], answer: "Een betrouwbaar netwerk.", explanation: "Contacten met partners zijn belangrijk.", relatedWords: ["netwerk","aantrekken"] },
+            { question: "Waarom werken landen samen bij tekorten?", options: ["Om tekorten op te vangen.","Om alles duurder te maken.","Om minder te weten.","Om winkels te sluiten."], answer: "Om tekorten op te vangen.", explanation: "Samenwerking helpt wanneer grondstoffen nijpend zijn.", relatedWords: ["nijpend","argument"] },
+            { question: "Waarmee moeten voorstellen worden onderbouwd?", options: ["Met feiten over prijzen, banen en vervoer.","Met alleen gevoel.","Met oude foto's.","Met stilte."], answer: "Met feiten over prijzen, banen en vervoer.", explanation: "Feiten maken een voorstel sterker.", relatedWords: ["onderbouwen"] },
+            { question: "Wat verschilt per bedrijfstak?", options: ["Welke risico's het belangrijkst zijn.","Of mensen mogen werken.","Of taal nodig is.","Of er koffie bestaat."], answer: "Welke risico's het belangrijkst zijn.", explanation: "Een bakker en transportbedrijf merken andere gevolgen.", relatedWords: ["bedrijfstak","beperken"] }
           ],
           "#4f46e5"
         );
