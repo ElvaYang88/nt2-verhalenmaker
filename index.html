@@ -1035,7 +1035,7 @@
     
         if ("serviceWorker" in navigator && location.protocol !== "file:") {
           window.addEventListener("load", () => {
-            navigator.serviceWorker.register("./sw.js?v=theme3-b1-natural-voice-v2").catch(() => {});
+            navigator.serviceWorker.register("./sw.js?v=theme3-full-vocab-v3").catch(() => {});
           });
         }
     
@@ -1201,9 +1201,9 @@
           "1-een straatarts": ["1-Een streetarts"],
           "2-druk in de natuur": ["2-Druk in de natuur"],
           "3-unesco werelderfgoed": ["3-UNESCO werelderfgoed", "3-Amir in een oude stad", "3-Amir aan de gracht", "3-Amir helpt bij erfgoed", "3-Amir in het atelier"],
-          "3-gerrit rietveld": ["3-Gerrit Rietveld", "3-Amir tekent zijn buurt"],
+          "3-gerrit rietveld": ["3-Gerrit Rietveld", "3-Amir tekent zijn buurt", "3-Amir ziet oude daken"],
           "3-eetgewoontes": ["3-Eetgewoontes"],
-          "3-cultuurverschillen": ["3-Cultuurverschillen"],
+          "3-cultuurverschillen": ["3-Cultuurverschillen", "3-Mila leert uitdrukkingen"],
           "4-stage lopen": ["4-Stage lopen"]
         };
     
@@ -1574,6 +1574,50 @@
             { question: "Wat wil Mila behouden?", options: ["Haar eigen tradities.","Alle misverstanden.","Geen contact.","Alleen stilte."], answer: "Haar eigen tradities.", explanation: "De eerste pagina noemt eigen tradities behouden.", relatedWords: ["behouden"] },
             { question: "Wat helpt bij cultuurverschillen?", options: ["Open vragen stellen.","Nooit luisteren.","Geen taal leren.","Alles vermijden."], answer: "Open vragen stellen.", explanation: "De docent raadt aan om vragen te stellen.", relatedWords: ["aanraden","cultuurverschil"] },
             { question: "Waar bewaart Mila nieuwe zinnen?", options: ["In haar notitieboek.","In een ecoduct.","In een waterleiding.","In een restaurantmenu."], answer: "In haar notitieboek.", explanation: "Ze bewaart nieuwe zinnen in haar notitieboek.", relatedWords: ["bewaren"] }
+          ],
+          "#d97706"
+        );
+    
+        stories["3-Mila leert uitdrukkingen"] = makeStory(
+          "Thema 3 - Cultuur",
+          "Mila leert uitdrukkingen",
+          ["bedoeld zijn voor","begane grond","beloftes niet nakomen","De liefde bloeit op","een blik van herkenning","een publiek geheim","er je hand niet voor omdraaien","eten wat de pot schaft","hulp nodig hebben bij","op zoek zijn naar"],
+          [
+            { scene: "Open dag in het cultuurhuis", targets: ["bedoeld zijn voor","begane grond"], text: "Mila gaat naar een open dag in het cultuurhuis, omdat zij meer wil begrijpen van Nederlandse gewoontes. Op het bord staat de uitdrukking bedoeld zijn voor, en de docent legt uit dat de rondleiding speciaal voor nieuwe bewoners is. Op de begane grond staat koffie klaar, en terwijl mensen binnenkomen, hoort Mila meteen verschillende accenten." },
+            { scene: "Afspraak met de buren", targets: ["beloftes niet nakomen","De liefde bloeit op"], text: "Tijdens een gesprek over vrijwilligerswerk schrijft een buurman beloftes niet nakomen op het bord, omdat vertrouwen in een kleine groep snel kan verdwijnen. Daarna vertelt hij lachend over twee buren die elkaar bij het koken hebben leren kennen. De liefde bloeit op, zegt hij, en iedereen aan tafel begrijpt meteen wat hij bedoelt." },
+            { scene: "Herkenning in de klas", targets: ["een blik van herkenning","een publiek geheim"], text: "In de taalles hoort Mila dezelfde uitdrukking nog eens, en ze wisselt een blik van herkenning met haar vriendin. Dat sommige cursisten thuis al veel Nederlands oefenen, is eigenlijk een publiek geheim: niemand zegt het hardop, maar iedereen merkt het aan hun snelle antwoorden. Mila vindt dat grappig, want zo leert ze ook de kleine humor van de groep kennen." },
+            { scene: "Samen eten", targets: ["er je hand niet voor omdraaien","eten wat de pot schaft"], text: "Op vrijdag koken de cursisten samen, en Mila helpt zonder lang na te denken met snijden, afwassen en tafels klaarzetten. De vrijwilliger zegt dat er je hand niet voor omdraaien betekent dat je iets makkelijk doet. Daarna gaan ze eten wat de pot schaft: eenvoudige soep, brood en salade, maar door de gesprekken voelt het toch bijzonder." },
+            { scene: "Nieuwe woorden zoeken", targets: ["hulp nodig hebben bij","op zoek zijn naar"], text: "Na het eten merkt Mila dat hulp nodig hebben bij sommige uitdrukkingen heel normaal is, omdat de betekenis niet altijd uit de losse woorden komt. Daarom schrijft de docent op zoek zijn naar op het bord en zoekt de groep samen voorbeelden uit echte gesprekken. Mila noteert de zinnen en leest ze later thuis hardop." }
+          ],
+          [["bedoeld zijn voor","gemaakt of gepland voor"],["begane grond","verdieping op straatniveau"],["beloftes niet nakomen","niet doen wat je hebt beloofd"],["De liefde bloeit op","er ontstaat liefde"],["een blik van herkenning","een kijk waaruit blijkt dat je iets herkent"],["een publiek geheim","iets wat iedereen eigenlijk weet"],["er je hand niet voor omdraaien","iets makkelijk vinden om te doen"],["eten wat de pot schaft","eten wat er op tafel komt"],["hulp nodig hebben bij","niet zonder hulp kunnen"],["op zoek zijn naar","zoeken naar"]],
+          [
+            { question: "Voor wie is de rondleiding bedoeld?", options: ["Voor nieuwe bewoners.","Voor alleen kinderen.","Voor toeristen zonder gids.","Voor niemand."], answer: "Voor nieuwe bewoners.", explanation: "De rondleiding is bedoeld voor nieuwe bewoners.", relatedWords: ["bedoeld zijn voor"] },
+            { question: "Waar staat de koffie klaar?", options: ["Op de begane grond.","Op het dak.","In de kelder.","In de trein."], answer: "Op de begane grond.", explanation: "De tekst noemt koffie op de begane grond.", relatedWords: ["begane grond"] },
+            { question: "Wat is een publiek geheim in de klas?", options: ["Dat sommige cursisten thuis veel oefenen.","Dat niemand leert.","Dat de les niet doorgaat.","Dat er geen docent is."], answer: "Dat sommige cursisten thuis veel oefenen.", explanation: "Iedereen merkt het, ook al zegt niemand het hardop.", relatedWords: ["een publiek geheim"] },
+            { question: "Wat eten de cursisten?", options: ["Wat de pot schaft.","Alleen taart.","Niets.","Alleen kaas."], answer: "Wat de pot schaft.", explanation: "Ze eten eenvoudige soep, brood en salade.", relatedWords: ["eten wat de pot schaft"] },
+            { question: "Waarom zoekt Mila voorbeelden?", options: ["Omdat uitdrukkingen soms moeilijk zijn.","Omdat ze geen boek heeft.","Omdat ze wil stoppen.","Omdat ze alleen wil koken."], answer: "Omdat uitdrukkingen soms moeilijk zijn.", explanation: "De betekenis komt niet altijd uit de losse woorden.", relatedWords: ["hulp nodig hebben bij","op zoek zijn naar"] }
+          ],
+          "#d97706"
+        );
+    
+        stories["3-Amir ziet oude daken"] = makeStory(
+          "Thema 3 - Cultuur",
+          "Amir ziet oude daken",
+          ["een golvend dak","een plat dak","ertegenaan gaan","ervoor gaan","geneigd zijn om","haarscheurtjes beginnen te vertonen","Het is van groot belang","het niet over zijn kant laten gaan","voorop lopen in","waarde"],
+          [
+            { scene: "Daken vergelijken", targets: ["een golvend dak","een plat dak"], text: "Amir loopt met zijn ontwerpklas door een straat waar oude en nieuwe huizen naast elkaar staan. Bij het eerste huis ziet hij een golvend dak dat zacht lijkt te bewegen, terwijl het gebouw ernaast juist een plat dak heeft. De docent vraagt welke vorm beter bij de straat past, en Amir merkt dat hij niet meteen een antwoord heeft." },
+            { scene: "Aan het werk", targets: ["ertegenaan gaan","ervoor gaan"], text: "Terug in het atelier zegt de docent dat ertegenaan gaan betekent dat je echt aan het werk moet, vooral omdat de maquette vrijdag klaar moet zijn. Amir twijfelt even, maar zijn klasgenoot zegt dat ze ervoor gaan en de taken eerlijk verdelen. Daardoor wordt de sfeer actief zonder druk te worden, en iedereen begint aan een eigen onderdeel." },
+            { scene: "Te snel willen", targets: ["geneigd zijn om","haarscheurtjes beginnen te vertonen"], text: "Amir schrijft geneigd zijn om in zijn schrift, want hij heeft vaak de neiging om snel te tekenen wanneer hij een idee in zijn hoofd heeft. De docent noemt haarscheurtjes beginnen te vertonen en wijst op een oud model dat kwetsbaar wordt als iemand te hard drukt. Amir legt zijn potlood neer, ademt even uit en kijkt opnieuw naar de lijnen." },
+            { scene: "Waarom zorg nodig is", targets: ["Het is van groot belang","het niet over zijn kant laten gaan"], text: "Op een kaartje bij de tafel staat: Het is van groot belang om oude materialen voorzichtig te behandelen. Amir ziet dat een klasgenoot bijna een kwetsbaar stukje hout opzij schuift en wil het niet over zijn kant laten gaan. Hij zegt rustig dat ze beter eerst kunnen vragen wat mag." },
+            { scene: "Nieuwe ideeën", targets: ["voorop lopen in","waarde"], text: "Aan het einde bespreekt de groep hoe Nederlandse ontwerpers soms voorop lopen in slimme oplossingen voor kleine woningen. Amir begrijpt nu beter dat de waarde van cultuur niet alleen in musea zit, maar ook in stoelen, daken en kamers waar mensen elke dag gebruik van maken. Zijn eigen ontwerp blijft eenvoudig, maar het heeft wel een duidelijk idee." }
+          ],
+          [["een golvend dak","een dak met een golvende vorm"],["een plat dak","een dak zonder schuine of ronde vorm"],["ertegenaan gaan","hard aan het werk gaan"],["ervoor gaan","je best doen om iets te bereiken"],["geneigd zijn om","snel de neiging hebben om"],["haarscheurtjes beginnen te vertonen","kleine scheurtjes krijgen"],["Het is van groot belang","het is heel belangrijk"],["het niet over zijn kant laten gaan","iets niet accepteren"],["voorop lopen in","verder of sneller zijn dan anderen in iets"],["waarde","belang"]],
+          [
+            { question: "Welke twee daken vergelijkt Amir?", options: ["Een golvend dak en een plat dak.","Een groen dak en een rood dak.","Een glazen dak en geen dak.","Een kapot dak en een nieuw dak."], answer: "Een golvend dak en een plat dak.", explanation: "De eerste pagina noemt beide dakvormen.", relatedWords: ["een golvend dak","een plat dak"] },
+            { question: "Waarom moet de groep ertegenaan gaan?", options: ["Omdat de maquette vrijdag klaar moet zijn.","Omdat ze naar huis willen.","Omdat er geen opdracht is.","Omdat het regent."], answer: "Omdat de maquette vrijdag klaar moet zijn.", explanation: "Er is een duidelijke deadline.", relatedWords: ["ertegenaan gaan","ervoor gaan"] },
+            { question: "Waarom werkt Amir rustiger?", options: ["Omdat het model haarscheurtjes begint te vertonen.","Omdat hij klaar is.","Omdat hij geen potlood heeft.","Omdat hij muziek hoort."], answer: "Omdat het model haarscheurtjes begint te vertonen.", explanation: "Het oude model is kwetsbaar.", relatedWords: ["haarscheurtjes beginnen te vertonen"] },
+            { question: "Wat laat Amir niet over zijn kant gaan?", options: ["Onvoorzichtig omgaan met kwetsbaar hout.","Een verkeerde kleur verf.","Een lege tafel.","Een korte pauze."], answer: "Onvoorzichtig omgaan met kwetsbaar hout.", explanation: "Hij zegt rustig dat ze beter eerst kunnen vragen.", relatedWords: ["het niet over zijn kant laten gaan"] },
+            { question: "Waarin kunnen ontwerpers voorop lopen?", options: ["In slimme oplossingen voor kleine woningen.","In hard fietsen.","In lang slapen.","In niets doen."], answer: "In slimme oplossingen voor kleine woningen.", explanation: "De laatste pagina noemt slimme oplossingen.", relatedWords: ["voorop lopen in"] }
           ],
           "#d97706"
         );
