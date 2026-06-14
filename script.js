@@ -106,8 +106,8 @@
         subtitle: "’s Lands wijs, ’s lands eer",
         page: 76,
         icon: "C",
-        bookTopics: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen"],
-        subsections: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen"],
+        bookTopics: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen", "Amir in een oude stad", "Amir aan de gracht", "Amir helpt bij erfgoed", "Amir tekent zijn buurt", "Amir in het atelier"],
+        subsections: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen", "Amir in een oude stad", "Amir aan de gracht", "Amir helpt bij erfgoed", "Amir tekent zijn buurt", "Amir in het atelier"],
         vocab: ["behouden","beschermen","bevorderen","bewaren","eigentijds","evalueren","gebouw","aanpassing","aanraden","afhangen van"]
       },
       {
@@ -535,7 +535,7 @@
       ["behouden","eigentijds","aanraden","afhangen van","bereiken","cultuurverschil","toepassen","bewaren","evalueren","beschaving"],
       [
         { scene: "Nieuwe gewoontes leren", targets: ["behouden","eigentijds"], text: "Mila wil haar eigen tradities behouden. Op die manier begrijpt zij meer. Ze leert ook eigentijds praten in Nederland. Zo doet Mila stap voor stap mee. Soms zegt ze direct wat ze bedoelt. Soms luistert ze eerst." },
-        { scene: "Advies van de docent", targets: ["aanraden","afhangen van"], text: "De docent raadt aan om vragen te stellen. Intussen stelt Mila een korte vraag. Goed contact kan afhangen van openheid. Mila oefent korte zinnen. Zo doet zij stap voor stap mee. Ze durft vaker iets te vragen." },
+        { scene: "Advies van de docent", targets: ["aanraden","afhangen van"], text: "De docent wil aanraden om vragen te stellen. Intussen stelt Mila een korte vraag. Goed contact kan afhangen van openheid. Mila oefent korte zinnen. Zo doet zij stap voor stap mee. Ze durft vaker iets te vragen." },
         { scene: "Taal als brug", targets: ["bereiken","cultuurverschil"], text: "Met eenvoudige taal kan Mila meer mensen bereiken, waardoor zij meer begrijpt. Een cultuurverschil voelt dan minder groot. Ondertussen doet Mila rustig mee. Ze praat met een buurman over afspraken. Ze vragen rustig door." },
         { scene: "Communicatietips oefenen", targets: ["toepassen","bewaren"], text: "Mila leert tips toepassen in gesprekken. Ook luistert zij aandachtig. Ze wil nieuwe zinnen bewaren. Daarna doet Mila rustig mee. Ze schrijft ze in haar boekje. Daarna oefent ze met een buurvrouw." },
         { scene: "Samen leven", targets: ["evalueren","beschaving"], text: "Aan het einde van de week wil Mila haar leerpunten evalueren, zodat zij de situatie beter begrijpt. Ze ziet cultuur als deel van beschaving. Daarna kijkt Mila nog eens goed. Groningen voelt meer als thuis. Ze groet haar buren op straat." }

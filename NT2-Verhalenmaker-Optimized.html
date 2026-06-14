@@ -1097,8 +1097,8 @@
         subtitle: "Geen zorgen voor morgen",
         page: 10,
         icon: "M",
-        bookTopics: ["gelukkig zijn", "een straatarts", "het UWV", "buurtbewoners"],
-        subsections: ["Gelukkig zijn", "Een streetarts", "Het UWV", "Buurtbewoners"],
+        bookTopics: ["Gelukkig zijn", "Een straatarts", "Het UWV", "Buurtbewoners"],
+        subsections: ["Gelukkig zijn", "Een straatarts", "Het UWV", "Buurtbewoners"],
         vocab: ["blijken","aarzelen","uitgebreid","aanvragen","uitkering","stimuleren","arbeidsmarkt","bevorderen","cultuurverschil","toepassen"]
       },
       {
@@ -1108,8 +1108,8 @@
         subtitle: "Water naar zee dragen",
         page: 42,
         icon: "N",
-        bookTopics: ["druk in de natuur", "nationale parken", "drinkwatertekort", "een ecoduct", "de Keukenhof"],
-        subsections: ["Druk in de natuur", "Nationale parken", "Drinkwatertekort", "Een ecoduct"],
+        bookTopics: ["Druk in de natuur", "Nationale parken", "Drinkwatertekort", "Een ecoduct", "De Keukenhof"],
+        subsections: ["Druk in de natuur", "Nationale parken", "Drinkwatertekort", "Een ecoduct", "De Keukenhof"],
         vocab: ["aanleggen","aanpassing","aantrekkelijk","afvalstof","afvoeren","beheerder","benadrukken","beschermen","besparen","duurzaam"]
       },
       {
@@ -1119,7 +1119,7 @@
         subtitle: "’s Lands wijs, ’s lands eer",
         page: 76,
         icon: "C",
-        bookTopics: ["UNESCO werelderfgoed", "Gerrit Rietveld", "eetgewoontes", "cultuurverschillen"],
+        bookTopics: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen", "Amir in een oude stad", "Amir aan de gracht", "Amir helpt bij erfgoed", "Amir tekent zijn buurt", "Amir in het atelier"],
         subsections: ["UNESCO werelderfgoed", "Gerrit Rietveld", "Eetgewoontes", "Cultuurverschillen", "Amir in een oude stad", "Amir aan de gracht", "Amir helpt bij erfgoed", "Amir tekent zijn buurt", "Amir in het atelier"],
         vocab: ["behouden","beschermen","bevorderen","bewaren","eigentijds","evalueren","gebouw","aanpassing","aanraden","afhangen van"]
       },
@@ -1130,8 +1130,8 @@
         subtitle: "Leef je om te werken of werk je om te leven?",
         page: 106,
         icon: "W",
-        bookTopics: ["stage lopen", "een eigen bedrijf starten", "werk vinden", "import en export", "de wereldeconomie"],
-        subsections: ["Stage lopen", "Een eigen bedrijf starten", "Werk vinden", "Import en export"],
+        bookTopics: ["Stage lopen", "Een eigen bedrijf starten", "Werk vinden", "Import en export", "De wereldeconomie"],
+        subsections: ["Stage lopen", "Een eigen bedrijf starten", "Werk vinden", "Import en export", "De wereldeconomie"],
         vocab: ["aanpak","aansluiten op","aantrekken","netwerk","nijpend","argument","omzetten","onderbouwen","beperken","bedrijfstak"]
       },
       {
@@ -1141,7 +1141,7 @@
         subtitle: "Alle wegen leiden naar Rome",
         page: 136,
         icon: "I",
-        bookTopics: ["maatschappelijke ondersteuning", "Is Nederland vol?", "auto en openbaar vervoer", "bereikbaarheid"],
+        bookTopics: ["Maatschappelijke ondersteuning", "Is Nederland vol?", "Auto en openbaar vervoer", "Bereikbaarheid"],
         subsections: ["Maatschappelijke ondersteuning", "Is Nederland vol?", "Auto en openbaar vervoer", "Bereikbaarheid"],
         vocab: []
       },
@@ -1152,7 +1152,7 @@
         subtitle: "Groene vingers hebben",
         page: 170,
         icon: "D",
-        bookTopics: ["duurzaamheid in Nederland", "repareren of nieuw?", "vliegen", "voedselverspilling", "fossiele brandstoffen"],
+        bookTopics: ["Duurzaamheid in Nederland", "Repareren of nieuw?", "Vliegen", "Voedselverspilling", "Fossiele brandstoffen"],
         subsections: ["Duurzaamheid in Nederland", "Repareren of nieuw?", "Vliegen", "Voedselverspilling", "Fossiele brandstoffen"],
         vocab: []
       },
@@ -1163,7 +1163,7 @@
         subtitle: "De wijde wereld intrekken",
         page: 206,
         icon: "G",
-        bookTopics: ["in het buitenland studeren", "digital nomads", "zaken doen met andere landen", "taaltransfer", "internationale wetenschap"],
+        bookTopics: ["In het buitenland studeren", "Digital nomads", "Zaken doen met andere landen", "Taaltransfer", "Internationale wetenschap"],
         subsections: ["In het buitenland studeren", "Digital nomads", "Zaken doen met andere landen", "Taaltransfer", "Internationale wetenschap"],
         vocab: []
       },
@@ -1174,11 +1174,22 @@
         subtitle: "Kennis is macht",
         page: 236,
         icon: "S",
-        bookTopics: ["een winterdepressie", "uitvindingen", "medische onderzoeken", "robots"],
+        bookTopics: ["Een winterdepressie", "Uitvindingen", "Medische onderzoeken", "Robots"],
         subsections: ["Een winterdepressie", "Uitvindingen", "Medische onderzoeken", "Robots"],
         vocab: []
       }
     ];
+
+    // Book-topic hierarchy: the start page follows the Onderwerpen page from De finale.
+    // A book topic can contain one or more story modules. This keeps the home page tidy,
+    // and makes it easy to add extra stories later under the same topic.
+    const topicStoryGroups = {
+      "1-gelukkig zijn": ["1-Gelukkig zijn"],
+      "1-een straatarts": ["1-Een streetarts"],
+      "2-druk in de natuur": ["2-Druk in de natuur"],
+      "3-unesco werelderfgoed": ["3-UNESCO werelderfgoed", "3-Amir in een oude stad", "3-Amir aan de gracht", "3-Amir helpt bij erfgoed", "3-Amir tekent zijn buurt", "3-Amir in het atelier"],
+      "4-stage lopen": ["4-Stage lopen"]
+    };
 
     const images = {
       study: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1400&q=85",
@@ -1537,7 +1548,7 @@
       ["behouden","eigentijds","aanraden","afhangen van","bereiken","cultuurverschil","toepassen","bewaren","evalueren","beschaving"],
       [
         { scene: "Nieuwe gewoontes leren", targets: ["behouden","eigentijds"], text: "Mila wil haar eigen tradities behouden. Op die manier begrijpt zij meer. Ze leert ook eigentijds praten in Nederland. Zo doet Mila stap voor stap mee. Soms zegt ze direct wat ze bedoelt. Soms luistert ze eerst." },
-        { scene: "Advies van de docent", targets: ["aanraden","afhangen van"], text: "De docent raadt aan om vragen te stellen. Intussen stelt Mila een korte vraag. Goed contact kan afhangen van openheid. Mila oefent korte zinnen. Zo doet zij stap voor stap mee. Ze durft vaker iets te vragen." },
+        { scene: "Advies van de docent", targets: ["aanraden","afhangen van"], text: "De docent wil aanraden om vragen te stellen. Intussen stelt Mila een korte vraag. Goed contact kan afhangen van openheid. Mila oefent korte zinnen. Zo doet zij stap voor stap mee. Ze durft vaker iets te vragen." },
         { scene: "Taal als brug", targets: ["bereiken","cultuurverschil"], text: "Met eenvoudige taal kan Mila meer mensen bereiken, waardoor zij meer begrijpt. Een cultuurverschil voelt dan minder groot. Ondertussen doet Mila rustig mee. Ze praat met een buurman over afspraken. Ze vragen rustig door." },
         { scene: "Communicatietips oefenen", targets: ["toepassen","bewaren"], text: "Mila leert tips toepassen in gesprekken. Ook luistert zij aandachtig. Ze wil nieuwe zinnen bewaren. Daarna doet Mila rustig mee. Ze schrijft ze in haar boekje. Daarna oefent ze met een buurvrouw." },
         { scene: "Samen leven", targets: ["evalueren","beschaving"], text: "Aan het einde van de week wil Mila haar leerpunten evalueren, zodat zij de situatie beter begrijpt. Ze ziet cultuur als deel van beschaving. Daarna kijkt Mila nog eens goed. Groningen voelt meer als thuis. Ze groet haar buren op straat." }
@@ -2286,56 +2297,76 @@
       });
     }
 
-    function getStoryNamesForTheme(theme) {
-      const prefix = `${theme.id}-`;
-      const names = Object.keys(stories)
-        .filter((key) => key.startsWith(prefix))
-        .map((key) => key.slice(prefix.length));
-      const preferred = theme.subsections || [];
-      return [
-        ...preferred.filter((name) => names.includes(name)),
-        ...names.filter((name) => !preferred.includes(name))
-      ];
+    function normalizeTopicKey(value) {
+      return normalize(value).replace(/\s+/g, " ");
     }
 
-    function renderThemeDirectory(theme) {
+    function getStoryTitleFromKey(key) {
+      if (!key) return "";
+      const dash = String(key).indexOf("-");
+      return dash === -1 ? String(key) : String(key).slice(dash + 1);
+    }
+
+    function getTopicKey(theme, topic) {
+      return `${theme.id}-${normalizeTopicKey(topic)}`;
+    }
+
+    function getStoryKeysForTopic(theme, topic) {
+      const topicKey = getTopicKey(theme, topic);
+      const configured = topicStoryGroups[topicKey] || [];
+      const candidates = [
+        ...configured,
+        `${theme.id}-${topic}`,
+        `${theme.id}-${String(topic).charAt(0).toUpperCase()}${String(topic).slice(1)}`
+      ];
+      const seen = new Set();
+      return candidates.filter((key) => {
+        if (!stories[key] || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
+    function countStoriesForTheme(theme) {
+      return (theme.bookTopics || []).reduce((total, topic) => total + getStoryKeysForTopic(theme, topic).length, 0);
+    }
+
+    function renderTopicDirectory(theme, topic) {
       showError("");
       stopSpeaking();
-      state.appState = "themeDirectory";
+      state.appState = "topicDirectory";
       state.selectedTheme = theme;
+      state.selectedTopic = topic;
       updateHeader();
-      const storyNames = getStoryNamesForTheme(theme);
-      const hasStories = storyNames.length > 0;
+      const storyKeys = getStoryKeysForTopic(theme, topic);
+      const hasStories = storyKeys.length > 0;
       view.innerHTML = `
         <section class="theme-directory">
           <div class="directory-head">
             <div class="directory-kicker">
               <span class="chapter">${escapeHtml(theme.chapter)}</span>
-              <span class="status ${hasStories ? "offline" : "key"}">${hasStories ? `${storyNames.length} verhaal${storyNames.length === 1 ? "" : "len"}` : "Later"}</span>
-              ${theme.page ? `<span class="topic-chip">p. ${theme.page}</span>` : ""}
+              <span class="topic-chip">${escapeHtml(theme.title)}</span>
+              <span class="status ${hasStories ? "offline" : "key"}">${hasStories ? `${storyKeys.length} verhaal${storyKeys.length === 1 ? "" : "len"}` : "Later"}</span>
             </div>
-            <h1>${escapeHtml(theme.title)}</h1>
+            <h1>${escapeHtml(topic)}</h1>
             <div class="theme-subtitle" style="margin:10px 0 0;font-size:20px;">${escapeHtml(theme.subtitle || "")}</div>
-            <p>Hier staan de verhalen bij dit thema. Zo blijft de startpagina rustig, en kun je binnen elk thema zelf een verhaal kiezen.</p>
-            <div class="book-topic-strip" aria-label="Onderwerpen uit De finale">
-              ${(theme.bookTopics || []).map((topic) => `<span class="topic-chip">${escapeHtml(topic)}</span>`).join("")}
-            </div>
+            <p>Dit is een submap binnen ${escapeHtml(theme.chapter)}. Hier komen alle korte verhalen die bij dit onderwerp horen. Zo blijft de startpagina rustig en overzichtelijk.</p>
             <div class="directory-actions">
-              <button class="secondary" type="button" id="backToThemesBtn">← Terug naar thema’s</button>
+              <button class="secondary" type="button" id="backToThemesBtn">← Terug naar startpagina</button>
               ${hasStories ? `<button class="primary" type="button" id="startFirstStoryBtn">Start eerste verhaal</button>` : ""}
             </div>
           </div>
           ${hasStories ? `
             <div class="story-grid">
-              ${storyNames.map((name, index) => {
-                const key = `${theme.id}-${name}`;
+              ${storyKeys.map((key, index) => {
                 const story = stories[key];
                 const wordCount = story?.vocab?.length || story?.glossary?.length || 0;
+                const name = storyKeys.length === 1 ? topic : getStoryTitleFromKey(key);
                 return `
-                  <button class="story-card" type="button" data-start="${escapeHtml(key)}">
+                  <button class="story-card" type="button" data-storykey="${escapeHtml(key)}">
                     <span>
-                      ${escapeHtml(name)}
-                      <small>Verhaal ${index + 1} · ${wordCount || ""} doelwoorden</small>
+                      Verhaal ${index + 1}: ${escapeHtml(name)}
+                      <small>${wordCount || ""} doelwoorden · lezen, audio, flashcards en quiz</small>
                     </span>
                     <span aria-hidden="true">→</span>
                   </button>
@@ -2344,20 +2375,16 @@
             </div>
           ` : `
             <div class="coming-card">
-              Dit thema staat al klaar in de structuur, maar de verhalen zijn nog niet ingevuld. Voor deze MVP kun je nu Thema 1 t/m 4 gebruiken.
+              Dit onderwerp staat al in de structuur van het boek, maar de verhalen zijn nog niet ingevuld. Je kunt deze map later vullen met extra verhalen en woorden.
             </div>
           `}
         </section>
       `;
 
       document.getElementById("backToThemesBtn")?.addEventListener("click", renderLanding);
-      document.getElementById("startFirstStoryBtn")?.addEventListener("click", () => startStory(theme, storyNames[0]));
-      view.querySelectorAll("[data-start]").forEach((button) => {
-        button.addEventListener("click", () => {
-          const key = button.dataset.start;
-          const sub = key.slice(key.indexOf("-") + 1);
-          startStory(theme, sub);
-        });
+      document.getElementById("startFirstStoryBtn")?.addEventListener("click", () => startStoryByKey(storyKeys[0]));
+      view.querySelectorAll("[data-storykey]").forEach((button) => {
+        button.addEventListener("click", () => startStoryByKey(button.dataset.storykey));
       });
     }
 
@@ -2370,8 +2397,8 @@
       view.innerHTML = `
         <section class="hero">
           <div>
-            <h1>Leer woorden uit<br><span>De finale.</span></h1>
-            <p>Kies eerst een thema uit het boek. Binnen elk thema vind je de verhalen, woorden, flashcards en quiz.</p>
+            <h1>Dompel jezelf onder in<br><span>Groningen.</span></h1>
+            <p>Kies een onderwerp uit <em>De finale</em>. Daarna zie je de korte verhalen die bij dat onderwerp horen.</p>
             <div class="home-actions">
               <div class="quick-card">
                 <strong>Dagelijkse oefening · 5 minuten</strong>
@@ -2387,23 +2414,23 @@
           </div>
           <div class="theme-grid">
             ${themes.map((theme) => {
-              const storyNames = getStoryNamesForTheme(theme);
-              const hasOffline = storyNames.length > 0;
+              const readyCount = countStoriesForTheme(theme);
               return `
-                <article class="theme-card theme-entry" data-theme="${theme.id}" role="button" tabindex="0" aria-label="Open ${escapeHtml(theme.chapter)} ${escapeHtml(theme.title)}">
+                <article class="theme-card">
                   <div class="theme-top">
                     <div>
-                      <span class="chapter">${theme.chapter}</span>
-                      <div><span class="status ${hasOffline ? "offline" : "key"}">${hasOffline ? `${storyNames.length} verhalen` : "Later"}</span></div>
+                      <span class="chapter">${escapeHtml(theme.chapter)}</span>
+                      <div><span class="status ${readyCount ? "offline" : "key"}">${readyCount ? `${readyCount} verhaal${readyCount === 1 ? "" : "len"}` : "Later"}</span></div>
                     </div>
                     <div class="theme-icon" aria-hidden="true">${themeIconSvg(theme.id)}</div>
                   </div>
                   <h3>${escapeHtml(theme.title)}</h3>
                   <div class="theme-subtitle">${escapeHtml(theme.subtitle || "")}</div>
-                  <div class="theme-meta">
-                    ${theme.page ? `<span class="topic-chip">p. ${theme.page}</span>` : ""}
-                    ${(theme.bookTopics || []).slice(0, 3).map((topic) => `<span class="topic-chip">${escapeHtml(topic)}</span>`).join("")}
-                    ${(theme.bookTopics || []).length > 3 ? `<span class="topic-chip">+${theme.bookTopics.length - 3}</span>` : ""}
+                  <div class="sub-list">
+                    ${(theme.bookTopics || []).map((topic) => {
+                      const storyCount = getStoryKeysForTopic(theme, topic).length;
+                      return `<button class="sub-btn" type="button" data-topic-theme="${theme.id}" data-topic="${escapeHtml(topic)}">${escapeHtml(topic)}${storyCount > 1 ? `<small>${storyCount} verhalen</small>` : ""}<span>→</span></button>`;
+                    }).join("")}
                   </div>
                 </article>
               `;
@@ -2417,34 +2444,28 @@
       const difficultBtn = document.getElementById("difficultPracticeBtn");
       if (difficultBtn) difficultBtn.addEventListener("click", startDifficultPractice);
 
-      view.querySelectorAll("[data-theme]").forEach((card) => {
-        const openTheme = () => {
-          const theme = themes.find((item) => String(item.id) === String(card.dataset.theme));
-          if (theme) renderThemeDirectory(theme);
-        };
-        card.addEventListener("click", openTheme);
-        card.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openTheme();
-          }
+      view.querySelectorAll("[data-topic]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const theme = themes.find((item) => String(item.id) === String(button.dataset.topicTheme));
+          if (theme) renderTopicDirectory(theme, button.dataset.topic);
         });
       });
     }
 
-
-    function startStory(theme, subsection) {
-      const key = `${theme.id}-${subsection}`;
+    function startStoryByKey(key) {
       const story = stories[key];
+      const themeId = Number(String(key).split("-")[0]);
+      const subsection = getStoryTitleFromKey(key);
+      const theme = themes.find((item) => item.id === themeId);
       showError("");
       stopSpeaking();
-      if (!story) {
-        showError("Dit onderdeel is nog niet gevuld in deze MVP. Kies een verhaal uit Thema 1 t/m 4.");
+      if (!theme || !story) {
+        showError("Dit verhaal is nog niet gevuld in deze MVP. Kies een verhaal dat al beschikbaar is.");
         return;
       }
       state.appState = "reading";
       state.selectedTheme = theme;
-      state.selectedSubsection = subsection;
+      state.selectedSubsection = state.selectedTopic || subsection;
       state.pages = story.pages;
       state.glossary = story.glossary;
       state.vocab = story.vocab;
@@ -2457,6 +2478,10 @@
       state.practiceTitle = "";
       awardXP(5, "Verhaal gestart");
       renderReading();
+    }
+
+    function startStory(theme, subsection) {
+      startStoryByKey(`${theme.id}-${subsection}`);
     }
 
     function renderReading() {
@@ -2854,6 +2879,7 @@
 
     updateHeader();
     renderLanding();
+
   </script>
 </body>
 </html>
