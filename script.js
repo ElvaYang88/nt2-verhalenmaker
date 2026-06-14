@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=theme3-hierarchy-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=theme3-b1-natural-voice-v2").catch(() => {});
       });
     }
 
@@ -256,11 +256,11 @@
       "3-UNESCO werelderfgoed": {
         vocab: themes[2].vocab,
         pages: [
-          { text: "Groningen heeft oude monumenten. Intussen kijkt Mila om zich heen. We willen ze behouden. We moeten muren en daken beschermen tegen schade. Mila kijkt naar een oud gebouw. Bovendien begrijpt zij de situatie beter.", imageUrl: images.archive, targets: ["behouden","beschermen"] },
-          { text: "Jongeren leren over de stad. Zo doet Mila stap voor stap mee. Dat kan kennis bevorderen. Oude documenten bewaren we in het Groninger Archief. Mila kijkt naar foto's van vroeger. Daardoor begrijpt zij meer.", imageUrl: images.study, targets: ["bevorderen","bewaren"] },
-          { text: "Mila maakt een eigentijds filmpje over een oud huis. Bovendien leert zij op haar eigen tempo. Een expert wil de staat van het gebouw evalueren. Mila kijkt goed rond. Hij kijkt naar de stenen. Daarna praten ze over herstel.", imageUrl: images.team, targets: ["eigentijds","evalueren"] },
-          { text: "Elk oud gebouw heeft een verhaal. Daarna kijkt Mila nog eens goed. Soms is een aanpassing nodig bij de ingang. Dan kan een rolstoel naar binnen. Mila ziet een nieuwe helling. Zo begrijpt zij de situatie beter.", imageUrl: images.archive, targets: ["gebouw","aanpassing"] },
-          { text: "Een gids wil een wandeling door de stad aanraden. Intussen stelt Mila een korte vraag. Het succes kan afhangen van onze zorg voor de stad. Mila loopt mee langs de gracht. Wanneer zij rondloopt, leert zij de buurt beter kennen. Ze maakt foto's van oude huizen.", imageUrl: images.friends, targets: ["aanraden","afhangen van"] }
+          { text: "Wanneer Mila door Groningen wandelt, ziet zij hoe oude monumenten tussen winkels, fietsen en nieuwe huizen blijven staan. De gids legt uit dat de stad zulke plekken wil behouden, maar dat je ze ook moet beschermen tegen regen, druk verkeer en te veel toeristen. Mila kijkt langer naar de muur van een oud gebouw, omdat zij nu begrijpt dat stenen ook een verhaal kunnen dragen.", imageUrl: images.archive, targets: ["behouden","beschermen"] },
+          { text: "In het Groninger Archief bekijkt Mila foto's van straten die bijna niet meer bestaan. De medewerker vertelt dat lessen, rondleidingen en kleine projecten kennis over de stad kunnen bevorderen, terwijl de oude documenten veilig worden bewaren voor later. Daardoor voelt geschiedenis voor Mila niet ver weg, maar juist dichtbij en praktisch.", imageUrl: images.study, targets: ["bevorderen","bewaren"] },
+          { text: "Samen met haar taalgroep maakt Mila een eigentijds filmpje over een oud huis aan de gracht. Voordat zij mogen filmen, komt een expert langs om de staat van het gebouw te evalueren, zodat iedereen weet welke delen kwetsbaar zijn. Mila luistert goed, want door deze uitleg ziet zij meer dan alleen een mooie gevel.", imageUrl: images.team, targets: ["eigentijds","evalueren"] },
+          { text: "Bij een oud gebouw merkt Mila dat erfgoed soms moet veranderen om open te blijven voor iedereen. De nieuwe aanpassing bij de ingang is klein, maar dankzij de helling kan ook iemand met een rolstoel naar binnen. Eerst vindt Mila het moderne stuk een beetje vreemd; daarna ziet zij dat zorg voor mensen en zorg voor geschiedenis goed samen kunnen gaan.", imageUrl: images.archive, targets: ["gebouw","aanpassing"] },
+          { text: "Aan het einde van de dag wil de gids een wandeling door de binnenstad aanraden, omdat je buiten pas goed ziet hoe oud en nieuw elkaar raken. Of erfgoed blijft leven, kan afhangen van de aandacht die bewoners eraan geven. Mila loopt langs de gracht, maakt foto's van oude huizen en besluit later nog eens terug te komen met een vriendin.", imageUrl: images.friends, targets: ["aanraden","afhangen van"] }
         ],
         glossary: [
           ["behouden","in stand houden"],["beschermen","veilig houden tegen schade"],["bevorderen","vooruithelpen"],["bewaren","veilig opslaan"],["eigentijds","modern"],["evalueren","beoordelen"],["gebouw","huis, kerk of ander bouwwerk"],["aanpassing","kleine verandering"],["aanraden","adviseren"],["afhangen van","bepaald worden door"]
@@ -497,11 +497,11 @@
       "Gerrit Rietveld",
       ["behouden","bewaren","eigentijds","evalueren","gebouw","aanraden","afhangen van","bereiken","beschaving","beschermen"],
       [
-        { scene: "Mila bezoekt een designles", targets: ["behouden","bewaren"], text: "Mila volgt een les over Gerrit Rietveld, zodat zij de situatie beter begrijpt. Musea willen zijn stoelen behouden. Bovendien leert Mila op haar eigen tempo. Ze willen tekeningen veilig bewaren. Studenten kunnen ze zo bekijken." },
-        { scene: "Moderne vormen begrijpen", targets: ["eigentijds","evalueren"], text: "Rietvelds stijl was toen heel eigentijds. Zo doet Mila stap voor stap mee. Mila leert kleuren en vormen evalueren. Zij doet ook rustig mee. Ze kijkt naar rood, blauw en geel. De simpele stoel valt op." },
-        { scene: "Architectuur bekijken", targets: ["gebouw","aanraden"], text: "De docent toont een beroemd gebouw. Ook luistert Mila aandachtig. Hij wil een bezoek aanraden. Mila kijkt naar de open kamers. Daarna maakt zij een korte notitie. Ze stelt een vraag over wonen." },
-        { scene: "Design voor iedereen", targets: ["afhangen van","bereiken"], text: "Of kunst je raakt, kan afhangen van je ervaring. Ondertussen doet Mila rustig mee. Rietveld wilde veel mensen bereiken. Mila vergelijkt zijn stoel met moderne meubels. Bovendien begrijpt zij de situatie beter. Ze ziet dat simpel mooi kan zijn." },
-        { scene: "Cultureel erfgoed delen", targets: ["beschaving","beschermen"], text: "Rietveld hoort bij de Nederlandse beschaving. Daardoor begrijpt Mila de uitleg beter. We moeten zijn werk beschermen. Mila maakt een korte presentatie. Toch blijft zij rustig meedoen. De klas luistert rustig." }
+        { scene: "Mila bezoekt een designles", targets: ["behouden","bewaren"], text: "In de designles ziet Mila een stoel van Gerrit Rietveld die er eenvoudig uitziet, maar toch veel aandacht vraagt. De docent vertelt dat musea zulke ontwerpen willen behouden en de oude tekeningen zorgvuldig moeten bewaren, omdat studenten anders niet meer kunnen zien hoe het idee is ontstaan. Mila maakt aantekeningen en merkt dat een simpele vorm soms juist veel uitleg nodig heeft." },
+        { scene: "Moderne vormen begrijpen", targets: ["eigentijds","evalueren"], text: "Rietvelds stijl was in zijn eigen tijd verrassend eigentijds, vooral door de rechte lijnen en de sterke kleuren rood, blauw en geel. Terwijl Mila naar de stoel kijkt, leert zij niet alleen zeggen of zij hem mooi vindt, maar ook hoe zij vorm, kleur en functie kan evalueren. Eerst lacht ze om de harde stoel; daarna begrijpt ze waarom het ontwerp zo beroemd werd." },
+        { scene: "Architectuur bekijken", targets: ["gebouw","aanraden"], text: "Op het scherm toont de docent het Rietveld Schröderhuis, een beroemd gebouw waar kamers open en flexibel zijn gemaakt. Hij wil de klas een bezoek aanraden, omdat je in foto's niet goed voelt hoe mensen daar vroeger konden wonen. Mila schrijft de naam op en stelt daarna een vraag over de schuifwanden, want dat detail maakt haar nieuwsgierig." },
+        { scene: "Design voor iedereen", targets: ["afhangen van","bereiken"], text: "Of een ontwerp je direct aanspreekt, kan afhangen van je ervaring, je smaak en de verhalen die je erbij hoort. Rietveld wilde met zijn meubels niet alleen rijke verzamelaars bereiken, maar ook gewone mensen laten nadenken over wonen. Daarom vergelijkt Mila zijn stoel met meubels in haar eigen kamer, waarna ze ineens ziet dat simpel niet hetzelfde is als saai." },
+        { scene: "Cultureel erfgoed delen", targets: ["beschaving","beschermen"], text: "Aan het eind van de les bespreekt de groep waarom Rietveld bij de Nederlandse beschaving hoort. Zijn werk laat zien hoe mensen in een bepaalde tijd dachten over licht, ruimte en dagelijks leven, en daarom moeten musea het beschermen zonder het achter glas te verstoppen. Mila maakt een korte presentatie waarin zij uitlegt wat zij eerst vreemd vond en wat zij nu waardeert." }
       ],
       [["behouden","in stand houden"],["bewaren","veilig opslaan"],["eigentijds","modern"],["evalueren","beoordelen"],["gebouw","bouwwerk"],["aanraden","adviseren"],["afhangen van","bepaald worden door"],["bereiken","contact maken met"],["beschaving","cultuur en ontwikkeling"],["beschermen","veilig houden"]],
       [
@@ -517,11 +517,11 @@
       "Eetgewoontes",
       ["behouden","eigentijds","gebouw","aanraden","afhangen van","bereiken","cultuurverschil","toepassen","bewaren","evalueren"],
       [
-        { scene: "Avondeten om zes uur", targets: ["behouden","eigentijds"], text: "Mila ziet dat veel Nederlanders vroeg eten. Daardoor begrijpt zij meer. Sommige gezinnen willen die gewoonte behouden. Daarna doet Mila rustig mee. Ook een menu kan eigentijds zijn. Ze ziet oude en nieuwe smaken." },
-        { scene: "Wijkrestaurant in Groningen", targets: ["gebouw","aanraden"], text: "Mila bezoekt een restaurant in een oud gebouw. Wanneer zij rondloopt, leert zij de buurt beter kennen. Een buurvrouw wil mosterdsoep aanraden. Mila bestelt een kleine kom. Daarna luistert zij nog even. De soep ruikt warm." },
-        { scene: "Lokale ingrediënten", targets: ["afhangen van","bereiken"], text: "De smaak kan afhangen van verse groente. Mila doet ook rustig mee. Door samen te koken kun je mensen bereiken. Mila snijdt prei met buren. Zo begrijpt zij de situatie beter. Ze praten over eten." },
-        { scene: "Samen koken", targets: ["cultuurverschil","toepassen"], text: "Bij kruiden ontstaat een cultuurverschil. Toch blijft Mila rustig meedoen. Mila leert woorden voor smaak toepassen. Bovendien leert zij op haar eigen tempo. Ze vraagt wat pittig betekent. Iedereen proeft en lacht." },
-        { scene: "Recepten delen", targets: ["bewaren","evalueren"], text: "Na het eten wil Mila het recept bewaren. Daarom onthoudt zij meer. Ze wil ook de nieuwe woorden evalueren. Bovendien leert Mila op haar eigen tempo. Ze schrijft drie woorden op. Eten helpt haar met taal." }
+        { scene: "Avondeten om zes uur", targets: ["behouden","eigentijds"], text: "Wanneer Mila bij haar buurvrouw gaat eten, merkt zij dat veel Nederlanders al rond zes uur aan tafel zitten. Sommige gezinnen willen die gewoonte behouden, terwijl jonge mensen het avondeten soms op een eigentijds moment plannen omdat werk, sport en studie door elkaar lopen. Mila vindt het vroeg, maar ze geniet van de rust aan tafel." },
+        { scene: "Wijkrestaurant in Groningen", targets: ["gebouw","aanraden"], text: "Op zaterdag bezoekt Mila een wijkrestaurant dat in een oud gebouw zit, met hoge ramen en houten tafels. Een buurvrouw wil haar Groningse mosterdsoep aanraden, omdat die goed past bij koud weer en lange gesprekken. Mila bestelt een kleine kom en vraagt ondertussen waarom dit gerecht voor veel mensen zo vertrouwd voelt." },
+        { scene: "Lokale ingrediënten", targets: ["afhangen van","bereiken"], text: "In de keuken hoort Mila dat de smaak van de soep kan afhangen van verse prei, goede mosterd en genoeg tijd. Door samen te snijden, te roeren en te proeven, kun je mensen bereiken die normaal weinig praten tijdens een taalles. Mila merkt dat eten een rustige manier is om vragen te stellen." },
+        { scene: "Samen koken", targets: ["cultuurverschil","toepassen"], text: "Tijdens het koken ontstaat er even een cultuurverschil, omdat de ene cursist heel pittig eet en de andere juist zachte smaken gewend is. De vrijwilliger laat iedereen oefenen met toepassen van nieuwe woorden: scherp, mild, zuur en romig. Daardoor wordt de keuken vanzelf een kleine taalklas, maar wel een waar iedereen mag lachen." },
+        { scene: "Recepten delen", targets: ["bewaren","evalueren"], text: "Na het eten wil Mila het recept bewaren, zodat zij het thuis nog eens kan maken voor een vriendin. Samen met de groep gaat zij ook evalueren welke woorden nuttig waren en welke zinnen nog moeilijk blijven. Ze schrijft niet alleen ingrediënten op, maar ook kleine opmerkingen over smaak, gewoonte en gezelligheid." }
       ],
       [["behouden","in stand houden"],["eigentijds","modern"],["gebouw","pand"],["aanraden","adviseren"],["afhangen van","bepaald worden door"],["bereiken","contact maken met"],["cultuurverschil","verschil in gewoontes"],["toepassen","praktisch gebruiken"],["bewaren","opslaan"],["evalueren","beoordelen"]],
       [
@@ -537,11 +537,11 @@
       "Cultuurverschillen",
       ["behouden","eigentijds","aanraden","afhangen van","bereiken","cultuurverschil","toepassen","bewaren","evalueren","beschaving"],
       [
-        { scene: "Nieuwe gewoontes leren", targets: ["behouden","eigentijds"], text: "Mila wil haar eigen tradities behouden. Op die manier begrijpt zij meer. Ze leert ook eigentijds praten in Nederland. Zo doet Mila stap voor stap mee. Soms zegt ze direct wat ze bedoelt. Soms luistert ze eerst." },
-        { scene: "Advies van de docent", targets: ["aanraden","afhangen van"], text: "De docent wil aanraden om vragen te stellen. Intussen stelt Mila een korte vraag. Goed contact kan afhangen van openheid. Mila oefent korte zinnen. Zo doet zij stap voor stap mee. Ze durft vaker iets te vragen." },
-        { scene: "Taal als brug", targets: ["bereiken","cultuurverschil"], text: "Met eenvoudige taal kan Mila meer mensen bereiken, waardoor zij meer begrijpt. Een cultuurverschil voelt dan minder groot. Ondertussen doet Mila rustig mee. Ze praat met een buurman over afspraken. Ze vragen rustig door." },
-        { scene: "Communicatietips oefenen", targets: ["toepassen","bewaren"], text: "Mila leert tips toepassen in gesprekken. Ook luistert zij aandachtig. Ze wil nieuwe zinnen bewaren. Daarna doet Mila rustig mee. Ze schrijft ze in haar boekje. Daarna oefent ze met een buurvrouw." },
-        { scene: "Samen leven", targets: ["evalueren","beschaving"], text: "Aan het einde van de week wil Mila haar leerpunten evalueren, zodat zij de situatie beter begrijpt. Ze ziet cultuur als deel van beschaving. Daarna kijkt Mila nog eens goed. Groningen voelt meer als thuis. Ze groet haar buren op straat." }
+        { scene: "Nieuwe gewoontes leren", targets: ["behouden","eigentijds"], text: "Mila wil haar eigen tradities behouden, maar ze merkt dat samenleven in Nederland ook vraagt om nieuwe gewoontes. In de klas oefent zij eigentijds taalgebruik, bijvoorbeeld hoe je vriendelijk direct kunt zijn zonder hard over te komen. Soms zegt ze meteen wat ze bedoelt; op andere momenten luistert ze eerst, omdat de situatie daarom vraagt." },
+        { scene: "Advies van de docent", targets: ["aanraden","afhangen van"], text: "De docent wil aanraden om bij twijfel gewoon een korte vraag te stellen. Goed contact kan afhangen van openheid, maar ook van toon, timing en een beetje humor. Mila oefent daarom zinnen zoals: bedoelt u dat zo, of begrijp ik het verkeerd? Daardoor durft zij later sneller om uitleg te vragen." },
+        { scene: "Taal als brug", targets: ["bereiken","cultuurverschil"], text: "Met eenvoudige, rustige taal kan Mila meer mensen bereiken, ook wanneer een gesprek in het begin wat stroef loopt. Een cultuurverschil voelt minder groot wanneer beide mensen de tijd nemen om voorbeelden te geven. Zo praat zij met haar buurman over afspraken, visite en op tijd komen, waarna ze allebei merken dat veel misverstanden kleiner worden door door te vragen." },
+        { scene: "Communicatietips oefenen", targets: ["toepassen","bewaren"], text: "In een rollenspel leert Mila verschillende tips toepassen: eerst luisteren, dan samenvatten en pas daarna reageren. Ze wil handige zinnen bewaren in haar boekje, omdat ze die later bij de huisarts, op school of in de winkel kan gebruiken. Wanneer ze met een buurvrouw oefent, klinken de zinnen al minder gemaakt." },
+        { scene: "Samen leven", targets: ["evalueren","beschaving"], text: "Aan het eind van de week wil Mila haar leerpunten evalueren, zodat ze beter begrijpt wat goed ging en wat nog oefening vraagt. De docent zegt dat beschaving niet alleen gaat over musea of oude boeken, maar ook over hoe mensen dagelijks met elkaar omgaan. Mila denkt daaraan wanneer zij haar buren groet en even blijft praten bij de voordeur." }
       ],
       [["behouden","in stand houden"],["eigentijds","modern"],["aanraden","adviseren"],["afhangen van","bepaald worden door"],["bereiken","contact maken"],["cultuurverschil","verschil in gewoontes"],["toepassen","gebruiken"],["bewaren","opslaan"],["evalueren","beoordelen"],["beschaving","cultuur en samenleving"]],
       [
@@ -557,11 +557,11 @@
       "Amir in een oude stad",
       ["aarde","adviseren over","afstemmen op","afwijzing","beton","breed","eis","futuristisch","gedetailleerd","gevel"],
       [
-        { scene: "Eerste wandeling", targets: ["aarde","adviseren over"], text: "Amir loopt door Groningen, omdat hij de buurt wil leren kennen. Hij ziet kleur in de aarde bij een bouwplek. Een gids wil hem adviseren over oude huizen. Amir stelt rustige vragen. Hij luistert daarom goed." },
-        { scene: "Plan voor de wijk", targets: ["afstemmen op","afwijzing"], text: "De gemeente wil een plan afstemmen op de buurt. Amir luistert daarom goed. Sommige bewoners zijn bang voor afwijzing. Amir luistert naar beide kanten. Daarna luistert hij nog even. Hij schrijft eenvoudige punten op." },
-        { scene: "Oud en nieuw materiaal", targets: ["beton","breed"], text: "Bij een nieuw plein ligt veel beton. Ondertussen doet Amir rustig mee. De stoep is breed genoeg voor fietsen en mensen. Amir ziet dat oud en nieuw samen kunnen. Daardoor begrijpt hij meer. Hij maakt een foto." },
-        { scene: "Nieuw museumidee", targets: ["eis","futuristisch"], text: "Een museum heeft een duidelijke eis voor de ingang. Amir kijkt goed rond. Het nieuwe deel ziet er futuristisch uit. Amir vraagt waarom dat nodig is. Ook luistert hij aandachtig. De gids legt het rustig uit." },
-        { scene: "Muur bekijken", targets: ["gedetailleerd","gevel"], text: "Amir bekijkt een gedetailleerd patroon. Zo begrijpt hij de situatie beter. Het zit hoog op de gevel. Daarna kijkt Amir nog eens goed. Hij ziet bloemen in steen. Zo leert hij beter kijken." }
+        { scene: "Eerste wandeling", targets: ["aarde","adviseren over"], text: "Amir wandelt door een oude straat in Groningen, omdat hij de stad beter wil leren kennen en niet alleen de winkels wil zien. Bij een bouwplek ligt donkere aarde tussen de stenen, waarna de gids stopt om hem te adviseren over de geschiedenis van de huizen. Terwijl de groep verderloopt, schrijft Amir twee nieuwe woorden op en probeert hij de straat met andere ogen te bekijken." },
+        { scene: "Plan voor de wijk", targets: ["afstemmen op","afwijzing"], text: "In het buurthuis hoort Amir dat de gemeente een nieuw plan wil afstemmen op de wensen van de buurt. Sommige bewoners reageren enthousiast, terwijl anderen bang zijn voor afwijzing van hun ideeën, omdat ze al vaker hebben meegedacht zonder resultaat. Amir luistert naar beide kanten en noteert wat belangrijk is, zodat hij later zelf ook rustig iets kan zeggen." },
+        { scene: "Oud en nieuw materiaal", targets: ["beton","breed"], text: "Op het plein ziet Amir veel beton, maar tussen de harde vlakken staan jonge bomen en lage bankjes. De nieuwe stoep is breed genoeg voor fietsers, ouders met kinderwagens en mensen die langzaam lopen, waardoor het plein vriendelijker aanvoelt dan hij eerst dacht. Hoewel het ontwerp modern is, past het door de kleuren toch bij de oude huizen eromheen." },
+        { scene: "Nieuw museumidee", targets: ["eis","futuristisch"], text: "Bij het museum vertelt de gids dat er een duidelijke eis is voor de nieuwe ingang: iedereen moet makkelijk naar binnen kunnen. Het glazen deel ziet er futuristisch uit en Amir vindt het eerst te opvallend naast de oude muur, maar na de uitleg verandert zijn mening. Misschien, denkt hij, kan iets nieuws juist helpen om iets ouds open en bruikbaar te houden." },
+        { scene: "Muur bekijken", targets: ["gedetailleerd","gevel"], text: "Aan het einde van de wandeling bekijkt Amir een gedetailleerd patroon op de gevel van een oud pand. Tussen de lijnen ziet hij bloemen, bladeren en kleine dieren die hij eerst bijna had gemist, omdat hij te snel voorbijliep. Nu neemt hij de tijd, en daardoor lijkt de stad ineens minder vreemd en veel rijker." }
       ],
       [["aarde","grond"],["adviseren over","raad geven over"],["afstemmen op","passend maken bij"],["afwijzing","nee als antwoord"],["beton","hard bouwmateriaal"],["breed","niet smal"],["eis","wat moet"],["futuristisch","heel modern"],["gedetailleerd","met veel kleine delen"],["gevel","voorkant van een gebouw"]],
       [
@@ -577,11 +577,11 @@
       "Amir aan de gracht",
       ["gracht","hout","imposant","ingericht","karakteristiek","koepel","langwerpig","lidstaat","monumentaal","nastreven"],
       [
-        { scene: "Langs het water", targets: ["gracht","hout"], text: "Amir loopt langs de gracht. Intussen leert hij de buurt kennen. Een oude brug is gemaakt van hout. Daardoor ziet Amir meer details. Hij hoort fietsen achter zich. Het water maakt de straat rustig." },
-        { scene: "Grote kerk", targets: ["imposant","ingericht"], text: "Amir bezoekt een imposant gebouw. Hij leert de buurt stap voor stap kennen. Binnen is alles rustig ingericht. Daarna doet Amir rustig mee. Er staan stoelen in rijen. Hij blijft even stil staan." },
-        { scene: "Herkenbare straat", targets: ["karakteristiek","koepel"], text: "De straat heeft een karakteristiek gezicht. Ook kijkt Amir aandachtig. In de verte ziet Amir een koepel. Daarom onthoudt hij meer. Hij herkent de plek later op foto's. Dat maakt hem blij." },
-        { scene: "Smalle zaal", targets: ["langwerpig","lidstaat"], text: "In het museum is een langwerpig lokaal. Intussen kijkt Amir om zich heen. De gids vertelt over elke lidstaat van Europa. Amir kijkt naar kleine vlaggen. Op die manier begrijpt hij meer. Hij hoort nieuwe woorden." },
-        { scene: "Zorg voor oude plekken", targets: ["monumentaal","nastreven"], text: "Een monumentaal pand vraagt zorg. Daarna luistert Amir nog even. De stad wil goed onderhoud nastreven. Amir helpt een groep. Ondertussen doet hij rustig mee. Zo leert hij de buurt kennen." }
+        { scene: "Langs het water", targets: ["gracht","hout"], text: "Amir loopt langs de gracht, waar het water zacht tegen de kade beweegt en fietsen langzaam over de brug gaan. Een oude brug van hout kraakt wanneer iemand remt, en dat geluid vindt hij mooi omdat het bij de straat lijkt te horen. Hij blijft even staan, luistert naar de stad en oefent daarna hardop de namen van de bruggen." },
+        { scene: "Grote kerk", targets: ["imposant","ingericht"], text: "Even later bezoekt Amir een imposant gebouw dat hoog boven de straat uitkomt. Binnen is de ruimte eenvoudig ingericht, met stoelen, lampen en een stille hoek voor bezoekers, waardoor de grote zaal toch rustig voelt. Hoewel Amir weinig weet van kerken, merkt hij aan de stemmen van de mensen dat deze plek belangrijk is." },
+        { scene: "Herkenbare straat", targets: ["karakteristiek","koepel"], text: "De volgende straat heeft een karakteristiek gezicht: smalle huizen, hoge ramen en fietsen die dicht tegen de muur staan. In de verte ziet Amir een koepel boven de daken, en door die ronde vorm herkent hij plotseling de route terug. Dat geeft rust, want de stad voelt niet meer als een kaart vol losse lijnen." },
+        { scene: "Smalle zaal", targets: ["langwerpig","lidstaat"], text: "In het museum komt de groep in een langwerpig lokaal waar kleine vlaggen aan de muur hangen. De gids vertelt dat elke vlag bij een lidstaat van Europa hoort, maar Amir kent nog niet alle landen en vraagt daarom om een voorbeeld. Wanneer hij Nederland en Duitsland aanwijst, wordt de uitleg concreter en blijft het woord beter hangen." },
+        { scene: "Zorg voor oude plekken", targets: ["monumentaal","nastreven"], text: "Aan de gracht staat een monumentaal pand dat veel onderhoud nodig heeft, omdat wind, regen en druk verkeer langzaam sporen achterlaten. De stad wil goed onderhoud nastreven, zodat bewoners en bezoekers het gebouw later ook nog kunnen zien. Amir deelt folders uit en praat met een oudere buurman, waardoor hij niet alleen woorden leert maar ook verhalen hoort." }
       ],
       [["gracht","water in de stad"],["hout","materiaal van bomen"],["imposant","groot en sterk om te zien"],["ingericht","klaargemaakt van binnen"],["karakteristiek","typisch en herkenbaar"],["koepel","rond dak"],["langwerpig","lang en smal"],["lidstaat","land dat bij een groep hoort"],["monumentaal","belangrijk en oud"],["nastreven","proberen te bereiken"]],
       [
@@ -597,11 +597,11 @@
       "Amir helpt bij erfgoed",
       ["nederzetting","nomineren","ongeëvenaard","onvervangbaar","opstellen","opvallend","ornament","pand","per se","plafond"],
       [
-        { scene: "Verhaal van een plek", targets: ["nederzetting","nomineren"], text: "Amir hoort over een oude nederzetting. Daardoor begrijpt hij de uitleg beter. De stad wil de plek nomineren voor extra zorg. Amir doet ook rustig mee. Hij leest een kort bord. Daarna kijkt hij naar de kaart." },
-        { scene: "Unieke waarde", targets: ["ongeëvenaard","onvervangbaar"], text: "De gids noemt het uitzicht ongeëvenaard. Ook luistert Amir aandachtig. Sommige oude delen zijn onvervangbaar. Amir begrijpt dat je ze niet kunt terugkopen, waardoor hij meer begrijpt. Hij maakt geen lawaai." },
-        { scene: "Informatie klaarzetten", targets: ["opstellen","opvallend"], text: "Amir helpt tafels opstellen voor bezoekers. Daarna doet hij rustig mee. Een rood bord is opvallend. Mensen vinden de ingang snel. Amir wijst rustig de weg, zodat hij de situatie beter begrijpt." },
-        { scene: "Details in het pand", targets: ["ornament","pand"], text: "In het pand ziet Amir een klein ornament. Daarna maakt hij een korte notitie. Het zit boven een deur. Toch blijft Amir rustig meedoen. Hij vraagt hoe oud het is. De gids glimlacht." },
-        { scene: "Niet altijd nodig", targets: ["per se","plafond"], text: "Je hoeft niet per se alles te begrijpen. Bovendien leert Amir op zijn eigen tempo. Amir kijkt rustig naar het plafond. Bovendien begrijpt hij de situatie beter. Hij ziet vormen en kleuren. Later zoekt hij woorden op." }
+        { scene: "Verhaal van een plek", targets: ["nederzetting","nomineren"], text: "Tijdens een erfgoeddag hoort Amir dat hier vroeger een kleine nederzetting lag, dicht bij het water waar handel en vervoer makkelijker waren. De stichting wil de plek nomineren voor extra bescherming, hoewel je nu op het eerste gezicht weinig ziet. Amir leest het informatiebord langzaam en begrijpt daarna beter waarom zelfs een bijna lege plek een verhaal kan hebben." },
+        { scene: "Unieke waarde", targets: ["ongeëvenaard","onvervangbaar"], text: "Vanaf de hoge kade ziet Amir de oude stad en de nieuwe wijk naast elkaar liggen. De gids noemt het uitzicht ongeëvenaard, omdat je nergens precies hetzelfde beeld krijgt, en zij legt uit dat sommige muren onvervangbaar zijn als ze eenmaal verdwijnen. Amir wordt stiller, want erfgoed blijkt niet alleen over stenen te gaan maar ook over herinneringen." },
+        { scene: "Informatie klaarzetten", targets: ["opstellen","opvallend"], text: "Voor de bezoekers helpt Amir tafels opstellen bij de ingang van het terrein. Een geel bord is opvallend genoeg om mensen meteen de goede kant op te sturen, ook als ze de route niet kennen. Hoewel Amir nog niet iedereen verstaat, kan hij met praktische taken goed meedoen en voelt hij zich daardoor meer onderdeel van de groep." },
+        { scene: "Details in het pand", targets: ["ornament","pand"], text: "Later loopt Amir door een oud pand waar het licht zacht door hoge ramen naar binnen valt. Boven een deur ziet hij een klein ornament met bladeren en ronde vormen, dat eerst alleen versiering lijkt. De gids vertelt echter dat zulke details vaak iets zeggen over de tijd waarin het huis is gebouwd, en daarom maakt Amir een foto voor zijn woordenschrift." },
+        { scene: "Niet altijd nodig", targets: ["per se","plafond"], text: "Aan het eind van de dag kijkt Amir omhoog naar het beschilderde plafond. Hij begrijpt niet per se elk woord van de uitleg, maar doordat hij de voorbeelden ziet en rustig vragen stelt, volgt hij wel de grote lijn. Dat is genoeg voor vandaag, zegt de gids, want nieuwsgierigheid is ook een vorm van meedoen." }
       ],
       [["nederzetting","oude woonplek"],["nomineren","voordragen"],["ongeëvenaard","zonder gelijke"],["onvervangbaar","niet te vervangen"],["opstellen","klaarzetten"],["opvallend","valt snel op"],["ornament","versiering"],["pand","gebouw"],["per se","absoluut"],["plafond","bovenkant van een kamer"]],
       [
@@ -617,11 +617,11 @@
       "Amir tekent zijn buurt",
       ["puntdak","rechthoekig","schildering","sfeervol","smal","speels","statig","steen","strak","suggestie"],
       [
-        { scene: "Dakvormen zoeken", targets: ["puntdak","rechthoekig"], text: "Amir tekent een huis met een puntdak. Daardoor begrijpt hij meer. Het raam is rechthoekig. Zo doet Amir stap voor stap mee. Zijn docent kijkt mee. Samen tellen ze de vormen." },
-        { scene: "Kunst aan de muur", targets: ["schildering","sfeervol"], text: "In een cafe ziet Amir een schildering. Zo begrijpt hij de situatie beter. De kamer is sfeervol door warm licht. Ondertussen doet Amir rustig mee. Hij voelt zich rustig. Hij tekent een klein deel na." },
-        { scene: "Straat met kleine huizen", targets: ["smal","speels"], text: "Een smal huis staat naast een winkel. Amir kijkt goed rond. De kleuren zijn speels. Amir merkt dat huizen niet gelijk zijn. Daarom onthoudt hij meer. Dat maakt de straat levend." },
-        { scene: "Oud gebouw", targets: ["statig","steen"], text: "Voor een statig gebouw blijft Amir staan. Op die manier begrijpt hij meer. De muur is van donkere steen. Daarna doet Amir rustig mee. Hij raakt de muur niet aan. Hij kijkt alleen goed." },
-        { scene: "Rustige vorm", targets: ["strak","suggestie"], text: "Zijn docent geeft een suggestie. Daardoor begrijpt Amir de uitleg beter. Amir maakt de lijnen strakker. Hij doet ook rustig mee. De tekening wordt rustig. Hij is trots op zijn werk." }
+        { scene: "Dakvormen zoeken", targets: ["puntdak","rechthoekig"], text: "In de tekenles kiest Amir een huis met een puntdak, omdat die vorm meteen boven de andere daken uitkomt. Het grote raam eronder is rechthoekig en lijkt makkelijk na te tekenen, maar de docent laat zien dat de lijnen precies op elkaar moeten aansluiten. Daardoor wordt de oefening moeilijker dan Amir dacht, en tegelijk ook interessanter." },
+        { scene: "Kunst aan de muur", targets: ["schildering","sfeervol"], text: "Na de les drinken de cursisten koffie in een klein cafe waar een schildering van Groningen op de muur staat. Door het warme licht en de zachte stemmen is de ruimte sfeervol, waardoor iedereen vanzelf langzamer praat. Amir tekent een klein stukje van de muur na, niet om het perfect te maken maar om beter te leren kijken." },
+        { scene: "Straat met kleine huizen", targets: ["smal","speels"], text: "Buiten kiest Amir een smal huis naast een drukke winkel als voorbeeld voor zijn schets. De ramen staan niet helemaal gelijk en de kleuren zijn speels, maar juist daardoor lijkt de straat levendiger dan op een rechte bouwtekening. Hoewel hij eerst alles netjes wilde maken, laat hij nu een beetje beweging toe." },
+        { scene: "Oud gebouw", targets: ["statig","steen"], text: "Voor een statig gebouw stopt de groep opnieuw, omdat de gevel veel laat zien over de geschiedenis van de straat. De muur is gemaakt van donkere steen, die koud lijkt maar in het zonlicht toch verschillende kleuren krijgt. Amir raakt niets aan, want oude materialen kunnen kwetsbaar zijn, en tekent daarna langzaam de zware deur en de hoge ramen." },
+        { scene: "Rustige vorm", targets: ["strak","suggestie"], text: "Wanneer Amir zijn schets laat zien, geeft de docent een rustige suggestie: maak sommige lijnen strak en laat andere juist los. Dat advies helpt, omdat de tekening dan duidelijker wordt zonder saai te worden. Amir gumt een klein stukje uit, kijkt opnieuw naar het gebouw en begrijpt dat ontwerpen ook kiezen betekent." }
       ],
       [["puntdak","dak met een punt"],["rechthoekig","met rechte hoeken"],["schildering","kunst met verf"],["sfeervol","met fijne sfeer"],["smal","niet breed"],["speels","vrolijk en vrij"],["statig","deftig en groot"],["steen","hard bouwmateriaal"],["strak","net en recht"],["suggestie","idee of tip"]],
       [
@@ -637,11 +637,11 @@
       "Amir in het atelier",
       ["tekening","verdwenen","versierd","vierkant","voldoen aan","voorlopig","waarde","waarderen","wederzijds","werelderfgoed","zich inzetten voor"],
       [
-        { scene: "Oude tekening", targets: ["tekening","verdwenen"], text: "Amir ziet een oude tekening, waardoor hij meer begrijpt. Het huis op papier is verdwenen. Daarna kijkt Amir nog eens goed. Hij zoekt de plek buiten. Alleen de straatnaam is gelijk." },
-        { scene: "Versierde deur", targets: ["versierd","vierkant"], text: "Een deur is versierd met kleine blokken. Amir doet ook rustig mee. Elk blok is vierkant. Amir telt er tien, zodat hij de situatie beter begrijpt. Hij leert het woord snel." },
-        { scene: "Regels volgen", targets: ["voldoen aan","voorlopig"], text: "Een gebouw moet voldoen aan regels. Daardoor ziet Amir meer details. Voorlopig blijft de deur dicht. Amir leest het briefje. Daarna maakt hij een korte notitie. Hij komt later terug." },
-        { scene: "Waarde zien", targets: ["waarde","waarderen"], text: "De docent vraagt naar de waarde van erfgoed. Intussen stelt Amir een korte vraag. Amir leert oude dingen waarderen. Toch blijft hij rustig meedoen. Hij denkt aan zijn eigen stad. Veel beelden van vroeger lijken op elkaar." },
-        { scene: "Samen respect tonen", targets: ["wederzijds","werelderfgoed","zich inzetten voor"], text: "In de groep groeit wederzijds respect. Toch blijft Amir rustig meedoen. Ze praten over werelderfgoed. Amir wil zich inzetten voor de buurt. Wanneer hij rondloopt, leert hij de buurt beter kennen. De anderen luisteren goed." }
+        { scene: "Oude tekening", targets: ["tekening","verdwenen"], text: "In het atelier legt de docent een oude tekening op tafel waarop een huis staat dat allang verdwenen is. De straat bestaat nog wel, en juist dat verschil vindt Amir bijzonder, omdat papier soms langer blijft dan steen. Na de les zoekt hij de plek buiten op, waarbij alleen de naam op een klein bordje hem verder helpt." },
+        { scene: "Versierde deur", targets: ["versierd","vierkant"], text: "Bij een werktafel ligt een foto van een deur die versierd is met kleine houten blokken. Elk blok is vierkant, maar samen vormen ze een levendig patroon waarin Amir steeds nieuwe vormen ontdekt. Terwijl een klasgenoot de kleuren noemt, tekent hij een eigen versie en merkt hij dat woorden beter blijven hangen wanneer zijn handen meedoen." },
+        { scene: "Regels volgen", targets: ["voldoen aan","voorlopig"], text: "De docent legt uit dat een oud gebouw moet voldoen aan regels voordat bezoekers naar binnen mogen. Voorlopig blijft een deel daarom dicht, ook al willen veel mensen het juist van dichtbij bekijken. Amir vindt dat jammer, maar hij begrijpt de reden: veiligheid hoort ook bij bewaren." },
+        { scene: "Waarde zien", targets: ["waarde","waarderen"], text: "Daarna praat de groep over de waarde van oude gebouwen en over de vraag waarom sommige plekken mensen raken. Amir zegt dat hij zo'n huis pas echt leert waarderen wanneer iemand het verhaal erachter vertelt. De docent knikt, want niet alles wat oud is, is automatisch mooi, maar met aandacht zie je vaak meer dan eerst." },
+        { scene: "Samen respect tonen", targets: ["wederzijds","werelderfgoed","zich inzetten voor"], text: "Aan het einde ontstaat er wederzijds respect in de groep, omdat iedereen een eigen herinnering aan een plek deelt. Ze praten over werelderfgoed, maar ook over gewone straten die voor bewoners belangrijk zijn. Amir besluit zich inzetten voor een schoon plein in zijn buurt, want zorg voor erfgoed hoeft niet groot te beginnen." }
       ],
       [["tekening","afbeelding met lijnen"],["verdwenen","weg"],["versierd","mooi gemaakt"],["vierkant","met vier gelijke kanten"],["voldoen aan","passen bij regels"],["voorlopig","voor nu"],["waarde","belang"],["waarderen","goed vinden en respecteren"],["wederzijds","van twee kanten"],["werelderfgoed","erfgoed dat voor de wereld belangrijk is"],["zich inzetten voor","actief helpen met"]],
       [
@@ -1248,14 +1248,6 @@
       renderFlashcards();
     }
 
-    function startDailyPractice() {
-      const difficult = state.difficultWords || [];
-      const discovered = getAllPracticeWords().filter((item) => state.discoveredWords.has(item.word));
-      const all = getAllPracticeWords();
-      const base = difficult.length ? [...difficult, ...all] : discovered.length ? [...discovered, ...all] : all;
-      startPractice(base, "Dagelijkse oefening · 5 minuten", "daily");
-    }
-
     function startDifficultPractice() {
       if (!state.difficultWords.length) {
         showError("Je hebt nog geen moeilijke woorden. Maak eerst een quiz; foute woorden komen hier automatisch.");
@@ -1383,24 +1375,20 @@
       state.appState = "landing";
       updateHeader();
       const difficultCount = state.difficultWords.length;
-      const allCount = getAllPracticeWords().length;
       view.innerHTML = `
         <section class="hero">
           <div>
             <h1>Dompel jezelf onder in<br><span>Groningen.</span></h1>
             <p>Kies een onderwerp uit <em>De finale</em>. Daarna zie je de korte verhalen die bij dat onderwerp horen.</p>
-            <div class="home-actions">
-              <div class="quick-card">
-                <strong>Dagelijkse oefening · 5 minuten</strong>
-                <span>Oefen snel een paar woorden. Ideaal op je telefoon.</span>
-                <button class="primary" type="button" id="dailyPracticeBtn" ${allCount ? "" : "disabled"}>Start korte oefening</button>
-              </div>
+            ${difficultCount ? `
+            <div class="home-actions one-action">
               <div class="quick-card ${difficultCount ? "" : "empty"}">
                 <strong>Mijn moeilijke woorden</strong>
-                <span>${difficultCount ? `${difficultCount} woord${difficultCount === 1 ? "" : "en"} uit foute quizvragen.` : "Foute quizwoorden komen hier automatisch."}</span>
-                <button class="secondary" type="button" id="difficultPracticeBtn" ${difficultCount ? "" : "disabled"}>Oefen moeilijke woorden</button>
+                <span>${difficultCount} woord${difficultCount === 1 ? "" : "en"} uit foute quizvragen.</span>
+                <button class="secondary" type="button" id="difficultPracticeBtn">Oefen moeilijke woorden</button>
               </div>
             </div>
+            ` : ""}
           </div>
           <div class="theme-grid">
             ${themes.map((theme) => {
@@ -1429,8 +1417,6 @@
         </section>
       `;
 
-      const dailyBtn = document.getElementById("dailyPracticeBtn");
-      if (dailyBtn) dailyBtn.addEventListener("click", startDailyPractice);
       const difficultBtn = document.getElementById("difficultPracticeBtn");
       if (difficultBtn) difficultBtn.addEventListener("click", startDifficultPractice);
 
