@@ -1022,7 +1022,7 @@
     
         if ("serviceWorker" in navigator && location.protocol !== "file:") {
           window.addEventListener("load", () => {
-            navigator.serviceWorker.register("./sw.js?v=theme3-4-complete-v4").catch(() => {});
+            navigator.serviceWorker.register("./sw.js?v=theme4-expanded-v5").catch(() => {});
           });
         }
     
@@ -1191,11 +1191,11 @@
           "3-gerrit rietveld": ["3-Gerrit Rietveld", "3-Amir tekent zijn buurt", "3-Amir ziet oude daken"],
           "3-eetgewoontes": ["3-Eetgewoontes", "3-Mila eet bij buren"],
           "3-cultuurverschillen": ["3-Cultuurverschillen", "3-Mila leert uitdrukkingen"],
-          "4-stage lopen": ["4-Stage lopen"],
-          "4-een eigen bedrijf starten": ["4-Een eigen bedrijf starten"],
-          "4-werk vinden": ["4-Werk vinden"],
-          "4-import en export": ["4-Import en export"],
-          "4-de wereldeconomie": ["4-De wereldeconomie"]
+          "4-stage lopen": ["4-Stage lopen", "4-Mila op stage in de zorg"],
+          "4-een eigen bedrijf starten": ["4-Een eigen bedrijf starten", "4-Mila zoekt startkapitaal"],
+          "4-werk vinden": ["4-Werk vinden", "4-Mila oefent sollicitaties"],
+          "4-import en export": ["4-Import en export", "4-Mila volgt een zending"],
+          "4-de wereldeconomie": ["4-De wereldeconomie", "4-Mila leest economisch nieuws"]
         };
     
         const images = {
@@ -1813,6 +1813,106 @@
             { question: "Waarom werken landen samen bij tekorten?", options: ["Om tekorten op te vangen.","Om alles duurder te maken.","Om minder te weten.","Om winkels te sluiten."], answer: "Om tekorten op te vangen.", explanation: "Samenwerking helpt wanneer grondstoffen nijpend zijn.", relatedWords: ["nijpend","argument"] },
             { question: "Waarmee moeten voorstellen worden onderbouwd?", options: ["Met feiten over prijzen, banen en vervoer.","Met alleen gevoel.","Met oude foto's.","Met stilte."], answer: "Met feiten over prijzen, banen en vervoer.", explanation: "Feiten maken een voorstel sterker.", relatedWords: ["onderbouwen"] },
             { question: "Wat verschilt per bedrijfstak?", options: ["Welke risico's het belangrijkst zijn.","Of mensen mogen werken.","Of taal nodig is.","Of er koffie bestaat."], answer: "Welke risico's het belangrijkst zijn.", explanation: "Een bakker en transportbedrijf merken andere gevolgen.", relatedWords: ["bedrijfstak","beperken"] }
+          ],
+          "#4f46e5"
+        );
+    
+        stories["4-Mila op stage in de zorg"] = makeStory(
+          "Thema 4 - Economie en werk",
+          "Mila op stage in de zorg",
+          ["aanpak","aansluiten op","aantrekken","netwerk","nijpend","argument","omzetten","onderbouwen","beperken","bedrijfstak"],
+          [
+            { scene: "Eerste dag op de afdeling", targets: ["aanpak","aansluiten op"], text: "Op haar eerste stagedag kiest Mila voor een rustige aanpak: eerst kijken, dan vragen en pas daarna zelf iets doen. De begeleider zoekt taken die aansluiten op haar opleiding en haar taalniveau. Daardoor voelt Mila zich serieus genomen, ook al moet ze nog veel woorden leren." },
+            { scene: "Contact met collega's", targets: ["aantrekken","netwerk"], text: "De zorgorganisatie wil nieuwe stagiairs aantrekken, omdat er veel werk is en goede mensen hard nodig zijn. Mila leert intussen haar collega's kennen en bouwt een klein netwerk op. In de pauze vraagt ze hoe zij vroeger in deze sector zijn begonnen." },
+            { scene: "Drukke ochtend", targets: ["nijpend","argument"], text: "Op een drukke ochtend merkt Mila dat tijd soms nijpend is. Toch zegt haar begeleider dat dit juist een argument is om goed samen te werken en niet alles alleen te willen doen. Mila brengt materialen klaar en ziet hoe kleine taken de druk kunnen verminderen." },
+            { scene: "Van les naar praktijk", targets: ["omzetten","onderbouwen"], text: "Mila probeert omzetten van schoolkennis naar praktisch werk elke dag een beetje beter te doen. Wanneer ze een keuze maakt, vraagt haar begeleider of ze die kan onderbouwen met een korte uitleg. Eerst vindt Mila dat spannend, maar later helpt het haar om bewuster te werken." },
+            { scene: "Grenzen leren kennen", targets: ["beperken","bedrijfstak"], text: "Aan het einde van de week leert Mila hoe ze fouten kan beperken door rustig te controleren en hulp te vragen. Ze begrijpt ook beter hoe deze bedrijfstak werkt: zorg is warm en menselijk, maar tegelijk strak georganiseerd. Die combinatie past beter bij haar dan ze had verwacht." }
+          ],
+          [["aanpak","manier van werken"],["aansluiten op","passen bij"],["aantrekken","interesseren of binnenhalen"],["netwerk","contacten"],["nijpend","dringend tekort"],["argument","reden"],["omzetten","veranderen in iets praktisch"],["onderbouwen","uitleggen met feiten"],["beperken","minder maken"],["bedrijfstak","sector"]],
+          [
+            { question: "Welke aanpak kiest Mila op haar eerste dag?", options: ["Eerst kijken, dan vragen en daarna doen.","Meteen alles alleen doen.","Niets vragen.","Naar huis gaan."], answer: "Eerst kijken, dan vragen en daarna doen.", explanation: "Ze begint rustig en zorgvuldig.", relatedWords: ["aanpak"] },
+            { question: "Waarom wil de zorgorganisatie stagiairs aantrekken?", options: ["Omdat er veel werk is.","Omdat er geen taken zijn.","Omdat niemand leert.","Omdat de pauze lang is."], answer: "Omdat er veel werk is.", explanation: "Goede mensen zijn hard nodig.", relatedWords: ["aantrekken"] },
+            { question: "Wat doet Mila om fouten te beperken?", options: ["Rustig controleren en hulp vragen.","Sneller praten.","Geen vragen stellen.","Alles vergeten."], answer: "Rustig controleren en hulp vragen.", explanation: "Dat helpt haar veilig werken.", relatedWords: ["beperken"] }
+          ],
+          "#4f46e5"
+        );
+    
+        stories["4-Mila zoekt startkapitaal"] = makeStory(
+          "Thema 4 - Economie en werk",
+          "Mila zoekt startkapitaal",
+          ["aanpak","aantrekken","netwerk","nijpend","argument","omzetten","onderbouwen","beperken","neiging","bedrijfstak"],
+          [
+            { scene: "Plan voor de markt", targets: ["aanpak","aantrekken"], text: "Mila wil op de zaterdagmarkt soep verkopen en kiest daarvoor een eenvoudige aanpak. Ze maakt eerst drie smaken, zodat klanten kunnen proeven zonder meteen iets te kopen. Met een nette tafel en duidelijke prijzen wil ze aandacht aantrekken, maar haar verhaal moet wel eerlijk blijven." },
+            { scene: "Hulp uit de buurt", targets: ["netwerk","nijpend"], text: "Omdat geld voor de start nog nijpend is, vraagt Mila haar netwerk om kleine vormen van hulp. Een buurman leent een pan, een vriendin maakt foto's en iemand uit het buurthuis kent een goedkope leverancier. Zo groeit haar plan zonder dat ze meteen grote schulden maakt." },
+            { scene: "Waarom investeren?", targets: ["argument","omzetten"], text: "Voor een lokale sponsor moet Mila een helder argument geven: haar bedrijf brengt mensen samen en gebruikt producten uit de buurt. Daarna legt ze uit hoe ze dat idee wil omzetten in echte bestellingen. De sponsor stelt kritische vragen, maar Mila blijft rustig antwoorden." },
+            { scene: "Cijfers op papier", targets: ["onderbouwen","beperken"], text: "Mila leert dat enthousiasme niet genoeg is; ze moet haar plan onderbouwen met cijfers. Ze rekent uit hoeveel kommen soep ze per week kan verkopen en hoe ze risico's kan beperken als het regent. Door die berekening wordt haar droom minder vaag." },
+            { scene: "Niet te snel groeien", targets: ["neiging","bedrijfstak"], text: "Na positieve reacties krijgt Mila de neiging om meteen groter te denken. Toch waarschuwt een ondernemer dat deze bedrijfstak veel energie vraagt, vooral als je alles vers wilt maken. Mila besluit eerst drie maanden klein te blijven en daarna opnieuw te evalueren." }
+          ],
+          [["aanpak","manier van werken"],["aantrekken","interesseren"],["netwerk","contacten"],["nijpend","dringend tekort"],["argument","reden"],["omzetten","veranderen in iets praktisch"],["onderbouwen","met feiten uitleggen"],["beperken","kleiner maken"],["neiging","drang"],["bedrijfstak","sector"]],
+          [
+            { question: "Waarom kiest Mila voor drie smaken?", options: ["Dan kunnen klanten rustig proeven.","Dan hoeft ze niets te verkopen.","Dan is er geen plan nodig.","Dan wordt de markt kleiner."], answer: "Dan kunnen klanten rustig proeven.", explanation: "Ze begint overzichtelijk.", relatedWords: ["aanpak"] },
+            { question: "Wat is nog nijpend?", options: ["Geld voor de start.","Het aantal lepels.","De muziek.","De regenjas."], answer: "Geld voor de start.", explanation: "Ze zoekt kleine vormen van hulp.", relatedWords: ["nijpend"] },
+            { question: "Waarom blijft Mila eerst klein?", options: ["Omdat de bedrijfstak veel energie vraagt.","Omdat niemand soep wil.","Omdat ze geen netwerk heeft.","Omdat cijfers verboden zijn."], answer: "Omdat de bedrijfstak veel energie vraagt.", explanation: "Ze wil niet te snel groeien.", relatedWords: ["bedrijfstak","neiging"] }
+          ],
+          "#4f46e5"
+        );
+    
+        stories["4-Mila oefent sollicitaties"] = makeStory(
+          "Thema 4 - Economie en werk",
+          "Mila oefent sollicitaties",
+          ["aanpak","netwerk","aansluiten op","aantrekken","nijpend","bedrijfstak","argument","onderbouwen","beperken","neiging"],
+          [
+            { scene: "Vacatures kiezen", targets: ["aanpak","netwerk"], text: "Mila merkt dat werk zoeken makkelijker wordt met een vaste aanpak. Elke ochtend bekijkt ze twee vacatures en vraagt ze daarna aan haar netwerk of iemand het bedrijf kent. Daardoor voelt solliciteren minder eenzaam en krijgt ze soms informatie die niet in de vacature staat." },
+            { scene: "Brief verbeteren", targets: ["aansluiten op","aantrekken"], text: "Haar brief moet aansluiten op de vacature, maar ook laten zien wie Mila is. De taalcoach helpt haar een eerste zin te schrijven die aandacht kan aantrekken zonder te veel te beloven. Daarna leest Mila de brief hardop, zodat ze hoort of de toon natuurlijk klinkt." },
+            { scene: "Sector met kansen", targets: ["nijpend","bedrijfstak"], text: "In een gesprek met de gemeente hoort Mila dat personeel in sommige beroepen nijpend is. Toch kiest ze niet zomaar elke bedrijfstak, want ze wil werk dat bij haar energie en talent past. Ze vergelijkt zorg, horeca en logistiek en schrijft per sector twee voordelen op." },
+            { scene: "Keuze uitleggen", targets: ["argument","onderbouwen"], text: "Tijdens een oefengesprek vraagt de coach waarom Mila juist deze baan wil. Mila noemt een argument en probeert dat te onderbouwen met een voorbeeld uit haar vrijwilligerswerk. De eerste keer zoekt ze naar woorden, maar de tweede keer klinkt haar antwoord al veel sterker." },
+            { scene: "Rustig blijven", targets: ["beperken","neiging"], text: "Mila wil haar spanning beperken, omdat ze tijdens gesprekken de neiging heeft om te snel te praten. Ze oefent korte pauzes en schrijft drie kernwoorden op een kaartje. Daardoor kan ze beter luisteren naar de vraag voordat ze antwoord geeft." }
+          ],
+          [["aanpak","manier van werken"],["netwerk","contacten"],["aansluiten op","passen bij"],["aantrekken","interesse wekken"],["nijpend","dringend tekort"],["bedrijfstak","sector"],["argument","reden"],["onderbouwen","uitleggen met bewijs"],["beperken","minder maken"],["neiging","drang"]],
+          [
+            { question: "Wat doet Mila elke ochtend?", options: ["Ze bekijkt twee vacatures.","Ze sluit alle websites.","Ze koopt soep.","Ze gaat naar het museum."], answer: "Ze bekijkt twee vacatures.", explanation: "Dat hoort bij haar vaste aanpak.", relatedWords: ["aanpak"] },
+            { question: "Waarom vergelijkt Mila sectoren?", options: ["Ze wil werk dat bij haar past.","Ze wil niet werken.","Ze zoekt alleen hoge gebouwen.","Ze wil geen netwerk."], answer: "Ze wil werk dat bij haar past.", explanation: "Niet elke bedrijfstak past bij haar.", relatedWords: ["bedrijfstak"] },
+            { question: "Wat helpt haar spanning beperken?", options: ["Korte pauzes en kernwoorden.","Harder praten.","Geen voorbereiding.","Alle vragen overslaan."], answer: "Korte pauzes en kernwoorden.", explanation: "Zo kan ze rustiger antwoorden.", relatedWords: ["beperken","neiging"] }
+          ],
+          "#4f46e5"
+        );
+    
+        stories["4-Mila volgt een zending"] = makeStory(
+          "Thema 4 - Economie en werk",
+          "Mila volgt een zending",
+          ["aanpak","aantrekken","netwerk","argument","omzetten","onderbouwen","beperken","neiging","bedrijfstak","nijpend"],
+          [
+            { scene: "Van Groningen naar Hamburg", targets: ["aanpak","aantrekken"], text: "Mila volgt een zending Groningse producten die naar Hamburg gaat. De exportmedewerker legt uit dat een duidelijke aanpak nodig is om klanten te houden en nieuwe klanten aantrekken mogelijk te maken. Elk pakket krijgt een code, zodat iedereen kan zien waar het onderweg is." },
+            { scene: "Mensen achter de route", targets: ["netwerk","argument"], text: "Achter een simpele doos zit een groot netwerk van chauffeurs, planners en magazijnen. Een argument voor goede samenwerking is duidelijk: als een schakel te laat is, merkt de klant dat meteen. Mila ziet hoe vaak mensen elkaar bellen om kleine problemen op tijd op te lossen." },
+            { scene: "Bestelling wordt winst", targets: ["omzetten","onderbouwen"], text: "Het bedrijf wil een bestelling omzetten in winst, maar dat lukt alleen als de kosten kloppen. De planner moet de route onderbouwen met gegevens over afstand, brandstof en tijd. Mila kijkt mee en ziet dat handel veel preciezer is dan alleen iets verkopen." },
+            { scene: "Risico onderweg", targets: ["beperken","neiging"], text: "Wanneer een vrachtwagen vertraging heeft, wil Mila meteen een nieuwe route voorstellen. De planner zegt dat bedrijven soms de neiging hebben om te snel te reageren, terwijl rustige informatie beter helpt. Eerst controleren ze de feiten, zodat ze extra kosten kunnen beperken." },
+            { scene: "Drukke sector", targets: ["bedrijfstak","nijpend"], text: "Aan het eind van de dag begrijpt Mila waarom deze bedrijfstak zo druk is. Tijd, ruimte en chauffeurs kunnen nijpend worden, vooral wanneer veel bedrijven tegelijk willen leveren. Toch vindt ze het mooi om te zien hoe planning, taal en vertrouwen samenkomen." }
+          ],
+          [["aanpak","manier van werken"],["aantrekken","interesseren"],["netwerk","contacten"],["argument","reden"],["omzetten","veranderen in winst"],["onderbouwen","uitleggen met gegevens"],["beperken","minder maken"],["neiging","drang"],["bedrijfstak","sector"],["nijpend","dringend tekort"]],
+          [
+            { question: "Waarom krijgt elk pakket een code?", options: ["Dan kun je zien waar het is.","Dan wordt het eten warm.","Dan hoeft niemand te plannen.","Dan verdwijnt de route."], answer: "Dan kun je zien waar het is.", explanation: "De code helpt de zending volgen.", relatedWords: ["aanpak"] },
+            { question: "Waaruit bestaat het netwerk?", options: ["Chauffeurs, planners en magazijnen.","Alleen klanten.","Alleen studenten.","Alleen buren."], answer: "Chauffeurs, planners en magazijnen.", explanation: "Veel mensen werken samen.", relatedWords: ["netwerk"] },
+            { question: "Wat kan nijpend worden?", options: ["Tijd, ruimte en chauffeurs.","Soep en brood.","Stoelen en tafels.","Alle woorden."], answer: "Tijd, ruimte en chauffeurs.", explanation: "De sector kan erg druk worden.", relatedWords: ["nijpend","bedrijfstak"] }
+          ],
+          "#4f46e5"
+        );
+    
+        stories["4-Mila leest economisch nieuws"] = makeStory(
+          "Thema 4 - Economie en werk",
+          "Mila leest economisch nieuws",
+          ["aanpak","aansluiten op","aantrekken","netwerk","nijpend","argument","omzetten","onderbouwen","beperken","bedrijfstak"],
+          [
+            { scene: "Nieuws in eenvoudige taal", targets: ["aanpak","aansluiten op"], text: "Mila leest economisch nieuws in eenvoudige taal, omdat gewone kranten soms te veel moeilijke woorden gebruiken. Haar aanpak is simpel: eerst de titel, dan de grafiek en daarna pas het hele artikel. De docent kiest teksten die aansluiten op situaties die cursisten herkennen, zoals huur, boodschappen en werk." },
+            { scene: "Bedrijven en landen", targets: ["aantrekken","netwerk"], text: "In het artikel staat dat landen bedrijven willen aantrekken met goede havens, snelle treinen en duidelijke regels. Mila ziet dat economie lijkt op een groot netwerk waarin keuzes van bedrijven, klanten en overheden elkaar raken. Dat maakt het onderwerp groot, maar niet onmogelijk." },
+            { scene: "Tekort aan materialen", targets: ["nijpend","argument"], text: "Daarna leest de groep over materialen die nijpend zijn geworden doordat de vraag snel steeg. De docent vraagt welk argument voor zuinig gebruik het sterkst is. Mila zegt dat verspilling duur is, maar ook oneerlijk wanneer andere bedrijven dezelfde materialen nodig hebben." },
+            { scene: "Cijfers begrijpen", targets: ["omzetten","onderbouwen"], text: "De klas leert hoe je cijfers kunt omzetten in een korte uitleg. Een mening over prijzen moet je onderbouwen, anders blijft het alleen een gevoel. Mila schrijft daarom twee zinnen: wat is er duurder geworden, en voor wie is dat een probleem?" },
+            { scene: "Gevolgen dichtbij", targets: ["beperken","bedrijfstak"], text: "Tot slot bespreekt de groep hoe gezinnen en bedrijven schade kunnen beperken wanneer prijzen stijgen. De gevolgen verschillen per bedrijfstak: een restaurant merkt voedselprijzen, terwijl een winkel meer last kan hebben van huur en vervoer. Mila begrijpt nu beter waarom economisch nieuws ook over haar eigen leven gaat." }
+          ],
+          [["aanpak","manier van werken"],["aansluiten op","passen bij"],["aantrekken","interesseren of binnenhalen"],["netwerk","contacten"],["nijpend","dringend tekort"],["argument","reden"],["omzetten","veranderen in iets praktisch"],["onderbouwen","uitleggen met feiten"],["beperken","minder maken"],["bedrijfstak","sector"]],
+          [
+            { question: "Wat is Mila's aanpak bij nieuws lezen?", options: ["Titel, grafiek en daarna het artikel.","Alleen moeilijke woorden lezen.","Meteen stoppen.","Geen titel lezen."], answer: "Titel, grafiek en daarna het artikel.", explanation: "Ze leest stap voor stap.", relatedWords: ["aanpak"] },
+            { question: "Waarom kiezen landen goede havens en regels?", options: ["Om bedrijven aan te trekken.","Om handel te stoppen.","Om geen netwerk te hebben.","Om prijzen te vergeten."], answer: "Om bedrijven aan te trekken.", explanation: "Goede voorwaarden trekken bedrijven aan.", relatedWords: ["aantrekken"] },
+            { question: "Waarom moet Mila een mening onderbouwen?", options: ["Anders blijft het alleen een gevoel.","Omdat cijfers verboden zijn.","Omdat niemand luistert.","Omdat het nieuws kort is."], answer: "Anders blijft het alleen een gevoel.", explanation: "Feiten maken haar uitleg sterker.", relatedWords: ["onderbouwen"] }
           ],
           "#4f46e5"
         );
