@@ -264,6 +264,43 @@
     .theme-card.theme-7::before { background: #db2777; }
     .theme-card.theme-8::before { background: #334155; }
     .theme-card:hover { transform: translateY(-3px); box-shadow: 0 28px 54px rgba(15, 23, 42, 0.13); border-color: rgba(216, 180, 254, 0.95); }
+    .theme-card.locked {
+      background: #f1f5f9;
+      border-color: #e2e8f0;
+      box-shadow: none;
+      opacity: 0.82;
+    }
+    .theme-card.locked:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: #e2e8f0;
+    }
+    .theme-card.locked::before { background: #cbd5e1; }
+    .theme-card.locked .chapter {
+      background: #e2e8f0;
+      color: #64748b;
+    }
+    .theme-card.locked .theme-icon {
+      background: #e2e8f0 !important;
+      color: #94a3b8 !important;
+      border-color: #cbd5e1;
+    }
+    .theme-card.locked h3,
+    .theme-card.locked .theme-subtitle {
+      color: #94a3b8;
+    }
+    .locked-note {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      margin-top: 12px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 950;
+    }
     .theme-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 18px; }
     .chapter {
       display: inline-block;
@@ -1322,7 +1359,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=label-cleanup-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=locked-themes-v1").catch(() => {});
       });
     }
 
@@ -3121,10 +3158,9 @@
           <div class="theme-grid">
             ${themes.map((theme) => {
               const progress = getThemeProgress(theme);
-              const wordCount = getThemeWordCount(theme);
-              const minutes = getEstimatedMinutes(theme);
+              const isLocked = countStoriesForTheme(theme) === 0;
               return `
-                <article class="theme-card theme-${theme.id}">
+                <article class="theme-card theme-${theme.id} ${isLocked ? "locked" : ""}" ${isLocked ? 'aria-disabled="true"' : ""}>
                   <div class="theme-top">
                     <div>
                       <span class="chapter">${escapeHtml(theme.chapter)}</span>
@@ -3133,16 +3169,16 @@
                   </div>
                   <h3>${escapeHtml(theme.title)}</h3>
                   <div class="theme-subtitle">${escapeHtml(theme.subtitle || "")}</div>
-                  <div class="theme-meta">
-                    <span class="topic-chip">${minutes} min</span>
-                    <span class="topic-chip">${wordCount} doelwoorden</span>
-                  </div>
-                  <div class="theme-progress" aria-label="Voortgang ${progress.pct}%">
-                    <div style="width:${progress.pct}%;"></div>
-                  </div>
-                  <div class="sub-list">
-                    ${(theme.bookTopics || []).map((topic) => `<button class="sub-btn" type="button" data-topic-theme="${theme.id}" data-topic="${escapeHtml(topic)}">${escapeHtml(topic)}<span>→</span></button>`).join("")}
-                  </div>
+                  ${isLocked ? `
+                    <div class="locked-note">Nog niet ontgrendeld</div>
+                  ` : `
+                    <div class="theme-progress" aria-label="Voortgang ${progress.pct}%">
+                      <div style="width:${progress.pct}%;"></div>
+                    </div>
+                    <div class="sub-list">
+                      ${(theme.bookTopics || []).map((topic) => `<button class="sub-btn" type="button" data-topic-theme="${theme.id}" data-topic="${escapeHtml(topic)}">${escapeHtml(topic)}<span>→</span></button>`).join("")}
+                    </div>
+                  `}
                 </article>
               `;
             }).join("")}

@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=label-cleanup-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=locked-themes-v1").catch(() => {});
       });
     }
 
@@ -1808,10 +1808,9 @@
           <div class="theme-grid">
             ${themes.map((theme) => {
               const progress = getThemeProgress(theme);
-              const wordCount = getThemeWordCount(theme);
-              const minutes = getEstimatedMinutes(theme);
+              const isLocked = countStoriesForTheme(theme) === 0;
               return `
-                <article class="theme-card theme-${theme.id}">
+                <article class="theme-card theme-${theme.id} ${isLocked ? "locked" : ""}" ${isLocked ? 'aria-disabled="true"' : ""}>
                   <div class="theme-top">
                     <div>
                       <span class="chapter">${escapeHtml(theme.chapter)}</span>
@@ -1820,16 +1819,16 @@
                   </div>
                   <h3>${escapeHtml(theme.title)}</h3>
                   <div class="theme-subtitle">${escapeHtml(theme.subtitle || "")}</div>
-                  <div class="theme-meta">
-                    <span class="topic-chip">${minutes} min</span>
-                    <span class="topic-chip">${wordCount} doelwoorden</span>
-                  </div>
-                  <div class="theme-progress" aria-label="Voortgang ${progress.pct}%">
-                    <div style="width:${progress.pct}%;"></div>
-                  </div>
-                  <div class="sub-list">
-                    ${(theme.bookTopics || []).map((topic) => `<button class="sub-btn" type="button" data-topic-theme="${theme.id}" data-topic="${escapeHtml(topic)}">${escapeHtml(topic)}<span>→</span></button>`).join("")}
-                  </div>
+                  ${isLocked ? `
+                    <div class="locked-note">Nog niet ontgrendeld</div>
+                  ` : `
+                    <div class="theme-progress" aria-label="Voortgang ${progress.pct}%">
+                      <div style="width:${progress.pct}%;"></div>
+                    </div>
+                    <div class="sub-list">
+                      ${(theme.bookTopics || []).map((topic) => `<button class="sub-btn" type="button" data-topic-theme="${theme.id}" data-topic="${escapeHtml(topic)}">${escapeHtml(topic)}<span>→</span></button>`).join("")}
+                    </div>
+                  `}
                 </article>
               `;
             }).join("")}
