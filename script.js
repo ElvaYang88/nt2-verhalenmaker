@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=content-audit-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=storybook-image-audit-v1").catch(() => {});
       });
     }
 
