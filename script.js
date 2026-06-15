@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=soft-bg-card-deco-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=ux-polish-bg-revert-v1").catch(() => {});
       });
     }
 
@@ -1779,7 +1779,6 @@
               const minutes = getEstimatedMinutes(theme);
               return `
                 <article class="theme-card theme-${theme.id}">
-                  <span class="card-deco" aria-hidden="true"></span>
                   <div class="theme-top">
                     <div>
                       <span class="chapter">${escapeHtml(theme.chapter)}</span>

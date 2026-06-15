@@ -12,7 +12,7 @@
   <title>De finale Verhalenmaker</title>
   <style>
     :root {
-      --bg: #FAF9F6;
+      --bg: #fffafd;
       --panel: #ffffff;
       --ink: #182032;
       --muted: #64748b;
@@ -35,8 +35,9 @@
       min-height: 100vh;
       color: var(--ink);
       background:
-        radial-gradient(circle at 95% 5%, rgba(244, 219, 255, 0.55) 0px, transparent 45px),
-        radial-gradient(circle at 5% 95%, rgba(225, 233, 255, 0.55) 0px, transparent 45px),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 249, 253, 0.98) 42%, rgba(253, 240, 250, 0.98) 100%),
+        repeating-radial-gradient(circle at 86% 10%, rgba(232, 62, 140, 0.08) 0 1px, transparent 2px 86px),
+        repeating-radial-gradient(circle at 8% 96%, rgba(125, 60, 152, 0.07) 0 1px, transparent 2px 104px),
         var(--bg);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -263,26 +264,6 @@
     .theme-card.theme-7::before { background: #db2777; }
     .theme-card.theme-8::before { background: #334155; }
     .theme-card:hover { transform: translateY(-3px); box-shadow: 0 28px 54px rgba(15, 23, 42, 0.13); border-color: rgba(216, 180, 254, 0.95); }
-    .theme-card > *:not(.card-deco) {
-      position: relative;
-      z-index: 1;
-    }
-    .card-deco {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 80px;
-      height: 80px;
-      background: rgba(167, 139, 250, 0.15);
-      border-bottom-left-radius: 9999px;
-      transition: transform 0.5s ease;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .theme-card.theme-2 .card-deco { background: rgba(16, 185, 129, 0.13); }
-    .theme-card.theme-3 .card-deco { background: rgba(251, 146, 60, 0.14); }
-    .theme-card.theme-4 .card-deco { background: rgba(99, 102, 241, 0.14); }
-    .theme-card:hover .card-deco { transform: scale(2.2); }
     .theme-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 18px; }
     .chapter {
       display: inline-block;
@@ -982,10 +963,7 @@
     @media (max-width: 640px) {
       :root { --radius: 24px; }
       body {
-        background:
-          radial-gradient(circle at 95% 5%, rgba(244, 219, 255, 0.55) 0px, transparent 45px),
-          radial-gradient(circle at 5% 95%, rgba(225, 233, 255, 0.55) 0px, transparent 45px),
-          var(--bg);
+        background: linear-gradient(180deg, #fffafd 0%, #fdf2f8 48%, #f8fafc 100%);
       }
       .app-header {
         align-items: center;
@@ -1219,7 +1197,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=soft-bg-card-deco-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=ux-polish-bg-revert-v1").catch(() => {});
       });
     }
 
@@ -2989,7 +2967,6 @@
               const minutes = getEstimatedMinutes(theme);
               return `
                 <article class="theme-card theme-${theme.id}">
-                  <span class="card-deco" aria-hidden="true"></span>
                   <div class="theme-top">
                     <div>
                       <span class="chapter">${escapeHtml(theme.chapter)}</span>
@@ -3523,5 +3500,6 @@
   </script>
 </body>
 </html>
+
 
 
