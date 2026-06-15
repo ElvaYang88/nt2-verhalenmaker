@@ -264,31 +264,6 @@
     .theme-card.theme-7::before { background: #db2777; }
     .theme-card.theme-8::before { background: #334155; }
     .theme-card:hover { transform: translateY(-3px); box-shadow: 0 28px 54px rgba(15, 23, 42, 0.13); border-color: rgba(216, 180, 254, 0.95); }
-    .theme-card.locked {
-      background: #f1f5f9;
-      border-color: #e2e8f0;
-      box-shadow: none;
-      opacity: 0.82;
-    }
-    .theme-card.locked:hover {
-      transform: none;
-      box-shadow: none;
-      border-color: #e2e8f0;
-    }
-    .theme-card.locked::before { background: #cbd5e1; }
-    .theme-card.locked .chapter {
-      background: #e2e8f0;
-      color: #64748b;
-    }
-    .theme-card.locked .theme-icon {
-      background: #e2e8f0 !important;
-      color: #94a3b8 !important;
-      border-color: #cbd5e1;
-    }
-    .theme-card.locked h3,
-    .theme-card.locked .theme-subtitle {
-      color: #94a3b8;
-    }
     .locked-note {
       display: inline-flex;
       align-items: center;
@@ -296,8 +271,9 @@
       margin-top: 12px;
       padding: 6px 11px;
       border-radius: 999px;
-      background: #e2e8f0;
-      color: #64748b;
+      background: #faf5ff;
+      color: var(--purple);
+      border: 1px solid #ead7f1;
       font-size: 12px;
       font-weight: 950;
     }
@@ -1359,7 +1335,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=locked-themes-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=unlock-note-v1").catch(() => {});
       });
     }
 
@@ -3160,7 +3136,7 @@
               const progress = getThemeProgress(theme);
               const isLocked = countStoriesForTheme(theme) === 0;
               return `
-                <article class="theme-card theme-${theme.id} ${isLocked ? "locked" : ""}" ${isLocked ? 'aria-disabled="true"' : ""}>
+                <article class="theme-card theme-${theme.id} ${isLocked ? "coming-soon" : ""}" ${isLocked ? 'aria-disabled="true"' : ""}>
                   <div class="theme-top">
                     <div>
                       <span class="chapter">${escapeHtml(theme.chapter)}</span>

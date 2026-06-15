@@ -1,4 +1,4 @@
-const CACHE_NAME = "nt2-groningen-v34-locked-themes-v1";
+const CACHE_NAME = "nt2-groningen-v35-unlock-note-v1";
 
 const CORE_ASSETS = [
   "./",

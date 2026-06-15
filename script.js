@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=locked-themes-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=unlock-note-v1").catch(() => {});
       });
     }
 
@@ -1810,7 +1810,7 @@
               const progress = getThemeProgress(theme);
               const isLocked = countStoriesForTheme(theme) === 0;
               return `
-                <article class="theme-card theme-${theme.id} ${isLocked ? "locked" : ""}" ${isLocked ? 'aria-disabled="true"' : ""}>
+                <article class="theme-card theme-${theme.id} ${isLocked ? "coming-soon" : ""}" ${isLocked ? 'aria-disabled="true"' : ""}>
                   <div class="theme-top">
                     <div>
                       <span class="chapter">${escapeHtml(theme.chapter)}</span>
