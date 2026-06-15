@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=ux-polish-bg-revert-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=content-audit-v1").catch(() => {});
       });
     }
 
@@ -916,19 +916,22 @@
     );
 
     function addCoverageStory(key, chapter, title, vocab, color, imageKey) {
-      const scenes = [
-        "Eerste gesprek",
-        "Voorbeeld uit Groningen",
-        "Samen oefenen",
-        "Keuze maken",
-        "Terugblik in de les"
-      ];
-      const pageTemplates = [
-        (a, b, scene) => `Tijdens ${scene.toLowerCase()} hoort Mila de woorden ${a} en ${b} in een echt gesprek. De docent geeft eerst een eenvoudig voorbeeld, waarna de groep samen bespreekt wanneer je deze woorden gebruikt. Omdat Mila de situatie herkent, durft zij een eigen zin te maken. Zo wordt de nieuwe woordenschat minder los en meer onderdeel van haar dagelijks Nederlands.`,
-        (a, b, scene) => `In ${scene.toLowerCase()} ziet Mila hoe ${a} en ${b} bij elkaar kunnen passen. Ze leest een korte tekst, maar stopt niet bij losse woorden; ze zoekt naar de bedoeling van de hele zin. Daarna vraagt ze een klasgenoot om een tweede voorbeeld. Door samen te praten blijft de betekenis beter hangen.`,
-        (a, b, scene) => `Bij ${scene.toLowerCase()} schrijft Mila ${a} bovenaan haar blad en zet ze ${b} ernaast. Eerst lijken de woorden moeilijk, maar wanneer de docent een verhaal uit de buurt vertelt, worden ze concreter. Mila merkt dat lange woorden niet altijd moeilijke zinnen nodig hebben. Een rustig voorbeeld helpt vaak al genoeg.`,
-        (a, b, scene) => `Tijdens ${scene.toLowerCase()} gebruikt Mila ${a} in een korte zin en probeert ze daarna ook ${b}. Haar uitspraak is nog niet perfect, maar de groep begrijpt wat ze bedoelt. De docent verbetert alleen wat echt nodig is, zodat het gesprek natuurlijk blijft lopen. Daardoor krijgt Mila meer vertrouwen.`,
-        (a, b, scene) => `Aan het einde van ${scene.toLowerCase()} kijkt Mila terug op ${a} en ${b}. Ze kiest een zin die ze thuis nog eens wil oefenen, omdat die past bij haar eigen leven. Hoewel niet alles meteen makkelijk is, voelt de les nuttig en overzichtelijk. Stap voor stap groeit haar woordenschat.`
+      const isNature = /^Thema 2/.test(chapter);
+      const scenes = isNature
+        ? ["Bij het startpunt", "Langs het pad", "Bij het water", "In gesprek met de beheerder", "Terug in de les"]
+        : ["In het buurthuis", "Aan tafel met de groep", "Bij een praktisch probleem", "Tijdens een afspraak", "Terug in de les"];
+      const pageTemplates = isNature ? [
+        (a, b) => `Mila gaat met haar taalgroep naar buiten, omdat het onderwerp "${title.toLowerCase()}" beter te begrijpen is wanneer je het ziet. Bij het startpunt noemt de gids ${a} en ${b}; hij wijst naar de kaart, maar laat de groep ook om zich heen kijken. Daardoor blijven de woorden niet los in haar hoofd hangen, maar krijgen ze meteen een plek in het landschap.`,
+        (a, b) => `Langs het pad merkt Mila hoe snel de omgeving kan veranderen. Ze ziet ${a} en hoort daarna hoe de gids ${b} uitlegt met een voorbeeld uit de buurt. Eerst schrijft ze alleen de woorden op, maar wanneer een klasgenoot een vraag stelt, begrijpt ze ook de situatie erachter. Zo wordt de wandeling tegelijk een taalles.`,
+        (a, b) => `Bij het water blijft de groep even staan, omdat daar veel details te zien zijn. Mila gebruikt ${a} in een korte zin, waarna de docent haar helpt om ook ${b} natuurlijk te zeggen. De zin is niet perfect, maar iedereen begrijpt haar bedoeling. Juist daardoor durft ze verder te praten en hoort ze hoe anderen dezelfde woorden gebruiken.`,
+        (a, b) => `De beheerder vertelt dat keuzes in de natuur vaak met elkaar samenhangen. Soms lijkt ${a} een klein detail, terwijl ${b} juist laat zien waarom een regel nodig is. Mila luistert, stelt een korte vraag en vergelijkt het voorbeeld met haar eigen straat. Daardoor voelt het onderwerp minder ver weg.`,
+        (a, b) => `Terug in de les kiest Mila twee zinnen die ze wil bewaren: een met ${a} en een met ${b}. Ze leest ze hardop, terwijl de docent vooral op duidelijkheid let. Hoewel de woorden lastig kunnen zijn, blijft de tekst op B1-niveau. Zo kan Mila moeilijke woordenschat oefenen zonder dat de rest van de zin te zwaar wordt.`
+      ] : [
+        (a, b) => `Mila zit in het buurthuis wanneer het gesprek over "${title.toLowerCase()}" begint. De vrijwilliger noemt ${a} en ${b}, maar hij geeft er meteen een herkenbaar voorbeeld bij. Daardoor hoeft Mila niet alleen naar de losse woorden te kijken; ze hoort ook wanneer mensen ze echt gebruiken. Na de uitleg maakt ze zelf een korte zin.`,
+        (a, b) => `Aan tafel praat de groep verder over een situatie uit Groningen. Mila hoort ${a} in een vraag van een buurvrouw en ziet daarna hoe ${b} in het antwoord past. Omdat het gesprek rustig blijft, durft ze om herhaling te vragen. De andere cursisten knikken, want zij zoeken ook naar woorden die precies genoeg zijn.`,
+        (a, b) => `Bij een praktisch probleem merkt Mila dat taal pas echt gaat leven wanneer iemand hulp nodig heeft. Ze gebruikt ${a}, maar twijfelt even over ${b}. De docent geeft geen lange uitleg; hij maakt een klein voorbeeld met namen uit de groep. Daardoor begrijpt Mila de betekenis beter en kan ze het woord meteen opnieuw proberen.`,
+        (a, b) => `Tijdens een afspraak moet Mila goed luisteren, want niet elk woord staat letterlijk in het formulier. Ze onderstreept ${a} en schrijft ${b} in haar schrift, waarna ze samen met een klasgenoot een zin maakt. Die zin is wat langer, maar hij blijft duidelijk. Zo oefent Mila niet alleen woorden, maar ook natuurlijk Nederlands.`,
+        (a, b) => `Terug in de les kijkt Mila naar wat ze vandaag heeft geleerd. Ze kiest een voorbeeld met ${a}, omdat dat bij haar eigen leven past, en daarna maakt ze ook een zin met ${b}. Hoewel de woorden soms moeilijk zijn, gebruikt de groep eenvoudige zinnen eromheen. Daardoor blijft de tekst begrijpelijk en voelt de les nuttig.`
       ];
       const pages = [];
       for (let index = 0; index < 5; index += 1) {
@@ -939,17 +942,17 @@
           text: pageTemplates[index](targets[0], targets[1], scenes[index])
         });
       }
-      const glossaryPairs = vocab.map((word) => [word, `woord of uitdrukking uit ${title}`]);
+      const glossaryPairs = vocab.map((word) => [word, `doelwoord uit het verhaal "${title}"; bekijk de voorbeeldzin in de tekst`]);
       const quiz = pages.map((page, index) => ({
-        question: `Welke woorden oefent Mila op pagina ${index + 1}?`,
+        question: `Waarom begrijpt Mila ${page.targets.join(" en ")} beter op pagina ${index + 1}?`,
         options: [
-          page.targets.join(" en "),
-          vocab.slice((index + 1) % 5 * 2, (index + 1) % 5 * 2 + 2).join(" en "),
-          "woorden uit een ander thema",
-          "geen nieuwe woorden"
+          "Omdat ze de woorden in een herkenbare situatie gebruikt.",
+          "Omdat ze de woorden alleen overschrijft zonder context.",
+          "Omdat ze de uitleg overslaat.",
+          "Omdat de woorden niet in het verhaal voorkomen."
         ],
-        answer: page.targets.join(" en "),
-        explanation: `Op pagina ${index + 1} staan deze twee doelwoorden centraal.`,
+        answer: "Omdat ze de woorden in een herkenbare situatie gebruikt.",
+        explanation: `Op pagina ${index + 1} staan ${page.targets.join(" en ")} in een concrete situatie uit het verhaal.`,
         relatedWords: page.targets
       }));
       stories[key] = makeStory(chapter, title, vocab, pages, glossaryPairs, quiz, color);
