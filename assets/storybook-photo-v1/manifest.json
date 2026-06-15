@@ -1,0 +1,834 @@
+{
+  "1-Gelukkig zijn": [
+    {
+      "page": 1,
+      "file": "assets/storybook/1-gelukkig-zijn/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "blijken",
+        "aarzelen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/1-gelukkig-zijn/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "uitgebreid",
+        "aanvragen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/1-gelukkig-zijn/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "uitkering",
+        "stimuleren"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/1-gelukkig-zijn/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "arbeidsmarkt",
+        "bevorderen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/1-gelukkig-zijn/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "cultuurverschil",
+        "toepassen"
+      ],
+      "scene": ""
+    }
+  ],
+  "1-Een streetarts": [
+    {
+      "page": 1,
+      "file": "assets/storybook/1-een-streetarts/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "blijken",
+        "aarzelen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/1-een-streetarts/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "uitgebreid",
+        "aanvragen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/1-een-streetarts/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "uitkering",
+        "stimuleren"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/1-een-streetarts/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "arbeidsmarkt",
+        "bevorderen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/1-een-streetarts/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "signaleren",
+        "toepassen"
+      ],
+      "scene": ""
+    }
+  ],
+  "2-Druk in de natuur": [
+    {
+      "page": 1,
+      "file": "assets/storybook/2-druk-in-de-natuur/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aanleggen",
+        "aanpassing"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/2-druk-in-de-natuur/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aantrekkelijk",
+        "afvalstof"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/2-druk-in-de-natuur/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "afvoeren",
+        "beheerder"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/2-druk-in-de-natuur/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "benadrukken",
+        "beschermen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/2-druk-in-de-natuur/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "besparen",
+        "duurzaam"
+      ],
+      "scene": ""
+    }
+  ],
+  "3-UNESCO werelderfgoed": [
+    {
+      "page": 1,
+      "file": "assets/storybook/3-unesco-werelderfgoed/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "behouden",
+        "beschermen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/3-unesco-werelderfgoed/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "bevorderen",
+        "bewaren"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/3-unesco-werelderfgoed/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "eigentijds",
+        "evalueren"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/3-unesco-werelderfgoed/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "gebouw",
+        "aanpassing"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/3-unesco-werelderfgoed/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aanraden",
+        "afhangen van"
+      ],
+      "scene": ""
+    }
+  ],
+  "4-Stage lopen": [
+    {
+      "page": 1,
+      "file": "assets/storybook/4-stage-lopen/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aanpak",
+        "aansluiten op"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/4-stage-lopen/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aantrekken",
+        "netwerk"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/4-stage-lopen/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "nijpend",
+        "argument"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/4-stage-lopen/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "omzetten",
+        "onderbouwen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/4-stage-lopen/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "beperken",
+        "bedrijfstak"
+      ],
+      "scene": ""
+    }
+  ],
+  "1-Het UWV": [
+    {
+      "page": 1,
+      "file": "assets/storybook/1-het-uwv/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "blijken",
+        "aarzelen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/1-het-uwv/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aanvragen",
+        "uitgebreid"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/1-het-uwv/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "stimuleren",
+        "aanzienlijk"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/1-het-uwv/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "arbeidsmarkt",
+        "bevorderen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/1-het-uwv/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "toepassen",
+        "uitkering"
+      ],
+      "scene": ""
+    }
+  ],
+  "1-Buurtbewoners": [
+    {
+      "page": 1,
+      "file": "assets/storybook/1-buurtbewoners/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "blijken",
+        "aarzelen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/1-buurtbewoners/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "uitgebreid",
+        "aanvragen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/1-buurtbewoners/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "cultuurverschil",
+        "toepassen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/1-buurtbewoners/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "bevorderen",
+        "stimuleren"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/1-buurtbewoners/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "signaleren",
+        "arbeidsmarkt"
+      ],
+      "scene": ""
+    }
+  ],
+  "2-Nationale parken": [
+    {
+      "page": 1,
+      "file": "assets/storybook/2-nationale-parken/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "beheerder",
+        "benadrukken"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/2-nationale-parken/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "beschermen",
+        "besparen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/2-nationale-parken/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "duurzaam",
+        "klimaatverandering"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/2-nationale-parken/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "kwetsbaar",
+        "aanleggen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/2-nationale-parken/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aanpassing",
+        "aantrekkelijk"
+      ],
+      "scene": ""
+    }
+  ],
+  "2-Drinkwatertekort": [
+    {
+      "page": 1,
+      "file": "assets/storybook/2-drinkwatertekort/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "afvalstof",
+        "afvoeren"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/2-drinkwatertekort/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "beheerder",
+        "benadrukken"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/2-drinkwatertekort/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "beschermen",
+        "besparen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/2-drinkwatertekort/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "duurzaam",
+        "klimaatverandering"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/2-drinkwatertekort/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "kwetsbaar",
+        "aanpassing"
+      ],
+      "scene": ""
+    }
+  ],
+  "2-Een ecoduct": [
+    {
+      "page": 1,
+      "file": "assets/storybook/2-een-ecoduct/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aanleggen",
+        "aanpassing"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/2-een-ecoduct/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aantrekkelijk",
+        "afvalstof"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/2-een-ecoduct/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "afvoeren",
+        "beheerder"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/2-een-ecoduct/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "benadrukken",
+        "beschermen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/2-een-ecoduct/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "kwetsbaar",
+        "duurzaam"
+      ],
+      "scene": ""
+    }
+  ],
+  "3-Gerrit Rietveld": [
+    {
+      "page": 1,
+      "file": "assets/storybook/3-gerrit-rietveld/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "behouden",
+        "bewaren"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/3-gerrit-rietveld/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "eigentijds",
+        "evalueren"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/3-gerrit-rietveld/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "gebouw",
+        "aanraden"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/3-gerrit-rietveld/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "afhangen van",
+        "bereiken"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/3-gerrit-rietveld/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "beschaving",
+        "beschermen"
+      ],
+      "scene": ""
+    }
+  ],
+  "3-Eetgewoontes": [
+    {
+      "page": 1,
+      "file": "assets/storybook/3-eetgewoontes/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "behouden",
+        "eigentijds"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/3-eetgewoontes/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "gebouw",
+        "aanraden"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/3-eetgewoontes/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "afhangen van",
+        "bereiken"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/3-eetgewoontes/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "cultuurverschil",
+        "toepassen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/3-eetgewoontes/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "bewaren",
+        "evalueren"
+      ],
+      "scene": ""
+    }
+  ],
+  "3-Cultuurverschillen": [
+    {
+      "page": 1,
+      "file": "assets/storybook/3-cultuurverschillen/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "behouden",
+        "eigentijds"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/3-cultuurverschillen/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aanraden",
+        "afhangen van"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/3-cultuurverschillen/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "bereiken",
+        "cultuurverschil"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/3-cultuurverschillen/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "toepassen",
+        "bewaren"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/3-cultuurverschillen/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "evalueren",
+        "beschaving"
+      ],
+      "scene": ""
+    }
+  ],
+  "4-Een eigen bedrijf starten": [
+    {
+      "page": 1,
+      "file": "assets/storybook/4-een-eigen-bedrijf-starten/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aanpak",
+        "aantrekken"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/4-een-eigen-bedrijf-starten/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "netwerk",
+        "nijpend"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/4-een-eigen-bedrijf-starten/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "argument",
+        "omzetten"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/4-een-eigen-bedrijf-starten/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "onderbouwen",
+        "beperken"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/4-een-eigen-bedrijf-starten/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "neiging",
+        "bedrijfstak"
+      ],
+      "scene": ""
+    }
+  ],
+  "4-Werk vinden": [
+    {
+      "page": 1,
+      "file": "assets/storybook/4-werk-vinden/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aanpak",
+        "netwerk"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/4-werk-vinden/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aansluiten op",
+        "aantrekken"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/4-werk-vinden/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "nijpend",
+        "bedrijfstak"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/4-werk-vinden/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "argument",
+        "onderbouwen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/4-werk-vinden/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "beperken",
+        "neiging"
+      ],
+      "scene": ""
+    }
+  ],
+  "4-Import en export": [
+    {
+      "page": 1,
+      "file": "assets/storybook/4-import-en-export/page-01.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "aanpak",
+        "aantrekken"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 2,
+      "file": "assets/storybook/4-import-en-export/page-02.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "netwerk",
+        "argument"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 3,
+      "file": "assets/storybook/4-import-en-export/page-03.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "omzetten",
+        "onderbouwen"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 4,
+      "file": "assets/storybook/4-import-en-export/page-04.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "beperken",
+        "neiging"
+      ],
+      "scene": ""
+    },
+    {
+      "page": 5,
+      "file": "assets/storybook/4-import-en-export/page-05.jpg",
+      "source": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1400&q=85",
+      "targets": [
+        "bedrijfstak",
+        "nijpend"
+      ],
+      "scene": ""
+    }
+  ]
+}

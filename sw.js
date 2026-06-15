@@ -1,4 +1,4 @@
-const CACHE_NAME = "nt2-groningen-v31-photo-restore-v1";
+const CACHE_NAME = "nt2-groningen-v32-photo-restore-v2";
 
 const CORE_ASSETS = [
   "./",

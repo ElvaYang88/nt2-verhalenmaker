@@ -1322,7 +1322,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=photo-restore-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=photo-restore-v2").catch(() => {});
       });
     }
 
@@ -1669,7 +1669,7 @@
     }
 
     function localStorybookImage(key, index) {
-      return `assets/storybook/${storySlug(key)}/page-${String(index + 1).padStart(2, "0")}.jpg`;
+      return `assets/storybook-photo-v1/${storySlug(key)}/page-${String(index + 1).padStart(2, "0")}.jpg`;
     }
 
     function localStoryAudio(key, index) {
@@ -2270,7 +2270,7 @@
       }));
       stories[key] = makeStory(chapter, title, vocab, pages, glossaryPairs, quiz, color);
       stories[key].pages.forEach((page) => {
-        page.imageUrl = `assets/storybook/${storySlug(imageKey || key)}/page-${String((stories[key].pages.indexOf(page) % 5) + 1).padStart(2, "0")}.jpg`;
+        page.imageUrl = `assets/storybook-photo-v1/${storySlug(imageKey || key)}/page-${String((stories[key].pages.indexOf(page) % 5) + 1).padStart(2, "0")}.jpg`;
       });
     }
 
