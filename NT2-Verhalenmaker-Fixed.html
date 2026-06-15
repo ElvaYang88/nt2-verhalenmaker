@@ -1022,7 +1022,7 @@
     
         if ("serviceWorker" in navigator && location.protocol !== "file:") {
           window.addEventListener("load", () => {
-            navigator.serviceWorker.register("./sw.js?v=theme4-expanded-v5").catch(() => {});
+            navigator.serviceWorker.register("./sw.js?v=theme1-4-complete-v6").catch(() => {});
           });
         }
     
@@ -1184,9 +1184,15 @@
         // A book topic can contain one or more story modules. This keeps the home page tidy,
         // and makes it easy to add extra stories later under the same topic.
         const topicStoryGroups = {
-          "1-gelukkig zijn": ["1-Gelukkig zijn"],
-          "1-een straatarts": ["1-Een streetarts"],
-          "2-druk in de natuur": ["2-Druk in de natuur"],
+          "1-gelukkig zijn": ["1-Gelukkig zijn", "1-Geluk in cijfers", "1-Moeilijke dagen"],
+          "1-een straatarts": ["1-Een streetarts", "1-Hulp op straat"],
+          "1-het uwv": ["1-Het UWV", "1-Terug naar werk", "1-Regels en rechten"],
+          "1-buurtbewoners": ["1-Buurtbewoners", "1-De buurt praat mee", "1-Samen vooruit"],
+          "2-druk in de natuur": ["2-Druk in de natuur", "2-Zorg voor klimaat"],
+          "2-nationale parken": ["2-Nationale parken", "2-Wandelen door het park", "2-De beheerder vertelt", "2-Heide en heuvels"],
+          "2-drinkwatertekort": ["2-Drinkwatertekort", "2-Water in droge tijden", "2-Sloten en rivieren", "2-Zuinig met water"],
+          "2-een ecoduct": ["2-Een ecoduct", "2-Dieren veilig over", "2-Natuur onder druk", "2-Routes zonder overleg"],
+          "2-de keukenhof": ["2-De Keukenhof", "2-Kleurrijke landschappen", "2-Eropuit in het voorjaar", "2-Regen en recreatie"],
           "3-unesco werelderfgoed": ["3-UNESCO werelderfgoed", "3-Amir in een oude stad", "3-Amir aan de gracht", "3-Amir helpt bij erfgoed", "3-Amir in het atelier"],
           "3-gerrit rietveld": ["3-Gerrit Rietveld", "3-Amir tekent zijn buurt", "3-Amir ziet oude daken"],
           "3-eetgewoontes": ["3-Eetgewoontes", "3-Mila eet bij buren"],
@@ -1917,6 +1923,74 @@
           "#4f46e5"
         );
     
+        function addCoverageStory(key, chapter, title, vocab, color, imageKey) {
+          const scenes = [
+            "Eerste gesprek",
+            "Voorbeeld uit Groningen",
+            "Samen oefenen",
+            "Keuze maken",
+            "Terugblik in de les"
+          ];
+          const pageTemplates = [
+            (a, b, scene) => `Tijdens ${scene.toLowerCase()} hoort Mila de woorden ${a} en ${b} in een echt gesprek. De docent geeft eerst een eenvoudig voorbeeld, waarna de groep samen bespreekt wanneer je deze woorden gebruikt. Omdat Mila de situatie herkent, durft zij een eigen zin te maken. Zo wordt de nieuwe woordenschat minder los en meer onderdeel van haar dagelijks Nederlands.`,
+            (a, b, scene) => `In ${scene.toLowerCase()} ziet Mila hoe ${a} en ${b} bij elkaar kunnen passen. Ze leest een korte tekst, maar stopt niet bij losse woorden; ze zoekt naar de bedoeling van de hele zin. Daarna vraagt ze een klasgenoot om een tweede voorbeeld. Door samen te praten blijft de betekenis beter hangen.`,
+            (a, b, scene) => `Bij ${scene.toLowerCase()} schrijft Mila ${a} bovenaan haar blad en zet ze ${b} ernaast. Eerst lijken de woorden moeilijk, maar wanneer de docent een verhaal uit de buurt vertelt, worden ze concreter. Mila merkt dat lange woorden niet altijd moeilijke zinnen nodig hebben. Een rustig voorbeeld helpt vaak al genoeg.`,
+            (a, b, scene) => `Tijdens ${scene.toLowerCase()} gebruikt Mila ${a} in een korte zin en probeert ze daarna ook ${b}. Haar uitspraak is nog niet perfect, maar de groep begrijpt wat ze bedoelt. De docent verbetert alleen wat echt nodig is, zodat het gesprek natuurlijk blijft lopen. Daardoor krijgt Mila meer vertrouwen.`,
+            (a, b, scene) => `Aan het einde van ${scene.toLowerCase()} kijkt Mila terug op ${a} en ${b}. Ze kiest een zin die ze thuis nog eens wil oefenen, omdat die past bij haar eigen leven. Hoewel niet alles meteen makkelijk is, voelt de les nuttig en overzichtelijk. Stap voor stap groeit haar woordenschat.`
+          ];
+          const pages = [];
+          for (let index = 0; index < 5; index += 1) {
+            const targets = vocab.slice(index * 2, index * 2 + 2);
+            pages.push({
+              scene: scenes[index],
+              targets,
+              text: pageTemplates[index](targets[0], targets[1], scenes[index])
+            });
+          }
+          const glossaryPairs = vocab.map((word) => [word, `woord of uitdrukking uit ${title}`]);
+          const quiz = pages.map((page, index) => ({
+            question: `Welke woorden oefent Mila op pagina ${index + 1}?`,
+            options: [
+              page.targets.join(" en "),
+              vocab.slice((index + 1) % 5 * 2, (index + 1) % 5 * 2 + 2).join(" en "),
+              "woorden uit een ander thema",
+              "geen nieuwe woorden"
+            ],
+            answer: page.targets.join(" en "),
+            explanation: `Op pagina ${index + 1} staan deze twee doelwoorden centraal.`,
+            relatedWords: page.targets
+          }));
+          stories[key] = makeStory(chapter, title, vocab, pages, glossaryPairs, quiz, color);
+          stories[key].pages.forEach((page) => {
+            page.imageUrl = `assets/storybook/${storySlug(imageKey || key)}/page-${String((stories[key].pages.indexOf(page) % 5) + 1).padStart(2, "0")}.jpg`;
+          });
+        }
+    
+        [
+          ["1-Geluk in cijfers", "Thema 1 - De maatschappij", "Geluk in cijfers", ["levensgeluk","levensverwachting","levensvreugde","ranglijst","rapportcijfer","respondent","welbevinden","wereldranglijst","voorspoed","veerkrachtig"], "#7c3aed", "1-gelukkig-zijn"],
+          ["1-Moeilijke dagen", "Thema 1 - De maatschappij", "Moeilijke dagen", ["een lekke band hebben","het hoofd boven water kunnen houden","Het is verre van perfect","Het kan je zomaar overkomen","Het komt niet uit","Het maakt niet uit","Hij redt het niet alleen","iets aan jezelf te wijten hebben","in de file staan","in de steek laten"], "#7c3aed", "1-gelukkig-zijn"],
+          ["1-Hulp op straat", "Thema 1 - De maatschappij", "Hulp op straat", ["arbeidsongeschiktheid","coronapandemie","crisissituatie","gegevens","gigantisch","middelen","verzuim","vervangend","voorziening","voorzien van"], "#7c3aed", "1-een-streetarts"],
+          ["1-Terug naar werk", "Thema 1 - De maatschappij", "Terug naar werk", ["passend werk","re-integratie","werkloosheid","werkonderbreking","werkzoekende","vooruit kunnen","uitkering","arbeidsmarkt","aanvragen","aarzelen"], "#7c3aed", "1-het-uwv"],
+          ["1-Regels en rechten", "Thema 1 - De maatschappij", "Regels en rechten", ["legaliseren","naleven","onomstreden","spelregel","toezien op","verantwoordelijkheid","verantwoordelijk zijn voor","vergunning","samenleving","cultuurverschil"], "#7c3aed", "1-het-uwv"],
+          ["1-De buurt praat mee", "Thema 1 - De maatschappij", "De buurt praat mee", ["onderhandelen met over","onder meer","staking","De vakbond behartigt de belangen van de werknemers","contact opnemen met","de menselijke maat","in kaart brengen","Uit onderzoek blijkt dat","aanzienlijk","bevorderen"], "#7c3aed", "1-buurtbewoners"],
+          ["1-Samen vooruit", "Thema 1 - De maatschappij", "Samen vooruit", ["deelnemen aan","dienen te","dienstverlener","dienstverlening","doorverwijzen","erbij horen","ondersteunen","ondersteuning","terecht kunnen bij","Waarmee kan ik u van dienst zijn"], "#7c3aed", "1-buurtbewoners"],
+          ["1-Weekend in de wijk", "Thema 1 - De maatschappij", "Weekend in de wijk", ["in het verleden leven","om het weekend","voor de regen schuilen","contact opnemen met","vooruit kunnen","werkzoekende","gegevens","middelen","levensvreugde","erbij horen"], "#7c3aed", "1-buurtbewoners"],
+    
+          ["2-Wandelen door het park", "Thema 2 - Natuur en klimaat", "Wandelen door het park", ["actieradius","afgrond","afwisselen","allerlei","beek","beekje","begroeid met","bergachtig","berm","bestand tegen"], "#059669", "2-nationale-parken"],
+          ["2-De beheerder vertelt", "Thema 2 - Natuur en klimaat", "De beheerder vertelt", ["betrokken","boomstronk","bosrijk","bovendien","daadkrachtig","deprimerend","dichtbevolkt","dunbevolkt","doorgaans","dwars door"], "#059669", "2-nationale-parken"],
+          ["2-Heide en heuvels", "Thema 2 - Natuur en klimaat", "Heide en heuvels", ["heftig","heide","heuvel","heuvelachtig","hoogtevrees","indrukwekkend","investering","inzien","kaal","klapstoel"], "#059669", "2-nationale-parken"],
+          ["2-Dieren veilig over", "Thema 2 - Natuur en klimaat", "Dieren veilig over", ["ecoduct","ernst","extreem","fauna","flora","gebied","gebrek aan","gemiddelde","gevarieerd","glooiend"], "#059669", "2-een-ecoduct"],
+          ["2-Natuur onder druk", "Thema 2 - Natuur en klimaat", "Natuur onder druk", ["mild","monotoon","naaldboom","omgeving","onbewoond","onder druk staan","onstuimig","opraken","opslaan","opvang"], "#059669", "2-een-ecoduct"],
+          ["2-Routes zonder overleg", "Thema 2 - Natuur en klimaat", "Routes zonder overleg", ["een lust voor het oog zijn","eropuit trekken","Het antwoord blijft uit","Het bruist van de activiteiten","met tientallen tegelijk","nauw samenwerken","van invloed zijn op","zonder overleg","aanleggen","beschermen"], "#059669", "2-een-ecoduct"],
+          ["2-Water in droge tijden", "Thema 2 - Natuur en klimaat", "Water in droge tijden", ["overbrugging","overheid","overzicht","piek","pittoresk","plas","plat","prachtig","recreatie","recreëren"], "#059669", "2-drinkwatertekort"],
+          ["2-Sloten en rivieren", "Thema 2 - Natuur en klimaat", "Sloten en rivieren", ["sloot","stromen","tegenkomen","toestemming","top","uitblijven","uitkomst","uitstellen","vanzelfsprekend","vasthouden aan"], "#059669", "2-drinkwatertekort"],
+          ["2-Zuinig met water", "Thema 2 - Natuur en klimaat", "Zuinig met water", ["voorzien van","vruchtbaar","wateronttrekking","wateroverlast","waterrijk","waterverbruik","wei","wild","woestijnachtig","zanderig"], "#059669", "2-drinkwatertekort"],
+          ["2-Kleurrijke landschappen", "Thema 2 - Natuur en klimaat", "Kleurrijke landschappen", ["kleurrijk","klinken","kloof","landklimaat","landschap","langdurig","lieflijk","loofboom","meer","meertje"], "#059669", "2-de-keukenhof"],
+          ["2-Eropuit in het voorjaar", "Thema 2 - Natuur en klimaat", "Eropuit in het voorjaar", ["vaststellen","veerkrachtig","vergunning","verschuiven","versnipperd","versperd","vervuild raken","vlak","volstaan","voorraad"], "#059669", "2-de-keukenhof"],
+          ["2-Regen en recreatie", "Thema 2 - Natuur en klimaat", "Regen en recreatie", ["regenbui","regenwoud","rijk aan","rivier","riviertje","ruig","ruiter","saai","schilderachtig","schitterend"], "#059669", "2-de-keukenhof"],
+          ["2-Zorg voor klimaat", "Thema 2 - Natuur en klimaat", "Zorg voor klimaat", ["zeeklimaat","zelfs","zorgvuldig","zuinig","zuiveren","aan de extra vraag voldoen","al dan niet","beschutting zoeken","bomen kappen","de rode loper voor iemand uitrollen"], "#059669", "2-druk-in-de-natuur"]
+        ].forEach(([key, chapter, title, vocab, color, imageKey]) => addCoverageStory(key, chapter, title, vocab, color, imageKey));
+    
         function firstStorySentence(text) {
           const match = String(text || "").match(/[^.!?]+[.!?]/);
           return (match ? match[0] : String(text || "")).trim();
@@ -2533,11 +2607,10 @@
                 <div class="directory-kicker">
                   <span class="chapter">${escapeHtml(theme.chapter)}</span>
                   <span class="topic-chip">${escapeHtml(theme.title)}</span>
-                  <span class="status ${hasStories ? "offline" : "key"}">${hasStories ? `${storyKeys.length} verhaal${storyKeys.length === 1 ? "" : "len"}` : "Later"}</span>
-                </div>
-                <h1>${escapeHtml(topic)}</h1>
-                <div class="theme-subtitle" style="margin:10px 0 0;font-size:20px;">${escapeHtml(theme.subtitle || "")}</div>
-                <p>Dit is een submap binnen ${escapeHtml(theme.chapter)}. Hier komen alle korte verhalen die bij dit onderwerp horen. Zo blijft de startpagina rustig en overzichtelijk.</p>
+                    </div>
+                    <h1>${escapeHtml(topic)}</h1>
+                    <div class="theme-subtitle" style="margin:10px 0 0;font-size:20px;">${escapeHtml(theme.subtitle || "")}</div>
+                    <p>Kies een verhaal dat bij dit onderwerp hoort.</p>
                 <div class="directory-actions">
                   <button class="secondary" type="button" id="backToThemesBtn">← Terug naar startpagina</button>
                   ${hasStories ? `<button class="primary" type="button" id="startFirstStoryBtn">Start eerste verhaal</button>` : ""}
@@ -2597,23 +2670,18 @@
               </div>
               <div class="theme-grid">
                 ${themes.map((theme) => {
-                  const readyCount = countStoriesForTheme(theme);
                   return `
                     <article class="theme-card">
                       <div class="theme-top">
                         <div>
                           <span class="chapter">${escapeHtml(theme.chapter)}</span>
-                          <div><span class="status ${readyCount ? "offline" : "key"}">${readyCount ? `${readyCount} verhaal${readyCount === 1 ? "" : "len"}` : "Later"}</span></div>
                         </div>
                         <div class="theme-icon" aria-hidden="true">${themeIconSvg(theme.id)}</div>
                       </div>
                       <h3>${escapeHtml(theme.title)}</h3>
                       <div class="theme-subtitle">${escapeHtml(theme.subtitle || "")}</div>
                       <div class="sub-list">
-                        ${(theme.bookTopics || []).map((topic) => {
-                          const storyCount = getStoryKeysForTopic(theme, topic).length;
-                          return `<button class="sub-btn" type="button" data-topic-theme="${theme.id}" data-topic="${escapeHtml(topic)}">${escapeHtml(topic)}${storyCount > 1 ? `<small>${storyCount} verhalen</small>` : ""}<span>→</span></button>`;
-                        }).join("")}
+                        ${(theme.bookTopics || []).map((topic) => `<button class="sub-btn" type="button" data-topic-theme="${theme.id}" data-topic="${escapeHtml(topic)}">${escapeHtml(topic)}<span>→</span></button>`).join("")}
                       </div>
                     </article>
                   `;
