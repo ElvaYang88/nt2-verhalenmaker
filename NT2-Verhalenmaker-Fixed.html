@@ -549,6 +549,47 @@
       border-color: #86efac;
       background: #f0fdf4;
     }
+    .reader-progress {
+      display: grid;
+      grid-template-columns: minmax(160px, 210px) 1fr;
+      align-items: center;
+      gap: 14px;
+      margin: -2px 0 16px;
+      padding: 12px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      background: #f8fafc;
+    }
+    .reader-progress strong {
+      display: block;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 950;
+      margin-bottom: 2px;
+    }
+    .reader-progress span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+    }
+    .reader-progress-track,
+    .flash-progress div,
+    .quiz-progress div {
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+    .reader-progress-track div,
+    .flash-progress i,
+    .quiz-progress i {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--purple), #e83e8c);
+      transition: width 0.22s ease;
+    }
 
     .audio-box {
       max-width: 430px;
@@ -735,6 +776,27 @@
     .flash-word { font-size: clamp(42px, 9vw, 72px); color: var(--purple); font-weight: 950; margin: 12px 0; }
     .flash-def { font-size: clamp(24px, 4vw, 38px); font-weight: 950; color: #1e293b; line-height: 1.35; }
     .context { margin-top: 18px; padding: 14px; background: #faf5ff; border-radius: 16px; color: #64748b; font-family: Georgia, "Times New Roman", serif; }
+    .practice-guide {
+      max-width: 520px;
+      margin: 8px auto 14px;
+      color: #64748b;
+      font-size: 14px;
+      font-weight: 850;
+      line-height: 1.45;
+    }
+    .flash-progress {
+      max-width: 420px;
+      margin: 0 auto 18px;
+      display: grid;
+      gap: 8px;
+      text-align: left;
+    }
+    .flash-progress span {
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
     .ease-actions {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -790,6 +852,17 @@
     .quiz-card { max-width: 880px; margin: 0 auto; padding: clamp(22px, 4vw, 38px); }
     .quiz-head { display: flex; align-items: center; gap: 14px; padding-bottom: 22px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
     .quiz-icon { width: 58px; height: 58px; display: grid; place-items: center; border-radius: 18px; background: var(--purple-soft); color: var(--purple); font-weight: 950; }
+    .quiz-progress {
+      display: grid;
+      gap: 8px;
+      margin: -8px 0 22px;
+    }
+    .quiz-progress span {
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
     .question {
       padding: 22px;
       border: 1px solid var(--line);
@@ -815,7 +888,29 @@
     .option.correct { border-color: var(--green); color: #14532d; background: #f0fdf4; }
     .option.wrong { border-color: var(--red); color: #7f1d1d; background: #fef2f2; }
     .feedback { display: none; margin-top: 14px; padding: 14px; border-radius: 15px; background: rgba(255, 255, 255, 0.72); color: #334155; font-weight: 700; line-height: 1.5; }
-    .feedback.show { display: block; }
+    .feedback.show { display: grid; gap: 7px; }
+    .feedback strong { font-weight: 950; }
+    .feedback em {
+      display: block;
+      color: #475569;
+      font-style: normal;
+      font-weight: 850;
+    }
+    .feedback-words {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 3px;
+    }
+    .mini-word {
+      border: 1px solid #ead7f1;
+      border-radius: 999px;
+      background: #faf5ff;
+      color: var(--purple);
+      padding: 6px 9px;
+      font-size: 12px;
+      font-weight: 950;
+    }
 
     .result-card { max-width: 760px; margin: 0 auto; padding: 44px 26px; text-align: center; }
     .result-card h2 { margin: 10px 0; font-size: clamp(38px, 7vw, 58px); }
@@ -863,6 +958,30 @@
     }
     .word-drawer.show { transform: translateY(0); }
     .word-drawer-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 14px; margin-bottom: 14px; }
+    .drawer-status {
+      display: inline-flex;
+      margin-top: 8px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      color: #d8b4fe;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .drawer-ease-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .drawer-ease-actions .secondary {
+      background: rgba(255,255,255,0.08);
+      color: #e2e8f0;
+      border-color: rgba(255,255,255,0.18);
+    }
+    .drawer-ease-actions .hard {
+      color: #fecaca;
+    }
 
     .toast-stack { position: fixed; top: 82px; right: 18px; z-index: 80; display: grid; gap: 8px; pointer-events: none; }
     .toast { padding: 10px 13px; border-radius: 14px; background: #facc15; color: #1e293b; font-weight: 950; box-shadow: 0 10px 30px rgba(15,23,42,0.16); }
@@ -1025,6 +1144,7 @@
       .reader { gap: 12px; }
       .reader-card { padding: 17px; border-radius: 25px; box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10); }
       .targets { width: 100%; justify-content: center; text-align: center; flex-wrap: wrap; line-height: 1.45; margin-bottom: 14px; }
+      .reader-progress { grid-template-columns: 1fr; gap: 9px; }
       .reader-hint { margin: 0 0 15px; font-size: 12.5px; text-align: center; }
       .story-text {
         max-height: none;
@@ -1136,6 +1256,7 @@
       <div>
         <div style="font-size:12px;color:#cbd5e1;font-weight:900;text-transform:uppercase;">Doelwoord</div>
         <h2 id="drawerWord" style="margin:4px 0 0;font-size:26px;"></h2>
+        <div class="drawer-status" id="drawerStatus">Nieuw woord</div>
       </div>
       <div class="row" style="flex:0 0 auto;">
         <button class="primary" id="drawerSpeakBtn" type="button">Uitspraak</button>
@@ -1143,6 +1264,10 @@
       </div>
     </div>
     <p id="drawerDef" style="margin:0;color:#e2e8f0;font-size:18px;line-height:1.55;"></p>
+    <div class="drawer-ease-actions">
+      <button class="secondary" id="drawerEasyBtn" type="button">Makkelijk</button>
+      <button class="secondary hard" id="drawerHardBtn" type="button">Moeilijk</button>
+    </div>
   </div>
 
   <main class="container">
@@ -1197,7 +1322,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=storybook-image-audit-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=learning-polish-v1").catch(() => {});
       });
     }
 
@@ -2649,7 +2774,7 @@
     }
 
     function renderStoryText(text) {
-      const sentences = String(text || "").match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [String(text || "")];
+      const sentences = getPageSentences(text);
       return sentences.map((sentence, index) => {
         const checked = !!state.sentenceChecks[getSentenceKey(index)];
         return `
@@ -2723,7 +2848,7 @@
       saveProgress();
     }
 
-    function markWordEase(word, ease) {
+    function markWordEase(word, ease, stayOnPage = false) {
       const key = normalize(word);
       if (!key) return;
       state.wordEase[key] = { ease, updatedAt: Date.now() };
@@ -2737,6 +2862,12 @@
         awardXP(3, "Woord beheerst");
       }
       saveProgress();
+      if (stayOnPage || state.appState !== "flashcards") {
+        const status = document.getElementById("drawerStatus");
+        if (status) status.textContent = getWordStatusLabel(word);
+        updateHeader();
+        return;
+      }
       if (state.cardIndex < getFlashItems().length - 1) {
         state.cardIndex += 1;
         state.cardFlipped = false;
@@ -2875,6 +3006,36 @@
 
     function getSentenceKey(index) {
       return `${state.currentStoryKey || "story"}:${state.pageIndex}:${index}`;
+    }
+
+    function getPageSentences(text) {
+      return String(text || "").match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [String(text || "")];
+    }
+
+    function getPageReadProgress(page) {
+      const sentences = getPageSentences(page?.text || "");
+      const read = sentences.filter((_, index) => !!state.sentenceChecks[getSentenceKey(index)]).length;
+      return {
+        read,
+        total: sentences.length,
+        pct: sentences.length ? Math.round((read / sentences.length) * 100) : 0
+      };
+    }
+
+    function getWordStatusLabel(word) {
+      const ease = state.wordEase[normalize(word)]?.ease || "";
+      if (ease === "hard") return "Moeilijk woord";
+      if (ease === "easy") return "Gekend woord";
+      return "Nieuw woord";
+    }
+
+    function getQuizProgress() {
+      const answered = Object.keys(state.answers).length;
+      return {
+        answered,
+        total: state.quiz.length,
+        pct: state.quiz.length ? Math.round((answered / state.quiz.length) * 100) : 0
+      };
     }
 
     function renderTopicDirectory(theme, topic) {
@@ -3049,6 +3210,7 @@
       state.appState = "reading";
       updateHeader();
       const page = state.pages[state.pageIndex];
+      const readProgress = getPageReadProgress(page);
       view.innerHTML = `
         <section class="reader">
           <div class="toolbar">
@@ -3069,7 +3231,14 @@
               </div>
             </div>
             <div class="targets"><span>Doelwoorden</span> ${page.targets.map(escapeHtml).join(", ")}</div>
-            <div class="reader-hint">Tip: tik of klik op een paars trefwoord voor betekenis en uitspraak.</div>
+            <div class="reader-progress">
+              <div>
+                <strong>Leesstap</strong>
+                <span>${readProgress.read}/${readProgress.total} zinnen afgevinkt</span>
+              </div>
+              <div class="reader-progress-track"><div style="width:${readProgress.pct}%;"></div></div>
+            </div>
+            <div class="reader-hint">Luister eerst. Vink daarna zinnen af die je begrijpt. Tik op paarse woorden voor betekenis en uitspraak.</div>
             <div class="story-text ${state.fontSize}">${renderStoryText(page.text)}</div>
             <div class="prompt-note ${state.showPrompt ? "show" : ""}">${escapeHtml(page.imagePrompt || "")}</div>
             <div class="nav-row">
@@ -3161,6 +3330,7 @@
       discoverWord(word);
       document.getElementById("drawerWord").textContent = word;
       document.getElementById("drawerDef").textContent = definition;
+      document.getElementById("drawerStatus").textContent = getWordStatusLabel(word);
       wordDrawer.classList.add("show");
       playWordAudio(word);
     }
@@ -3198,11 +3368,16 @@
       if (state.cardIndex >= items.length) state.cardIndex = Math.max(0, items.length - 1);
       const card = items[state.cardIndex] || {};
       const ease = state.wordEase[normalize(card.word)]?.ease || "";
+      const progressPct = items.length ? Math.round(((state.cardIndex + 1) / items.length) * 100) : 0;
       view.innerHTML = `
         <section class="flash-wrap">
           <div class="center">
             <h1>${escapeHtml(state.practiceTitle || (state.reviewMode ? "Fouten herhalen" : "Woordentrainer"))}</h1>
-            <p style="color:#64748b;font-weight:900;">Kaart ${state.cardIndex + 1} / ${items.length}</p>
+            <p class="practice-guide">Luister naar het woord, draai de kaart om en kies daarna Makkelijk of Moeilijk.</p>
+            <div class="flash-progress" aria-label="Kaart ${state.cardIndex + 1} van ${items.length}">
+              <span>Kaart ${state.cardIndex + 1} / ${items.length}</span>
+              <div><i style="width:${progressPct}%;"></i></div>
+            </div>
           </div>
           <div class="flash-card" id="flipBtn" role="button" tabindex="0">
             ${state.cardFlipped
@@ -3340,11 +3515,19 @@
     function renderQuiz() {
       state.appState = "quiz";
       updateHeader();
+      const progress = getQuizProgress();
       view.innerHTML = `
         <section class="quiz-card">
           <div class="quiz-head">
             <div class="quiz-icon">OK</div>
-            <div><h1 style="margin:0;">Kennis Check</h1><div style="color:#94a3b8;font-weight:900;text-transform:uppercase;font-size:12px;">Direct Feedback Mode</div></div>
+            <div>
+              <h1 style="margin:0;">Kennis Check</h1>
+              <div style="color:#94a3b8;font-weight:900;text-transform:uppercase;font-size:12px;">Directe feedback per vraag</div>
+            </div>
+          </div>
+          <div class="quiz-progress">
+            <span>${progress.answered}/${progress.total} vragen beantwoord</span>
+            <div><i style="width:${progress.pct}%;"></i></div>
           </div>
           <div id="questionList">
             ${state.quiz.map((q, index) => renderQuestion(q, index)).join("")}
@@ -3355,12 +3538,16 @@
       view.querySelectorAll("[data-option]").forEach((button) => {
         button.addEventListener("click", () => answerQuestion(Number(button.dataset.q), button.dataset.option));
       });
+      view.querySelectorAll("[data-speak]").forEach((button) => {
+        button.addEventListener("click", () => playWordAudio(button.dataset.speak));
+      });
       document.getElementById("resultBtn").addEventListener("click", renderResults);
     }
 
     function renderQuestion(q, index) {
       const answered = state.answers[index];
       const correct = answered && normalize(answered) === normalize(q.answer);
+      const related = (q.relatedWords || []).map((word) => `<button class="mini-word" type="button" data-speak="${escapeHtml(word)}">${escapeHtml(word)}</button>`).join("");
       return `
         <article class="question ${answered ? (correct ? "correct" : "wrong") : ""}">
           <h3><span style="color:var(--purple);">Vraag ${index + 1}:</span> ${escapeHtml(q.question)}</h3>
@@ -3372,7 +3559,12 @@
               return `<button class="option ${className}" type="button" data-q="${index}" data-option="${escapeHtml(option)}" ${answered ? "disabled" : ""}>${escapeHtml(option)}</button>`;
             }).join("")}
           </div>
-          <div class="feedback ${answered ? "show" : ""}"><strong>${correct ? "Correct." : "Onjuist."}</strong> ${escapeHtml(q.explanation)}</div>
+          <div class="feedback ${answered ? "show" : ""}">
+            <strong>${correct ? "Correct." : "Nog even oefenen."}</strong>
+            <span>${escapeHtml(q.explanation)}</span>
+            ${answered && !correct ? `<em>Het goede antwoord is: ${escapeHtml(q.answer)}</em>` : ""}
+            ${related ? `<div class="feedback-words">${related}</div>` : ""}
+          </div>
         </article>
       `;
     }
@@ -3496,10 +3688,11 @@
     });
     document.getElementById("drawerCloseBtn").addEventListener("click", () => wordDrawer.classList.remove("show"));
     document.getElementById("drawerSpeakBtn").addEventListener("click", () => playWordAudio(document.getElementById("drawerWord").textContent));
+    document.getElementById("drawerEasyBtn")?.addEventListener("click", () => markWordEase(document.getElementById("drawerWord").textContent, "easy", true));
+    document.getElementById("drawerHardBtn")?.addEventListener("click", () => markWordEase(document.getElementById("drawerWord").textContent, "hard", true));
 
     updateHeader();
     renderLanding();
-
   </script>
 </body>
 </html>

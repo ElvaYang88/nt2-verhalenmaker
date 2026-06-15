@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=storybook-image-audit-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=learning-polish-v1").catch(() => {});
       });
     }
 
@@ -1461,7 +1461,7 @@
     }
 
     function renderStoryText(text) {
-      const sentences = String(text || "").match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [String(text || "")];
+      const sentences = getPageSentences(text);
       return sentences.map((sentence, index) => {
         const checked = !!state.sentenceChecks[getSentenceKey(index)];
         return `
@@ -1535,7 +1535,7 @@
       saveProgress();
     }
 
-    function markWordEase(word, ease) {
+    function markWordEase(word, ease, stayOnPage = false) {
       const key = normalize(word);
       if (!key) return;
       state.wordEase[key] = { ease, updatedAt: Date.now() };
@@ -1549,6 +1549,12 @@
         awardXP(3, "Woord beheerst");
       }
       saveProgress();
+      if (stayOnPage || state.appState !== "flashcards") {
+        const status = document.getElementById("drawerStatus");
+        if (status) status.textContent = getWordStatusLabel(word);
+        updateHeader();
+        return;
+      }
       if (state.cardIndex < getFlashItems().length - 1) {
         state.cardIndex += 1;
         state.cardFlipped = false;
@@ -1687,6 +1693,36 @@
 
     function getSentenceKey(index) {
       return `${state.currentStoryKey || "story"}:${state.pageIndex}:${index}`;
+    }
+
+    function getPageSentences(text) {
+      return String(text || "").match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [String(text || "")];
+    }
+
+    function getPageReadProgress(page) {
+      const sentences = getPageSentences(page?.text || "");
+      const read = sentences.filter((_, index) => !!state.sentenceChecks[getSentenceKey(index)]).length;
+      return {
+        read,
+        total: sentences.length,
+        pct: sentences.length ? Math.round((read / sentences.length) * 100) : 0
+      };
+    }
+
+    function getWordStatusLabel(word) {
+      const ease = state.wordEase[normalize(word)]?.ease || "";
+      if (ease === "hard") return "Moeilijk woord";
+      if (ease === "easy") return "Gekend woord";
+      return "Nieuw woord";
+    }
+
+    function getQuizProgress() {
+      const answered = Object.keys(state.answers).length;
+      return {
+        answered,
+        total: state.quiz.length,
+        pct: state.quiz.length ? Math.round((answered / state.quiz.length) * 100) : 0
+      };
     }
 
     function renderTopicDirectory(theme, topic) {
@@ -1861,6 +1897,7 @@
       state.appState = "reading";
       updateHeader();
       const page = state.pages[state.pageIndex];
+      const readProgress = getPageReadProgress(page);
       view.innerHTML = `
         <section class="reader">
           <div class="toolbar">
@@ -1881,7 +1918,14 @@
               </div>
             </div>
             <div class="targets"><span>Doelwoorden</span> ${page.targets.map(escapeHtml).join(", ")}</div>
-            <div class="reader-hint">Tip: tik of klik op een paars trefwoord voor betekenis en uitspraak.</div>
+            <div class="reader-progress">
+              <div>
+                <strong>Leesstap</strong>
+                <span>${readProgress.read}/${readProgress.total} zinnen afgevinkt</span>
+              </div>
+              <div class="reader-progress-track"><div style="width:${readProgress.pct}%;"></div></div>
+            </div>
+            <div class="reader-hint">Luister eerst. Vink daarna zinnen af die je begrijpt. Tik op paarse woorden voor betekenis en uitspraak.</div>
             <div class="story-text ${state.fontSize}">${renderStoryText(page.text)}</div>
             <div class="prompt-note ${state.showPrompt ? "show" : ""}">${escapeHtml(page.imagePrompt || "")}</div>
             <div class="nav-row">
@@ -1973,6 +2017,7 @@
       discoverWord(word);
       document.getElementById("drawerWord").textContent = word;
       document.getElementById("drawerDef").textContent = definition;
+      document.getElementById("drawerStatus").textContent = getWordStatusLabel(word);
       wordDrawer.classList.add("show");
       playWordAudio(word);
     }
@@ -2010,11 +2055,16 @@
       if (state.cardIndex >= items.length) state.cardIndex = Math.max(0, items.length - 1);
       const card = items[state.cardIndex] || {};
       const ease = state.wordEase[normalize(card.word)]?.ease || "";
+      const progressPct = items.length ? Math.round(((state.cardIndex + 1) / items.length) * 100) : 0;
       view.innerHTML = `
         <section class="flash-wrap">
           <div class="center">
             <h1>${escapeHtml(state.practiceTitle || (state.reviewMode ? "Fouten herhalen" : "Woordentrainer"))}</h1>
-            <p style="color:#64748b;font-weight:900;">Kaart ${state.cardIndex + 1} / ${items.length}</p>
+            <p class="practice-guide">Luister naar het woord, draai de kaart om en kies daarna Makkelijk of Moeilijk.</p>
+            <div class="flash-progress" aria-label="Kaart ${state.cardIndex + 1} van ${items.length}">
+              <span>Kaart ${state.cardIndex + 1} / ${items.length}</span>
+              <div><i style="width:${progressPct}%;"></i></div>
+            </div>
           </div>
           <div class="flash-card" id="flipBtn" role="button" tabindex="0">
             ${state.cardFlipped
@@ -2152,11 +2202,19 @@
     function renderQuiz() {
       state.appState = "quiz";
       updateHeader();
+      const progress = getQuizProgress();
       view.innerHTML = `
         <section class="quiz-card">
           <div class="quiz-head">
             <div class="quiz-icon">OK</div>
-            <div><h1 style="margin:0;">Kennis Check</h1><div style="color:#94a3b8;font-weight:900;text-transform:uppercase;font-size:12px;">Direct Feedback Mode</div></div>
+            <div>
+              <h1 style="margin:0;">Kennis Check</h1>
+              <div style="color:#94a3b8;font-weight:900;text-transform:uppercase;font-size:12px;">Directe feedback per vraag</div>
+            </div>
+          </div>
+          <div class="quiz-progress">
+            <span>${progress.answered}/${progress.total} vragen beantwoord</span>
+            <div><i style="width:${progress.pct}%;"></i></div>
           </div>
           <div id="questionList">
             ${state.quiz.map((q, index) => renderQuestion(q, index)).join("")}
@@ -2167,12 +2225,16 @@
       view.querySelectorAll("[data-option]").forEach((button) => {
         button.addEventListener("click", () => answerQuestion(Number(button.dataset.q), button.dataset.option));
       });
+      view.querySelectorAll("[data-speak]").forEach((button) => {
+        button.addEventListener("click", () => playWordAudio(button.dataset.speak));
+      });
       document.getElementById("resultBtn").addEventListener("click", renderResults);
     }
 
     function renderQuestion(q, index) {
       const answered = state.answers[index];
       const correct = answered && normalize(answered) === normalize(q.answer);
+      const related = (q.relatedWords || []).map((word) => `<button class="mini-word" type="button" data-speak="${escapeHtml(word)}">${escapeHtml(word)}</button>`).join("");
       return `
         <article class="question ${answered ? (correct ? "correct" : "wrong") : ""}">
           <h3><span style="color:var(--purple);">Vraag ${index + 1}:</span> ${escapeHtml(q.question)}</h3>
@@ -2184,7 +2246,12 @@
               return `<button class="option ${className}" type="button" data-q="${index}" data-option="${escapeHtml(option)}" ${answered ? "disabled" : ""}>${escapeHtml(option)}</button>`;
             }).join("")}
           </div>
-          <div class="feedback ${answered ? "show" : ""}"><strong>${correct ? "Correct." : "Onjuist."}</strong> ${escapeHtml(q.explanation)}</div>
+          <div class="feedback ${answered ? "show" : ""}">
+            <strong>${correct ? "Correct." : "Nog even oefenen."}</strong>
+            <span>${escapeHtml(q.explanation)}</span>
+            ${answered && !correct ? `<em>Het goede antwoord is: ${escapeHtml(q.answer)}</em>` : ""}
+            ${related ? `<div class="feedback-words">${related}</div>` : ""}
+          </div>
         </article>
       `;
     }
@@ -2308,6 +2375,8 @@
     });
     document.getElementById("drawerCloseBtn").addEventListener("click", () => wordDrawer.classList.remove("show"));
     document.getElementById("drawerSpeakBtn").addEventListener("click", () => playWordAudio(document.getElementById("drawerWord").textContent));
+    document.getElementById("drawerEasyBtn")?.addEventListener("click", () => markWordEase(document.getElementById("drawerWord").textContent, "easy", true));
+    document.getElementById("drawerHardBtn")?.addEventListener("click", () => markWordEase(document.getElementById("drawerWord").textContent, "hard", true));
 
     updateHeader();
     renderLanding();
