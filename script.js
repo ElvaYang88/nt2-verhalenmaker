@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=photo-restore-v2").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=label-cleanup-v1").catch(() => {});
       });
     }
 
@@ -1667,13 +1667,7 @@
     }
 
     function getThemeWordCount(theme) {
-      const words = new Set();
-      getThemeStoryKeys(theme).forEach((key) => {
-        const story = stories[key];
-        (story?.vocab || []).forEach((word) => words.add(normalize(word)));
-        (story?.glossary || []).forEach((item) => words.add(normalize(item.word)));
-      });
-      return [...words].filter(Boolean).length;
+      return getThemeStoryKeys(theme).reduce((total, key) => total + ((stories[key]?.vocab || []).length), 0);
     }
 
     function getThemeProgress(theme) {
@@ -1827,7 +1821,6 @@
                   <h3>${escapeHtml(theme.title)}</h3>
                   <div class="theme-subtitle">${escapeHtml(theme.subtitle || "")}</div>
                   <div class="theme-meta">
-                    <span class="topic-chip">B1</span>
                     <span class="topic-chip">${minutes} min</span>
                     <span class="topic-chip">${wordCount} doelwoorden</span>
                   </div>
