@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=theme1-4-complete-v6").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=ux-polish-v1").catch(() => {});
       });
     }
 
@@ -51,6 +51,7 @@
       answers: {},
       score: 0,
       pageIndex: 0,
+      currentStoryKey: "",
       fontSize: "size-xl",
       playbackSpeed: 0.9,
       isSpeaking: false,
@@ -62,6 +63,10 @@
       currentAudio: null,
       showPrompt: false,
       stats: safeJson(safeGet("nt2_stats", '{"xp":0,"level":1}'), { xp: 0, level: 1 }),
+      completedStories: new Set(safeJson(safeGet("nt2_completed_stories", "[]"), [])),
+      lastActivity: safeJson(safeGet("nt2_last_activity", "null"), null),
+      sentenceChecks: safeJson(safeGet("nt2_sentence_checks", "{}"), {}),
+      wordEase: safeJson(safeGet("nt2_word_ease", "{}"), {}),
       discoveredWords: new Set(safeJson(safeGet("nt2_discovered", "[]"), [])),
       reviewPool: safeJson(safeGet("nt2_review", "[]"), []),
       difficultWords: safeJson(safeGet("nt2_difficult_words", "[]"), []),
@@ -1111,6 +1116,10 @@
 
     function saveProgress() {
       safeSet("nt2_stats", JSON.stringify(state.stats));
+      safeSet("nt2_completed_stories", JSON.stringify([...state.completedStories]));
+      safeSet("nt2_last_activity", JSON.stringify(state.lastActivity));
+      safeSet("nt2_sentence_checks", JSON.stringify(state.sentenceChecks));
+      safeSet("nt2_word_ease", JSON.stringify(state.wordEase));
       safeSet("nt2_review", JSON.stringify(state.reviewPool));
       safeSet("nt2_difficult_words", JSON.stringify(state.difficultWords));
       safeSet("nt2_discovered", JSON.stringify([...state.discoveredWords]));
@@ -1143,6 +1152,29 @@
       document.getElementById("xpText").textContent = `${state.stats.xp} XP`;
       document.getElementById("xpFill").style.width = `${state.stats.xp % 100}%`;
       document.getElementById("topHomeBtn").classList.toggle("hidden", state.appState === "landing");
+      document.getElementById("bottomNav")?.classList.toggle("hidden", false);
+      document.getElementById("bottomContinueBtn")?.toggleAttribute("disabled", !(state.lastActivity && stories[state.lastActivity.storyKey]));
+    }
+
+    function rememberActivity(storyKey, pageIndex) {
+      if (!storyKey || !stories[storyKey]) return;
+      const themeId = Number(String(storyKey).split("-")[0]);
+      const theme = themes.find((item) => item.id === themeId);
+      state.lastActivity = {
+        storyKey,
+        pageIndex: Math.max(0, pageIndex || 0),
+        themeTitle: theme?.title || "",
+        topic: state.selectedTopic || state.selectedSubsection || getStoryTitleFromKey(storyKey),
+        storyTitle: getStoryTitleFromKey(storyKey),
+        updatedAt: Date.now()
+      };
+      saveProgress();
+    }
+
+    function markStoryCompleted(storyKey) {
+      if (!storyKey) return;
+      state.completedStories.add(storyKey);
+      saveProgress();
     }
 
     function getBestDutchVoice() {
@@ -1425,6 +1457,19 @@
       }).join("");
     }
 
+    function renderStoryText(text) {
+      const sentences = String(text || "").match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [String(text || "")];
+      return sentences.map((sentence, index) => {
+        const checked = !!state.sentenceChecks[getSentenceKey(index)];
+        return `
+          <span class="sentence-row ${checked ? "read" : ""}">
+            <button class="sentence-check" type="button" data-sentence="${index}" aria-label="Markeer zin als gelezen">${checked ? "✓" : ""}</button>
+            <span>${highlightText(sentence.trim())}</span>
+          </span>
+        `;
+      }).join("");
+    }
+
     function findWordContext(word) {
       const target = normalize(word);
       const text = state.pages.map((page) => page.text).join(" ");
@@ -1485,6 +1530,29 @@
       });
       state.difficultWords = state.difficultWords.slice(0, 40);
       saveProgress();
+    }
+
+    function markWordEase(word, ease) {
+      const key = normalize(word);
+      if (!key) return;
+      state.wordEase[key] = { ease, updatedAt: Date.now() };
+      if (ease === "hard") {
+        addDifficultWords([word]);
+        addReviewWords([word]);
+        awardXP(2, "Woord gemarkeerd");
+      } else {
+        state.difficultWords = state.difficultWords.filter((item) => normalize(item.word) !== key);
+        state.reviewPool = state.reviewPool.filter((item) => normalize(item.word) !== key);
+        awardXP(3, "Woord beheerst");
+      }
+      saveProgress();
+      if (state.cardIndex < getFlashItems().length - 1) {
+        state.cardIndex += 1;
+        state.cardFlipped = false;
+        renderFlashcards();
+      } else {
+        renderFlashcards();
+      }
     }
 
     function pickPracticeItems(sourceItems, count) {
@@ -1579,6 +1647,45 @@
       return (theme.bookTopics || []).reduce((total, topic) => total + getStoryKeysForTopic(theme, topic).length, 0);
     }
 
+    function getThemeStoryKeys(theme) {
+      const keys = [];
+      (theme.bookTopics || []).forEach((topic) => {
+        getStoryKeysForTopic(theme, topic).forEach((key) => {
+          if (!keys.includes(key)) keys.push(key);
+        });
+      });
+      return keys;
+    }
+
+    function getThemeWordCount(theme) {
+      const words = new Set();
+      getThemeStoryKeys(theme).forEach((key) => {
+        const story = stories[key];
+        (story?.vocab || []).forEach((word) => words.add(normalize(word)));
+        (story?.glossary || []).forEach((item) => words.add(normalize(item.word)));
+      });
+      return [...words].filter(Boolean).length;
+    }
+
+    function getThemeProgress(theme) {
+      const keys = getThemeStoryKeys(theme);
+      const done = keys.filter((key) => state.completedStories.has(key)).length;
+      return {
+        done,
+        total: keys.length,
+        pct: keys.length ? Math.round((done / keys.length) * 100) : 0
+      };
+    }
+
+    function getEstimatedMinutes(theme) {
+      const pages = getThemeStoryKeys(theme).reduce((total, key) => total + ((stories[key]?.pages || []).length), 0);
+      return Math.max(5, Math.round(pages * 1.5));
+    }
+
+    function getSentenceKey(index) {
+      return `${state.currentStoryKey || "story"}:${state.pageIndex}:${index}`;
+    }
+
     function renderTopicDirectory(theme, topic) {
       showError("");
       stopSpeaking();
@@ -1640,11 +1747,21 @@
       state.appState = "landing";
       updateHeader();
       const difficultCount = state.difficultWords.length;
+      const lastActivity = state.lastActivity && stories[state.lastActivity.storyKey] ? state.lastActivity : null;
       view.innerHTML = `
         <section class="hero">
           <div>
             <h1>Dompel jezelf onder in<br><span>Groningen.</span></h1>
             <p>Kies een onderwerp uit <em>De finale</em>. Daarna zie je de korte verhalen die bij dat onderwerp horen.</p>
+            ${lastActivity ? `
+              <div class="continue-banner">
+                <div>
+                  <strong>Laatste activiteit</strong>
+                  <span>${escapeHtml(lastActivity.themeTitle)} — ${escapeHtml(lastActivity.topic)} · pagina ${(lastActivity.pageIndex || 0) + 1}</span>
+                </div>
+                <button class="primary" type="button" id="continueBtn">Doorgaan</button>
+              </div>
+            ` : ""}
             ${difficultCount ? `
             <div class="home-actions one-action">
               <div class="quick-card ${difficultCount ? "" : "empty"}">
@@ -1657,8 +1774,11 @@
           </div>
           <div class="theme-grid">
             ${themes.map((theme) => {
+              const progress = getThemeProgress(theme);
+              const wordCount = getThemeWordCount(theme);
+              const minutes = getEstimatedMinutes(theme);
               return `
-                <article class="theme-card">
+                <article class="theme-card theme-${theme.id}">
                   <div class="theme-top">
                     <div>
                       <span class="chapter">${escapeHtml(theme.chapter)}</span>
@@ -1667,6 +1787,14 @@
                   </div>
                   <h3>${escapeHtml(theme.title)}</h3>
                   <div class="theme-subtitle">${escapeHtml(theme.subtitle || "")}</div>
+                  <div class="theme-meta">
+                    <span class="topic-chip">B1</span>
+                    <span class="topic-chip">${minutes} min</span>
+                    <span class="topic-chip">${wordCount} doelwoorden</span>
+                  </div>
+                  <div class="theme-progress" aria-label="Voortgang ${progress.pct}%">
+                    <div style="width:${progress.pct}%;"></div>
+                  </div>
                   <div class="sub-list">
                     ${(theme.bookTopics || []).map((topic) => `<button class="sub-btn" type="button" data-topic-theme="${theme.id}" data-topic="${escapeHtml(topic)}">${escapeHtml(topic)}<span>→</span></button>`).join("")}
                   </div>
@@ -1679,6 +1807,10 @@
 
       const difficultBtn = document.getElementById("difficultPracticeBtn");
       if (difficultBtn) difficultBtn.addEventListener("click", startDifficultPractice);
+      const continueBtn = document.getElementById("continueBtn");
+      if (continueBtn && lastActivity) {
+        continueBtn.addEventListener("click", () => startStoryByKey(lastActivity.storyKey, { pageIndex: lastActivity.pageIndex || 0 }));
+      }
 
       view.querySelectorAll("[data-topic]").forEach((button) => {
         button.addEventListener("click", () => {
@@ -1688,7 +1820,7 @@
       });
     }
 
-    function startStoryByKey(key) {
+    function startStoryByKey(key, options = {}) {
       const story = stories[key];
       const themeId = Number(String(key).split("-")[0]);
       const subsection = getStoryTitleFromKey(key);
@@ -1700,6 +1832,7 @@
         return;
       }
       state.appState = "reading";
+      state.currentStoryKey = key;
       state.selectedTheme = theme;
       state.selectedSubsection = state.selectedTopic || subsection;
       state.pages = story.pages;
@@ -1708,10 +1841,11 @@
       state.quiz = prepareQuizForSession(story.quiz);
       state.answers = {};
       state.score = 0;
-      state.pageIndex = 0;
+      state.pageIndex = Math.min(Math.max(0, options.pageIndex || 0), Math.max(0, story.pages.length - 1));
       state.reviewMode = false;
       state.practiceMode = "";
       state.practiceTitle = "";
+      rememberActivity(key, state.pageIndex);
       awardXP(5, "Verhaal gestart");
       renderReading();
     }
@@ -1745,7 +1879,7 @@
             </div>
             <div class="targets"><span>Doelwoorden</span> ${page.targets.map(escapeHtml).join(", ")}</div>
             <div class="reader-hint">Tip: tik of klik op een paars trefwoord voor betekenis en uitspraak.</div>
-            <div class="story-text ${state.fontSize}">${highlightText(page.text)}</div>
+            <div class="story-text ${state.fontSize}">${renderStoryText(page.text)}</div>
             <div class="prompt-note ${state.showPrompt ? "show" : ""}">${escapeHtml(page.imagePrompt || "")}</div>
             <div class="nav-row">
               <button class="secondary" type="button" id="prevBtn" ${state.pageIndex === 0 ? "disabled" : ""}>Vorige</button>
@@ -1761,6 +1895,18 @@
       view.querySelectorAll(".word").forEach((button) => {
         button.addEventListener("mouseenter", () => discoverWord(button.dataset.word));
         button.addEventListener("click", () => openWordDrawer(button.dataset.word, button.dataset.def));
+      });
+      view.querySelectorAll(".sentence-check").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          const index = Number(button.dataset.sentence);
+          const key = getSentenceKey(index);
+          const wasRead = !!state.sentenceChecks[key];
+          state.sentenceChecks[key] = !wasRead;
+          saveProgress();
+          if (!wasRead) awardXP(1, "Zin gelezen");
+          renderReading();
+        });
       });
       document.getElementById("speedBtn").addEventListener("click", () => {
         state.playbackSpeed = state.playbackSpeed === 0.9 ? 0.75 : state.playbackSpeed === 0.75 ? 1.15 : 0.9;
@@ -1789,6 +1935,7 @@
         if (state.pageIndex > 0) {
           stopSpeaking();
           state.pageIndex -= 1;
+          rememberActivity(state.currentStoryKey, state.pageIndex);
           awardXP(2, "Teruggelezen");
           renderReading();
           window.scrollTo({ top: 0, behavior: "smooth" });
@@ -1799,13 +1946,17 @@
         nextBtn.addEventListener("click", () => {
           stopSpeaking();
           state.pageIndex += 1;
+          rememberActivity(state.currentStoryKey, state.pageIndex);
           awardXP(5, "Pagina gelezen");
           renderReading();
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
       }
       const flashBtn = document.getElementById("flashBtn");
-      if (flashBtn) flashBtn.addEventListener("click", () => startFlashcards(false));
+      if (flashBtn) flashBtn.addEventListener("click", () => {
+        markStoryCompleted(state.currentStoryKey);
+        startFlashcards(false);
+      });
     }
 
     function discoverWord(word) {
@@ -1840,7 +1991,22 @@
     function renderFlashcards() {
       updateHeader();
       const items = getFlashItems();
+      if (!items.length) {
+        view.innerHTML = `
+          <section class="flash-wrap">
+            <div class="center">
+              <h1>Geen woorden meer</h1>
+              <p style="color:#64748b;font-weight:850;">Je hebt deze woorden afgerond.</p>
+              <button class="primary" type="button" id="emptyFlashHomeBtn">Terug naar startpagina</button>
+            </div>
+          </section>
+        `;
+        document.getElementById("emptyFlashHomeBtn").addEventListener("click", resetApp);
+        return;
+      }
+      if (state.cardIndex >= items.length) state.cardIndex = Math.max(0, items.length - 1);
       const card = items[state.cardIndex] || {};
+      const ease = state.wordEase[normalize(card.word)]?.ease || "";
       view.innerHTML = `
         <section class="flash-wrap">
           <div class="center">
@@ -1849,7 +2015,14 @@
           </div>
           <div class="flash-card" id="flipBtn" role="button" tabindex="0">
             ${state.cardFlipped
-              ? `<div><div class="flash-def">${escapeHtml(card.definition || "")}</div>${card.sentence ? `<div class="context">${escapeHtml(card.sentence)}</div>` : ""}</div>`
+              ? `<div>
+                  <div class="flash-def">${escapeHtml(card.definition || "")}</div>
+                  ${card.sentence ? `<div class="context">${escapeHtml(card.sentence)}</div>` : ""}
+                  <div class="ease-actions">
+                    <button class="secondary ease-btn ${ease === "easy" ? "selected" : ""}" type="button" id="easyWordBtn">Makkelijk</button>
+                    <button class="secondary ease-btn hard ${ease === "hard" ? "selected" : ""}" type="button" id="hardWordBtn">Moeilijk</button>
+                  </div>
+                </div>`
               : `<div><button class="icon-btn" type="button" id="speakCardBtn">Audio</button><div class="flash-word">${escapeHtml(card.word || "")}</div><p style="color:#64748b;font-weight:800;">Klik om om te draaien</p></div>`}
           </div>
           <button class="primary" type="button" id="nextCardBtn" style="width:100%;margin-top:18px;height:54px;">
@@ -1875,6 +2048,16 @@
           playWordAudio(card.word);
         });
       }
+      const easyBtn = document.getElementById("easyWordBtn");
+      if (easyBtn) easyBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        markWordEase(card.word, "easy");
+      });
+      const hardBtn = document.getElementById("hardWordBtn");
+      if (hardBtn) hardBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        markWordEase(card.word, "hard");
+      });
       document.getElementById("nextCardBtn").addEventListener("click", () => {
         if (state.cardIndex < items.length - 1) {
           state.cardIndex += 1;
@@ -2083,6 +2266,7 @@
       state.appState = "landing";
       state.selectedTheme = null;
       state.selectedSubsection = "";
+      state.currentStoryKey = "";
       state.pages = [];
       state.glossary = [];
       state.vocab = [];
@@ -2099,6 +2283,15 @@
 
     document.getElementById("homeBtn").addEventListener("click", resetApp);
     document.getElementById("topHomeBtn").addEventListener("click", resetApp);
+    document.getElementById("bottomHomeBtn")?.addEventListener("click", resetApp);
+    document.getElementById("bottomContinueBtn")?.addEventListener("click", () => {
+      const lastActivity = state.lastActivity && stories[state.lastActivity.storyKey] ? state.lastActivity : null;
+      if (lastActivity) startStoryByKey(lastActivity.storyKey, { pageIndex: lastActivity.pageIndex || 0 });
+    });
+    document.getElementById("bottomWordsBtn")?.addEventListener("click", () => {
+      if (state.difficultWords.length) startDifficultPractice();
+      else startPractice(getAllPracticeWords(), "Woorden oefenen", "practice");
+    });
     document.getElementById("keyBtn").addEventListener("click", () => {
       document.getElementById("apiKeyInput").value = state.apiKey;
       keyDrawer.classList.add("show");
