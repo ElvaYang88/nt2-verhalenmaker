@@ -1,4 +1,4 @@
-const CACHE_NAME = "nt2-groningen-v35-unlock-note-v1";
+const CACHE_NAME = "nt2-groningen-v36-classroom-final-audio-v1";
 
 const CORE_ASSETS = [
   "./",
@@ -7,7 +7,7 @@ const CORE_ASSETS = [
   "./manifest.webmanifest",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png",
-  "./assets/storybook/3-gerrit-rietveld/page-04.jpg",
+  "./assets/storybook-photo-v1/3-gerrit-rietveld/page-04.jpg",
   "./assets/audio/1-gelukkig-zijn/page-01.mp3",
   "./assets/word-audio/blijken.mp3",
   "./assets/word-audio/aarzelen.mp3"
