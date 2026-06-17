@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=flashcard-definitions-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=soft-pink-purple-v1").catch(() => {});
       });
     }
 
@@ -425,7 +425,7 @@
         { question: "Wat kan Mila online aanvragen?", options: ["Een tijdelijke uitkering.","Een natuurbrug.","Een historisch gebouw.","Een moestuinfeest."], answer: "Een tijdelijke uitkering.", explanation: "De tweede pagina noemt het online aanvragen van een uitkering.", relatedWords: ["aanvragen","uitkering"] },
         { question: "Wat helpt Mila op de arbeidsmarkt?", options: ["Een korte cursus volgen.","Alle afspraken missen.","Geen documenten uploaden.","Niet solliciteren."], answer: "Een korte cursus volgen.", explanation: "De adviseur stimuleert haar om nieuwe vaardigheden te leren.", relatedWords: ["stimuleren","arbeidsmarkt"] }
       ],
-      "#7d3c98"
+      "#9b6aa8"
     );
 
     stories["1-Buurtbewoners"] = makeStory(
@@ -445,7 +445,7 @@
         { question: "Wat helpt bij cultuurverschillen?", options: ["Luisteren en gewoontes toepassen.","Iedereen vermijden.","Nooit samen eten.","Alleen klagen."], answer: "Luisteren en gewoontes toepassen.", explanation: "Mila leert door vragen en luisteren nieuwe gewoontes toe te passen.", relatedWords: ["cultuurverschil","toepassen"] },
         { question: "Wat kunnen buren samen sneller doen?", options: ["Problemen signaleren.","Alle banen stoppen.","Een uitkering weigeren.","Een park sluiten."], answer: "Problemen signaleren.", explanation: "De laatste pagina zegt dat buurtbewoners problemen sneller signaleren.", relatedWords: ["signaleren"] }
       ],
-      "#7d3c98"
+      "#9b6aa8"
     );
 
     stories["2-Nationale parken"] = makeStory(
@@ -465,7 +465,7 @@
         { question: "Waarom blijven wandelaars op de route?", options: ["Om dieren te beschermen.","Om werk te vinden.","Om documenten te bewaren.","Om een feest te organiseren."], answer: "Om dieren te beschermen.", explanation: "De tekst zegt dat wandelaars op de route blijven om dieren te beschermen.", relatedWords: ["beschermen"] },
         { question: "Wat maakt de jonge heide kwetsbaar?", options: ["Ze kan snel beschadigd worden.","Ze is van steen.","Ze groeit in een kantoor.","Ze heeft geen zon nodig."], answer: "Ze kan snel beschadigd worden.", explanation: "Kwetsbaar betekent gevoelig voor schade.", relatedWords: ["kwetsbaar"] }
       ],
-      "#059669"
+      "#86b89f"
     );
 
     stories["2-Drinkwatertekort"] = makeStory(
@@ -505,7 +505,7 @@
         { question: "Wie controleert de natuurbrug?", options: ["De beheerder.","Een kok.","Een stagebegeleider.","Een gids in het archief."], answer: "De beheerder.", explanation: "De beheerder controleert planten en camera's.", relatedWords: ["beheerder"] },
         { question: "Waarom zijn natuurbruggen duurzaam?", options: ["Ze helpen dieren op lange termijn.","Ze sluiten parken.","Ze vergroten afvalstoffen.","Ze vervangen drinkwater."], answer: "Ze helpen dieren op lange termijn.", explanation: "Een duurzaam netwerk maakt Groningen veiliger voor dieren.", relatedWords: ["duurzaam","kwetsbaar"] }
       ],
-      "#059669"
+      "#86b89f"
     );
 
     stories["3-Gerrit Rietveld"] = makeStory(
@@ -525,7 +525,7 @@
         { question: "Waarom is het Rietveld Schröderhuis belangrijk?", options: ["Het is een beroemd gebouw.","Het is een park.","Het is een kantoor van het UWV.","Het is een ecoduct."], answer: "Het is een beroemd gebouw.", explanation: "De tekst noemt het huis een beroemd gebouw.", relatedWords: ["gebouw"] },
         { question: "Wat wilde Rietveld bereiken?", options: ["Een breed publiek bereiken.","Alleen rijke mensen helpen.","Minder cultuur bewaren.","Geen design maken."], answer: "Een breed publiek bereiken.", explanation: "Rietveld wilde design toegankelijk maken.", relatedWords: ["bereiken"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["3-Eetgewoontes"] = makeStory(
@@ -545,7 +545,7 @@
         { question: "Wat raadt de buurvrouw aan?", options: ["Groningse mosterdsoep proberen.","Een ecoduct bouwen.","Een uitkering aanvragen.","Een park sluiten."], answer: "Groningse mosterdsoep proberen.", explanation: "De tweede pagina noemt mosterdsoep.", relatedWords: ["aanraden"] },
         { question: "Wat helpt Mila bij taal en cultuur?", options: ["Samen koken en woorden toepassen.","Niet praten.","Alle recepten vergeten.","Alleen eten."], answer: "Samen koken en woorden toepassen.", explanation: "Tijdens het koken past Mila nieuwe woorden toe.", relatedWords: ["toepassen","cultuurverschil"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["3-Mila eet bij buren"] = makeStory(
@@ -567,7 +567,7 @@
         { question: "Waar bewaart Mila het recept?", options: ["In haar taalschrift.","In een museum.","Op een dak.","In een bus."], answer: "In haar taalschrift.", explanation: "Ze schrijft het recept en zinnen op.", relatedWords: ["bewaren"] },
         { question: "Wat ontstaat er aan tafel?", options: ["Wederzijds respect.","Een ruzie.","Stilte.","Een toets."], answer: "Wederzijds respect.", explanation: "Iedereen vertelt iets en luistert naar elkaar.", relatedWords: ["wederzijds","waarde"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["3-Cultuurverschillen"] = makeStory(
@@ -587,7 +587,7 @@
         { question: "Wat helpt bij cultuurverschillen?", options: ["Open vragen stellen.","Nooit luisteren.","Geen taal leren.","Alles vermijden."], answer: "Open vragen stellen.", explanation: "De docent raadt aan om vragen te stellen.", relatedWords: ["aanraden","cultuurverschil"] },
         { question: "Waar bewaart Mila nieuwe zinnen?", options: ["In haar notitieboek.","In een ecoduct.","In een waterleiding.","In een restaurantmenu."], answer: "In haar notitieboek.", explanation: "Ze bewaart nieuwe zinnen in haar notitieboek.", relatedWords: ["bewaren"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["3-Mila leert uitdrukkingen"] = makeStory(
@@ -609,7 +609,7 @@
         { question: "Wat eten de cursisten?", options: ["Wat de pot schaft.","Alleen taart.","Niets.","Alleen kaas."], answer: "Wat de pot schaft.", explanation: "Ze eten eenvoudige soep, brood en salade.", relatedWords: ["eten wat de pot schaft"] },
         { question: "Waarom zoekt Mila voorbeelden?", options: ["Omdat uitdrukkingen soms moeilijk zijn.","Omdat ze geen boek heeft.","Omdat ze wil stoppen.","Omdat ze alleen wil koken."], answer: "Omdat uitdrukkingen soms moeilijk zijn.", explanation: "De betekenis komt niet altijd uit de losse woorden.", relatedWords: ["hulp nodig hebben bij","op zoek zijn naar"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["3-Amir ziet oude daken"] = makeStory(
@@ -631,7 +631,7 @@
         { question: "Wat laat Amir niet over zijn kant gaan?", options: ["Onvoorzichtig omgaan met kwetsbaar hout.","Een verkeerde kleur verf.","Een lege tafel.","Een korte pauze."], answer: "Onvoorzichtig omgaan met kwetsbaar hout.", explanation: "Hij zegt rustig dat ze beter eerst kunnen vragen.", relatedWords: ["het niet over zijn kant laten gaan"] },
         { question: "Waarin kunnen ontwerpers voorop lopen?", options: ["In slimme oplossingen voor kleine woningen.","In hard fietsen.","In lang slapen.","In niets doen."], answer: "In slimme oplossingen voor kleine woningen.", explanation: "De laatste pagina noemt slimme oplossingen.", relatedWords: ["voorop lopen in"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["3-Amir in een oude stad"] = makeStory(
@@ -651,7 +651,7 @@
         { question: "Waarop moet het plan worden afgestemd?", options: ["Op de buurt.","Op een recept.","Op een fietsbel.","Op een toets."], answer: "Op de buurt.", explanation: "Het plan moet passen bij de buurt.", relatedWords: ["afstemmen op"] },
         { question: "Wat bekijkt Amir op de gevel?", options: ["Een gedetailleerd patroon.","Een boodschappenlijst.","Een routekaart.","Een menukaart."], answer: "Een gedetailleerd patroon.", explanation: "Hij ziet een patroon met veel kleine delen.", relatedWords: ["gedetailleerd","gevel"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["3-Amir aan de gracht"] = makeStory(
@@ -671,7 +671,7 @@
         { question: "Wat ziet Amir in de verte?", options: ["Een koepel.","Een ziekenhuisbed.","Een kassa.","Een sportveld."], answer: "Een koepel.", explanation: "Hij ziet een rond dak in de verte.", relatedWords: ["koepel"] },
         { question: "Wat wil de stad nastreven?", options: ["Goed onderhoud.","Minder zorg.","Een lege wijk.","Meer schade."], answer: "Goed onderhoud.", explanation: "De stad wil oude panden goed onderhouden.", relatedWords: ["nastreven"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["3-Amir helpt bij erfgoed"] = makeStory(
@@ -691,7 +691,7 @@
         { question: "Waarom zijn sommige delen belangrijk?", options: ["Ze zijn onvervangbaar.","Ze zijn heel goedkoop.","Ze zijn nieuw.","Ze zijn leeg."], answer: "Ze zijn onvervangbaar.", explanation: "Je kunt ze niet zomaar vervangen.", relatedWords: ["onvervangbaar"] },
         { question: "Wat ziet Amir boven een deur?", options: ["Een ornament.","Een fiets.","Een pan.","Een jas."], answer: "Een ornament.", explanation: "Het ornament is een kleine versiering.", relatedWords: ["ornament"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["3-Amir tekent zijn buurt"] = makeStory(
@@ -711,7 +711,7 @@
         { question: "Waarom is het cafe sfeervol?", options: ["Door warm licht.","Door harde muziek.","Door lege muren.","Door kou."], answer: "Door warm licht.", explanation: "Warm licht geeft sfeer.", relatedWords: ["sfeervol"] },
         { question: "Wat geeft de docent?", options: ["Een suggestie.","Een afwijzing.","Een paspoort.","Een fiets."], answer: "Een suggestie.", explanation: "De docent geeft Amir een tip.", relatedWords: ["suggestie"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["3-Amir in het atelier"] = makeStory(
@@ -731,7 +731,7 @@
         { question: "Wat moet het gebouw doen?", options: ["Voldoen aan regels.","Weggaan.","Koken.","Fietsen."], answer: "Voldoen aan regels.", explanation: "Het gebouw moet bij de regels passen.", relatedWords: ["voldoen aan"] },
         { question: "Waarover praat de groep?", options: ["Werelderfgoed.","Een sollicitatie.","Een waterrekening.","Een sportles."], answer: "Werelderfgoed.", explanation: "De groep praat over erfgoed dat voor de wereld belangrijk is.", relatedWords: ["werelderfgoed","zich inzetten voor"] }
       ],
-      "#d97706"
+      "#d8a36d"
     );
 
     stories["4-Een eigen bedrijf starten"] = makeStory(
@@ -751,7 +751,7 @@
         { question: "Wat blijft in het begin nijpend?", options: ["Startkapitaal.","Het aantal parken.","Het aantal recepten.","De fietspaden."], answer: "Startkapitaal.", explanation: "Startkapitaal is in het begin nijpend.", relatedWords: ["nijpend"] },
         { question: "Waarom onderbouwt Mila haar prijzen?", options: ["Om risico's te beperken.","Om buren te vermijden.","Om water te besparen.","Om cultuur te vergeten."], answer: "Om risico's te beperken.", explanation: "Cijfers helpen om risico's te beperken.", relatedWords: ["onderbouwen","beperken"] }
       ],
-      "#4f46e5"
+      "#9b98d4"
     );
 
     stories["4-Werk vinden"] = makeStory(
@@ -771,7 +771,7 @@
         { question: "Waar moeten haar vaardigheden op aansluiten?", options: ["De wensen van werkgevers.","De openingstijden van een park.","De smaak van soep.","Het weer."], answer: "De wensen van werkgevers.", explanation: "Vaardigheden moeten aansluiten op werkgevers.", relatedWords: ["aansluiten op"] },
         { question: "Wat wil Mila beperken?", options: ["Haar zenuwen.","Haar kansen.","Haar netwerk.","Haar motivatie."], answer: "Haar zenuwen.", explanation: "Ze oefent om haar zenuwen te beperken.", relatedWords: ["beperken"] }
       ],
-      "#4f46e5"
+      "#9b98d4"
     );
 
     stories["4-Import en export"] = makeStory(
@@ -791,7 +791,7 @@
         { question: "Waarom is export aantrekkelijk?", options: ["De markt wordt groter.","Alle routes verdwijnen.","Er is geen netwerk nodig.","Producten blijven thuis."], answer: "De markt wordt groter.", explanation: "Een argument voor export is een grotere markt.", relatedWords: ["argument"] },
         { question: "Wat kan nijpend zijn?", options: ["Transportcapaciteit.","Een recept.","Een taalboek.","Een buurtfeest."], answer: "Transportcapaciteit.", explanation: "De laatste pagina noemt nijpende transportcapaciteit.", relatedWords: ["bedrijfstak","nijpend"] }
       ],
-      "#4f46e5"
+      "#9b98d4"
     );
 
     stories["4-De wereldeconomie"] = makeStory(
@@ -813,7 +813,7 @@
         { question: "Waarmee moeten voorstellen worden onderbouwd?", options: ["Met feiten over prijzen, banen en vervoer.","Met alleen gevoel.","Met oude foto's.","Met stilte."], answer: "Met feiten over prijzen, banen en vervoer.", explanation: "Feiten maken een voorstel sterker.", relatedWords: ["onderbouwen"] },
         { question: "Wat verschilt per bedrijfstak?", options: ["Welke risico's het belangrijkst zijn.","Of mensen mogen werken.","Of taal nodig is.","Of er koffie bestaat."], answer: "Welke risico's het belangrijkst zijn.", explanation: "Een bakker en transportbedrijf merken andere gevolgen.", relatedWords: ["bedrijfstak","beperken"] }
       ],
-      "#4f46e5"
+      "#9b98d4"
     );
 
     stories["4-Mila op stage in de zorg"] = makeStory(
@@ -833,7 +833,7 @@
         { question: "Waarom wil de zorgorganisatie stagiairs aantrekken?", options: ["Omdat er veel werk is.","Omdat er geen taken zijn.","Omdat niemand leert.","Omdat de pauze lang is."], answer: "Omdat er veel werk is.", explanation: "Goede mensen zijn hard nodig.", relatedWords: ["aantrekken"] },
         { question: "Wat doet Mila om fouten te beperken?", options: ["Rustig controleren en hulp vragen.","Sneller praten.","Geen vragen stellen.","Alles vergeten."], answer: "Rustig controleren en hulp vragen.", explanation: "Dat helpt haar veilig werken.", relatedWords: ["beperken"] }
       ],
-      "#4f46e5"
+      "#9b98d4"
     );
 
     stories["4-Mila zoekt startkapitaal"] = makeStory(
@@ -853,7 +853,7 @@
         { question: "Wat is nog nijpend?", options: ["Geld voor de start.","Het aantal lepels.","De muziek.","De regenjas."], answer: "Geld voor de start.", explanation: "Ze zoekt kleine vormen van hulp.", relatedWords: ["nijpend"] },
         { question: "Waarom blijft Mila eerst klein?", options: ["Omdat de bedrijfstak veel energie vraagt.","Omdat niemand soep wil.","Omdat ze geen netwerk heeft.","Omdat cijfers verboden zijn."], answer: "Omdat de bedrijfstak veel energie vraagt.", explanation: "Ze wil niet te snel groeien.", relatedWords: ["bedrijfstak","neiging"] }
       ],
-      "#4f46e5"
+      "#9b98d4"
     );
 
     stories["4-Mila oefent sollicitaties"] = makeStory(
@@ -873,7 +873,7 @@
         { question: "Waarom vergelijkt Mila sectoren?", options: ["Ze wil werk dat bij haar past.","Ze wil niet werken.","Ze zoekt alleen hoge gebouwen.","Ze wil geen netwerk."], answer: "Ze wil werk dat bij haar past.", explanation: "Niet elke bedrijfstak past bij haar.", relatedWords: ["bedrijfstak"] },
         { question: "Wat helpt haar spanning beperken?", options: ["Korte pauzes en kernwoorden.","Harder praten.","Geen voorbereiding.","Alle vragen overslaan."], answer: "Korte pauzes en kernwoorden.", explanation: "Zo kan ze rustiger antwoorden.", relatedWords: ["beperken","neiging"] }
       ],
-      "#4f46e5"
+      "#9b98d4"
     );
 
     stories["4-Mila volgt een zending"] = makeStory(
@@ -893,7 +893,7 @@
         { question: "Waaruit bestaat het netwerk?", options: ["Chauffeurs, planners en magazijnen.","Alleen klanten.","Alleen studenten.","Alleen buren."], answer: "Chauffeurs, planners en magazijnen.", explanation: "Veel mensen werken samen.", relatedWords: ["netwerk"] },
         { question: "Wat kan nijpend worden?", options: ["Tijd, ruimte en chauffeurs.","Soep en brood.","Stoelen en tafels.","Alle woorden."], answer: "Tijd, ruimte en chauffeurs.", explanation: "De sector kan erg druk worden.", relatedWords: ["nijpend","bedrijfstak"] }
       ],
-      "#4f46e5"
+      "#9b98d4"
     );
 
     stories["4-Mila leest economisch nieuws"] = makeStory(
@@ -913,7 +913,7 @@
         { question: "Waarom kiezen landen goede havens en regels?", options: ["Om bedrijven aan te trekken.","Om handel te stoppen.","Om geen netwerk te hebben.","Om prijzen te vergeten."], answer: "Om bedrijven aan te trekken.", explanation: "Goede voorwaarden trekken bedrijven aan.", relatedWords: ["aantrekken"] },
         { question: "Waarom moet Mila een mening onderbouwen?", options: ["Anders blijft het alleen een gevoel.","Omdat cijfers verboden zijn.","Omdat niemand luistert.","Omdat het nieuws kort is."], answer: "Anders blijft het alleen een gevoel.", explanation: "Feiten maken haar uitleg sterker.", relatedWords: ["onderbouwen"] }
       ],
-      "#4f46e5"
+      "#9b98d4"
     );
 
     const coverageDefinitions = {
@@ -1180,19 +1180,19 @@
       ["1-Samen vooruit", "Thema 1 - De maatschappij", "Samen vooruit", ["deelnemen aan","dienen te","dienstverlener","dienstverlening","doorverwijzen","erbij horen","ondersteunen","ondersteuning","terecht kunnen bij","Waarmee kan ik u van dienst zijn"], "#7c3aed", "1-buurtbewoners"],
       ["1-Weekend in de wijk", "Thema 1 - De maatschappij", "Weekend in de wijk", ["in het verleden leven","om het weekend","voor de regen schuilen","contact opnemen met","vooruit kunnen","werkzoekende","gegevens","middelen","levensvreugde","erbij horen"], "#7c3aed", "1-buurtbewoners"],
 
-      ["2-Wandelen door het park", "Thema 2 - Natuur en klimaat", "Wandelen door het park", ["actieradius","afgrond","afwisselen","allerlei","beek","beekje","begroeid met","bergachtig","berm","bestand tegen"], "#059669", "2-nationale-parken"],
-      ["2-De beheerder vertelt", "Thema 2 - Natuur en klimaat", "De beheerder vertelt", ["betrokken","boomstronk","bosrijk","bovendien","daadkrachtig","deprimerend","dichtbevolkt","dunbevolkt","doorgaans","dwars door"], "#059669", "2-nationale-parken"],
-      ["2-Heide en heuvels", "Thema 2 - Natuur en klimaat", "Heide en heuvels", ["heftig","heide","heuvel","heuvelachtig","hoogtevrees","indrukwekkend","investering","inzien","kaal","klapstoel"], "#059669", "2-nationale-parken"],
-      ["2-Dieren veilig over", "Thema 2 - Natuur en klimaat", "Dieren veilig over", ["ecoduct","ernst","extreem","fauna","flora","gebied","gebrek aan","gemiddelde","gevarieerd","glooiend"], "#059669", "2-een-ecoduct"],
-      ["2-Natuur onder druk", "Thema 2 - Natuur en klimaat", "Natuur onder druk", ["mild","monotoon","naaldboom","omgeving","onbewoond","onder druk staan","onstuimig","opraken","opslaan","opvang"], "#059669", "2-een-ecoduct"],
-      ["2-Routes zonder overleg", "Thema 2 - Natuur en klimaat", "Routes zonder overleg", ["een lust voor het oog zijn","eropuit trekken","Het antwoord blijft uit","Het bruist van de activiteiten","met tientallen tegelijk","nauw samenwerken","van invloed zijn op","zonder overleg","aanleggen","beschermen"], "#059669", "2-een-ecoduct"],
-      ["2-Water in droge tijden", "Thema 2 - Natuur en klimaat", "Water in droge tijden", ["overbrugging","overheid","overzicht","piek","pittoresk","plas","plat","prachtig","recreatie","recreëren"], "#059669", "2-drinkwatertekort"],
-      ["2-Sloten en rivieren", "Thema 2 - Natuur en klimaat", "Sloten en rivieren", ["sloot","stromen","tegenkomen","toestemming","top","uitblijven","uitkomst","uitstellen","vanzelfsprekend","vasthouden aan"], "#059669", "2-drinkwatertekort"],
-      ["2-Zuinig met water", "Thema 2 - Natuur en klimaat", "Zuinig met water", ["voorzien van","vruchtbaar","wateronttrekking","wateroverlast","waterrijk","waterverbruik","wei","wild","woestijnachtig","zanderig"], "#059669", "2-drinkwatertekort"],
-      ["2-Kleurrijke landschappen", "Thema 2 - Natuur en klimaat", "Kleurrijke landschappen", ["kleurrijk","klinken","kloof","landklimaat","landschap","langdurig","lieflijk","loofboom","meer","meertje"], "#059669", "2-de-keukenhof"],
-      ["2-Eropuit in het voorjaar", "Thema 2 - Natuur en klimaat", "Eropuit in het voorjaar", ["vaststellen","veerkrachtig","vergunning","verschuiven","versnipperd","versperd","vervuild raken","vlak","volstaan","voorraad"], "#059669", "2-de-keukenhof"],
-      ["2-Regen en recreatie", "Thema 2 - Natuur en klimaat", "Regen en recreatie", ["regenbui","regenwoud","rijk aan","rivier","riviertje","ruig","ruiter","saai","schilderachtig","schitterend"], "#059669", "2-de-keukenhof"],
-      ["2-Zorg voor klimaat", "Thema 2 - Natuur en klimaat", "Zorg voor klimaat", ["zeeklimaat","zelfs","zorgvuldig","zuinig","zuiveren","aan de extra vraag voldoen","al dan niet","beschutting zoeken","bomen kappen","de rode loper voor iemand uitrollen"], "#059669", "2-druk-in-de-natuur"]
+      ["2-Wandelen door het park", "Thema 2 - Natuur en klimaat", "Wandelen door het park", ["actieradius","afgrond","afwisselen","allerlei","beek","beekje","begroeid met","bergachtig","berm","bestand tegen"], "#86b89f", "2-nationale-parken"],
+      ["2-De beheerder vertelt", "Thema 2 - Natuur en klimaat", "De beheerder vertelt", ["betrokken","boomstronk","bosrijk","bovendien","daadkrachtig","deprimerend","dichtbevolkt","dunbevolkt","doorgaans","dwars door"], "#86b89f", "2-nationale-parken"],
+      ["2-Heide en heuvels", "Thema 2 - Natuur en klimaat", "Heide en heuvels", ["heftig","heide","heuvel","heuvelachtig","hoogtevrees","indrukwekkend","investering","inzien","kaal","klapstoel"], "#86b89f", "2-nationale-parken"],
+      ["2-Dieren veilig over", "Thema 2 - Natuur en klimaat", "Dieren veilig over", ["ecoduct","ernst","extreem","fauna","flora","gebied","gebrek aan","gemiddelde","gevarieerd","glooiend"], "#86b89f", "2-een-ecoduct"],
+      ["2-Natuur onder druk", "Thema 2 - Natuur en klimaat", "Natuur onder druk", ["mild","monotoon","naaldboom","omgeving","onbewoond","onder druk staan","onstuimig","opraken","opslaan","opvang"], "#86b89f", "2-een-ecoduct"],
+      ["2-Routes zonder overleg", "Thema 2 - Natuur en klimaat", "Routes zonder overleg", ["een lust voor het oog zijn","eropuit trekken","Het antwoord blijft uit","Het bruist van de activiteiten","met tientallen tegelijk","nauw samenwerken","van invloed zijn op","zonder overleg","aanleggen","beschermen"], "#86b89f", "2-een-ecoduct"],
+      ["2-Water in droge tijden", "Thema 2 - Natuur en klimaat", "Water in droge tijden", ["overbrugging","overheid","overzicht","piek","pittoresk","plas","plat","prachtig","recreatie","recreëren"], "#86b89f", "2-drinkwatertekort"],
+      ["2-Sloten en rivieren", "Thema 2 - Natuur en klimaat", "Sloten en rivieren", ["sloot","stromen","tegenkomen","toestemming","top","uitblijven","uitkomst","uitstellen","vanzelfsprekend","vasthouden aan"], "#86b89f", "2-drinkwatertekort"],
+      ["2-Zuinig met water", "Thema 2 - Natuur en klimaat", "Zuinig met water", ["voorzien van","vruchtbaar","wateronttrekking","wateroverlast","waterrijk","waterverbruik","wei","wild","woestijnachtig","zanderig"], "#86b89f", "2-drinkwatertekort"],
+      ["2-Kleurrijke landschappen", "Thema 2 - Natuur en klimaat", "Kleurrijke landschappen", ["kleurrijk","klinken","kloof","landklimaat","landschap","langdurig","lieflijk","loofboom","meer","meertje"], "#86b89f", "2-de-keukenhof"],
+      ["2-Eropuit in het voorjaar", "Thema 2 - Natuur en klimaat", "Eropuit in het voorjaar", ["vaststellen","veerkrachtig","vergunning","verschuiven","versnipperd","versperd","vervuild raken","vlak","volstaan","voorraad"], "#86b89f", "2-de-keukenhof"],
+      ["2-Regen en recreatie", "Thema 2 - Natuur en klimaat", "Regen en recreatie", ["regenbui","regenwoud","rijk aan","rivier","riviertje","ruig","ruiter","saai","schilderachtig","schitterend"], "#86b89f", "2-de-keukenhof"],
+      ["2-Zorg voor klimaat", "Thema 2 - Natuur en klimaat", "Zorg voor klimaat", ["zeeklimaat","zelfs","zorgvuldig","zuinig","zuiveren","aan de extra vraag voldoen","al dan niet","beschutting zoeken","bomen kappen","de rode loper voor iemand uitrollen"], "#86b89f", "2-druk-in-de-natuur"]
     ].forEach(([key, chapter, title, vocab, color, imageKey]) => addCoverageStory(key, chapter, title, vocab, color, imageKey));
 
     function firstStorySentence(text) {
@@ -1274,8 +1274,8 @@
 
     Object.keys(stories).forEach((key) => {
       const themeId = Number(key.split("-")[0]);
-      const accents = { 1: "#7d3c98", 2: "#059669", 3: "#d97706", 4: "#4f46e5" };
-      applyConsistentImages(key, accents[themeId] || "#7d3c98");
+      const accents = { 1: "#9b6aa8", 2: "#86b89f", 3: "#d8a36d", 4: "#9b98d4" };
+      applyConsistentImages(key, accents[themeId] || "#9b6aa8");
       completeStoryQuiz(key, stories[key]);
     });
 
