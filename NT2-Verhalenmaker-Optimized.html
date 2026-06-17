@@ -1340,7 +1340,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=soft-pink-purple-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=reading-quiz-polish-v1").catch(() => {});
       });
     }
 
@@ -2483,18 +2483,130 @@
         });
       }
       const glossaryPairs = vocab.map((word) => [word, getCoverageDefinition(word)]);
-      const quiz = pages.map((page, index) => ({
-        question: `Waarom begrijpt Mila ${page.targets.join(" en ")} beter op pagina ${index + 1}?`,
-        options: [
-          "Omdat ze de woorden in een herkenbare situatie gebruikt.",
-          "Omdat ze de woorden alleen overschrijft zonder context.",
-          "Omdat ze de uitleg overslaat.",
-          "Omdat de woorden niet in het verhaal voorkomen."
-        ],
-        answer: "Omdat ze de woorden in een herkenbare situatie gebruikt.",
-        explanation: `Op pagina ${index + 1} staan ${page.targets.join(" en ")} in een concrete situatie uit het verhaal.`,
-        relatedWords: page.targets
-      }));
+      const [w1, w2, w3, w4, w5, w6, w7, w8, w9, w10] = vocab;
+      const quiz = isNature ? [
+        {
+          question: `Waarom gaat Mila met haar taalgroep naar buiten bij "${title}"?`,
+          options: [
+            "Omdat ze de woorden beter begrijpt wanneer ze de omgeving ziet.",
+            "Omdat ze de les wil overslaan.",
+            "Omdat de gids geen uitleg wil geven.",
+            "Omdat het verhaal alleen over schoolregels gaat."
+          ],
+          answer: "Omdat ze de woorden beter begrijpt wanneer ze de omgeving ziet.",
+          explanation: `Aan het begin ziet Mila de omgeving zelf, waardoor woorden zoals ${w1} en ${w2} een duidelijke plek krijgen.`,
+          relatedWords: [w1, w2]
+        },
+        {
+          question: "Wat doet Mila wanneer een klasgenoot een vraag stelt langs het pad?",
+          options: [
+            "Ze luistert verder en begrijpt de situatie achter de woorden beter.",
+            "Ze loopt meteen alleen terug naar huis.",
+            "Ze zegt dat de wandeling geen taalles is.",
+            "Ze vraagt de groep om te stoppen met oefenen."
+          ],
+          answer: "Ze luistert verder en begrijpt de situatie achter de woorden beter.",
+          explanation: `De wandeling wordt een taalles, omdat Mila hoort hoe ${w3} en ${w4} in een echte situatie worden gebruikt.`,
+          relatedWords: [w3, w4]
+        },
+        {
+          question: `Wat betekent "${w5}" ongeveer in dit verhaal?`,
+          options: [
+            getCoverageDefinition(w5),
+            getCoverageDefinition(w6),
+            "een afspraak die niets met de tekst te maken heeft",
+            "een persoon die de les helemaal niet volgt"
+          ],
+          answer: getCoverageDefinition(w5),
+          explanation: `In het verhaal gebruikt Mila "${w5}" bij een concreet detail in de natuur.`,
+          relatedWords: [w5, w6]
+        },
+        {
+          question: "Waarom vergelijkt Mila de uitleg van de beheerder met haar eigen straat?",
+          options: [
+            "Zo voelt het onderwerp minder ver weg en begrijpt ze de regel beter.",
+            "Zo kan ze bewijzen dat de beheerder ongelijk heeft.",
+            "Zo hoeft ze de nieuwe woorden niet te leren.",
+            "Zo verandert ze het natuurgebied in een winkelstraat."
+          ],
+          answer: "Zo voelt het onderwerp minder ver weg en begrijpt ze de regel beter.",
+          explanation: `Door de vergelijking worden ${w7} en ${w8} niet alleen moeilijke woorden, maar woorden met betekenis.`,
+          relatedWords: [w7, w8]
+        },
+        {
+          question: "Wat neemt Mila mee terug naar de les?",
+          options: [
+            "Ze bewaart voorbeeldzinnen en oefent de moeilijke woorden rustig verder.",
+            "Ze vergeet de wandeling meteen.",
+            "Ze leert alleen de namen van de andere cursisten.",
+            "Ze besluit dat natuurwoorden niet nuttig zijn."
+          ],
+          answer: "Ze bewaart voorbeeldzinnen en oefent de moeilijke woorden rustig verder.",
+          explanation: `Aan het einde maakt Mila zinnen met ${w9} en ${w10}, zodat de woorden bruikbaar blijven.`,
+          relatedWords: [w9, w10]
+        }
+      ] : [
+        {
+          question: `Waar begint het gesprek over "${title}"?`,
+          options: [
+            "In het buurthuis, waar Mila uitleg met herkenbare voorbeelden krijgt.",
+            "Op een vliegveld, waar niemand Nederlands oefent.",
+            "In een museumzaal zonder andere cursisten.",
+            "In een winkel waar Mila niets vraagt."
+          ],
+          answer: "In het buurthuis, waar Mila uitleg met herkenbare voorbeelden krijgt.",
+          explanation: `Mila hoort ${w1} en ${w2} niet als losse woorden, maar in een gewone situatie.`,
+          relatedWords: [w1, w2]
+        },
+        {
+          question: "Waarom durft Mila aan tafel om herhaling te vragen?",
+          options: [
+            "Omdat het gesprek rustig blijft en de andere cursisten ook oefenen.",
+            "Omdat iedereen haast heeft.",
+            "Omdat zij de woorden al perfect kent.",
+            "Omdat de buurvrouw geen antwoord geeft."
+          ],
+          answer: "Omdat het gesprek rustig blijft en de andere cursisten ook oefenen.",
+          explanation: `De rustige sfeer helpt Mila om woorden zoals ${w3} en ${w4} precieser te gebruiken.`,
+          relatedWords: [w3, w4]
+        },
+        {
+          question: `Wat betekent "${w5}" ongeveer in dit verhaal?`,
+          options: [
+            getCoverageDefinition(w5),
+            getCoverageDefinition(w6),
+            "een plaats waar niemand praat",
+            "een geluid zonder betekenis"
+          ],
+          answer: getCoverageDefinition(w5),
+          explanation: `De betekenis van "${w5}" wordt duidelijk door het praktische voorbeeld in de groep.`,
+          relatedWords: [w5, w6]
+        },
+        {
+          question: "Waarom onderstreept Mila woorden tijdens de afspraak?",
+          options: [
+            "Omdat niet elk woord letterlijk in het formulier staat en ze duidelijke zinnen wil maken.",
+            "Omdat ze het formulier wil weggooien.",
+            "Omdat ze geen hulp van een klasgenoot wil.",
+            "Omdat de afspraak niets met taal te maken heeft."
+          ],
+          answer: "Omdat niet elk woord letterlijk in het formulier staat en ze duidelijke zinnen wil maken.",
+          explanation: `Met ${w7} en ${w8} oefent Mila niet alleen losse woorden, maar ook natuurlijk Nederlands.`,
+          relatedWords: [w7, w8]
+        },
+        {
+          question: "Wat is de belangrijkste les aan het einde van het verhaal?",
+          options: [
+            "Moeilijke woorden worden makkelijker wanneer Mila ze aan haar eigen leven koppelt.",
+            "Mila hoeft de woorden na de les niet meer te gebruiken.",
+            "Voorbeelden uit de buurt maken de les onduidelijker.",
+            "Alle cursisten moeten precies dezelfde zin maken."
+          ],
+          answer: "Moeilijke woorden worden makkelijker wanneer Mila ze aan haar eigen leven koppelt.",
+          explanation: `Door zinnen met ${w9} en ${w10} te maken, blijven de woorden begrijpelijk en nuttig.`,
+          relatedWords: [w9, w10]
+        }
+      ];
       stories[key] = makeStory(chapter, title, vocab, pages, glossaryPairs, quiz, color);
       stories[key].pages.forEach((page) => {
         page.imageUrl = `assets/storybook-photo-v1/${storySlug(imageKey || key)}/page-${String((stories[key].pages.indexOf(page) % 5) + 1).padStart(2, "0")}.jpg`;
