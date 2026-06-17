@@ -1,4 +1,4 @@
-const CACHE_NAME = "nt2-groningen-v37-audio-highlight-resume-v1";
+const CACHE_NAME = "nt2-groningen-v38-flashcard-definitions-v1";
 
 const CORE_ASSETS = [
   "./",
