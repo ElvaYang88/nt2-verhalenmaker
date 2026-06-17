@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=result-feedback-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=quiz-text-alignment-v1").catch(() => {});
       });
     }
 
@@ -229,10 +229,10 @@
           ["blijken","duidelijk worden"],["aarzelen","twijfelen of wachten omdat je niet durft"],["uitgebreid","groot en met veel details"],["aanvragen","officieel vragen om iets te krijgen"],["uitkering","geld dat iemand tijdelijk van de overheid krijgt"],["stimuleren","aanmoedigen"],["arbeidsmarkt","alle banen en mensen die werk zoeken"],["bevorderen","helpen om iets beter te maken"],["cultuurverschil","verschil in gewoontes tussen groepen"],["toepassen","in de praktijk gebruiken"]
         ].map(([word, definition]) => ({word, definition})),
         quiz: [
-          { question: "Wat blijkt uit onderzoek van de gemeente Groningen?", options: ["Veel nieuwkomers voelen zich in het begin eenzaam.","Iedereen vindt meteen werk.","Er zijn geen buurtverenigingen.","Niemand wil Nederlands leren."], answer: "Veel nieuwkomers voelen zich in het begin eenzaam.", explanation: "In de eerste pagina staat dat veel nieuwkomers zich in het begin eenzaam voelen.", relatedWords: ["blijken","aarzelen"] },
-          { question: "Waarom is vrijwilligerswerk nuttig?", options: ["Het helpt mensen hun netwerk te vergroten.","Het vervangt alle taallessen.","Het maakt subsidies onmogelijk.","Het zorgt ervoor dat niemand meer buren nodig heeft."], answer: "Het helpt mensen hun netwerk te vergroten.", explanation: "De tekst zegt dat vrijwilligerswerk de wijk helpt en het netwerk vergroot.", relatedWords: ["stimuleren","arbeidsmarkt"] },
-          { question: "Wat betekent bevorderen in deze tekst?", options: ["Iets vooruithelpen.","Iets verbieden.","Iets vergeten.","Iets weigeren."], answer: "Iets vooruithelpen.", explanation: "Sociale integratie bevorderen betekent dat je integratie helpt verbeteren.", relatedWords: ["bevorderen"] },
-          { question: "Hoe kunnen cultuurverschillen volgens de tekst worden overbrugd?", options: ["Door open te staan en nieuwe gewoontes toe te passen.","Door nooit met buren te praten.","Door taallessen te vermijden.","Door alleen thuis te blijven."], answer: "Door open te staan en nieuwe gewoontes toe te passen.", explanation: "De laatste pagina noemt openheid en toepassen van nieuwe gewoontes.", relatedWords: ["cultuurverschil","toepassen"] }
+          { question: "Wat kan blijken uit gesprekken met buren?", options: ["Veel nieuwkomers voelen zich alleen.","Iedereen vindt meteen werk.","Er zijn geen buurtactiviteiten.","Niemand wil koffie drinken."], answer: "Veel nieuwkomers voelen zich alleen.", explanation: "Op pagina 1 staat: uit gesprekken met buren kan blijken dat veel nieuwkomers zich alleen voelen.", relatedWords: ["blijken","aarzelen"] },
+          { question: "Waarom helpt vrijwillig werk Mila?", options: ["Ze leert afspraken, taken en contact met collega's beter begrijpen.","Het vervangt alle taallessen.","Ze hoeft dan geen Nederlands meer te oefenen.","Ze blijft daardoor altijd thuis."], answer: "Ze leert afspraken, taken en contact met collega's beter begrijpen.", explanation: "Op pagina 4 helpt vrijwillig werk Mila om de arbeidsmarkt beter te begrijpen.", relatedWords: ["stimuleren","arbeidsmarkt"] },
+          { question: "Wat betekent bevorderen in deze tekst?", options: ["Iets vooruithelpen.","Iets verbieden.","Iets vergeten.","Iets weigeren."], answer: "Iets vooruithelpen.", explanation: "De taalcoach wil Mila's Nederlands bevorderen door echte gesprekken te oefenen.", relatedWords: ["bevorderen"] },
+          { question: "Wat leert Mila over cultuurverschil in haar straat?", options: ["Dat beide manieren vriendelijk kunnen zijn als je goed naar de situatie kijkt.","Dat korte groeten altijd onbeleefd zijn.","Dat buren nooit met elkaar praten.","Dat zij haar eigen gewoonte niet mag houden."], answer: "Dat beide manieren vriendelijk kunnen zijn als je goed naar de situatie kijkt.", explanation: "Op pagina 5 legt de buurvrouw uit dat beide manieren vriendelijk kunnen zijn.", relatedWords: ["cultuurverschil","toepassen"] }
         ]
       },
       "1-Een streetarts": {
@@ -248,8 +248,8 @@
           ["blijken","duidelijk worden"],["aarzelen","twijfelen"],["uitgebreid","groot en compleet"],["aanvragen","officieel vragen"],["uitkering","geldelijke steun"],["stimuleren","aanmoedigen"],["arbeidsmarkt","banen en werkzoekenden"],["bevorderen","vooruithelpen"],["signaleren","opmerken en melden"],["toepassen","gebruiken in de praktijk"]
         ].map(([word, definition]) => ({word, definition})),
         quiz: [
-          { question: "Wat doet een streetarts?", options: ["Hij helpt kwetsbare mensen direct op straat.","Hij verkoopt fietsen.","Hij sluit ziekenhuizen.","Hij organiseert alleen sportlessen."], answer: "Hij helpt kwetsbare mensen direct op straat.", explanation: "De tekst beschrijft medische hulp op straat.", relatedWords: ["signaleren","toepassen"] },
-          { question: "Waarom aarzelen sommige mensen?", options: ["Omdat ze bang zijn voor reguliere zorg.","Omdat ze geen parken willen bezoeken.","Omdat ze geen Nederlands eten lusten.","Omdat ze al werk hebben."], answer: "Omdat ze bang zijn voor reguliere zorg.", explanation: "In de eerste pagina staat dat zij vaak niet naar een gewoon ziekenhuis durven.", relatedWords: ["aarzelen"] }
+          { question: "Waarom loopt Mila mee met een straatdokter?", options: ["Omdat zij wil zien hoe zorg buiten de gewone spreekkamer werkt.","Omdat zij fietsen wil verkopen.","Omdat zij een park wil ontwerpen.","Omdat zij een restaurant wil openen."], answer: "Omdat zij wil zien hoe zorg buiten de gewone spreekkamer werkt.", explanation: "Op pagina 1 staat dat Mila wil zien hoe zorg buiten de gewone spreekkamer werkt.", relatedWords: ["blijken","aarzelen"] },
+          { question: "Waarom aarzelen sommige mensen om naar het ziekenhuis te gaan?", options: ["Ze hebben hulp nodig, maar durven de stap niet goed te zetten.","Ze zijn al helemaal gezond.","Ze willen alleen sportlessen volgen.","Ze hebben geen interesse in thee."], answer: "Ze hebben hulp nodig, maar durven de stap niet goed te zetten.", explanation: "Op pagina 1 staat dat sommige mensen aarzelen om naar het ziekenhuis te gaan.", relatedWords: ["aarzelen"] }
         ]
       },
       "2-Druk in de natuur": {
@@ -265,8 +265,8 @@
           ["aanleggen","maken of bouwen"],["aanpassing","verandering om iets beter te maken"],["aantrekkelijk","mooi of prettig"],["afvalstof","schadelijk restmateriaal"],["afvoeren","weg laten lopen of wegbrengen"],["beheerder","persoon die voor een plek zorgt"],["benadrukken","extra duidelijk zeggen"],["beschermen","veilig houden"],["besparen","minder gebruiken"],["duurzaam","goed voor de toekomst"]
         ].map(([word, definition]) => ({word, definition})),
         quiz: [
-          { question: "Waarom wil Groningen meer groene parken aanleggen?", options: ["Om rust te creëren.","Om afval te bewaren.","Om banen te stoppen.","Om minder bomen te hebben."], answer: "Om rust te creëren.", explanation: "De eerste pagina zegt dat groene parken rust creëren.", relatedWords: ["aanleggen"] },
-          { question: "Wie controleert de paden na zware regen?", options: ["De beheerder.","Een kok.","Een student zonder taak.","Een kunstenaar."], answer: "De beheerder.", explanation: "De beheerder controleert de paden en waarschuwt bezoekers.", relatedWords: ["beheerder","afvoeren"] },
+          { question: "Waarom wil Groningen meer groene paden aanleggen?", options: ["Omdat veel mensen buiten willen bewegen zonder de natuur te verstoren.","Omdat afval dan beter kan blijven liggen.","Omdat er minder dieren moeten komen.","Omdat niemand meer wil wandelen."], answer: "Omdat veel mensen buiten willen bewegen zonder de natuur te verstoren.", explanation: "Op pagina 1 staat dat mensen buiten willen bewegen zonder de natuur te verstoren.", relatedWords: ["aanleggen","aanpassing"] },
+          { question: "Wat doet de beheerder na een nacht met regen?", options: ["Hij kijkt bij de brug waar plassen blijven staan.","Hij kookt voor de bezoekers.","Hij sluit alle parken voorgoed.","Hij zet jonge planten in een kantoor."], answer: "Hij kijkt bij de brug waar plassen blijven staan.", explanation: "Op pagina 3 kijkt de beheerder bij de brug, omdat het park water moet afvoeren.", relatedWords: ["beheerder","afvoeren"] },
           { question: "Wat is duurzaam gedrag volgens de tekst?", options: ["Water besparen.","Meer afval achterlaten.","Planten beschadigen.","Niet op de paden blijven."], answer: "Water besparen.", explanation: "De tekst noemt water besparen als bewuste duurzame keuze.", relatedWords: ["besparen","duurzaam"] }
         ]
       },
@@ -285,7 +285,7 @@
         quiz: [
           { question: "Wat moeten we met historische monumenten doen?", options: ["Behouden en beschermen.","Direct slopen.","Vergeten.","Alleen verkopen."], answer: "Behouden en beschermen.", explanation: "De eerste pagina noemt behouden en beschermen.", relatedWords: ["behouden","beschermen"] },
           { question: "Waar worden oude documenten bewaard?", options: ["In het Groninger Archief.","In de moestuin.","In een busje.","In het park."], answer: "In het Groninger Archief.", explanation: "De tweede pagina noemt het Groninger Archief.", relatedWords: ["bewaren"] },
-          { question: "Waarvan hangt succes volgens de tekst af?", options: ["Van onze inzet en liefde voor cultuur.","Van zware regen.","Van het aantal auto's.","Van afvalstoffen."], answer: "Van onze inzet en liefde voor cultuur.", explanation: "De laatste pagina gebruikt de uitdrukking afhangen van.", relatedWords: ["afhangen van"] }
+          { question: "Waarvan kan het afhangen of erfgoed blijft leven?", options: ["Van de aandacht die bewoners eraan geven.","Van het aantal auto's in de straat.","Van een regenbui in het park.","Van een afspraak bij de huisarts."], answer: "Van de aandacht die bewoners eraan geven.", explanation: "Op pagina 5 staat dat erfgoed kan afhangen van de aandacht van bewoners.", relatedWords: ["afhangen van","aanraden"] }
         ]
       },
       "4-Stage lopen": {
@@ -301,8 +301,8 @@
           ["aanpak","manier van werken"],["aansluiten op","goed passen bij"],["aantrekken","interesseren of binnenhalen"],["netwerk","groep contacten"],["nijpend","dringend of ernstig"],["argument","reden"],["omzetten","veranderen in iets praktisch"],["onderbouwen","met feiten uitleggen"],["beperken","kleiner maken"],["bedrijfstak","sector"]
         ].map(([word, definition]) => ({word, definition})),
         quiz: [
-          { question: "Wat vraagt stage lopen?", options: ["Een actieve aanpak.","Geen voorbereiding.","Een stadswandeling.","Een watertekort."], answer: "Een actieve aanpak.", explanation: "De eerste pagina zegt dat stage lopen een actieve aanpak vraagt.", relatedWords: ["aanpak"] },
-          { question: "Wat bouw je tijdens een stage op?", options: ["Een professioneel netwerk.","Een oud gebouw.","Een natuurbrug.","Een archief."], answer: "Een professioneel netwerk.", explanation: "De tweede pagina noemt een professioneel netwerk.", relatedWords: ["netwerk"] }
+          { question: "Waarom kiest Mila eerst een rustige aanpak?", options: ["Omdat de stageplek moet aansluiten op haar opleiding en taalniveau.","Omdat zij nergens wil solliciteren.","Omdat zij alleen een wandeling wil maken.","Omdat haar docent geen lijst wil maken."], answer: "Omdat de stageplek moet aansluiten op haar opleiding en taalniveau.", explanation: "Op pagina 1 staat dat de plek moet aansluiten op haar opleiding en taalniveau.", relatedWords: ["aanpak","aansluiten op"] },
+          { question: "Wat bouwt Mila voorzichtig op tijdens de informatiemiddag?", options: ["Een netwerk.","Een oud gebouw.","Een natuurbrug.","Een archief."], answer: "Een netwerk.", explanation: "Op pagina 2 praat Mila met twee medewerkers en bouwt zij voorzichtig een netwerk op.", relatedWords: ["netwerk","aantrekken"] }
         ]
       }
     };
@@ -311,7 +311,7 @@
       const scenes = {
         "1-Gelukkig zijn": ["Eerste dag in Groningen", "Samen in de moestuin", "Vrijwilligers in het buurthuis", "Taalcoach in de bibliotheek", "Vrienden rond de tafel"],
         "1-Een streetarts": ["Dokter op straat", "Spreekuur in een medische bus", "Contact met maatschappelijk werk", "Opvangcentrum en toekomstplan", "Snelle zorg op straat"],
-        "2-Druk in de natuur": ["Nieuwe groene parken", "Afval opruimen in het park", "Water na zware regen", "Kwetsbare planten beschermen", "Duurzaam leven thuis"]
+        "2-Druk in de natuur": ["Nieuwe groene paden", "Afval opruimen in het park", "Water na zware regen", "Kwetsbare planten beschermen", "Duurzaam leven thuis"]
       };
       return scenes[key]?.[index] || `Mila oefent: ${(targets || []).join(" en ")}`;
     }
