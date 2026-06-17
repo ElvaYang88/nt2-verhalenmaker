@@ -1340,7 +1340,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=reading-quiz-polish-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=result-feedback-v1").catch(() => {});
       });
     }
 
@@ -1402,6 +1402,7 @@
       discoveredWords: new Set(safeJson(safeGet("nt2_discovered", "[]"), [])),
       reviewPool: safeJson(safeGet("nt2_review", "[]"), []),
       difficultWords: safeJson(safeGet("nt2_difficult_words", "[]"), []),
+      resultReviewWords: [],
       reviewMode: false,
       practiceMode: "",
       practiceTitle: "",
@@ -4049,8 +4050,9 @@
       if (normalize(option) === normalize(q.answer)) {
         awardXP(10, "Correct antwoord");
       } else {
-        addReviewWords(q.relatedWords || []);
-        addDifficultWords(q.relatedWords || []);
+        const focusWords = getQuestionFocusWords(q);
+        addReviewWords(focusWords);
+        addDifficultWords(focusWords);
       }
       renderQuiz();
     }
@@ -4066,20 +4068,50 @@
       saveProgress();
     }
 
+    function getQuestionFocusWords(question) {
+      const words = question?.relatedWords || [];
+      return words.length ? [words[0]] : [];
+    }
+
+    function getCurrentMistakeItems() {
+      const byWord = new Map();
+      state.quiz.forEach((question, index) => {
+        if (normalize(state.answers[index]) === normalize(question.answer)) return;
+        getQuestionFocusWords(question).forEach((word) => {
+          const key = normalize(word);
+          if (!key || byWord.has(key)) return;
+          byWord.set(key, {
+            word,
+            definition: getDefinitionForWord(word),
+            sentence: findWordContext(word)
+          });
+        });
+      });
+      return [...byWord.values()];
+    }
+
     function renderResults() {
       state.appState = "results";
       state.score = state.quiz.reduce((total, q, index) => normalize(state.answers[index]) === normalize(q.answer) ? total + 1 : total, 0);
+      state.resultReviewWords = getCurrentMistakeItems();
       awardXP(state.score * 10 + (state.score === state.quiz.length ? 30 : 0), "Quiz voltooid");
+      const total = state.quiz.length;
+      const resultTitle = state.score === total ? "Geweldig gedaan!" : state.score >= Math.ceil(total * 0.6) ? "Goed gewerkt!" : "Nog even oefenen";
+      const resultNote = state.score === total
+        ? "Alles goed. Je kunt doorgaan naar een volgend verhaal."
+        : state.score >= Math.ceil(total * 0.6)
+          ? "Je begrijpt al veel. Herhaal nog een paar woorden."
+          : "Geen probleem. Bekijk de feedback en oefen de belangrijkste woorden nog eens.";
       updateHeader();
       view.innerHTML = `
         <section class="result-card">
-          <div style="font-size:64px;color:#eab308;">Trophy</div>
-          <h2>Gefeliciteerd!</h2>
-          <p style="font-size:24px;font-weight:900;color:#64748b;">Jouw score: ${state.score} / ${state.quiz.length}</p>
-          ${state.reviewPool.length ? `
+          <h2>${resultTitle}</h2>
+          <p style="font-size:24px;font-weight:900;color:#64748b;">Jouw score: ${state.score} / ${total}</p>
+          <p style="color:#64748b;font-weight:850;margin-top:-4px;">${resultNote}</p>
+          ${state.resultReviewWords.length ? `
             <div class="review-box">
-              <h3 style="margin-top:0;color:var(--purple);">Foutieve woorden</h3>
-              ${state.reviewPool.map((item) => `
+              <h3 style="margin-top:0;color:var(--purple);">Woorden om nog te oefenen</h3>
+              ${state.resultReviewWords.map((item) => `
                 <div class="review-item">
                   <button class="review-word" type="button" data-speak="${escapeHtml(item.word)}">${escapeHtml(item.word)}</button>
                   <div style="color:#475569;font-weight:800;margin-top:4px;">${escapeHtml(item.definition)}</div>
@@ -4099,7 +4131,7 @@
         button.addEventListener("click", () => speakDutch(button.dataset.speak, 0.85));
       });
       const reviewBtn = document.getElementById("reviewBtn");
-      if (reviewBtn) reviewBtn.addEventListener("click", () => startFlashcards(true));
+      if (reviewBtn) reviewBtn.addEventListener("click", () => startPractice(state.resultReviewWords, "Woorden om nog te oefenen", "quiz-errors"));
       document.getElementById("downloadBtn").addEventListener("click", downloadData);
       document.getElementById("againBtn").addEventListener("click", resetApp);
     }
@@ -4133,6 +4165,7 @@
       state.reviewMode = false;
       state.practiceMode = "";
       state.practiceTitle = "";
+      state.resultReviewWords = [];
       showError("");
       renderLanding();
     }
