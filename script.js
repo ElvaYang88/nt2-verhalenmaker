@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=classroom-final-audio-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=audio-highlight-resume-v1").catch(() => {});
       });
     }
 
@@ -61,6 +61,7 @@
       audioBusy: false,
       audioBusyLabel: "",
       currentAudio: null,
+      audioProgress: {},
       showPrompt: false,
       stats: safeJson(safeGet("nt2_stats", '{"xp":0,"level":1}'), { xp: 0, level: 1 }),
       completedStories: new Set(safeJson(safeGet("nt2_completed_stories", "[]"), [])),
@@ -1103,6 +1104,10 @@
         .replace(/'/g, "&#039;");
     }
 
+    function escapeRegExp(value) {
+      return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }
+
     function themeIconSvg(id) {
       const icons = {
         1: '<svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
@@ -1232,6 +1237,68 @@
         state.currentAudio = null;
       }
       state.isSpeaking = false;
+    }
+
+    function currentPageAudioKey() {
+      return `${state.currentStoryKey || "story"}::${state.pageIndex}`;
+    }
+
+    function capturePageAudioState() {
+      const audio = document.getElementById("pageAudio");
+      if (!audio) return;
+      const key = audio.dataset.audioKey || currentPageAudioKey();
+      const time = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
+      state.audioProgress[key] = {
+        time: audio.ended ? 0 : time,
+        playing: !audio.paused && !audio.ended,
+        ended: !!audio.ended
+      };
+    }
+
+    function pausePageAudioForNavigation() {
+      const audio = document.getElementById("pageAudio");
+      if (!audio) return;
+      const key = audio.dataset.audioKey || currentPageAudioKey();
+      state.audioProgress[key] = {
+        time: Number.isFinite(audio.currentTime) && !audio.ended ? audio.currentTime : 0,
+        playing: false,
+        ended: !!audio.ended
+      };
+      try {
+        audio.pause();
+      } catch {}
+    }
+
+    function restorePageAudioState(audio) {
+      if (!audio) return;
+      const key = audio.dataset.audioKey || currentPageAudioKey();
+      const saved = state.audioProgress[key];
+      audio.playbackRate = state.playbackSpeed;
+      const restoreTime = () => {
+        if (!saved || !Number.isFinite(saved.time) || saved.time <= 0) return;
+        const duration = Number.isFinite(audio.duration) ? audio.duration : Infinity;
+        try {
+          audio.currentTime = Math.min(saved.time, Math.max(0, duration - 0.25));
+        } catch {}
+      };
+      const resumeIfNeeded = () => {
+        if (!saved?.playing) return;
+        audio.play().catch(() => {
+          state.audioProgress[key] = {
+            ...(state.audioProgress[key] || {}),
+            playing: false
+          };
+        });
+      };
+      audio.addEventListener("loadedmetadata", () => {
+        audio.playbackRate = state.playbackSpeed;
+        restoreTime();
+        resumeIfNeeded();
+      }, { once: true });
+      if (audio.readyState >= 1) {
+        restoreTime();
+        resumeIfNeeded();
+      }
     }
 
     function playWordAudio(word) {
@@ -1445,19 +1512,54 @@
       `;
     }
 
+    function getHighlightEntries() {
+      const page = state.pages[state.pageIndex] || {};
+      const preferred = [...(page.targets || []), ...(state.vocab || [])];
+      const seen = new Set();
+      return preferred
+        .map((word) => {
+          const clean = normalize(word);
+          if (!clean || seen.has(clean)) return null;
+          seen.add(clean);
+          const glossary = state.glossary.find((entry) => normalize(entry.word) === clean);
+          return {
+            word,
+            norm: clean,
+            definition: glossary?.definition || getDefinitionForWord(word)
+          };
+        })
+        .filter(Boolean)
+        .sort((a, b) => b.norm.length - a.norm.length);
+    }
+
     function highlightText(text) {
-      const tokens = String(text || "").split(/([\s.,!?;"':()]+)/g);
-      return tokens.map((token) => {
-        const clean = normalize(token);
-        if (!clean || /^[\s.,!?;"':()]+$/.test(token)) return escapeHtml(token);
-        const word = state.vocab.find((item) => {
-          const norm = normalize(item);
-          return clean === norm || clean.startsWith(norm);
-        });
-        if (!word) return escapeHtml(token);
-        const def = state.glossary.find((item) => normalize(item.word) === normalize(word))?.definition || "Doelwoord";
-        return `<button class="word" type="button" data-word="${escapeHtml(word)}" data-def="${escapeHtml(def)}">${escapeHtml(token)}</button>`;
-      }).join("");
+      const raw = String(text || "");
+      const entries = getHighlightEntries();
+      if (!entries.length) return escapeHtml(raw);
+      const pattern = entries
+        .map((entry) => {
+          const escaped = escapeRegExp(entry.word).replace(/\s+/g, "\\s+");
+          return entry.word.includes(" ") ? escaped : `${escaped}[\\p{L}\\p{M}'-]*`;
+        })
+        .join("|");
+      const matcher = new RegExp(`(^|[^\\p{L}\\p{N}])(${pattern})(?=$|[^\\p{L}\\p{N}])`, "giu");
+      let html = "";
+      let lastIndex = 0;
+      raw.replace(matcher, (full, prefix, match, offset) => {
+        const start = offset + prefix.length;
+        const end = start + match.length;
+        const clean = normalize(match);
+        const entry = entries.find((item) =>
+          item.word.includes(" ") ? clean === item.norm : (clean === item.norm || clean.startsWith(item.norm))
+        );
+        if (!entry) return full;
+        html += escapeHtml(raw.slice(lastIndex, start));
+        html += `<button class="word" type="button" data-word="${escapeHtml(entry.word)}" data-def="${escapeHtml(entry.definition)}">${escapeHtml(match)}</button>`;
+        lastIndex = end;
+        return full;
+      });
+      html += escapeHtml(raw.slice(lastIndex));
+      return html;
     }
 
     function renderStoryText(text) {
@@ -1887,9 +1989,11 @@
 
     function renderReading() {
       state.appState = "reading";
+      capturePageAudioState();
       updateHeader();
       const page = state.pages[state.pageIndex];
       const readProgress = getPageReadProgress(page);
+      const audioKey = currentPageAudioKey();
       view.innerHTML = `
         <section class="reader">
           <div class="toolbar">
@@ -1904,7 +2008,7 @@
             <div class="audio-actions">
               <div class="audio-player">
                 ${page.audioUrl
-                  ? `<audio id="pageAudio" controls preload="metadata" src="${escapeHtml(page.audioUrl)}"></audio>`
+                  ? `<audio id="pageAudio" controls preload="metadata" data-audio-key="${escapeHtml(audioKey)}" src="${escapeHtml(page.audioUrl)}"></audio>`
                   : `<button class="audio-fallback" type="button" id="browserAudioBtn">Lees deze pagina voor</button>`}
                 <div class="audio-caption">${page.audioUrl ? "Luister eerst en lees daarna de tekst." : "Geen lokale audio gevonden; browserstem wordt gebruikt."}</div>
               </div>
@@ -1944,12 +2048,22 @@
           state.sentenceChecks[key] = !wasRead;
           saveProgress();
           if (!wasRead) awardXP(1, "Zin gelezen");
-          renderReading();
+          const isRead = !!state.sentenceChecks[key];
+          button.textContent = isRead ? "✓" : "";
+          button.closest(".sentence-row")?.classList.toggle("read", isRead);
+          const progress = getPageReadProgress(page);
+          const progressText = document.querySelector(".reader-progress span");
+          const progressFill = document.querySelector(".reader-progress-track div");
+          if (progressText) progressText.textContent = `${progress.read}/${progress.total} zinnen afgevinkt`;
+          if (progressFill) progressFill.style.width = `${progress.pct}%`;
         });
       });
       document.getElementById("speedBtn").addEventListener("click", () => {
         state.playbackSpeed = state.playbackSpeed === 0.9 ? 0.75 : state.playbackSpeed === 0.75 ? 1.15 : 0.9;
-        renderReading();
+        const pageAudio = document.getElementById("pageAudio");
+        if (pageAudio) pageAudio.playbackRate = state.playbackSpeed;
+        const speedBtn = document.getElementById("speedBtn");
+        if (speedBtn) speedBtn.innerHTML = `<span>Tempo</span> ${state.playbackSpeed}x`;
       });
       document.getElementById("fontBtn").addEventListener("click", () => {
         state.fontSize = state.fontSize === "size-lg" ? "size-xl" : state.fontSize === "size-xl" ? "size-2xl" : "size-lg";
@@ -1957,15 +2071,43 @@
       });
       const pageAudio = document.getElementById("pageAudio");
       if (pageAudio) {
-        pageAudio.playbackRate = state.playbackSpeed;
+        restorePageAudioState(pageAudio);
         pageAudio.addEventListener("play", () => {
           window.speechSynthesis && window.speechSynthesis.cancel();
+          state.audioProgress[pageAudio.dataset.audioKey || currentPageAudioKey()] = {
+            time: Number.isFinite(pageAudio.currentTime) ? pageAudio.currentTime : 0,
+            playing: true,
+            ended: false
+          };
           showError("");
+        });
+        pageAudio.addEventListener("pause", () => {
+          const key = pageAudio.dataset.audioKey || currentPageAudioKey();
+          state.audioProgress[key] = {
+            time: Number.isFinite(pageAudio.currentTime) && !pageAudio.ended ? pageAudio.currentTime : 0,
+            playing: false,
+            ended: !!pageAudio.ended
+          };
+        });
+        pageAudio.addEventListener("timeupdate", () => {
+          const key = pageAudio.dataset.audioKey || currentPageAudioKey();
+          state.audioProgress[key] = {
+            time: Number.isFinite(pageAudio.currentTime) && !pageAudio.ended ? pageAudio.currentTime : 0,
+            playing: !pageAudio.paused && !pageAudio.ended,
+            ended: !!pageAudio.ended
+          };
         });
         pageAudio.addEventListener("loadedmetadata", () => {
           pageAudio.playbackRate = state.playbackSpeed;
         });
-        pageAudio.addEventListener("ended", () => awardXP(5, "Audio geluisterd"));
+        pageAudio.addEventListener("ended", () => {
+          state.audioProgress[pageAudio.dataset.audioKey || currentPageAudioKey()] = {
+            time: 0,
+            playing: false,
+            ended: true
+          };
+          awardXP(5, "Audio geluisterd");
+        });
         pageAudio.addEventListener("error", () => showError("De lokale audio kon niet laden. Vernieuw de pagina of controleer het audiobestand."));
       }
       const browserAudioBtn = document.getElementById("browserAudioBtn");
@@ -1973,6 +2115,7 @@
       document.getElementById("prevBtn").addEventListener("click", () => {
         if (state.pageIndex > 0) {
           stopSpeaking();
+          pausePageAudioForNavigation();
           state.pageIndex -= 1;
           rememberActivity(state.currentStoryKey, state.pageIndex);
           awardXP(2, "Teruggelezen");
@@ -1984,6 +2127,7 @@
       if (nextBtn) {
         nextBtn.addEventListener("click", () => {
           stopSpeaking();
+          pausePageAudioForNavigation();
           state.pageIndex += 1;
           rememberActivity(state.currentStoryKey, state.pageIndex);
           awardXP(5, "Pagina gelezen");
