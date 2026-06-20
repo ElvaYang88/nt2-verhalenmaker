@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=unique-story-images-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=highres-story-images-v1").catch(() => {});
       });
     }
 
@@ -1828,7 +1828,7 @@
         const previewAttr = page.previewImageUrl ? ` data-preview="${escapeHtml(page.previewImageUrl)}"` : "";
         return `
           <div class="image-panel">
-            <img loading="lazy" decoding="async" src="${escapeHtml(page.imageUrl)}" alt="${escapeHtml(state.selectedTheme.title)}"${previewAttr} onerror="if(this.dataset.preview && this.src !== this.dataset.preview){this.src=this.dataset.preview}else{this.parentElement.innerHTML='<div class=&quot;image-fallback&quot;><div><strong>Beeld tijdelijk offline</strong><br>De leermodule blijft beschikbaar.</div></div>'}">
+            <img loading="eager" decoding="async" fetchpriority="high" src="${escapeHtml(page.imageUrl)}" alt="${escapeHtml(state.selectedTheme.title)}"${previewAttr} onerror="if(this.dataset.preview && this.src !== this.dataset.preview){this.src=this.dataset.preview}else{this.parentElement.innerHTML='<div class=&quot;image-fallback&quot;><div><strong>Beeld tijdelijk offline</strong><br>De leermodule blijft beschikbaar.</div></div>'}">
           </div>
         `;
       }
@@ -1847,6 +1847,23 @@
           <div class="image-badge">${state.apiKey ? "Klaar om storybookbeeld te maken" : "Voer een API-sleutel in om exact storybookbeeld te maken"}</div>
         </div>
       `;
+    }
+
+    function preloadStoryImages() {
+      const indexes = [state.pageIndex - 1, state.pageIndex + 1].filter((index) => index >= 0 && index < state.pages.length);
+      indexes.forEach((index) => {
+        const url = state.pages[index]?.imageUrl;
+        if (!url) return;
+        const img = new Image();
+        img.decoding = "async";
+        img.src = url;
+      });
+    }
+
+    function scrollReaderToTop() {
+      requestAnimationFrame(() => {
+        document.querySelector(".reader")?.scrollIntoView({ block: "start", behavior: "smooth" });
+      });
     }
 
     function getHighlightEntries() {
@@ -2371,6 +2388,7 @@
           </article>
         </section>
       `;
+      preloadStoryImages();
 
       view.querySelectorAll(".word").forEach((button) => {
         button.addEventListener("mouseenter", () => discoverWord(button.dataset.word));
@@ -2457,7 +2475,7 @@
           rememberActivity(state.currentStoryKey, state.pageIndex);
           awardXP(2, "Teruggelezen");
           renderReading();
-          window.scrollTo({ top: 0, behavior: "smooth" });
+          scrollReaderToTop();
         }
       });
       const nextBtn = document.getElementById("nextBtn");
@@ -2469,7 +2487,7 @@
           rememberActivity(state.currentStoryKey, state.pageIndex);
           awardXP(5, "Pagina gelezen");
           renderReading();
-          window.scrollTo({ top: 0, behavior: "smooth" });
+          scrollReaderToTop();
         });
       }
       const flashBtn = document.getElementById("flashBtn");

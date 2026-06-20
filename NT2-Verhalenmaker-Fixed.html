@@ -665,21 +665,11 @@
       min-height: 330px;
       margin: 0 0 22px;
       border-radius: 26px;
-      background: #0f172a;
+      background: linear-gradient(135deg, #fff7fd, #f8fafc);
       overflow: hidden;
       border: 1px solid rgba(226, 232, 240, 0.95);
       position: relative;
       box-shadow: 0 18px 42px rgba(15, 23, 42, 0.14);
-    }
-    .image-panel::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 34px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.38), rgba(255,255,255,0));
-      pointer-events: none;
     }
     .image-panel img { width: 100%; height: 100%; min-height: 330px; display: block; object-fit: cover; }
     .storybook-empty {
@@ -1340,7 +1330,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=unique-story-images-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=highres-story-images-v1").catch(() => {});
       });
     }
 
@@ -3159,7 +3149,7 @@
         const previewAttr = page.previewImageUrl ? ` data-preview="${escapeHtml(page.previewImageUrl)}"` : "";
         return `
           <div class="image-panel">
-            <img loading="lazy" decoding="async" src="${escapeHtml(page.imageUrl)}" alt="${escapeHtml(state.selectedTheme.title)}"${previewAttr} onerror="if(this.dataset.preview && this.src !== this.dataset.preview){this.src=this.dataset.preview}else{this.parentElement.innerHTML='<div class=&quot;image-fallback&quot;><div><strong>Beeld tijdelijk offline</strong><br>De leermodule blijft beschikbaar.</div></div>'}">
+            <img loading="eager" decoding="async" fetchpriority="high" src="${escapeHtml(page.imageUrl)}" alt="${escapeHtml(state.selectedTheme.title)}"${previewAttr} onerror="if(this.dataset.preview && this.src !== this.dataset.preview){this.src=this.dataset.preview}else{this.parentElement.innerHTML='<div class=&quot;image-fallback&quot;><div><strong>Beeld tijdelijk offline</strong><br>De leermodule blijft beschikbaar.</div></div>'}">
           </div>
         `;
       }
@@ -3178,6 +3168,23 @@
           <div class="image-badge">${state.apiKey ? "Klaar om storybookbeeld te maken" : "Voer een API-sleutel in om exact storybookbeeld te maken"}</div>
         </div>
       `;
+    }
+
+    function preloadStoryImages() {
+      const indexes = [state.pageIndex - 1, state.pageIndex + 1].filter((index) => index >= 0 && index < state.pages.length);
+      indexes.forEach((index) => {
+        const url = state.pages[index]?.imageUrl;
+        if (!url) return;
+        const img = new Image();
+        img.decoding = "async";
+        img.src = url;
+      });
+    }
+
+    function scrollReaderToTop() {
+      requestAnimationFrame(() => {
+        document.querySelector(".reader")?.scrollIntoView({ block: "start", behavior: "smooth" });
+      });
     }
 
     function getHighlightEntries() {
@@ -3702,6 +3709,7 @@
           </article>
         </section>
       `;
+      preloadStoryImages();
 
       view.querySelectorAll(".word").forEach((button) => {
         button.addEventListener("mouseenter", () => discoverWord(button.dataset.word));
@@ -3788,7 +3796,7 @@
           rememberActivity(state.currentStoryKey, state.pageIndex);
           awardXP(2, "Teruggelezen");
           renderReading();
-          window.scrollTo({ top: 0, behavior: "smooth" });
+          scrollReaderToTop();
         }
       });
       const nextBtn = document.getElementById("nextBtn");
@@ -3800,7 +3808,7 @@
           rememberActivity(state.currentStoryKey, state.pageIndex);
           awardXP(5, "Pagina gelezen");
           renderReading();
-          window.scrollTo({ top: 0, behavior: "smooth" });
+          scrollReaderToTop();
         });
       }
       const flashBtn = document.getElementById("flashBtn");
