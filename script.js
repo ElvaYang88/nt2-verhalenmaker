@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=thesis-page-polish-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=flashcard-prev-v1").catch(() => {});
       });
     }
 
@@ -2510,6 +2510,7 @@
         return;
       }
       if (state.cardIndex >= items.length) state.cardIndex = Math.max(0, items.length - 1);
+      if (state.cardIndex < 0) state.cardIndex = 0;
       const card = items[state.cardIndex] || {};
       const ease = state.wordEase[normalize(card.word)]?.ease || "";
       const progressPct = items.length ? Math.round(((state.cardIndex + 1) / items.length) * 100) : 0;
@@ -2534,9 +2535,12 @@
                 </div>`
               : `<div><button class="icon-btn" type="button" id="speakCardBtn">Audio</button><div class="flash-word">${escapeHtml(card.word || "")}</div><p style="color:#64748b;font-weight:800;">Klik om om te draaien</p></div>`}
           </div>
-          <button class="primary" type="button" id="nextCardBtn" style="width:100%;margin-top:18px;height:54px;">
-            ${state.cardIndex < items.length - 1 ? "Volgende" : state.practiceMode ? "Klaar" : state.reviewMode ? "Terug naar resultaten" : "Naar Quiz"}
-          </button>
+          <div class="row" style="margin-top:18px;gap:12px;">
+            <button class="secondary" type="button" id="prevCardBtn" style="flex:1;height:54px;" ${state.cardIndex === 0 ? "disabled" : ""}>Vorige</button>
+            <button class="primary" type="button" id="nextCardBtn" style="flex:1;height:54px;">
+              ${state.cardIndex < items.length - 1 ? "Volgende" : state.practiceMode ? "Klaar" : state.reviewMode ? "Terug naar resultaten" : "Naar Quiz"}
+            </button>
+          </div>
         </section>
       `;
       document.getElementById("flipBtn").addEventListener("click", () => {
@@ -2566,6 +2570,13 @@
       if (hardBtn) hardBtn.addEventListener("click", (event) => {
         event.stopPropagation();
         markWordEase(card.word, "hard");
+      });
+      document.getElementById("prevCardBtn").addEventListener("click", () => {
+        if (state.cardIndex > 0) {
+          state.cardIndex -= 1;
+          state.cardFlipped = false;
+          renderFlashcards();
+        }
       });
       document.getElementById("nextCardBtn").addEventListener("click", () => {
         if (state.cardIndex < items.length - 1) {

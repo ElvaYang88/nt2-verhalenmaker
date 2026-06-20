@@ -1,4 +1,4 @@
-const CACHE_NAME = "nt2-groningen-v43-thesis-page-polish-v1";
+const CACHE_NAME = "nt2-groningen-v44-flashcard-prev-v1";
 
 const CORE_ASSETS = [
   "./",
