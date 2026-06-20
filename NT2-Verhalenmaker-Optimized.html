@@ -1340,7 +1340,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=flashcard-prev-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=sentence-rhythm-v1").catch(() => {});
       });
     }
 
@@ -1550,8 +1550,8 @@
       "1-Gelukkig zijn": {
         vocab: themes[0].vocab,
         pages: [
-          { text: "Mila is nieuw in Groningen en wil haar buurt graag leren kennen, maar bij de voordeur moet ze even aarzelen. Uit gesprekken met buren kan blijken dat veel nieuwkomers zich in het begin alleen voelen, vooral wanneer zij nog weinig mensen kennen. Daarom luistert Mila goed naar een buurvrouw, die haar vriendelijk uitnodigt voor koffie.", imageUrl: images.study, targets: ["blijken","aarzelen"] },
-          { text: "Het wijkcentrum heeft een uitgebreid programma, maar Mila kiest eerst de moestuingroep omdat ze daar gemakkelijk met buren kan praten. Ze wil hulp aanvragen voor een kleine bak met kruiden, waarna een vrijwilligster samen met haar het formulier leest. Terwijl ze later groente planten, merkt Mila dat gewone woorden sneller blijven hangen wanneer haar handen ook bezig zijn.", imageUrl: images.garden, targets: ["uitgebreid","aanvragen"] },
+          { text: "Mila is nieuw in Groningen. Ze wil haar buurt graag leren kennen, maar bij de voordeur moet ze even aarzelen. Uit gesprekken met buren kan blijken dat veel nieuwkomers zich in het begin alleen voelen, vooral wanneer zij nog weinig mensen kennen. De buurvrouw nodigt haar vriendelijk uit voor koffie.", imageUrl: images.study, targets: ["blijken","aarzelen"] },
+          { text: "Het wijkcentrum heeft een uitgebreid programma. Mila kiest eerst de moestuingroep, omdat ze daar gemakkelijk met buren kan praten. Mila wil hulp aanvragen voor een kleine bak met kruiden, en een vrijwilligster leest het formulier met haar mee. Later planten ze samen groente.", imageUrl: images.garden, targets: ["uitgebreid","aanvragen"] },
           { text: "Mila krijgt tijdelijk een uitkering, waardoor ze goed moet leren welke afspraken met de gemeente belangrijk zijn. De begeleider wil haar stimuleren om vrijwillig werk te doen, niet als druk, maar als kans om mensen te ontmoeten. Op woensdag helpt ze daarom in het buurthuis, en na een paar weken kent ze al meerdere gezichten.", imageUrl: images.team, targets: ["uitkering","stimuleren"] },
           { text: "Vrijwillig werk helpt Mila om de arbeidsmarkt beter te begrijpen, omdat ze leert hoe afspraken, taken en contact met collega's werken. Haar taalcoach wil haar Nederlands bevorderen door echte gesprekken te oefenen in plaats van losse woorden. Soms zoekt Mila even naar een zin, maar daarna durft ze toch door te praten.", imageUrl: images.work, targets: ["arbeidsmarkt","bevorderen"] },
           { text: "In de straat merkt Mila een cultuurverschil wanneer buren elkaar kort groeten, terwijl zij thuis langer blijft praten. Een buurvrouw legt uit dat beide manieren vriendelijk kunnen zijn, zolang je goed naar de situatie kijkt. Mila wil de nieuwe gewoonte toepassen, en daardoor voelt de buurt steeds minder vreemd.", imageUrl: images.friends, targets: ["cultuurverschil","toepassen"] }
