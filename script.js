@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=all-story-polish-audio-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=unique-story-images-v1").catch(() => {});
       });
     }
 
@@ -1295,7 +1295,7 @@
       ];
       stories[key] = makeStory(chapter, title, vocab, pages, glossaryPairs, quiz, color);
       stories[key].pages.forEach((page) => {
-        page.imageUrl = `assets/storybook-photo-v1/${storySlug(imageKey || key)}/page-${String((stories[key].pages.indexOf(page) % 5) + 1).padStart(2, "0")}.jpg`;
+        page.imageUrl = `assets/storybook-photo-v1/${storySlug(key)}/page-${String((stories[key].pages.indexOf(page) % 5) + 1).padStart(2, "0")}.jpg`;
       });
     }
 
