@@ -9,7 +9,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=quiz-text-alignment-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=thesis-page-polish-v1").catch(() => {});
       });
     }
 
@@ -219,8 +219,8 @@
       "1-Gelukkig zijn": {
         vocab: themes[0].vocab,
         pages: [
-          { text: "Mila is nieuw in Groningen, omdat zij de buurt wil leren kennen. Uit gesprekken met buren kan blijken dat veel nieuwkomers zich alleen voelen. Mila luistert daarom goed. Sommige mensen aarzelen om aan te bellen. Een buurvrouw nodigt haar uit voor koffie.", imageUrl: images.study, targets: ["blijken","aarzelen"] },
-          { text: "Het wijkcentrum heeft een uitgebreid programma, maar Mila kiest eerst de moestuingroep omdat ze daar gemakkelijk met buren kan praten. Ze wil hulp aanvragen voor een kleine bak met kruiden, waarna een buurman samen met haar het formulier leest. Terwijl ze later groente planten, merkt Mila dat gewone woorden sneller blijven hangen wanneer haar handen ook bezig zijn.", imageUrl: images.garden, targets: ["uitgebreid","aanvragen"] },
+          { text: "Mila is nieuw in Groningen en wil haar buurt graag leren kennen, maar bij de voordeur moet ze even aarzelen. Uit gesprekken met buren kan blijken dat veel nieuwkomers zich in het begin alleen voelen, vooral wanneer zij nog weinig mensen kennen. Daarom luistert Mila goed naar een buurvrouw, die haar vriendelijk uitnodigt voor koffie.", imageUrl: images.study, targets: ["blijken","aarzelen"] },
+          { text: "Het wijkcentrum heeft een uitgebreid programma, maar Mila kiest eerst de moestuingroep omdat ze daar gemakkelijk met buren kan praten. Ze wil hulp aanvragen voor een kleine bak met kruiden, waarna een vrijwilligster samen met haar het formulier leest. Terwijl ze later groente planten, merkt Mila dat gewone woorden sneller blijven hangen wanneer haar handen ook bezig zijn.", imageUrl: images.garden, targets: ["uitgebreid","aanvragen"] },
           { text: "Mila krijgt tijdelijk een uitkering, waardoor ze goed moet leren welke afspraken met de gemeente belangrijk zijn. De begeleider wil haar stimuleren om vrijwillig werk te doen, niet als druk, maar als kans om mensen te ontmoeten. Op woensdag helpt ze daarom in het buurthuis, en na een paar weken kent ze al meerdere gezichten.", imageUrl: images.team, targets: ["uitkering","stimuleren"] },
           { text: "Vrijwillig werk helpt Mila om de arbeidsmarkt beter te begrijpen, omdat ze leert hoe afspraken, taken en contact met collega's werken. Haar taalcoach wil haar Nederlands bevorderen door echte gesprekken te oefenen in plaats van losse woorden. Soms zoekt Mila even naar een zin, maar daarna durft ze toch door te praten.", imageUrl: images.work, targets: ["arbeidsmarkt","bevorderen"] },
           { text: "In de straat merkt Mila een cultuurverschil wanneer buren elkaar kort groeten, terwijl zij thuis langer blijft praten. Een buurvrouw legt uit dat beide manieren vriendelijk kunnen zijn, zolang je goed naar de situatie kijkt. Mila wil de nieuwe gewoonte toepassen, en daardoor voelt de buurt steeds minder vreemd.", imageUrl: images.friends, targets: ["cultuurverschil","toepassen"] }
@@ -1648,7 +1648,7 @@
     async function generatePageImage(page, index) {
       if (!page) return false;
       if (!state.apiKey) {
-        showError("Voer eerst je Gemini API key in via de Key-knop. Exacte storybook-beelden worden pas via de beeld-API gemaakt.");
+        showError("Voer eerst je Gemini API-sleutel in via de API-knop. Exacte storybookbeelden worden pas via de beeld-API gemaakt.");
         return false;
       }
       try {
@@ -1677,7 +1677,7 @@
       const page = state.pages[state.pageIndex];
       if (!page || state.imageBusy) return;
       if (!state.apiKey) {
-        showError("Voer eerst je Gemini API key in via de Key-knop. Let op: Imagen/storybook-beelden vragen meestal een betaald of geschikt API-project.");
+        showError("Voer eerst je Gemini API-sleutel in via de API-knop. Let op: Imagen-storybookbeelden vragen meestal een betaald of geschikt API-project.");
         return;
       }
       state.imageBusy = true;
@@ -1686,9 +1686,9 @@
       showError("");
       try {
         await generatePageImage(page, state.pageIndex);
-        awardXP(5, "Storybook beeld");
+        awardXP(5, "Storybookbeeld");
       } catch (error) {
-        showError(`Beeldgeneratie mislukt. Controleer of je API-project Imagen/beeldgeneratie en quota heeft. (${error.message || error})`);
+        showError(`Beeldgeneratie mislukt. Controleer of je API-project toegang tot Imagen en genoeg tegoed heeft. (${error.message || error})`);
       } finally {
         state.imageBusy = false;
         state.imageBusyLabel = "";
@@ -1699,7 +1699,7 @@
     async function generateStorybookImages() {
       if (state.imageBusy) return;
       if (!state.apiKey) {
-        showError("Voer eerst je Gemini API key in via de Key-knop. Voor alle vijf beelden is beeldgeneratie-quota nodig.");
+        showError("Voer eerst je Gemini API-sleutel in via de API-knop. Voor alle vijf beelden is genoeg tegoed voor beeldgeneratie nodig.");
         return;
       }
       state.imageBusy = true;
@@ -1714,7 +1714,7 @@
             made += 1;
           }
         }
-        if (made > 0) awardXP(10, "Storybook reeks");
+        if (made > 0) awardXP(10, "Storybookreeks");
       } catch (error) {
         showError(`Reeks gestopt. De al gemaakte beelden blijven staan. (${error.message || error})`);
       } finally {
@@ -1758,7 +1758,7 @@
         return;
       }
       if (!state.apiKey) {
-        showError("Voer eerst je Gemini API key in via de Key-knop. Zonder key gebruikt de app de browserstem.");
+        showError("Voer eerst je Gemini API-sleutel in via de API-knop. Zonder sleutel gebruikt de app de browserstem.");
         return;
       }
       state.audioBusy = true;
@@ -1822,13 +1822,13 @@
           <div class="storybook-empty">
             <div class="shot-copy">
               <h3>Beeld nog niet gegenereerd</h3>
-              <p>Voor deze pagina maakt de app pas een echte storybook-foto nadat je een Gemini API key invoert. Dan gebruikt hij de tekst, Mila als vaste hoofdpersoon, Groningen als omgeving en precies deze twee doelwoorden.</p>
+              <p>Voor deze pagina maakt de app pas een echte storybookfoto nadat je een Gemini API-sleutel invoert. Dan gebruikt hij de tekst, Mila als vaste hoofdpersoon, Groningen als omgeving en precies deze twee doelwoorden.</p>
               <div class="shot-tags">
                 ${(page.targets || []).map((target) => `<span>${escapeHtml(target)}</span>`).join("")}
               </div>
             </div>
           </div>
-          <div class="image-badge">${state.apiKey ? "Klaar om storybook beeld te genereren" : "Voer Key in om exact storybook beeld te maken"}</div>
+          <div class="image-badge">${state.apiKey ? "Klaar om storybookbeeld te maken" : "Voer een API-sleutel in om exact storybookbeeld te maken"}</div>
         </div>
       `;
     }
@@ -2033,7 +2033,7 @@
           <h1>${escapeHtml(title)}</h1>
           <p style="color:#64748b;font-weight:850;line-height:1.6;">Goed gedaan. Je hebt ${count} woorden geoefend. Herhaal moeilijke woorden later nog een keer.</p>
           <div class="row" style="justify-content:center;margin-top:20px;">
-            <button class="secondary" id="practiceHomeBtn" type="button">Home</button>
+            <button class="secondary" id="practiceHomeBtn" type="button">Start</button>
             <button class="primary" id="practiceAgainBtn" type="button">Nog een keer</button>
           </div>
         </section>
@@ -2176,7 +2176,7 @@
                   <button class="story-card" type="button" data-storykey="${escapeHtml(key)}">
                     <span>
                       Verhaal ${index + 1}: ${escapeHtml(name)}
-                      <small>${wordCount || ""} doelwoorden · lezen, audio, flashcards en quiz</small>
+                      <small>${wordCount || ""} doelwoorden · lezen, audio, woordkaarten en quiz</small>
                     </span>
                     <span aria-hidden="true">→</span>
                   </button>
@@ -2587,10 +2587,10 @@
       view.innerHTML = `
         <section class="custom-grid">
           <section>
-            <h2>Avatar preview</h2>
+            <h2>Avatarvoorbeeld</h2>
             <p style="color:#64748b;line-height:1.5;">De foto blijft lokaal in deze browser en wordt niet gebruikt voor AI-generatie.</p>
             <label class="avatar-box" id="avatarBox" style="${state.userProfile.photo ? `background-image:url('${state.userProfile.photo}')` : ""}">
-              ${state.userProfile.photo ? "" : "Upload Selfie (alleen lokale avatar-preview)"}
+              ${state.userProfile.photo ? "" : "Kies foto (alleen lokaal voorbeeld)"}
               <input id="avatarInput" type="file" accept="image/*" class="hidden">
             </label>
             <div style="height:12px;"></div>
@@ -2601,7 +2601,7 @@
             <textarea id="customPrompt" placeholder="Typ je Groningen-ideeën hier, of gebruik de microfoon voor Nederlandse spraak.">${escapeHtml(state.customPrompt)}</textarea>
             <div class="row" style="margin-top:12px;">
               <button class="secondary" id="micBtn" type="button">${state.listening ? "Stop opname" : "Microfoon"}</button>
-              <button class="primary" id="customGenBtn" type="button">Genereer Mijn Verhaal</button>
+              <button class="primary" id="customGenBtn" type="button">Maak mijn verhaal</button>
               <button class="secondary" id="skipQuizBtn" type="button">Overslaan naar Quiz</button>
             </div>
           </section>
@@ -2633,7 +2633,7 @@
     function toggleListening() {
       const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!Recognition) {
-        showError("Speech recognition wordt niet ondersteund in deze browser.");
+        showError("Spraakherkenning wordt niet ondersteund in deze browser.");
         return;
       }
       if (state.listening) {
@@ -2664,7 +2664,7 @@
           <div class="quiz-head">
             <div class="quiz-icon">OK</div>
             <div>
-              <h1 style="margin:0;">Kennis Check</h1>
+              <h1 style="margin:0;">Kennischeck</h1>
               <div style="color:#94a3b8;font-weight:900;text-transform:uppercase;font-size:12px;">Directe feedback per vraag</div>
             </div>
           </div>
@@ -2675,7 +2675,7 @@
           <div id="questionList">
             ${state.quiz.map((q, index) => renderQuestion(q, index)).join("")}
           </div>
-          <button class="primary" id="resultBtn" type="button" style="width:100%;height:56px;margin-top:16px;" ${Object.keys(state.answers).length !== state.quiz.length ? "disabled" : ""}>Bekijk Resultaten</button>
+          <button class="primary" id="resultBtn" type="button" style="width:100%;height:56px;margin-top:16px;" ${Object.keys(state.answers).length !== state.quiz.length ? "disabled" : ""}>Bekijk resultaat</button>
         </section>
       `;
       view.querySelectorAll("[data-option]").forEach((button) => {
@@ -2791,7 +2791,7 @@
             </div>
           ` : ""}
           <div class="row" style="justify-content:center;">
-            <button class="secondary" id="downloadBtn" type="button">NotebookLM Data</button>
+            <button class="secondary" id="downloadBtn" type="button">Gegevens voor NotebookLM</button>
             <button class="primary" id="againBtn" type="button">Opnieuw</button>
           </div>
         </section>
@@ -2808,12 +2808,12 @@
     function downloadData() {
       const story = state.pages.map((page, index) => `--- Pagina ${index + 1} ---\n${page.text}`).join("\n\n");
       const quiz = state.quiz.map((q, index) => `Vraag ${index + 1}: ${q.question}\nAntwoord: ${state.answers[index] || "Niet beantwoord"}\nCorrect: ${q.answer}`).join("\n\n");
-      const content = `NT2 Research Data\nStudent ID: ${state.userProfile.studentId}\n\n[VERHAAL]\n${story}\n\n[QUIZ]\n${quiz}`;
+      const content = `NT2 onderzoeksgegevens\nStudentnummer: ${state.userProfile.studentId}\n\n[VERHAAL]\n${story}\n\n[QUIZ]\n${quiz}`;
       const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `NT2_Data_${state.userProfile.studentId}.txt`;
+      a.download = `NT2_Gegevens_${state.userProfile.studentId}.txt`;
       a.click();
       URL.revokeObjectURL(url);
     }
