@@ -1,4 +1,4 @@
-const CACHE_NAME = "nt2-groningen-v49-highres-story-images-v1";
+const CACHE_NAME = "nt2-groningen-v50-highres-story-images-v2";
 
 const CORE_ASSETS = [
   "./",
