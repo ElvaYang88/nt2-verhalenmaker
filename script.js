@@ -1,4 +1,12 @@
+    function isBenignResizeObserverError(message) {
+      return /ResizeObserver loop (completed with undelivered notifications|limit exceeded)/i.test(String(message || ""));
+    }
+
     window.addEventListener("error", (event) => {
+      if (isBenignResizeObserverError(event.message)) {
+        event.preventDefault();
+        return;
+      }
       const box = document.getElementById("errorBox");
       const text = document.getElementById("errorText");
       if (box && text) {
@@ -9,7 +17,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=first-story-polish-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=first-story-polish-v2").catch(() => {});
       });
     }
 
