@@ -17,7 +17,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=first-story-polish-v2").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=home-compact-v1").catch(() => {});
       });
     }
 
@@ -4054,7 +4054,7 @@
                                     "oplaadbaar",
                                     "opschalen"
                               ],
-                              "text": "Omdat haar lampje oplaadbaar is, neemt Mila het mee naar het repair cafe. De organisatie wil het project opschalen. Er komen extra tafels. Wanneer meer bewoners meedoen, kan de middag elke maand doorgaan."
+                              "text": "Omdat zijn lampje oplaadbaar is, neemt Amir het mee naar het repair cafe. De organisatie wil het project opschalen. Er komen extra tafels. Wanneer meer bewoners meedoen, kan de middag elke maand doorgaan."
                         },
                         {
                               "scene": "Pagina 2",
@@ -4062,7 +4062,7 @@
                                     "overheid",
                                     "reparateur"
                               ],
-                              "text": "De overheid geeft subsidie, omdat repareren afval kan verminderen. Een reparateur bekijkt Mila's lampje. Mila wacht geduldig. Als hij het kapje opent, ziet zij hoe klein het probleem eigenlijk is."
+                              "text": "De overheid geeft subsidie, omdat repareren afval kan verminderen. Een reparateur bekijkt Amirs lampje. Amir wacht geduldig. Als hij het kapje opent, ziet Amir hoe klein het probleem eigenlijk is."
                         },
                         {
                               "scene": "Pagina 3",
@@ -4070,7 +4070,7 @@
                                     "reparatie",
                                     "repareren"
                               ],
-                              "text": "De reparatie duurt kort, terwijl Mila ondertussen nieuwe woorden oefent. Zij leert zelf een stekker repareren. De vrijwilliger blijft naast haar. Omdat hij rustig voordoet wat zij moet doen, durft zij het te proberen."
+                              "text": "De reparatie duurt kort, terwijl Amir ondertussen nieuwe woorden oefent. Hij leert zelf een stekker repareren. De vrijwilliger blijft naast hem. Omdat hij rustig voordoet wat Amir moet doen, durft hij het te proberen."
                         },
                         {
                               "scene": "Pagina 4",
@@ -4078,7 +4078,7 @@
                                     "steenkool",
                                     "stikstofuitstoot"
                               ],
-                              "text": "De docent noemt steenkool, omdat oude energiebronnen veel vervuiling geven. Stikstofuitstoot staat ook op de poster. Mila leest de woorden hardop. Wanneer voorbeelden uit Nederland erbij staan, begrijpt zij de discussie beter."
+                              "text": "De docent noemt steenkool, omdat oude energiebronnen veel vervuiling geven. Stikstofuitstoot staat ook op de poster. Amir leest de woorden hardop. Wanneer voorbeelden uit Nederland erbij staan, begrijpt hij de discussie beter."
                         },
                         {
                               "scene": "Pagina 5",
@@ -4086,7 +4086,7 @@
                                     "stimuleren",
                                     "technologie"
                               ],
-                              "text": "Het repair cafe wil bewoners stimuleren, omdat technologie niet meteen weggegooid hoeft te worden. Mila neemt haar lamp mee naar huis. Het licht werkt weer. Als zij 's avonds leert, voelt de kleine reparatie als een overwinning."
+                              "text": "Het repair cafe wil bewoners stimuleren, omdat technologie niet meteen weggegooid hoeft te worden. Amir neemt zijn lamp mee naar huis. Het licht werkt weer. Als hij 's avonds leert, voelt de kleine reparatie als een overwinning."
                         }
                   ],
                   "glossary": [
@@ -4133,12 +4133,12 @@
                   ],
                   "quiz": [
                         {
-                              "question": "Wat neemt Mila mee naar het repair cafe?",
+                              "question": "Wat neemt Amir mee naar het repair cafe?",
                               "options": [
                                     "Het is oplaadbaar en kan misschien gemaakt worden.",
-                                    "Zij wil het weggooien.",
-                                    "Zij wil een nieuwe tafel kopen.",
-                                    "Het is te groot voor huis."
+                                    "Hij wil het weggooien.",
+                                    "Hij wil een nieuwe tafel kopen.",
+                                    "Het is te groot voor in huis."
                               ],
                               "answer": "Het is oplaadbaar en kan misschien gemaakt worden.",
                               "explanation": "Het lampje past bij het repair cafe.",
@@ -4152,7 +4152,7 @@
                               "options": [
                                     "Repareren kan afval verminderen.",
                                     "De reparateur wil koffie.",
-                                    "Mila wil een cadeau.",
+                                    "Amir wil een cadeau.",
                                     "De winkel is dicht."
                               ],
                               "answer": "Repareren kan afval verminderen.",
@@ -4163,14 +4163,14 @@
                               ]
                         },
                         {
-                              "question": "Wat doet de vrijwilliger zodat Mila durft te oefenen?",
+                              "question": "Wat doet de vrijwilliger zodat Amir durft te oefenen?",
                               "options": [
-                                    "De vrijwilliger doet rustig voor wat zij moet doen.",
+                                    "De vrijwilliger doet rustig voor wat Amir moet doen.",
                                     "Niemand kijkt mee.",
-                                    "Zij heeft haast.",
+                                    "Hij heeft haast.",
                                     "De stekker is niet kapot."
                               ],
-                              "answer": "De vrijwilliger doet rustig voor wat zij moet doen.",
+                              "answer": "De vrijwilliger doet rustig voor wat Amir moet doen.",
                               "explanation": "Rustige begeleiding helpt.",
                               "relatedWords": [
                                     "reparatie",
@@ -4178,7 +4178,7 @@
                               ]
                         },
                         {
-                              "question": "Wat maakt de poster voor Mila duidelijker?",
+                              "question": "Wat maakt de poster voor Amir duidelijker?",
                               "options": [
                                     "Er staan voorbeelden uit Nederland bij.",
                                     "De poster heeft geen tekst.",
@@ -4193,11 +4193,11 @@
                               ]
                         },
                         {
-                              "question": "Wat voelt voor Mila als een overwinning?",
+                              "question": "Wat voelt voor Amir als een overwinning?",
                               "options": [
                                     "Dat het lampje weer werkt.",
-                                    "Dat zij de lamp weggooit.",
-                                    "Dat zij minder licht heeft.",
+                                    "Dat hij de lamp weggooit.",
+                                    "Dat hij minder licht heeft.",
                                     "Dat het cafe sluit."
                               ],
                               "answer": "Dat het lampje weer werkt.",
@@ -4412,7 +4412,7 @@
                                     "waterkering",
                                     "waterstof"
                               ],
-                              "text": "Omdat de klas een waterkering bezoekt, ziet Mila hoe Nederland zich tegen water beschermt. Waterstof staat op een informatiebord. De gids spreekt langzaam. Wanneer hij over nieuwe energie praat, schrijft Mila alleen de kernwoorden op."
+                              "text": "Omdat de klas een waterkering bezoekt, ziet Amir hoe Nederland zich tegen water beschermt. Waterstof staat op een informatiebord. De gids spreekt langzaam. Wanneer hij over nieuwe energie praat, schrijft Amir alleen de kernwoorden op."
                         },
                         {
                               "scene": "Pagina 2",
@@ -4420,7 +4420,7 @@
                                     "weggooien",
                                     "witgoed"
                               ],
-                              "text": "Mila wil haar oude koelkast niet weggooien, omdat repareren misschien nog kan. Witgoed kost veel geld. Zij belt een monteur. Als het apparaat te veel stroom gebruikt, denkt zij toch na over vervangen."
+                              "text": "Amir wil zijn oude koelkast niet weggooien, omdat repareren misschien nog kan. Witgoed kost veel geld. Hij belt een monteur. Als het apparaat te veel stroom gebruikt, denkt hij toch na over vervangen."
                         },
                         {
                               "scene": "Pagina 3",
@@ -4428,7 +4428,7 @@
                                     "witgoedwinkel",
                                     "zeespiegel"
                               ],
-                              "text": "In de witgoedwinkel vraagt Mila naar zuinige modellen, terwijl buiten de regen tegen het raam tikt. De zeespiegel lijkt ver weg. De verkoper wijst naar het label. Omdat energie thuis ook invloed heeft, voelt het onderwerp ineens dichtbij."
+                              "text": "In de witgoedwinkel vraagt Amir naar zuinige modellen, terwijl buiten de regen tegen het raam tikt. De zeespiegel lijkt ver weg. De verkoper wijst naar het label. Omdat energie thuis ook invloed heeft, voelt het onderwerp ineens dichtbij."
                         },
                         {
                               "scene": "Pagina 4",
@@ -4436,7 +4436,7 @@
                                     "zeespiegelstijging",
                                     "zich verenigen"
                               ],
-                              "text": "Wanneer zeespiegelstijging doorgaat, moeten bewoners zich verenigen, zegt de gids tijdens de excursie. Mila denkt aan haar straat. De groep loopt verder. Wanneer mensen samen vragen stellen, krijgen ze duidelijker antwoord."
+                              "text": "Wanneer zeespiegelstijging doorgaat, moeten bewoners zich verenigen, zegt de gids tijdens de excursie. Amir denkt aan zijn straat. De groep loopt verder. Wanneer mensen samen vragen stellen, krijgen ze duidelijker antwoord."
                         },
                         {
                               "scene": "Pagina 5",
@@ -4444,7 +4444,7 @@
                                     "zuivel",
                                     "zuivering"
                               ],
-                              "text": "Mila koopt minder zuivel, omdat haar klas bespreekt hoeveel water voedsel kost. Zuivering maakt vies water schoon. Zij vult haar fles. Terwijl zij drinkt, beseft zij hoe gewoon schoon water soms lijkt."
+                              "text": "Amir koopt minder zuivel, omdat zijn klas bespreekt hoeveel water voedsel kost. Zuivering maakt vies water schoon. Hij vult zijn fles. Terwijl hij drinkt, beseft hij hoe gewoon schoon water soms lijkt."
                         }
                   ],
                   "glossary": [
@@ -4491,7 +4491,7 @@
                   ],
                   "quiz": [
                         {
-                              "question": "Wat ziet Mila bij de waterkering?",
+                              "question": "Wat ziet Amir bij de waterkering?",
                               "options": [
                                     "Hoe Nederland zich tegen water beschermt.",
                                     "Hoe een koelkast werkt.",
@@ -4506,15 +4506,15 @@
                               ]
                         },
                         {
-                              "question": "Wat doet Mila voordat zij haar koelkast eventueel vervangt?",
+                              "question": "Wat doet Amir voordat hij zijn koelkast eventueel vervangt?",
                               "options": [
                                     "Repareren kan misschien nog.",
-                                    "Zij heeft geen keuken.",
+                                    "Hij heeft geen keuken.",
                                     "Witgoed is altijd gratis.",
-                                    "De monteur is haar docent."
+                                    "De monteur is zijn docent."
                               ],
                               "answer": "Repareren kan misschien nog.",
-                              "explanation": "Zij belt eerst een monteur.",
+                              "explanation": "Hij belt eerst een monteur.",
                               "relatedWords": [
                                     "weggooien",
                                     "witgoed"
@@ -4554,7 +4554,7 @@
                               "question": "Wat bespreekt de klas over voedsel en water?",
                               "options": [
                                     "De klas bespreekt hoeveel water voedsel kost.",
-                                    "Zij lust geen water.",
+                                    "Hij lust geen water.",
                                     "De winkel is dicht.",
                                     "Zuivering is duur."
                               ],
@@ -4770,7 +4770,7 @@
                                     "Het staat of valt met",
                                     "Het zit me dwars"
                               ],
-                              "text": "Het staat of valt met duidelijke afspraken, omdat Mila met drie huisgenoten woont. Het zit me dwars, zegt zij zacht. De verwarming staat hoog. Wanneer niemand zich verantwoordelijk voelt, blijft het raam toch open."
+                              "text": "Het staat of valt met duidelijke afspraken, omdat Amir met drie huisgenoten woont. Het zit me dwars, zegt hij zacht. De verwarming staat hoog. Wanneer niemand zich verantwoordelijk voelt, blijft het raam toch open."
                         },
                         {
                               "scene": "Pagina 2",
@@ -4778,7 +4778,7 @@
                                     "Hoe je het ook wendt of keert",
                                     "iets hoog op de agenda hebben staan"
                               ],
-                              "text": "Hoe je het ook wendt of keert, de energierekening moet omlaag. Besparen staat hoog op de agenda. Mila maakt thee. Omdat iedereen iets anders gewend is, beginnen ze met een simpel schema."
+                              "text": "Hoe je het ook wendt of keert, de energierekening moet omlaag. Besparen staat hoog op de agenda. Amir maakt thee. Omdat iedereen iets anders gewend is, beginnen ze met een simpel schema."
                         },
                         {
                               "scene": "Pagina 3",
@@ -4786,7 +4786,7 @@
                                     "iets in de fik zetten",
                                     "in een opwelling"
                               ],
-                              "text": "Niemand mag iets in de fik zetten, terwijl er oude dozen bij de schuur staan. Een buurjongen deed dat ooit in een opwelling. Mila kijkt ernstig. Omdat veiligheid ook duurzaamheid is, komt er een extra ronde door de berging."
+                              "text": "Niemand mag iets in de fik zetten, terwijl er oude dozen bij de schuur staan. Een buurjongen deed dat ooit in een opwelling. Amir kijkt ernstig. Omdat veiligheid ook duurzaamheid is, komt er een extra ronde door de berging."
                         },
                         {
                               "scene": "Pagina 4",
@@ -4794,7 +4794,7 @@
                                     "met name",
                                     "op energie besparen"
                               ],
-                              "text": "Met name in de winter willen de bewoners op energie besparen, omdat de kosten dan stijgen. Mila koopt tochtstrip. De deur sluit beter. Wanneer de woonkamer warmer blijft, hoeft de verwarming minder hoog."
+                              "text": "Met name in de winter willen de bewoners op energie besparen, omdat de kosten dan stijgen. Amir koopt tochtstrip. De deur sluit beter. Wanneer de woonkamer warmer blijft, hoeft de verwarming minder hoog."
                         },
                         {
                               "scene": "Pagina 5",
@@ -4802,7 +4802,7 @@
                                     "op gas stoken",
                                     "op lange termijn"
                               ],
-                              "text": "Het huis blijft voorlopig op gas stoken, omdat de verhuurder nog geen warmtepomp plaatst. Op lange termijn willen de bewoners anders wonen. Mila bewaart de notities. Wanneer zij later verhuist, weet zij beter welke vragen zij kan stellen."
+                              "text": "Het huis blijft voorlopig op gas stoken, omdat de verhuurder nog geen warmtepomp plaatst. Op lange termijn willen de bewoners anders wonen. Amir bewaart de notities. Wanneer hij later verhuist, weet hij beter welke vragen hij kan stellen."
                         }
                   ],
                   "glossary": [
@@ -4849,14 +4849,14 @@
                   ],
                   "quiz": [
                         {
-                              "question": "Wat maakt duidelijke afspraken in Mila's huis nodig?",
+                              "question": "Wat maakt duidelijke afspraken in Amirs huis nodig?",
                               "options": [
-                                    "Mila woont met drie huisgenoten.",
-                                    "Mila woont alleen.",
+                                    "Amir woont met drie huisgenoten.",
+                                    "Amir woont alleen.",
                                     "De verwarming is nieuw.",
                                     "Het raam kan niet open."
                               ],
-                              "answer": "Mila woont met drie huisgenoten.",
+                              "answer": "Amir woont met drie huisgenoten.",
                               "explanation": "Samen wonen vraagt duidelijke regels.",
                               "relatedWords": [
                                     "Het staat of valt met",
@@ -4883,7 +4883,7 @@
                               "options": [
                                     "Veiligheid hoort ook bij duurzaamheid.",
                                     "De dozen zijn nieuw.",
-                                    "Mila zoekt haar jas.",
+                                    "Amir zoekt zijn jas.",
                                     "De buurjongen geeft een feest."
                               ],
                               "answer": "Veiligheid hoort ook bij duurzaamheid.",
@@ -4897,7 +4897,7 @@
                               "question": "Wat verandert er door de tochtstrip?",
                               "options": [
                                     "De deur sluit dan beter en de kamer blijft warmer.",
-                                    "Zij wil de deur versieren.",
+                                    "Hij wil de deur versieren.",
                                     "De verwarming moet hoger.",
                                     "De winter is voorbij."
                               ],
@@ -4909,15 +4909,15 @@
                               ]
                         },
                         {
-                              "question": "Waarvoor bewaart Mila de notities?",
+                              "question": "Waarvoor bewaart Amir de notities?",
                               "options": [
-                                    "Zij wil later betere vragen stellen bij een woning.",
-                                    "Zij wil ze weggooien.",
-                                    "Zij gaat stoppen met huren.",
+                                    "Hij wil later betere vragen stellen bij een woning.",
+                                    "Hij wil ze weggooien.",
+                                    "Hij gaat stoppen met huren.",
                                     "De verhuurder vraagt om thee."
                               ],
-                              "answer": "Zij wil later betere vragen stellen bij een woning.",
-                              "explanation": "Op lange termijn wil zij bewuster wonen.",
+                              "answer": "Hij wil later betere vragen stellen bij een woning.",
+                              "explanation": "Op lange termijn wil hij bewuster wonen.",
                               "relatedWords": [
                                     "op gas stoken",
                                     "op lange termijn"
@@ -4949,7 +4949,7 @@
                                     "tal van",
                                     "uit zijn voegen barsten"
                               ],
-                              "text": "Er zijn tal van ideeën, omdat de straat samen groener wil worden. De fietsenstalling barst uit zijn voegen. Mila telt de plekken. Wanneer bewoners ruimte maken voor bakfietsen, blijft de stoep beter vrij."
+                              "text": "Er zijn tal van ideeën, omdat de straat samen groener wil worden. De fietsenstalling barst uit zijn voegen. Amir telt de plekken. Wanneer bewoners ruimte maken voor bakfietsen, blijft de stoep beter vrij."
                         },
                         {
                               "scene": "Pagina 2",
@@ -4957,7 +4957,7 @@
                                     "van ondergeschikt belang zijn",
                                     "We moeten actie ondernemen"
                               ],
-                              "text": "De kleur van de bakken is van ondergeschikt belang, terwijl duidelijk gebruik juist telt. We moeten actie ondernemen. Mila zegt het rustig. Omdat iedereen hetzelfde probleem ziet, begint de groep meteen met verdelen."
+                              "text": "De kleur van de bakken is van ondergeschikt belang, terwijl duidelijk gebruik juist telt. We moeten actie ondernemen. Amir zegt het rustig. Omdat iedereen hetzelfde probleem ziet, begint de groep meteen met verdelen."
                         },
                         {
                               "scene": "Pagina 3",
@@ -4965,7 +4965,7 @@
                                     "Wie het kleine niet eert, is het grote niet weerd",
                                     "duurzaamheid"
                               ],
-                              "text": "Wie het kleine niet eert, is het grote niet weerd. Duurzaamheid begint bij gewoontes. Mila hangt een briefje op. Wanneer iemand het licht vergeet, wijst het briefje vriendelijk naar de schakelaar."
+                              "text": "Wie het kleine niet eert, is het grote niet weerd. Duurzaamheid begint bij gewoontes. Amir hangt een briefje op. Wanneer iemand het licht vergeet, wijst het briefje vriendelijk naar de schakelaar."
                         },
                         {
                               "scene": "Pagina 4",
@@ -4981,7 +4981,7 @@
                                     "voedselverspilling",
                                     "waterbeheer"
                               ],
-                              "text": "Mila koppelt voedselverspilling aan waterbeheer, omdat eten maken ook veel water vraagt. De groep maakt een deelplank. Er liggen appels op. Wanneer de avond klaar is, neemt niemand meer dan nodig mee."
+                              "text": "Amir koppelt voedselverspilling aan waterbeheer, omdat eten maken ook veel water vraagt. De groep maakt een deelplank. Er liggen appels op. Wanneer de avond klaar is, neemt niemand meer dan nodig mee."
                         }
                   ],
                   "glossary": [
@@ -5028,10 +5028,10 @@
                   ],
                   "quiz": [
                         {
-                              "question": "Wat valt Mila op aan de fietsenstalling?",
+                              "question": "Wat valt Amir op aan de fietsenstalling?",
                               "options": [
                                     "De stalling is veel te vol.",
-                                    "Zij zoekt een appel.",
+                                    "Hij zoekt een appel.",
                                     "De straat is leeg.",
                                     "De bakfietsen zijn verboden."
                               ],
@@ -5088,7 +5088,7 @@
                               ]
                         },
                         {
-                              "question": "Welk verband legt Mila tussen voedsel en water?",
+                              "question": "Welk verband legt Amir tussen voedsel en water?",
                               "options": [
                                     "Eten maken vraagt ook veel water.",
                                     "Appels groeien in de fietsenstalling.",
@@ -6309,23 +6309,27 @@
           <div>
             <h1>Dompel jezelf onder in<br><span>Groningen.</span></h1>
             <p>Kies een onderwerp uit <em>De finale</em>. Daarna zie je de korte verhalen die bij dat onderwerp horen.</p>
-            ${lastActivity ? `
-              <div class="continue-banner">
-                <div>
-                  <strong>Laatste activiteit</strong>
-                  <span>${escapeHtml(lastActivity.themeTitle)} — ${escapeHtml(lastActivity.topic)} · pagina ${(lastActivity.pageIndex || 0) + 1}</span>
-                </div>
-                <button class="primary" type="button" id="continueBtn">Doorgaan</button>
+            ${lastActivity || difficultCount ? `
+              <div class="home-action-row ${lastActivity && difficultCount ? "two-actions" : "single-action"}">
+                ${lastActivity ? `
+                  <div class="continue-banner">
+                    <div>
+                      <strong>Laatste activiteit</strong>
+                      <span>${escapeHtml(lastActivity.themeTitle)} — ${escapeHtml(lastActivity.topic)} · pagina ${(lastActivity.pageIndex || 0) + 1}</span>
+                    </div>
+                    <button class="primary" type="button" id="continueBtn">Doorgaan</button>
+                  </div>
+                ` : ""}
+                ${difficultCount ? `
+                  <div class="quick-card ${difficultCount ? "" : "empty"}">
+                    <div>
+                      <strong>Mijn moeilijke woorden</strong>
+                      <span>${difficultCount} woord${difficultCount === 1 ? "" : "en"} uit foute quizvragen.</span>
+                    </div>
+                    <button class="secondary" type="button" id="difficultPracticeBtn">Oefen moeilijke woorden</button>
+                  </div>
+                ` : ""}
               </div>
-            ` : ""}
-            ${difficultCount ? `
-            <div class="home-actions one-action">
-              <div class="quick-card ${difficultCount ? "" : "empty"}">
-                <strong>Mijn moeilijke woorden</strong>
-                <span>${difficultCount} woord${difficultCount === 1 ? "" : "en"} uit foute quizvragen.</span>
-                <button class="secondary" type="button" id="difficultPracticeBtn">Oefen moeilijke woorden</button>
-              </div>
-            </div>
             ` : ""}
           </div>
           <div class="theme-grid">
