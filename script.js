@@ -17,7 +17,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=home-compact-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=difficult-card-simple-v1").catch(() => {});
       });
     }
 
@@ -6315,17 +6315,13 @@
                   <div class="continue-banner">
                     <div>
                       <strong>Laatste activiteit</strong>
-                      <span>${escapeHtml(lastActivity.themeTitle)} — ${escapeHtml(lastActivity.topic)} · pagina ${(lastActivity.pageIndex || 0) + 1}</span>
+                      <span>${escapeHtml(lastActivity.topic)} · pagina ${(lastActivity.pageIndex || 0) + 1}</span>
                     </div>
                     <button class="primary" type="button" id="continueBtn">Doorgaan</button>
                   </div>
                 ` : ""}
                 ${difficultCount ? `
-                  <div class="quick-card ${difficultCount ? "" : "empty"}">
-                    <div>
-                      <strong>Mijn moeilijke woorden</strong>
-                      <span>${difficultCount} woord${difficultCount === 1 ? "" : "en"} uit foute quizvragen.</span>
-                    </div>
+                  <div class="quick-card simple-action">
                     <button class="secondary" type="button" id="difficultPracticeBtn">Oefen moeilijke woorden</button>
                   </div>
                 ` : ""}
