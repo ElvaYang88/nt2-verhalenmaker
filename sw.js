@@ -1,4 +1,4 @@
-const CACHE_NAME = "nt2-groningen-v58-home-simple-actions-v1";
+const CACHE_NAME = "nt2-groningen-v59-theme6-images-part1-v1";
 
 const CORE_ASSETS = [
   "./",
