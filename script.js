@@ -17,7 +17,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=theme6-images-part1-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=theme6-complete-v1").catch(() => {});
       });
     }
 
@@ -5363,7 +5363,7 @@
     });
     Object.entries(theme56Imported.stories).forEach(([key, data]) => {
       stories[key] = makeStory(data.chapter, data.title, data.vocab, data.pages, data.glossary, data.quiz, data.color);
-      stories[key].assetPending = ["6-Aan zee denken", "6-De groene buurtavond", "6-Kleine keuzes", "6-Actie in de straat"].includes(key);
+      stories[key].assetPending = false;
     });
     // END THEMA 5-6 IMPORTED STORIES
 
