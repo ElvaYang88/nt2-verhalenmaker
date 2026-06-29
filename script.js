@@ -17,7 +17,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=theme6-complete-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=image-polish-v1").catch(() => {});
       });
     }
 
