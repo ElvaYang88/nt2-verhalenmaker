@@ -17,7 +17,7 @@
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js?v=theme56-audio-text-v1").catch(() => {});
+        navigator.serviceWorker.register("./sw.js?v=theme56-connectors-v1").catch(() => {});
       });
     }
 
@@ -1369,7 +1369,7 @@
                                     "aanvaring",
                                     "acceptabel"
                               ],
-                              "text": "Mila gaat naar het wijkloket, omdat er gisteren een kleine aanvaring was over fietsen in de gang. De toon van het gesprek blijft acceptabel. Terwijl de medewerker luistert, legt Mila uit dat veel nieuwkomers de huisregels nog leren. Iedereen krijgt koffie."
+                              "text": "Mila gaat naar het wijkloket, want gisteren was er een kleine aanvaring over fietsen in de gang. De toon van het gesprek blijft acceptabel. Terwijl de medewerker luistert, legt Mila uit dat veel nieuwkomers de huisregels nog leren. Iedereen krijgt koffie."
                         },
                         {
                               "scene": "Pagina 2",
@@ -1377,7 +1377,7 @@
                                     "achterstand",
                                     "afdoende"
                               ],
-                              "text": "Een korte uitleg aan tafel is afdoende. Omdat Mila de brieven van de woningbouw soms laat begrijpt, heeft zij een kleine achterstand. De medewerker print het formulier. Wanneer Mila de stappen hardop herhaalt, merkt zij dat de spanning zakt."
+                              "text": "Een korte uitleg aan tafel is afdoende. Mila begrijpt de brieven van de woningbouw soms laat en heeft daardoor een kleine achterstand. De medewerker print het formulier. Wanneer Mila de stappen hardop herhaalt, merkt zij dat de spanning zakt."
                         },
                         {
                               "scene": "Pagina 3",
@@ -1393,7 +1393,7 @@
                                     "beleidsontwikkeling",
                                     "beschikken over"
                               ],
-                              "text": "Mila wil beschikken over goede informatie. Bij de beleidsontwikkeling vraagt de gemeente bewoners wat zij dagelijks nodig hebben. Omdat de regels invloed hebben op huurders, mogen bewoners zelf voorbeelden noemen. De buurman knikt rustig."
+                              "text": "Mila wil beschikken over goede informatie. Bij de beleidsontwikkeling vraagt de gemeente bewoners wat zij dagelijks nodig hebben. De regels hebben invloed op huurders, dus mogen bewoners zelf voorbeelden noemen. De buurman knikt rustig."
                         },
                         {
                               "scene": "Pagina 5",
@@ -1548,7 +1548,7 @@
                                     "bevolking",
                                     "bevolkingsgroei"
                               ],
-                              "text": "De bevolkingsgroei is zichtbaar op straat. Omdat de bevolking in de wijk groeit, organiseert het buurthuis een avond over ruimte. Er komen nieuwe fietsenrekken bij. Terwijl Mila naar de kaart kijkt, vertelt een planner waar nieuwe woningen kunnen komen."
+                              "text": "De bevolkingsgroei is zichtbaar op straat. De bevolking in de wijk groeit, dus organiseert het buurthuis een avond over ruimte. Er komen nieuwe fietsenrekken bij. Terwijl Mila naar de kaart kijkt, vertelt een planner waar nieuwe woningen kunnen komen."
                         },
                         {
                               "scene": "Pagina 2",
@@ -1556,7 +1556,7 @@
                                     "botbreuk",
                                     "directie"
                               ],
-                              "text": "Een oudere buurvrouw heeft een botbreuk, omdat zij over een losse stoeptegel viel. Wanneer de buurvrouw haar foto laat zien, wordt het probleem voor iedereen duidelijk. De directie van de woningbouw komt luisteren. Mila schuift haar stoel dichterbij."
+                              "text": "Een oudere buurvrouw heeft een botbreuk na een val over een losse stoeptegel. Wanneer de buurvrouw haar foto laat zien, wordt het probleem voor iedereen duidelijk. De directie van de woningbouw komt luisteren. Mila schuift haar stoel dichterbij."
                         },
                         {
                               "scene": "Pagina 3",
@@ -1564,7 +1564,7 @@
                                     "drempel",
                                     "evenals"
                               ],
-                              "text": "Mila stelt een vraag, evenals haar buurman. Voor veel bewoners is de drempel laag, omdat de avond in gewone taal wordt gehouden. Als iemand te snel praat, vraagt de begeleider vriendelijk om een voorbeeld. De zaal blijft rustig."
+                              "text": "Mila stelt een vraag, evenals haar buurman. Voor veel bewoners is de drempel laag, want de avond is in gewone taal. Als iemand te snel praat, vraagt de begeleider vriendelijk om een voorbeeld. De zaal blijft rustig."
                         },
                         {
                               "scene": "Pagina 4",
@@ -1572,7 +1572,7 @@
                                     "fenomeen",
                                     "hemelsbreed"
                               ],
-                              "text": "De planner noemt drukte rond scholen een bekend fenomeen, terwijl hij rode punten op de kaart zet. De route is toch lang. Omdat er water en spoor tussen liggen, moeten kinderen vaak omrijden. De nieuwe school ligt hemelsbreed dichtbij."
+                              "text": "De planner noemt drukte rond scholen een bekend fenomeen, terwijl hij rode punten op de kaart zet. De route is toch lang. Er ligt water en spoor tussen de wijken, dus moeten kinderen vaak omrijden. De nieuwe school ligt hemelsbreed dichtbij."
                         },
                         {
                               "scene": "Pagina 5",
@@ -1580,7 +1580,7 @@
                                     "infrastructuur",
                                     "inzet"
                               ],
-                              "text": "De infrastructuur moet beter worden, omdat fietsen en bussen nu vaak vastlopen. De inzet van bewoners maakt indruk. Wanneer zij later naar huis loopt, ziet zij dezelfde straten met andere ogen. Mila noteert de afspraken."
+                              "text": "De infrastructuur moet beter worden, want fietsen en bussen lopen nu vaak vast. De inzet van bewoners maakt indruk. Wanneer zij later naar huis loopt, ziet zij dezelfde straten met andere ogen. Mila noteert de afspraken."
                         }
                   ],
                   "glossary": [
@@ -1727,7 +1727,7 @@
                                     "klantvriendelijk",
                                     "kwalijk"
                               ],
-                              "text": "Mila belt de gemeente, omdat zij wil weten wanneer de kapotte lamp wordt gemaakt. Terwijl zij haar melding noteert, vraagt hij of meer bewoners dezelfde plek onveilig vinden. De medewerker klinkt klantvriendelijk. Het lange wachten vindt zij kwalijk."
+                              "text": "Mila belt de gemeente om te vragen wanneer de kapotte lamp wordt gemaakt. Terwijl zij haar melding noteert, vraagt hij of meer bewoners dezelfde plek onveilig vinden. De medewerker klinkt klantvriendelijk. Het lange wachten vindt zij kwalijk."
                         },
                         {
                               "scene": "Pagina 2",
@@ -1735,7 +1735,7 @@
                                     "kwetsbaar",
                                     "leefbaarheid"
                               ],
-                              "text": "De leefbaarheid van de straat gaat omlaag. Omdat de stoep donker is, voelt wie kwetsbaar is zich niet veilig. Wanneer de straat beter verlicht is, durven mensen weer later naar huis te lopen. Mila ziet lege fietsenrekken."
+                              "text": "De leefbaarheid van de straat gaat omlaag. De stoep is donker, en wie kwetsbaar is voelt zich daardoor niet veilig. Wanneer de straat beter verlicht is, durven mensen weer later naar huis te lopen. Mila ziet lege fietsenrekken."
                         },
                         {
                               "scene": "Pagina 3",
@@ -1743,7 +1743,7 @@
                                     "namens",
                                     "nauw"
                               ],
-                              "text": "Mila spreekt namens drie buren, omdat zij hun opmerkingen heeft verzameld. De ambtenaar luistert aandachtig. Als iemand een datum niet weet, controleert Mila rustig de appgroep. Zij leest de namen nauw voor."
+                              "text": "Mila heeft de opmerkingen van drie buren verzameld en spreekt namens hen. De ambtenaar luistert aandachtig. Als iemand een datum niet weet, controleert Mila rustig de appgroep. Zij leest de namen nauw voor."
                         },
                         {
                               "scene": "Pagina 4",
@@ -1751,7 +1751,7 @@
                                     "nauwelijks",
                                     "nieuwsbrief"
                               ],
-                              "text": "De melding viel nauwelijks op, omdat hij alleen op een kleine website stond. Mila vraagt om een nieuwsbrief. Wanneer de informatie per mail komt, kunnen meer bewoners op tijd reageren. De buurman maakt thee."
+                              "text": "De melding stond alleen op een kleine website en viel daardoor nauwelijks op. Mila vraagt om een nieuwsbrief. Wanneer de informatie per mail komt, kunnen meer bewoners op tijd reageren. De buurman maakt thee."
                         },
                         {
                               "scene": "Pagina 5",
@@ -1759,7 +1759,7 @@
                                     "omfietsen",
                                     "onderling"
                               ],
-                              "text": "De buren spreken onderling een veilige route af. Tot de lamp gemaakt is, moeten kinderen omfietsen langs de brede weg. Mila tekent de route. Omdat iedereen een stukje helpt, voelt de straat meteen minder anoniem."
+                              "text": "De buren spreken onderling een veilige route af. Tot de lamp gemaakt is, moeten kinderen omfietsen langs de brede weg. Mila tekent de route. Iedereen helpt een stukje mee, en daardoor voelt de straat meteen minder anoniem."
                         }
                   ],
                   "glossary": [
@@ -1906,7 +1906,7 @@
                                     "ondersteuning",
                                     "ongeval"
                               ],
-                              "text": "Mila helpt bij de vertaling. Omdat er bij de school een ongeval is gebeurd, vraagt de directeur extra ondersteuning. Terwijl de kinderen buiten spelen, bespreekt de groep een veiligere route. De ouders zijn geschrokken."
+                              "text": "Mila helpt bij de vertaling. Bij de school is een ongeval gebeurd, dus vraagt de directeur extra ondersteuning. Terwijl de kinderen buiten spelen, bespreekt de groep een veiligere route. De ouders zijn geschrokken."
                         },
                         {
                               "scene": "Pagina 2",
@@ -1914,7 +1914,7 @@
                                     "opheffen",
                                     "ouderavond"
                               ],
-                              "text": "De gemeente wil de halte opheffen, omdat er volgens de telling weinig mensen instappen. Mila neemt haar agenda mee. Wanneer ouders hun verhalen delen, blijkt dat de telling niet alles laat zien. De school plant een ouderavond."
+                              "text": "De gemeente wil de halte opheffen, want volgens de telling stappen er weinig mensen in. Mila neemt haar agenda mee. Wanneer ouders hun verhalen delen, blijkt dat de telling niet alles laat zien. De school plant een ouderavond."
                         },
                         {
                               "scene": "Pagina 3",
@@ -1922,7 +1922,7 @@
                                     "ouderraad",
                                     "ov-abonnement"
                               ],
-                              "text": "De ouderraad schrijft een brief, omdat veel kinderen afhankelijk zijn van de bus. Mila toont haar ov-abonnement. Als andere ouders hetzelfde doen, krijgt de brief meer gewicht. De voorzitter maakt kopieën."
+                              "text": "Veel kinderen zijn afhankelijk van de bus, dus schrijft de ouderraad een brief. Mila toont haar ov-abonnement. Als andere ouders hetzelfde doen, krijgt de brief meer gewicht. De voorzitter maakt kopieën."
                         },
                         {
                               "scene": "Pagina 4",
@@ -1930,7 +1930,7 @@
                                     "overigens",
                                     "pendelbus"
                               ],
-                              "text": "De chauffeur kent de route goed. Overigens komt de pendelbus vaak te vroeg, waardoor kinderen hem net missen. Mila wacht bij de halte. Omdat de tijden niet passen bij school, vragen ouders om een kleine aanpassing."
+                              "text": "De chauffeur kent de route goed. Overigens komt de pendelbus vaak te vroeg, waardoor kinderen hem net missen. Mila wacht bij de halte. De tijden passen niet bij school, daarom vragen ouders om een kleine aanpassing."
                         },
                         {
                               "scene": "Pagina 5",
@@ -2085,7 +2085,7 @@
                                     "planologie",
                                     "plantsoen"
                               ],
-                              "text": "Omdat de gemeente nieuwe huizen plant, volgt Mila een les over planologie. De klas zit bij het raam. Terwijl de docent de wijk aanwijst, ziet Mila hoe groen en woningen samen ruimte vragen. Het plantsoen blijft op de kaart staan."
+                              "text": "De gemeente plant nieuwe huizen, en daarom volgt Mila een les over planologie. De klas zit bij het raam. Terwijl de docent de wijk aanwijst, ziet Mila hoe groen en woningen samen ruimte vragen. Het plantsoen blijft op de kaart staan."
                         },
                         {
                               "scene": "Pagina 2",
@@ -2093,7 +2093,7 @@
                                     "pontje",
                                     "respectievelijk"
                               ],
-                              "text": "Omdat het pontje in de ochtend en middag respectievelijk om acht uur en vier uur vaart, schrijft Mila de tijden op. Zij controleert haar telefoon. Omdat de brug ver weg ligt, is het bootje belangrijk voor fietsers. De overkant lijkt dichtbij."
+                              "text": "Het pontje vaart in de ochtend en middag respectievelijk om acht uur en vier uur, dus schrijft Mila de tijden op. Zij controleert haar telefoon. De brug ligt ver weg, waardoor het bootje belangrijk is voor fietsers. De overkant lijkt dichtbij."
                         },
                         {
                               "scene": "Pagina 3",
@@ -2109,7 +2109,7 @@
                                     "spandoek",
                                     "straatverlichting"
                               ],
-                              "text": "Bewoners hangen een spandoek bij de kade, omdat zij de route veilig willen houden. Als het donker wordt, ziet iedereen meteen waar het probleem zit. De straatverlichting brandt zwak. Mila maakt een foto."
+                              "text": "Bewoners hangen een spandoek bij de kade om de route veilig te houden. Als het donker wordt, ziet iedereen meteen waar het probleem zit. De straatverlichting brandt zwak. Mila maakt een foto."
                         },
                         {
                               "scene": "Pagina 5",
@@ -2117,7 +2117,7 @@
                                     "uitgangspunt",
                                     "veerpont"
                               ],
-                              "text": "De zaal wordt stil. Omdat de veerpont bereikbaar moet blijven, is dat het uitgangspunt van de vergadering. Omdat zij dagelijks fietst, kan zij uitleggen wat de verbinding voor nieuwkomers betekent. Mila steekt haar hand op."
+                              "text": "De zaal wordt stil. De veerpont moet bereikbaar blijven, en dat is het uitgangspunt van de vergadering. Mila fietst er dagelijks en kan uitleggen wat de verbinding voor nieuwkomers betekent. Mila steekt haar hand op."
                         }
                   ],
                   "glossary": [
@@ -2264,7 +2264,7 @@
                                     "verschraling",
                                     "versnipperd"
                               ],
-                              "text": "Omdat kleine voorzieningen verdwijnen, praat de buurt over verschraling. De hulp is versnipperd. Wanneer zij drie adressen op een brief ziet, begrijpt zij waarom bewoners moe worden. Mila zoekt het juiste loket."
+                              "text": "Kleine voorzieningen verdwijnen, waardoor de buurt over verschraling praat. De hulp is versnipperd. Wanneer zij drie adressen op een brief ziet, begrijpt zij waarom bewoners moe worden. Mila zoekt het juiste loket."
                         },
                         {
                               "scene": "Pagina 2",
@@ -2272,7 +2272,7 @@
                                     "verzwakken",
                                     "voorkeur"
                               ],
-                              "text": "Mila heeft een duidelijke voorkeur. Omdat het spreekuur sluit, kan de band in de straat verzwakken. Zij wil hulp dichtbij. Omdat zij nog veel taal leert, voelt een bekend gezicht veiliger."
+                              "text": "Mila heeft een duidelijke voorkeur. Het spreekuur sluit, en daardoor kan de band in de straat verzwakken. Zij wil hulp dichtbij. Mila leert nog veel taal en voelt zich veiliger bij een bekend gezicht."
                         },
                         {
                               "scene": "Pagina 3",
@@ -2280,7 +2280,7 @@
                                     "vraagstuk",
                                     "wal"
                               ],
-                              "text": "Het vraagstuk wordt groter, omdat de wijk aan twee kanten van het water ligt. Wanneer het hard waait, durven sommige bewoners niet naar het centrum te fietsen. Aan de andere wal wonen veel ouderen. De brug is smal."
+                              "text": "Het vraagstuk wordt groter, want de wijk ligt aan twee kanten van het water. Wanneer het hard waait, durven sommige bewoners niet naar het centrum te fietsen. Aan de andere wal wonen veel ouderen. De brug is smal."
                         },
                         {
                               "scene": "Pagina 4",
@@ -2288,7 +2288,7 @@
                                     "wegbezuinigen",
                                     "welzijn"
                               ],
-                              "text": "Hun welzijn staat onder druk. De gemeente wil het kleine loket wegbezuinigen, terwijl bewoners juist meer vragen hebben. Omdat niemand buiten beeld mag raken, vraagt zij om een extra gesprek. Mila hoort stille stemmen."
+                              "text": "Hun welzijn staat onder druk. De gemeente wil het kleine loket wegbezuinigen, terwijl bewoners juist meer vragen hebben. Niemand mag buiten beeld raken, daarom vraagt zij om een extra gesprek. Mila hoort stille stemmen."
                         },
                         {
                               "scene": "Pagina 5",
@@ -2296,7 +2296,7 @@
                                     "wenselijk",
                                     "wijk"
                               ],
-                              "text": "Een vaste plek in de wijk is wenselijk, omdat bewoners elkaar daar makkelijk vinden. Mila glimlacht opgelucht. Wanneer de vergadering eindigt, blijft een groepje nog even napraten bij de deur. De voorzitter schrijft het op."
+                              "text": "Een vaste plek in de wijk is wenselijk, want bewoners vinden elkaar daar makkelijk. Mila glimlacht opgelucht. Wanneer de vergadering eindigt, blijft een groepje nog even napraten bij de deur. De voorzitter schrijft het op."
                         }
                   ],
                   "glossary": [
@@ -2443,7 +2443,7 @@
                                     "aangewezen zijn op",
                                     "alleen op afroep beschikbaar"
                               ],
-                              "text": "De bus is nu alleen op afroep beschikbaar. Als mensen aangewezen zijn op de buurtbus, wordt elke wijziging meteen belangrijk. Amir belt de planner. Omdat zijn uitspraak nog onzeker is, schrijft hij eerst de tijden op papier."
+                              "text": "De bus is nu alleen op afroep beschikbaar. Als mensen aangewezen zijn op de buurtbus, wordt elke wijziging meteen belangrijk. Amir belt de planner. Zijn uitspraak is nog onzeker, dus schrijft hij eerst de tijden op papier."
                         },
                         {
                               "scene": "Pagina 2",
@@ -2451,7 +2451,7 @@
                                     "Dat scheelt veel reistijd",
                                     "De drempel is laag"
                               ],
-                              "text": "Dat scheelt veel reistijd. Amir blijft na afloop even praten, terwijl de planner de nieuwe tijden opschrijft. De drempel is laag. Omdat de uitleg in gewone taal staat, durven ook stille bewoners iets te vragen."
+                              "text": "Dat scheelt veel reistijd. Amir blijft na afloop even praten, terwijl de planner de nieuwe tijden opschrijft. De drempel is laag. De uitleg staat in gewone taal, waardoor ook stille bewoners iets durven te vragen."
                         },
                         {
                               "scene": "Pagina 3",
@@ -2459,7 +2459,7 @@
                                     "de trossen losgooien",
                                     "een beroep doen op"
                               ],
-                              "text": "Amir wil een beroep doen op de gemeente. De groep wil de trossen losgooien, omdat wachten niets meer oplost. Wanneer iedereen een taak krijgt, wordt het plan opeens haalbaar. De buurvrouw pakt haar laptop."
+                              "text": "Amir wil een beroep doen op de gemeente. De groep wil de trossen losgooien, want wachten lost niets meer op. Wanneer iedereen een taak krijgt, wordt het plan opeens haalbaar. De buurvrouw pakt haar laptop."
                         },
                         {
                               "scene": "Pagina 4",
@@ -2467,7 +2467,7 @@
                                     "een beroep doen op iemand",
                                     "een groot gebied bestrijken"
                               ],
-                              "text": "Amir durft een beroep te doen op iemand uit de ouderraad, omdat die de wijk goed kent. De route is lang. Als de dienst slecht gepland is, missen bewoners afspraken bij school en dokter. De bus moet een groot gebied bestrijken."
+                              "text": "Amir durft een beroep te doen op iemand uit de ouderraad die de wijk goed kent. De route is lang. Als de dienst slecht gepland is, missen bewoners afspraken bij school en dokter. De bus moet een groot gebied bestrijken."
                         },
                         {
                               "scene": "Pagina 5",
@@ -2475,7 +2475,7 @@
                                     "een klacht indienen",
                                     "een scenario schetsen"
                               ],
-                              "text": "Amir helpt een klacht indienen, terwijl de buurman de voorbeelden verzamelt. De planner gaat een scenario schetsen. Omdat de groep rustig blijft, komt er ruimte voor een proef met extra ritten. Iedereen kijkt naar de kaart."
+                              "text": "Amir helpt een klacht indienen, terwijl de buurman de voorbeelden verzamelt. De planner gaat een scenario schetsen. De groep blijft rustig, en daardoor komt er ruimte voor een proef met extra ritten. Iedereen kijkt naar de kaart."
                         }
                   ],
                   "glossary": [
@@ -2622,7 +2622,7 @@
                                     "er zelf niet meer uitkomen",
                                     "heen en weer"
                               ],
-                              "text": "Omdat bewoners er zelf niet meer uitkomen, organiseert het buurthuis een gesprek. Terwijl mensen hun routes tekenen, ziet zij hoeveel tijd reizen kost. De bus rijdt heen en weer. Mila zit naast de kaart."
+                              "text": "Bewoners kunnen er zelf niet meer uitkomen, dus organiseert het buurthuis een gesprek. Terwijl mensen hun routes tekenen, ziet zij hoeveel tijd reizen kost. De bus rijdt heen en weer. Mila zit naast de kaart."
                         },
                         {
                               "scene": "Pagina 2",
@@ -2630,7 +2630,7 @@
                                     "Het gaat ons allemaal aan",
                                     "Het piept en het kraakt"
                               ],
-                              "text": "Het piept en het kraakt. Het gaat ons allemaal aan. Mila begrijpt dat bereikbaarheid niet alleen een technisch onderwerp is. Omdat de voorzitter deze woorden rustig zegt, wordt de zaal meteen stil."
+                              "text": "Het piept en het kraakt. Het gaat ons allemaal aan. Mila begrijpt dat bereikbaarheid niet alleen een technisch onderwerp is. De voorzitter zegt deze woorden rustig, waardoor de zaal meteen stil wordt."
                         },
                         {
                               "scene": "Pagina 3",
@@ -2638,7 +2638,7 @@
                                     "het voor het zeggen hebben",
                                     "iemands woorden verdraaien"
                               ],
-                              "text": "Bewoners vragen wie het voor het zeggen hebben, omdat besluiten vaak ver weg lijken. De notulist schrijft precies mee. Als iemand boos klinkt, vat de voorzitter de zin eerst rustig samen. Niemand wil iemands woorden verdraaien."
+                              "text": "Besluiten lijken vaak ver weg, dus vragen bewoners wie het voor het zeggen hebben. De notulist schrijft precies mee. Als iemand boos klinkt, vat de voorzitter de zin eerst rustig samen. Niemand wil iemands woorden verdraaien."
                         },
                         {
                               "scene": "Pagina 4",
@@ -2646,7 +2646,7 @@
                                     "in het geding zijn",
                                     "in het leven roepen"
                               ],
-                              "text": "De veiligheid van kinderen kan in het geding zijn, wanneer de bus te laat komt. De school wil een werkgroep in het leven roepen. Omdat zij zelf ook vaak reist, kan zij voorbeelden uit haar week delen. Mila meldt zich aan."
+                              "text": "De veiligheid van kinderen kan in het geding zijn, wanneer de bus te laat komt. De school wil een werkgroep in het leven roepen. Mila reist zelf ook vaak en kan voorbeelden uit haar week delen. Mila meldt zich aan."
                         },
                         {
                               "scene": "Pagina 5",
@@ -2801,7 +2801,7 @@
                                     "op eigen kracht",
                                     "slechter af zijn dan"
                               ],
-                              "text": "Zonder veilige route is zij slechter af dan haar klasgenoten. Mila wil op eigen kracht naar haar stage fietsen, omdat zij zelfstandiger wil worden. Wanneer zij bij de rotonde wacht, voelt zij hoe lastig vrijheid soms kan zijn. De regen valt zacht."
+                              "text": "Zonder veilige route is zij slechter af dan haar klasgenoten. Mila wil op eigen kracht naar haar stage fietsen en zelfstandiger worden. Wanneer zij bij de rotonde wacht, voelt zij hoe lastig vrijheid soms kan zijn. De regen valt zacht."
                         },
                         {
                               "scene": "Pagina 2",
@@ -2809,7 +2809,7 @@
                                     "ten koste gaan van",
                                     "te wijten zijn aan"
                               ],
-                              "text": "Als een weg sneller wordt, mag dat niet ten koste gaan van fietsers. De begeleider knikt. Omdat de zin grammaticaal lastig is, oefenen zij hem samen in gewone spreektaal. Het probleem is te wijten aan slechte planning."
+                              "text": "Als een weg sneller wordt, mag dat niet ten koste gaan van fietsers. De begeleider knikt. De zin is grammaticaal lastig, daarom oefenen zij hem samen in gewone spreektaal. Het probleem is te wijten aan slechte planning."
                         },
                         {
                               "scene": "Pagina 3",
@@ -2817,7 +2817,7 @@
                                     "leefbaarheid",
                                     "ondersteuning"
                               ],
-                              "text": "De leefbaarheid groeit, wanneer bewoners veilig naar school en werk kunnen gaan. Mila vraagt ondersteuning bij het formulier. Omdat zij de woorden nu kent, kan Mila beter uitleggen wat zij bedoelt. De vrijwilliger helpt meteen."
+                              "text": "De leefbaarheid groeit, wanneer bewoners veilig naar school en werk kunnen gaan. Mila vraagt ondersteuning bij het formulier. Mila kent de woorden nu en kan beter uitleggen wat zij bedoelt. De vrijwilliger helpt meteen."
                         },
                         {
                               "scene": "Pagina 4",
@@ -2833,7 +2833,7 @@
                                     "voorkeur",
                                     "vraagstuk"
                               ],
-                              "text": "Omdat Mila dagelijks fietst, is haar voorkeur een veilige route langs het water. Omdat bewoners rustig blijven praten, krijgt de gemeente een duidelijker beeld. Het vraagstuk blijft ingewikkeld. Toch voelt de avond nuttig."
+                              "text": "Mila fietst dagelijks en geeft daarom de voorkeur aan een veilige route langs het water. Bewoners blijven rustig praten, waardoor de gemeente een duidelijker beeld krijgt. Het vraagstuk blijft ingewikkeld. Toch voelt de avond nuttig."
                         }
                   ],
                   "glossary": [
@@ -2980,7 +2980,7 @@
                                     "aanmoedigen",
                                     "aanpakken"
                               ],
-                              "text": "Omdat Mila in haar taalles over duurzaamheid praat, wil de docent haar aanmoedigen om klein te beginnen. Mila gaat het afval thuis aanpakken. Wanneer haar huisgenoot twijfelt, legt zij rustig uit waarom scheiden helpt. Zij zet drie bakken neer."
+                              "text": "In haar taalles praat Mila over duurzaamheid, en de docent wil haar aanmoedigen om klein te beginnen. Mila gaat het afval thuis aanpakken. Wanneer haar huisgenoot twijfelt, legt zij rustig uit waarom scheiden helpt. Zij zet drie bakken neer."
                         },
                         {
                               "scene": "Pagina 2",
@@ -2988,7 +2988,7 @@
                                     "aansporen",
                                     "aanzienlijk"
                               ],
-                              "text": "Het verschil is aanzienlijk. De buurvrouw wil iedereen aansporen, omdat zij minder plastic in huis wil zien. Mila telt de zakken. Als de groep een week oefent, blijft er veel minder restafval over."
+                              "text": "Het verschil is aanzienlijk. De buurvrouw wil iedereen aansporen, want zij wil minder plastic in huis zien. Mila telt de zakken. Als de groep een week oefent, blijft er veel minder restafval over."
                         },
                         {
                               "scene": "Pagina 3",
@@ -2996,7 +2996,7 @@
                                     "afval",
                                     "afvalbeheer"
                               ],
-                              "text": "Omdat afval in Groningen op vaste dagen wordt opgehaald, hangt Mila een kalender in de keuken. Wanneer zij de regels twee keer leest, wordt het systeem logisch. Afvalbeheer lijkt eerst ingewikkeld. De kleuren helpen."
+                              "text": "Afval wordt in Groningen op vaste dagen opgehaald, daarom hangt Mila een kalender in de keuken. Wanneer zij de regels twee keer leest, wordt het systeem logisch. Afvalbeheer lijkt eerst ingewikkeld. De kleuren helpen."
                         },
                         {
                               "scene": "Pagina 4",
@@ -3004,7 +3004,7 @@
                                     "afvalrecycling",
                                     "afwenden"
                               ],
-                              "text": "Zo kun je problemen afwenden. De gemeente legt uit dat afvalrecycling beter werkt, wanneer bewoners hun bak goed vullen. Omdat er geen eten meer in zit, mag het glas in de juiste container. Mila spoelt een potje om."
+                              "text": "Zo kun je problemen afwenden. De gemeente legt uit dat afvalrecycling beter werkt, wanneer bewoners hun bak goed vullen. Er zit geen eten meer in, dus mag het glas in de juiste container. Mila spoelt een potje om."
                         },
                         {
                               "scene": "Pagina 5",
@@ -3012,7 +3012,7 @@
                                     "amper",
                                     "batterij"
                               ],
-                              "text": "Mila heeft amper tijd, omdat zij na school meteen naar haar werk moet. Zij laadt hem bij het buurthuis op. Terwijl zij wacht, praat zij met een vrijwilliger over energie besparen. Haar fiets heeft een lege batterij."
+                              "text": "Mila heeft amper tijd en moet na school meteen naar haar werk. Zij laadt hem bij het buurthuis op. Terwijl zij wacht, praat zij met een vrijwilliger over energie besparen. Haar fiets heeft een lege batterij."
                         }
                   ],
                   "glossary": [
@@ -3159,7 +3159,7 @@
                                     "benzine",
                                     "bepalen"
                               ],
-                              "text": "De groep moet de planning bepalen. Omdat de buurttuin dichtbij is, laat Mila de auto op benzine staan. Mila kiest de zaterdag. Wanneer iedereen zijn vrije ochtend noemt, ontstaat er snel een werkrooster."
+                              "text": "De groep moet de planning bepalen. De buurttuin is dichtbij, dus laat Mila de auto op benzine staan. Mila kiest de zaterdag. Wanneer iedereen zijn vrije ochtend noemt, ontstaat er snel een werkrooster."
                         },
                         {
                               "scene": "Pagina 2",
@@ -3167,7 +3167,7 @@
                                     "betrekken bij",
                                     "betrokkenheid"
                               ],
-                              "text": "De begeleider wil nieuwkomers betrekken bij de tuin, omdat samen werken taal makkelijker maakt. Als een buurkind vraagt wat zij doet, legt zij het in eenvoudige woorden uit. De betrokkenheid groeit snel. Mila plant munt."
+                              "text": "De begeleider wil nieuwkomers betrekken bij de tuin, want samen werken maakt taal makkelijker. Als een buurkind vraagt wat zij doet, legt zij het in eenvoudige woorden uit. De betrokkenheid groeit snel. Mila plant munt."
                         },
                         {
                               "scene": "Pagina 3",
@@ -3175,7 +3175,7 @@
                                     "bevorderen",
                                     "bewustwording"
                               ],
-                              "text": "Bewustwording begint met kleine keuzes. De tuin moet contact bevorderen, terwijl bewoners ook over klimaat leren. Omdat zij ziet hoeveel werk eten kost, gooit zij later minder weg. Mila ruikt aan basilicum."
+                              "text": "Bewustwording begint met kleine keuzes. De tuin moet contact bevorderen, terwijl bewoners ook over klimaat leren. Mila ziet hoeveel werk eten kost en gooit later minder weg. Mila ruikt aan basilicum."
                         },
                         {
                               "scene": "Pagina 4",
@@ -3183,7 +3183,7 @@
                                     "biodiversiteit",
                                     "biomassa"
                               ],
-                              "text": "Omdat de tuin bloemen en kruiden heeft, neemt de biodiversiteit in de straat toe. De compost ruikt sterk. Wanneer de vrijwilliger het proces uitlegt, begrijpt Mila waarom groen afval nuttig is. Biomassa gaat in een aparte bak."
+                              "text": "De tuin heeft bloemen en kruiden, waardoor de biodiversiteit in de straat toeneemt. De compost ruikt sterk. Wanneer de vrijwilliger het proces uitlegt, begrijpt Mila waarom groen afval nuttig is. Biomassa gaat in een aparte bak."
                         },
                         {
                               "scene": "Pagina 5",
@@ -3191,7 +3191,7 @@
                                     "broeikasgas",
                                     "bron"
                               ],
-                              "text": "Een docent vertelt dat broeikasgas ontstaat, wanneer energie uit vervuilende bronnen komt. De zon is een schone bron. Omdat daar ruimte is, wil de groep later zonnepanelen bespreken. Mila kijkt naar het dak."
+                              "text": "Een docent vertelt dat broeikasgas ontstaat, wanneer energie uit vervuilende bronnen komt. De zon is een schone bron. Daar is ruimte, dus wil de groep later zonnepanelen bespreken. Mila kijkt naar het dak."
                         }
                   ],
                   "glossary": [
@@ -3338,7 +3338,7 @@
                                     "buitenkans",
                                     "CO2-uitstoot"
                               ],
-                              "text": "Omdat haar klas naar de Eems gaat, ziet Mila een buitenkans om woorden buiten te oefenen. Terwijl de bus langs weilanden rijdt, vertelt de docent waarom reizen invloed heeft op klimaat. CO2-uitstoot staat op het werkblad. De wind is koud."
+                              "text": "Haar klas gaat naar de Eems, en Mila ziet een buitenkans om woorden buiten te oefenen. Terwijl de bus langs weilanden rijdt, vertelt de docent waarom reizen invloed heeft op klimaat. CO2-uitstoot staat op het werkblad. De wind is koud."
                         },
                         {
                               "scene": "Pagina 2",
@@ -3346,7 +3346,7 @@
                                     "consumeren",
                                     "consumptie"
                               ],
-                              "text": "Consumptie is niet alleen kopen. Mila merkt dat zij anders gaat consumeren, wanneer zij vaker lokale producten ziet. Omdat de boer uitlegt hoeveel vervoer kost, kiest zij minder vaak eten van ver. Zij pakt een appel."
+                              "text": "Consumptie is niet alleen kopen. Mila merkt dat zij anders gaat consumeren, wanneer zij vaker lokale producten ziet. De boer legt uit hoeveel vervoer kost, waardoor zij minder vaak eten van ver kiest. Zij pakt een appel."
                         },
                         {
                               "scene": "Pagina 3",
@@ -3354,7 +3354,7 @@
                                     "cruciaal",
                                     "dam"
                               ],
-                              "text": "Goed waterbeheer is cruciaal, omdat Groningen laag bij het water ligt. Mila maakt een foto. Wanneer de gids het waterpeil aanwijst, begrijpt zij waarom onderhoud nodig is. De groep staat bij een dam."
+                              "text": "Goed waterbeheer is cruciaal, want Groningen ligt laag bij het water. Mila maakt een foto. Wanneer de gids het waterpeil aanwijst, begrijpt zij waarom onderhoud nodig is. De groep staat bij een dam."
                         },
                         {
                               "scene": "Pagina 4",
@@ -3362,7 +3362,7 @@
                                     "dienst",
                                     "diepgeworteld"
                               ],
-                              "text": "De waterschapsmedewerker noemt schoon water een dienst, terwijl hij de meetkast opent. Zuinig omgaan met water is diepgeworteld in Nederland. Omdat Mila uit een droger land komt, herkent zij de zorg om water meteen. De klas luistert stil."
+                              "text": "De waterschapsmedewerker noemt schoon water een dienst, terwijl hij de meetkast opent. Zuinig omgaan met water is diepgeworteld in Nederland. Mila komt uit een droger land en herkent de zorg om water meteen. De klas luistert stil."
                         },
                         {
                               "scene": "Pagina 5",
@@ -3370,7 +3370,7 @@
                                     "dijk",
                                     "divers"
                               ],
-                              "text": "Het landschap is divers. De dijk beschermt dorpen, wanneer de zee hard tegen de kust drukt. Mila ziet vogels en schapen. Omdat natuur en veiligheid hier samenkomen, vindt zij het woord duurzaamheid minder abstract."
+                              "text": "Het landschap is divers. De dijk beschermt dorpen, wanneer de zee hard tegen de kust drukt. Mila ziet vogels en schapen. Natuur en veiligheid komen hier samen, waardoor zij het woord duurzaamheid minder abstract vindt."
                         }
                   ],
                   "glossary": [
@@ -3517,7 +3517,7 @@
                                     "duurzaam",
                                     "duurzaamheid"
                               ],
-                              "text": "Duurzaamheid begint in haar tas. Mila koopt een duurzame broodtrommel, omdat zij minder wegwerpzakjes wil gebruiken. Wanneer zij op school eet, vraagt een klasgenoot waar zij hem heeft gekocht. De trommel past precies."
+                              "text": "Duurzaamheid begint in haar tas. Mila koopt een duurzame broodtrommel, want zij wil minder wegwerpzakjes gebruiken. Wanneer zij op school eet, vraagt een klasgenoot waar zij hem heeft gekocht. De trommel past precies."
                         },
                         {
                               "scene": "Pagina 2",
@@ -3525,7 +3525,7 @@
                                     "echter",
                                     "energieproductie"
                               ],
-                              "text": "Zonnepanelen lijken makkelijk; energieproductie vraagt echter ook om goede afspraken. Mila kijkt omhoog. Omdat het huurhuis gedeeld wordt, moeten alle bewoners eerst toestemming geven. De buurman wijst naar het dak."
+                              "text": "Zonnepanelen lijken makkelijk; energieproductie vraagt echter ook om goede afspraken. Mila kijkt omhoog. Het huurhuis wordt gedeeld, dus moeten alle bewoners eerst toestemming geven. De buurman wijst naar het dak."
                         },
                         {
                               "scene": "Pagina 3",
@@ -3533,7 +3533,7 @@
                                     "energieverbruik",
                                     "faciliteit"
                               ],
-                              "text": "Omdat het energieverbruik hoog is, krijgt het buurthuis een nieuwe meter. De laadplek wordt een handige faciliteit. Wanneer zij de meter ziet bewegen, begrijpt zij beter wat stroom kost. Mila laadt haar telefoon op."
+                              "text": "Het energieverbruik is hoog, daarom krijgt het buurthuis een nieuwe meter. De laadplek wordt een handige faciliteit. Wanneer zij de meter ziet bewegen, begrijpt zij beter wat stroom kost. Mila laadt haar telefoon op."
                         },
                         {
                               "scene": "Pagina 4",
@@ -3541,7 +3541,7 @@
                                     "gft-afval",
                                     "goor"
                               ],
-                              "text": "Mila zet hem buiten. Het gft-afval ruikt goor, wanneer de bak te lang in de zon staat. De buurvrouw lacht. Omdat zij samen de regels lezen, weten ze voortaan wanneer de bak aan straat moet."
+                              "text": "Mila zet hem buiten. Het gft-afval ruikt goor, wanneer de bak te lang in de zon staat. De buurvrouw lacht. Ze lezen samen de regels, zodat ze voortaan weten wanneer de bak aan straat moet."
                         },
                         {
                               "scene": "Pagina 5",
@@ -3549,7 +3549,7 @@
                                     "hergebruik",
                                     "hernieuwbaar"
                               ],
-                              "text": "Hergebruik voelt logisch, omdat de kringloopwinkel goede spullen verkoopt. Wanneer zij thuiskomt, zet zij hem naast haar bureau voor de taalles. Hernieuwbaar staat later op het bord. Mila koopt een lamp."
+                              "text": "Hergebruik voelt logisch, want de kringloopwinkel verkoopt goede spullen. Wanneer zij thuiskomt, zet zij hem naast haar bureau voor de taalles. Hernieuwbaar staat later op het bord. Mila koopt een lamp."
                         }
                   ],
                   "glossary": [
@@ -3696,7 +3696,7 @@
                                     "herstel",
                                     "innovatief"
                               ],
-                              "text": "Omdat Mila's jas kapot is, gaat zij naar een middag over herstel. Er liggen lampjes en naalden. Wanneer de vrijwilliger een klein apparaat gebruikt, wordt de scheur netjes dichtgemaakt. De reparatietafel is innovatief ingericht."
+                              "text": "Mila's jas is kapot, dus gaat zij naar een middag over herstel. Er liggen lampjes en naalden. Wanneer de vrijwilliger een klein apparaat gebruikt, wordt de scheur netjes dichtgemaakt. De reparatietafel is innovatief ingericht."
                         },
                         {
                               "scene": "Pagina 2",
@@ -3704,7 +3704,7 @@
                                     "instabiel",
                                     "integreren"
                               ],
-                              "text": "De oude rits is instabiel, omdat hij steeds blijft haken. Mila wil de jas weer integreren in haar winterkleren. Als de rits vervangen is, kan zij de jas opnieuw dragen. De stof is nog mooi."
+                              "text": "De oude rits is instabiel en blijft steeds haken. Mila wil de jas weer integreren in haar winterkleren. Als de rits vervangen is, kan zij de jas opnieuw dragen. De stof is nog mooi."
                         },
                         {
                               "scene": "Pagina 3",
@@ -3712,7 +3712,7 @@
                                     "inzetten op",
                                     "kappen met"
                               ],
-                              "text": "Mila wil kappen met onnodig kopen. Het buurthuis wil inzetten op repareren, omdat veel spullen te snel worden weggegooid. Zij bekijkt haar kast. Wanneer zij minder koopt, houdt zij ook geld over voor haar taalcursus."
+                              "text": "Mila wil kappen met onnodig kopen. Het buurthuis wil inzetten op repareren, want veel spullen worden te snel weggegooid. Zij bekijkt haar kast. Wanneer zij minder koopt, houdt zij ook geld over voor haar taalcursus."
                         },
                         {
                               "scene": "Pagina 4",
@@ -3720,7 +3720,7 @@
                                     "kleding",
                                     "kledingstuk"
                               ],
-                              "text": "Omdat de kledingruil druk bezocht is, hangt Mila haar jas aan een rek. Wanneer de kleur haar goed staat, glimlacht de buurvrouw breed. Een warm kledingstuk vindt snel een nieuwe eigenaar. Mila past een trui."
+                              "text": "De kledingruil is druk bezocht, dus hangt Mila haar jas aan een rek. Wanneer de kleur haar goed staat, glimlacht de buurvrouw breed. Een warm kledingstuk vindt snel een nieuwe eigenaar. Mila past een trui."
                         },
                         {
                               "scene": "Pagina 5",
@@ -3728,7 +3728,7 @@
                                     "kunstmest",
                                     "laadpaal"
                               ],
-                              "text": "Naast het buurthuis staat een laadpaal. Buiten vertelt een tuinman dat minder kunstmest beter is voor de bodem. Omdat duurzaamheid overal terugkomt, begrijpt zij dat het thema groter is dan kleding. Mila ziet een elektrische bakfiets."
+                              "text": "Naast het buurthuis staat een laadpaal. Buiten vertelt een tuinman dat minder kunstmest beter is voor de bodem. Duurzaamheid komt overal terug, waardoor zij begrijpt dat het thema groter is dan kleding. Mila ziet een elektrische bakfiets."
                         }
                   ],
                   "glossary": [
@@ -3883,7 +3883,7 @@
                                     "mijlpaal",
                                     "milieubeleid"
                               ],
-                              "text": "Het milieubeleid hangt in de hal. Voor de school is het project een mijlpaal, omdat duurzaamheid nu in meerdere lessen terugkomt. Mila leest langzaam. Als zij een moeilijk woord ziet, vraagt zij meteen om een voorbeeld."
+                              "text": "Het milieubeleid hangt in de hal. Voor de school is het project een mijlpaal, want duurzaamheid komt nu in meerdere lessen terug. Mila leest langzaam. Als zij een moeilijk woord ziet, vraagt zij meteen om een voorbeeld."
                         },
                         {
                               "scene": "Pagina 3",
@@ -3891,7 +3891,7 @@
                                     "milieu-impact",
                                     "mobiliteit"
                               ],
-                              "text": "De docent laat zien dat mobiliteit milieu-impact heeft, wanneer veel studenten met de auto komen. Omdat regen in Groningen normaal is, zoeken ze ook goede regenkleding. Mila kiest vaker de fiets. De klas bespreekt routes."
+                              "text": "De docent laat zien dat mobiliteit milieu-impact heeft, wanneer veel studenten met de auto komen. Regen is in Groningen normaal, daarom zoeken ze ook goede regenkleding. Mila kiest vaker de fiets. De klas bespreekt routes."
                         },
                         {
                               "scene": "Pagina 4",
@@ -3899,7 +3899,7 @@
                                     "natuurbehoud",
                                     "omarmen"
                               ],
-                              "text": "De groep loopt langzaam. Natuurbehoud klinkt groot, maar Mila kan het idee omarmen wanneer zij de vogels bij het water ziet. Omdat iedereen stil is, blijven de dieren rustig op hun plek. Een vrijwilliger telt nesten."
+                              "text": "De groep loopt langzaam. Natuurbehoud klinkt groot, maar Mila kan het idee omarmen wanneer zij de vogels bij het water ziet. Iedereen is stil, zodat de dieren rustig op hun plek blijven. Een vrijwilliger telt nesten."
                         },
                         {
                               "scene": "Pagina 5",
@@ -3907,7 +3907,7 @@
                                     "onderwijsinstelling",
                                     "onmiddellijk"
                               ],
-                              "text": "De onderwijsinstelling wil onmiddellijk beginnen met kleinere stappen, omdat wachten weinig oplevert. De workshop start volgende week. Wanneer zij naar buiten loopt, voelt het project minder ver van haar eigen leven. Mila schrijft zich in."
+                              "text": "De onderwijsinstelling wil onmiddellijk beginnen met kleinere stappen, want wachten levert weinig op. De workshop start volgende week. Wanneer zij naar buiten loopt, voelt het project minder ver van haar eigen leven. Mila schrijft zich in."
                         }
                   ],
                   "glossary": [
@@ -4054,7 +4054,7 @@
                                     "oplaadbaar",
                                     "opschalen"
                               ],
-                              "text": "De organisatie wil het project opschalen. Omdat zijn lampje oplaadbaar is, neemt Amir het mee naar het repair cafe. Er komen extra tafels. Wanneer meer bewoners meedoen, kan de middag elke maand doorgaan."
+                              "text": "De organisatie wil het project opschalen. Zijn lampje is oplaadbaar, dus neemt Amir het mee naar het repair cafe. Er komen extra tafels. Wanneer meer bewoners meedoen, kan de middag elke maand doorgaan."
                         },
                         {
                               "scene": "Pagina 2",
@@ -4062,7 +4062,7 @@
                                     "overheid",
                                     "reparateur"
                               ],
-                              "text": "De overheid geeft subsidie, omdat repareren afval kan verminderen. Als hij het kapje opent, ziet Amir hoe klein het probleem eigenlijk is. Een reparateur bekijkt Amirs lampje. Amir wacht geduldig."
+                              "text": "De overheid geeft subsidie, want repareren kan afval verminderen. Als hij het kapje opent, ziet Amir hoe klein het probleem eigenlijk is. Een reparateur bekijkt Amirs lampje. Amir wacht geduldig."
                         },
                         {
                               "scene": "Pagina 3",
@@ -4070,7 +4070,7 @@
                                     "reparatie",
                                     "repareren"
                               ],
-                              "text": "Hij leert zelf een stekker repareren. De reparatie duurt kort, terwijl Amir ondertussen nieuwe woorden oefent. Omdat hij rustig voordoet wat Amir moet doen, durft hij het te proberen. De vrijwilliger blijft naast hem."
+                              "text": "Hij leert zelf een stekker repareren. De reparatie duurt kort, terwijl Amir ondertussen nieuwe woorden oefent. Hij doet rustig voor wat Amir moet doen, waardoor Amir het durft te proberen. De vrijwilliger blijft naast hem."
                         },
                         {
                               "scene": "Pagina 4",
@@ -4078,7 +4078,7 @@
                                     "steenkool",
                                     "stikstofuitstoot"
                               ],
-                              "text": "De docent noemt steenkool, omdat oude energiebronnen veel vervuiling geven. Amir leest de woorden hardop. Wanneer voorbeelden uit Nederland erbij staan, begrijpt hij de discussie beter. Stikstofuitstoot staat ook op de poster."
+                              "text": "De docent noemt steenkool, want oude energiebronnen geven veel vervuiling. Amir leest de woorden hardop. Wanneer voorbeelden uit Nederland erbij staan, begrijpt hij de discussie beter. Stikstofuitstoot staat ook op de poster."
                         },
                         {
                               "scene": "Pagina 5",
@@ -4086,7 +4086,7 @@
                                     "stimuleren",
                                     "technologie"
                               ],
-                              "text": "Het repair cafe wil bewoners stimuleren, omdat technologie niet meteen weggegooid hoeft te worden. Amir neemt zijn lamp mee naar huis. Als hij 's avonds leert, voelt de kleine reparatie als een overwinning. Het licht werkt weer."
+                              "text": "Het repair cafe wil bewoners stimuleren, want technologie hoeft niet meteen weggegooid te worden. Amir neemt zijn lamp mee naar huis. Als hij 's avonds leert, voelt de kleine reparatie als een overwinning. Het licht werkt weer."
                         }
                   ],
                   "glossary": [
@@ -4233,7 +4233,7 @@
                                     "transitie",
                                     "uitstoot"
                               ],
-                              "text": "Omdat de school duurzamer wil worden, noemt de docent dit een kleine transitie. Wanneer iedereen eigen bakjes meeneemt, ligt er al minder plastic in de prullenbak. Minder uitstoot is het doel. Mila kijkt naar de lunchtafel."
+                              "text": "De school wil duurzamer worden, en de docent noemt dit een kleine transitie. Wanneer iedereen eigen bakjes meeneemt, ligt er al minder plastic in de prullenbak. Minder uitstoot is het doel. Mila kijkt naar de lunchtafel."
                         },
                         {
                               "scene": "Pagina 2",
@@ -4241,7 +4241,7 @@
                                     "vereisen",
                                     "verreweg"
                               ],
-                              "text": "Brood is verreweg het grootste probleem. Goed plannen kan tijd vereisen, omdat boodschappen anders te snel bederven. Als studenten eerlijk opschrijven wat zij weggooien, ziet de klas waar winst zit. De kantine telt de resten."
+                              "text": "Brood is verreweg het grootste probleem. Goed plannen kan tijd vereisen, want boodschappen bederven anders te snel. Als studenten eerlijk opschrijven wat zij weggooien, ziet de klas waar winst zit. De kantine telt de resten."
                         },
                         {
                               "scene": "Pagina 3",
@@ -4249,7 +4249,7 @@
                                     "verspilling",
                                     "verstedelijking"
                               ],
-                              "text": "Verspilling valt meer op, wanneer veel mensen dicht bij elkaar wonen. Mila kijkt naar de containers. Omdat de straat klein is, ruik je volle bakken meteen. Verstedelijking maakt afval zichtbaar."
+                              "text": "Verspilling valt meer op, wanneer veel mensen dicht bij elkaar wonen. Mila kijkt naar de containers. De straat is klein, dus ruik je volle bakken meteen. Verstedelijking maakt afval zichtbaar."
                         },
                         {
                               "scene": "Pagina 4",
@@ -4257,7 +4257,7 @@
                                     "verzinnen",
                                     "voedselverspilling"
                               ],
-                              "text": "De klas gaat oplossingen verzinnen, omdat voedselverspilling elke dag terugkomt. Mila stelt een deelkast voor. Wanneer buren eten kunnen ruilen, hoeft minder in de bak te verdwijnen. De docent schrijft mee."
+                              "text": "De klas gaat oplossingen verzinnen, want voedselverspilling komt elke dag terug. Mila stelt een deelkast voor. Wanneer buren eten kunnen ruilen, hoeft minder in de bak te verdwijnen. De docent schrijft mee."
                         },
                         {
                               "scene": "Pagina 5",
@@ -4265,7 +4265,7 @@
                                     "volhouden",
                                     "waterbeheer"
                               ],
-                              "text": "Waterbeheer komt ook ter sprake. Nieuwe gewoontes kun je alleen volhouden, als ze passen bij je gewone dag. Mila vult haar fles. Omdat water en eten allebei kostbaar zijn, voelt de les heel praktisch."
+                              "text": "Waterbeheer komt ook ter sprake. Nieuwe gewoontes kun je alleen volhouden, als ze passen bij je gewone dag. Mila vult haar fles. Water en eten zijn allebei kostbaar, waardoor de les heel praktisch voelt."
                         }
                   ],
                   "glossary": [
@@ -4412,7 +4412,7 @@
                                     "waterkering",
                                     "waterstof"
                               ],
-                              "text": "Waterstof staat op een informatiebord. Omdat de klas een waterkering bezoekt, ziet Amir hoe Nederland zich tegen water beschermt. Wanneer hij over nieuwe energie praat, schrijft Amir alleen de kernwoorden op. De gids spreekt langzaam."
+                              "text": "Waterstof staat op een informatiebord. De klas bezoekt een waterkering, en Amir ziet hoe Nederland zich tegen water beschermt. Wanneer hij over nieuwe energie praat, schrijft Amir alleen de kernwoorden op. De gids spreekt langzaam."
                         },
                         {
                               "scene": "Pagina 2",
@@ -4420,7 +4420,7 @@
                                     "weggooien",
                                     "witgoed"
                               ],
-                              "text": "Amir wil zijn oude koelkast niet weggooien, omdat repareren misschien nog kan. Hij belt een monteur. Als het apparaat te veel stroom gebruikt, denkt hij toch na over vervangen. Witgoed kost veel geld."
+                              "text": "Amir wil zijn oude koelkast niet weggooien, want repareren kan misschien nog. Hij belt een monteur. Als het apparaat te veel stroom gebruikt, denkt hij toch na over vervangen. Witgoed kost veel geld."
                         },
                         {
                               "scene": "Pagina 3",
@@ -4428,7 +4428,7 @@
                                     "witgoedwinkel",
                                     "zeespiegel"
                               ],
-                              "text": "In de witgoedwinkel vraagt Amir naar zuinige modellen, terwijl buiten de regen tegen het raam tikt. De zeespiegel lijkt ver weg. Omdat energie thuis ook invloed heeft, voelt het onderwerp ineens dichtbij. De verkoper wijst naar het label."
+                              "text": "In de witgoedwinkel vraagt Amir naar zuinige modellen, terwijl buiten de regen tegen het raam tikt. De zeespiegel lijkt ver weg. Energie thuis heeft ook invloed, waardoor het onderwerp ineens dichtbij voelt. De verkoper wijst naar het label."
                         },
                         {
                               "scene": "Pagina 4",
@@ -4444,7 +4444,7 @@
                                     "zuivel",
                                     "zuivering"
                               ],
-                              "text": "Amir koopt minder zuivel, omdat zijn klas bespreekt hoeveel water voedsel kost. Terwijl hij drinkt, beseft hij hoe gewoon schoon water soms lijkt. Zuivering maakt vies water schoon. Hij vult zijn fles."
+                              "text": "Amir koopt minder zuivel, want zijn klas bespreekt hoeveel water voedsel kost. Terwijl hij drinkt, beseft hij hoe gewoon schoon water soms lijkt. Zuivering maakt vies water schoon. Hij vult zijn fles."
                         }
                   ],
                   "glossary": [
@@ -4591,7 +4591,7 @@
                                     "aan populariteit winnen",
                                     "afval scheiden"
                               ],
-                              "text": "Afval scheiden gaat aan populariteit winnen, omdat de buurt ziet hoeveel restafval overblijft. De kinderen helpen mee. Wanneer de bakken duidelijk zijn, maken bewoners minder fouten. Mila plakt labels op de bakken."
+                              "text": "Afval scheiden gaat aan populariteit winnen, want de buurt ziet hoeveel restafval overblijft. De kinderen helpen mee. Wanneer de bakken duidelijk zijn, maken bewoners minder fouten. Mila plakt labels op de bakken."
                         },
                         {
                               "scene": "Pagina 2",
@@ -4599,7 +4599,7 @@
                                     "bezwaren opzij zetten",
                                     "Daar is nog winst te boeken"
                               ],
-                              "text": "De voorzitter vraagt bewoners hun bezwaren opzij zetten, omdat een proef maar drie maanden duurt. Daar is nog winst te boeken. Als iemand bang is voor stank, noemt de buurvrouw een afsluitbare bak. Mila luistert naar de discussie."
+                              "text": "De voorzitter zegt dat bewoners hun bezwaren opzij zetten tijdens de proef, want die duurt maar drie maanden. Daar is nog winst te boeken. Als iemand bang is voor stank, noemt de buurvrouw een afsluitbare bak. Mila luistert naar de discussie."
                         },
                         {
                               "scene": "Pagina 3",
@@ -4607,7 +4607,7 @@
                                     "Dat scheelt behoorlijk",
                                     "De voortekenen zijn gunstig"
                               ],
-                              "text": "De voortekenen zijn gunstig. Dat scheelt behoorlijk. Omdat de eerste straat al minder afval heeft, wil de tweede straat meedoen. Mila voelt dat kleine successen mensen sneller overtuigen."
+                              "text": "De voortekenen zijn gunstig. Dat scheelt behoorlijk. De eerste straat heeft al minder afval, daarom wil de tweede straat meedoen. Mila voelt dat kleine successen mensen sneller overtuigen."
                         },
                         {
                               "scene": "Pagina 4",
@@ -4615,7 +4615,7 @@
                                     "energie opwekken",
                                     "Er is nog een lange weg te gaan"
                               ],
-                              "text": "De school wil energie opwekken, terwijl het dak nog onderzocht moet worden. Omdat de stappen duidelijk zijn, blijft het plan toch haalbaar. Er is nog een lange weg te gaan. Mila schrijft de planning over."
+                              "text": "De school wil energie opwekken, terwijl het dak nog onderzocht moet worden. De stappen zijn duidelijk, dus blijft het plan toch haalbaar. Er is nog een lange weg te gaan. Mila schrijft de planning over."
                         },
                         {
                               "scene": "Pagina 5",
@@ -4623,7 +4623,7 @@
                                     "fossiele brandstoffen",
                                     "geen kwaad kunnen"
                               ],
-                              "text": "Mila begrijpt de grap. Omdat Nederland minder fossiele brandstoffen wil gebruiken, kan besparen geen kwaad. Wanneer de avond eindigt, neemt iedereen een kleine taak mee naar huis. De groep lacht mee."
+                              "text": "Mila begrijpt de grap. Nederland wil minder fossiele brandstoffen gebruiken, daarom kan besparen geen kwaad. Wanneer de avond eindigt, neemt iedereen een kleine taak mee naar huis. De groep lacht mee."
                         }
                   ],
                   "glossary": [
@@ -4770,7 +4770,7 @@
                                     "Het staat of valt met",
                                     "Het zit me dwars"
                               ],
-                              "text": "Het staat of valt met duidelijke afspraken, omdat Amir met drie huisgenoten woont. Het zit me dwars, zegt hij zacht. Wanneer niemand zich verantwoordelijk voelt, blijft het raam toch open. De verwarming staat hoog."
+                              "text": "Amir woont met drie huisgenoten, dus het staat of valt met duidelijke afspraken. Het zit me dwars, zegt hij zacht. Wanneer niemand zich verantwoordelijk voelt, blijft het raam toch open. De verwarming staat hoog."
                         },
                         {
                               "scene": "Pagina 2",
@@ -4778,7 +4778,7 @@
                                     "Hoe je het ook wendt of keert",
                                     "iets hoog op de agenda hebben staan"
                               ],
-                              "text": "Besparen staat hoog op de agenda. Hoe je het ook wendt of keert, de energierekening moet omlaag. Amir maakt thee. Omdat iedereen iets anders gewend is, beginnen ze met een simpel schema."
+                              "text": "Besparen staat hoog op de agenda. Hoe je het ook wendt of keert, de energierekening moet omlaag. Amir maakt thee. Iedereen is iets anders gewend, daarom beginnen ze met een simpel schema."
                         },
                         {
                               "scene": "Pagina 3",
@@ -4786,7 +4786,7 @@
                                     "iets in de fik zetten",
                                     "in een opwelling"
                               ],
-                              "text": "Niemand mag iets in de fik zetten, terwijl er oude dozen bij de schuur staan. Omdat veiligheid ook duurzaamheid is, komt er een extra ronde door de berging. Een buurjongen deed dat ooit in een opwelling. Amir kijkt ernstig."
+                              "text": "Niemand mag iets in de fik zetten, terwijl er oude dozen bij de schuur staan. Veiligheid is ook duurzaamheid, daarom komt er een extra ronde door de berging. Een buurjongen deed dat ooit in een opwelling. Amir kijkt ernstig."
                         },
                         {
                               "scene": "Pagina 4",
@@ -4794,7 +4794,7 @@
                                     "met name",
                                     "op energie besparen"
                               ],
-                              "text": "Amir koopt tochtstrip. Met name in de winter willen de bewoners op energie besparen, omdat de kosten dan stijgen. Wanneer de woonkamer warmer blijft, hoeft de verwarming minder hoog. De deur sluit beter."
+                              "text": "Amir koopt tochtstrip. Met name in de winter willen de bewoners op energie besparen, want dan stijgen de kosten. Wanneer de woonkamer warmer blijft, hoeft de verwarming minder hoog. De deur sluit beter."
                         },
                         {
                               "scene": "Pagina 5",
@@ -4802,7 +4802,7 @@
                                     "op gas stoken",
                                     "op lange termijn"
                               ],
-                              "text": "Het huis blijft voorlopig op gas stoken, omdat de verhuurder nog geen warmtepomp plaatst. Amir bewaart de notities. Wanneer hij later verhuist, weet hij beter welke vragen hij kan stellen. Op lange termijn willen de bewoners anders wonen."
+                              "text": "Het huis blijft voorlopig op gas stoken, want de verhuurder plaatst nog geen warmtepomp. Amir bewaart de notities. Wanneer hij later verhuist, weet hij beter welke vragen hij kan stellen. Op lange termijn willen de bewoners anders wonen."
                         }
                   ],
                   "glossary": [
@@ -4949,7 +4949,7 @@
                                     "tal van",
                                     "uit zijn voegen barsten"
                               ],
-                              "text": "De fietsenstalling barst uit zijn voegen. Er zijn tal van ideeën, omdat de straat samen groener wil worden. Amir telt de plekken. Wanneer bewoners ruimte maken voor bakfietsen, blijft de stoep beter vrij."
+                              "text": "De fietsenstalling barst uit zijn voegen. Er zijn tal van ideeën, want de straat wil samen groener worden. Amir telt de plekken. Wanneer bewoners ruimte maken voor bakfietsen, blijft de stoep beter vrij."
                         },
                         {
                               "scene": "Pagina 2",
@@ -4957,7 +4957,7 @@
                                     "van ondergeschikt belang zijn",
                                     "We moeten actie ondernemen"
                               ],
-                              "text": "De kleur van de bakken is van ondergeschikt belang, terwijl duidelijk gebruik juist telt. Omdat iedereen hetzelfde probleem ziet, begint de groep meteen met verdelen. We moeten actie ondernemen. Amir zegt het rustig."
+                              "text": "De kleur van de bakken is van ondergeschikt belang, terwijl duidelijk gebruik juist telt. Iedereen ziet hetzelfde probleem, dus begint de groep meteen met verdelen. We moeten actie ondernemen. Amir zegt het rustig."
                         },
                         {
                               "scene": "Pagina 3",
@@ -4973,7 +4973,7 @@
                                     "afval scheiden",
                                     "energie opwekken"
                               ],
-                              "text": "Omdat afval scheiden al beter gaat, durft de straat nu over energie opwekken te praten. De buurman maakt foto's. Als de woningbouw akkoord gaat, kan er een kleine proef starten. Het dak krijgt veel zon."
+                              "text": "Afval scheiden gaat al beter, daardoor durft de straat nu over energie opwekken te praten. De buurman maakt foto's. Als de woningbouw akkoord gaat, kan er een kleine proef starten. Het dak krijgt veel zon."
                         },
                         {
                               "scene": "Pagina 5",
@@ -4981,7 +4981,7 @@
                                     "voedselverspilling",
                                     "waterbeheer"
                               ],
-                              "text": "Amir koppelt voedselverspilling aan waterbeheer, omdat eten maken ook veel water vraagt. De groep maakt een deelplank. Wanneer de avond klaar is, neemt niemand meer dan nodig mee. Er liggen appels op."
+                              "text": "Amir koppelt voedselverspilling aan waterbeheer, want eten maken vraagt ook veel water. De groep maakt een deelplank. Wanneer de avond klaar is, neemt niemand meer dan nodig mee. Er liggen appels op."
                         }
                   ],
                   "glossary": [
